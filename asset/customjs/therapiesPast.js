@@ -2,11 +2,12 @@ function therapiesPast () {
 	var that = this;
 
 	var objLanguage = new IdiomaDataTables();
+	var objActiveMenu = new activeMenu();
 
 	this.LoadView = function () {
 
-		$("#sessions").addClass("active");
-		$("#sessionMenu").css("display",'block');
+		objActiveMenu.activate("sessions","sessionMenu");
+
 		$("#info").load("views/client/therapiesPastA.html", function() {});
 		
 		$("#content").load("views/client/therapiesPast.html", function(){
