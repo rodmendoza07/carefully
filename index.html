@@ -26,7 +26,7 @@
     <![endif]-->
   </head>
 
- <body id="mimin" class="dashboard">
+ <body id="mimin" class="dashboard" onload="AppBegin();">
       <!-- start: Header -->
         <nav class="navbar navbar-default header navbar-fixed-top">
           <div class="col-md-12 nav-wrapper">
@@ -64,7 +64,7 @@
                 <ul class="nav nav-list">
                     <li class="time text-center">
                       <h2 class="animated fadeInLeft"></h2>
-                      <!--<p class="animated fadeInRight">Sat,October 1st 2029</p>-->
+                      <p class="animated fadeInRight">CDMX (GMT-6)</p>
                     </li>
                     <li class="ripple">
                       <a class="tree-toggle nav-header">
@@ -117,6 +117,11 @@
                         <!-- <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp; -->
                         FAQ's 
                       </a>
+                    </li>
+                    <li>
+                      <div id="info">
+                        info
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -205,7 +210,8 @@
 
     <!-- custom -->
      <script src="asset/js/main.js"></script>
-     
+     <script src="asset/customjs/AppBegin.js"></script>
+     <script src="asset/customjs/therapiesPast.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>

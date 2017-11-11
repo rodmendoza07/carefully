@@ -319,7 +319,7 @@
     var update = function () {
         date = moment.tz('America/Mexico_City');//moment(new Date())
         datetime.html(date.format('hh:mm A'));
-        datetime2.html(date.format('dddd, MMMM Do YYYY'));
+        //datetime2.html(date.format('dddd, MMMM Do YYYY'));
     };
 
     $(document).ready(function(){
