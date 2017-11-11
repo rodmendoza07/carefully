@@ -323,7 +323,7 @@
     };
 
     $(document).ready(function(){
-        datetime = $('.time h2');
+        datetime = $('.time h3');
         datetime2 = $('.time p');
         update();
         setInterval(update, 1000);
