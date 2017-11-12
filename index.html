@@ -6,17 +6,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>[CuidadosaMENTE]</title>
  
-    <!-- start: Css -->
+  <!-- start: Css -->
     <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css">
 
-      <!-- plugins -->
-      <link rel="stylesheet" type="text/css" href="asset/css/plugins/font-awesome.min.css"/>
-      <link rel="stylesheet" type="text/css" href="asset/css/plugins/simple-line-icons.css"/>
-      <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css"/>
-      <link rel="stylesheet" type="text/css" href="asset/css/plugins/fullcalendar.min.css"/>
-      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-	<link href="asset/css/style.css" rel="stylesheet">
+    <!-- plugins -->
+    <link rel="stylesheet" type="text/css" href="asset/css/plugins/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="asset/css/plugins/simple-line-icons.css"/>
+    <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css"/>
+    <link rel="stylesheet" type="text/css" href="asset/css/plugins/fullcalendar.min.css"/>
+    <link rel="stylesheet" type="text/css" href="asset/css/plugins/datatables.bootstrap.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="asset/css/style.css" rel="stylesheet">
 	<!-- end: Css -->
+  
+  <!--Custom css-->
+    <link rel="stylesheet" type="text/css" href="asset/css/customcss.css">
 
 	<link rel="shortcut icon" href="asset/img/favico.jpeg">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -63,12 +67,11 @@
               <div class="sub-left-menu scroll">
                 <ul class="nav nav-list">
                     <li class="time text-center">
-                      <h2 class="animated fadeInLeft"></h2>
+                      <h3 class="animated fadeInLeft"></h3>
                       <p class="animated fadeInRight">CDMX (GMT-6)</p>
                     </li>
                     <li class="ripple">
                       <a class="tree-toggle nav-header">
-                        <!-- <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp; -->
                         Agenda 
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
@@ -79,48 +82,44 @@
                         </li>
                       </ul>
                     </li>
-                    <li class="ripple">
+                    <li class="ripple" id="sessions" data-option="sessions">
                       <a class="tree-toggle nav-header">
-                        <!-- <span class="fa-diamond fa"></span> --> Mi terapia
+                        Mi terapia
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="#">Pasadas</a></li>
-                        <li><a href="#">Próximas</a></li>
+                      <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
+                        <li><a>Pasadas</a></li>
+                        <li><a>Próximas</a></li>
                       </ul>
                     </li>
                     <li class="ripple">
                       <a class="tree-toggle nav-header">
-                        <!-- <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp; -->
                         Mi perfíl 
                       </a>
                     </li>
                     <li class="ripple">
                       <a class="tree-toggle nav-header">
-                        <!-- <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp; -->
                         Crédito 
                       </a>
                     </li>
-                    <li class="ripple">
+                    <li class="ripple" id="supportC">
                       <a class="tree-toggle nav-header">
-                        <!-- <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp; -->
                         Soporte 
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                       <ul class="nav nav-list tree">
-                        <li><a href="#">Contactar Soporte</a></li>
-                        <li><a href="#">Tickets levantados</a></li>
+                        <li><a id="tcreated">Tickets levantados</a></li>
+                        <li><a>Contactar Soporte</a></li>
                       </ul>
                     </li>
                     <li class="ripple">
                       <a class="tree-toggle nav-header">
-                        <!-- <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp; -->
                         FAQ's 
                       </a>
                     </li>
                     <li>
-                      <div id="info">
-                        info
+                      <div class="col-md-11" id="info">
+                        
                       </div>
                     </li>
                   </ul>
@@ -128,11 +127,8 @@
             </div>
           <!-- end: Left Menu -->
 
-  		
           <!-- start: content -->
-            <div id="content">
-                
-      		  </div>
+            <div id="content"></div>
           <!-- end: content -->
           
       </div>
@@ -196,7 +192,6 @@
     <script src="asset/js/jquery.ui.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
    
-    
     <!-- plugins -->
     <script src="asset/js/plugins/moment.min.js"></script>
     <script src="asset/js/plugins/moment-timezone-with-data.min.js"></script>
@@ -206,11 +201,15 @@
     <script src="asset/js/plugins/maps/jquery.vmap.world.js"></script>
     <script src="asset/js/plugins/jquery.vmap.sampledata.js"></script>
     <script src="asset/js/plugins/chart.min.js"></script>
-
+    <script src="asset/js/plugins/jquery.datatables.min.js"></script>
+    <script src="asset/js/plugins/datatables.bootstrap.min.js"></script>
 
     <!-- custom -->
      <script src="asset/js/main.js"></script>
      <script src="asset/customjs/AppBegin.js"></script>
+     <script src="asset/customjs/dataLanguage.js"></script>
+     <script src="asset/customjs/activeMenu.js"></script>
+     <script src="asset/customjs/support.js"></script>
      <script src="asset/customjs/therapiesPast.js"></script>
   <!-- end: Javascript -->
   </body>
