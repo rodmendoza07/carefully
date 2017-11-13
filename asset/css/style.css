@@ -953,6 +953,7 @@ ul li a:focus {
   background-color: #fff;
   color: #857E7E;
   border: 1px solid #ddd;
+  font-family: 'Raleway', sans-serif;
 }
 
 .btn:focus {
@@ -1065,7 +1066,7 @@ ul li a:focus {
   .badge-primary {
     color: #fff !important;
     border: none !important;
-    background-color: #1c84c6 !important;
+    background-color: #00C4B3 !important;
   }
 
   .btn-success,
