@@ -9,6 +9,8 @@ function clientSupport(){
 			objempty.activate("supportC","tcreated");
 
 			$("#info").load("views/client/ticketCreatedCA.html", function() {});
+
+			$("#content").load("views/client/ticketCreatedC.html", function() {});
 		});
 	}
 }
