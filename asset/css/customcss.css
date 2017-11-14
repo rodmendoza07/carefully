@@ -1,3 +1,12 @@
+@font-face{
+	font-family:'Raleways';
+	src:url(../fonts/Raleway-Regular.ttf) format("truetype");
+}
+
+h1.tittle{
+	font-family: 'Raleways',sans-serif;
+}
+
 .tittle {
 	font-weight: bold;
 	color: #00C4B3;

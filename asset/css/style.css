@@ -1786,14 +1786,14 @@ ul li a:focus {
   .navbar {
     height: 55px;
     /*background-color: #00c4b3;*/
-    background: rgba(0,196,180,1);
-background: -moz-linear-gradient(left, rgba(0,196,180,1) 0%, rgba(0,196,180,1) 50%, rgba(0,196,180,1) 51%, rgba(0,194,68,1) 71%, rgba(245,250,95,1) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,196,180,1)), color-stop(50%, rgba(0,196,180,1)), color-stop(51%, rgba(0,196,180,1)), color-stop(71%, rgba(0,194,68,1)), color-stop(100%, rgba(245,250,95,1)));
-background: -webkit-linear-gradient(left, rgba(0,196,180,1) 0%, rgba(0,196,180,1) 50%, rgba(0,196,180,1) 51%, rgba(0,194,68,1) 71%, rgba(245,250,95,1) 100%);
-background: -o-linear-gradient(left, rgba(0,196,180,1) 0%, rgba(0,196,180,1) 50%, rgba(0,196,180,1) 51%, rgba(0,194,68,1) 71%, rgba(245,250,95,1) 100%);
-background: -ms-linear-gradient(left, rgba(0,196,180,1) 0%, rgba(0,196,180,1) 50%, rgba(0,196,180,1) 51%, rgba(0,194,68,1) 71%, rgba(245,250,95,1) 100%);
-background: linear-gradient(to right, rgba(0,196,180,1) 0%, rgba(0,196,180,1) 50%, rgba(0,196,180,1) 51%, rgba(0,194,68,1) 71%, rgba(245,250,95,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b4', endColorstr='#f5fa5f', GradientType=1 );
+background: rgba(0,196,179,1);
+background: -moz-linear-gradient(left, rgba(0,196,179,1) 0%, rgba(0,196,180,1) 50%, rgba(0,196,180,1) 51%, rgba(0,196,180,1) 71%, rgba(198,224,127,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,196,179,1)), color-stop(50%, rgba(0,196,180,1)), color-stop(51%, rgba(0,196,180,1)), color-stop(71%, rgba(0,196,180,1)), color-stop(100%, rgba(198,224,127,1)));
+background: -webkit-linear-gradient(left, rgba(0,196,179,1) 0%, rgba(0,196,180,1) 50%, rgba(0,196,180,1) 51%, rgba(0,196,180,1) 71%, rgba(198,224,127,1) 100%);
+background: -o-linear-gradient(left, rgba(0,196,179,1) 0%, rgba(0,196,180,1) 50%, rgba(0,196,180,1) 51%, rgba(0,196,180,1) 71%, rgba(198,224,127,1) 100%);
+background: -ms-linear-gradient(left, rgba(0,196,179,1) 0%, rgba(0,196,180,1) 50%, rgba(0,196,180,1) 51%, rgba(0,196,180,1) 71%, rgba(198,224,127,1) 100%);
+background: linear-gradient(to right, rgba(0,196,179,1) 0%, rgba(0,196,180,1) 50%, rgba(0,196,180,1) 51%, rgba(0,196,180,1) 71%, rgba(198,224,127,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b3', endColorstr='#c6e07f', GradientType=1 );
     color: #fff;
     border: none;
   }
@@ -4558,6 +4558,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b4', end
   height: auto;
 }
 
+.parafondiux{
+  background: url(asset/img/homebg.jpg) ;
+  /*height: auto !important;
+  min-height: 100%;
+  height: 100%;*/
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  }
+
 .carousel-thumb-img li {
   float: left;
   list-style: none;
@@ -5658,7 +5669,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b4', end
 .sub-mimin-mobile-menu-list {
   display: none;
   padding: 0;
-  height: 300px;
+  height: 600px;
   font-weight: 100;
   overflow: auto;
   font-size: 2em;
@@ -6169,7 +6180,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b4', end
 }
 
 .form-group.form-animate-text .bar:before,
-.bar:after {
+.bar:after 
   content: '';
   height: 2px;
   width: 0;
@@ -6284,6 +6295,71 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b4', end
 
 
 /*========Responsive========*/
+@media only screen and (max-width: 767px) {
+
+.parafondiux{
+  background: url(asset/img/homebg.jpg) center center cover no-repeat fixed; 
+  height: auto !important;
+  min-height: 100%;
+  height: 100%;
+    background-position: center center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+  }
+
+  }
+
+@media only screen and (max-width: 620px) {
+
+.parafondiux{
+  background: url(asset/img/homebg.jpg) center center cover no-repeat fixed; 
+  height: auto !important;
+  min-height: 100%;
+  height: 100%;
+    background-position: center center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+  }
+  
+  }
+  @media only screen and (max-width: 480px) {
+
+.parafondiux{
+  background: url(asset/img/homebg.jpg) center center cover no-repeat fixed; 
+  height: auto !important;
+  min-height: 100%;
+  height: 100%;
+    background-position: center center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+  }
+  
+  }
+  @media only screen and (max-width: 320px) {
+
+.parafondiux{
+  background: url(asset/img/homebg.jpg) center center cover no-repeat fixed; 
+  height: auto !important;
+  min-height: 100%;
+  height: 100%;
+    background-position: center center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+  }
+  
+  }
+
+
+
+
+
+
+
+
 @media (max-width: 1200px) {
   #content{
     padding-left: 230px;
