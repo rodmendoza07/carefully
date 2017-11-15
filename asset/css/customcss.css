@@ -17,3 +17,7 @@ h1.tittle{
 	padding: 0px;
 	font-size: 11.3px;
 }
+
+.custom-top{
+	padding-top: 10px;
+}
