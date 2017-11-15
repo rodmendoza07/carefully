@@ -4,7 +4,7 @@ function myProfile(){
 	var objActiveMenu = new activeMenu();
 
 	this.loadProfile = function() {
-		$("#myprof").click(function() {
+		$(".myprof").click(function() {
 			objActiveMenu.emptyInfoMenu();
 			objActiveMenu.activate("myprof","");
 
