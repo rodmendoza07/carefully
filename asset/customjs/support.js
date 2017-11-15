@@ -4,7 +4,8 @@ function clientSupport(){
 	var objempty = new activeMenu();
 
 	this.createdTicket = function(){
-		$("#tcreated").click(function() {
+		$(".tcreated").click(function() {
+			console.log("camara");
 			objempty.emptyInfoMenu();
 			objempty.activate("supportC","tcreated");
 
