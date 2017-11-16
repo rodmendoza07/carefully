@@ -21,3 +21,15 @@ h1.tittle{
 .custom-top{
 	padding-top: 10px;
 }
+
+.btn-pill {
+	border-radius: 999rem !important;
+}
+
+.custom-left {
+	padding-left: 0px; 
+}
+
+.custom-right {
+	padding-right: 0px;
+}
