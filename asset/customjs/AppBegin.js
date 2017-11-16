@@ -12,7 +12,7 @@ function AppBegin() {
 		objTherapiesPast.LoadView();
 		objClientSupport.createdTicket();
 	} catch(x) {
-		console.log("Error en - ", x);
+		console.log("Error en - ", x.toString());
 	}
 
 }

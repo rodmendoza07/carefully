@@ -1,3 +1,12 @@
+@font-face{
+	font-family:'Raleways';
+	src:url(../fonts/Raleway-Regular.ttf) format("truetype");
+}
+
+h1.tittle{
+	font-family: 'Raleways',sans-serif;
+}
+
 .tittle {
 	font-weight: bold;
 	color: #00C4B3;
@@ -7,4 +16,20 @@
 	line-height: 105%;
 	padding: 0px;
 	font-size: 11.3px;
+}
+
+.custom-top{
+	padding-top: 10px;
+}
+
+.btn-pill {
+	border-radius: 999rem !important;
+}
+
+.custom-left {
+	padding-left: 0px; 
+}
+
+.custom-right {
+	padding-right: 0px;
 }
