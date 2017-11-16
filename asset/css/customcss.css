@@ -33,3 +33,16 @@ h1.tittle{
 .custom-right {
 	padding-right: 0px;
 }
+
+.avatar1 {
+	position: relative;
+	padding: 0px;
+}
+
+.avatar1{
+	height: 170px;
+    width: 170px;
+    border: 4px solid #00C4B3 !important;
+    margin-top: 5px;
+    margin-right: 5px;
+}
