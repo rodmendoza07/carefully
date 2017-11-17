@@ -15,8 +15,7 @@ function activeMenu () {
 		catch(x) {
 			console.log("activeMenu - ",x.toString());
 		}
-	}
-
+	} 
 	this.emptyInfoMenu = function() {
 		var deactive = $(".active").data("option");
 		
