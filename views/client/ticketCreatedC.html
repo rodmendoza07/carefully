@@ -1,10 +1,89 @@
 <div class="col-md-12" style="padding: 25px;">
-	<h4 class="tittle">TICKETS LEVANTADOS</h4>
+	<h4 class="tittle">SOPORTE TÉCNICO</h4>
 </div>
-<div class="col-md-12">
-	<div class="panel box-v1">
-		<div class="panel-body">	
-			
+
+<div class="col-md-12 padding-0">
+	<div class="col-md-12">
+		<div class="panel box-v1">
+			<div class="panel-heading bg-white border-none" style="padding:20px;">
+				<div class="col-md-6 col-sm-6 col-sm-12 text-left">
+				  <h4>Tikets levantados</h4>
+				</div>
+			  </div>
+			<div class="panel-body">
+				<div class="col-md-12">	
+					<table class="table table-bordered" id="supportTable" width="100%">
+						<thead style="background: #8CC63F; color:white;">
+							<tr>
+								<th class="text-center">Folio</th>
+								<th class="text-center">Fecha</th>
+								<th class="text-center">Hora</th>
+								<th class="text-center">Asunto</th>
+								<th class="text-center">Estado</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="text-center">00001171111</td>
+								<td class="text-center">11/11/2017</td>
+								<td class="text-center">6:00 pm</td>
+								<td>Problema con llamada</td>
+								<td><span class="label label-success" style="font-weight:bold;">Resuelto</span></td>
+							</tr>
+							<tr>
+								<td class="text-center">00002171111</td>
+								<td class="text-center">11/11/2017</td>
+								<td class="text-center">6:00 pm</td>
+								<td>Problema con llamada</td>
+								<td><span class="label label-warning" style="font-weight:bold;">Pendiente</span></td>
+							</tr>
+							<tr>
+								<td class="text-center">00003171111</td>
+								<td class="text-center">11/11/2017</td>
+								<td class="text-center">6:00 pm</td>
+								<td>Problema con llamada</td>
+								<td><span class="label label-info" style="font-weight:bold;">En proceso</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-12 padding-0">
+	<div class="col-md-12">
+		<div class="panel box-v1">
+			<div class="panel-heading bg-white border-none" style="padding:20px;">
+				<div class="col-md-6 col-sm-6 col-sm-12 text-left">
+					<h4>Levantar ticket nuevo</h4>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="">Asunto</label>
+						<input type="text" name="" id="" class="form-control" placeholder="Asunto">
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="">Mensaje</label>
+						<textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="Por favor describe la falla"></textarea>
+					</div>
+				</div>
+				<div class="col-md-3 col-md-offset-3 custom-top">
+					<button class="btn btn-danger btn-pill btn-block">
+						Cancelar
+					</button>
+				</div>
+				<div class="col-md-3 custom-top">
+					<button type="button" class="btn btn-primary btn-pill btn-block">
+						Levantar ticket
+					</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

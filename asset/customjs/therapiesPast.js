@@ -14,9 +14,9 @@ function therapiesPast () {
 	
 				$("#content").load("views/client/therapiesPast.html", function(){
 				
-				$('#pastTable').DataTable({
-					"language": objLanguage.espanol,
-					"scrollX": true
+					$('#pastTable').DataTable({
+						"language": objLanguage.espanol,
+						"scrollX": true
 					});
 				});
 			});
