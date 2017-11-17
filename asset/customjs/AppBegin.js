@@ -3,6 +3,8 @@ function AppBegin() {
 
 	try {
 
+		
+
 		var objHome = new initHome();
 		var objTherapiest = new therapiest();
 		var objprofile = new myProfile();
