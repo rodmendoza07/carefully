@@ -5,21 +5,24 @@ function therapiesPast () {
 	var objActiveMenu = new activeMenu();
 
 	this.LoadView = function () {
-
-		$("#tpast").click(function() {
-			objActiveMenu.emptyInfoMenu();
-			objActiveMenu.activate("sessions","sessionMenu");
-
-			$("#info").load("views/client/therapiesPastA.html", function() {});
-
-			$("#content").load("views/client/therapiesPast.html", function(){
-			
-			$('#pastTable').DataTable({
-				"language": objLanguage.espanol,
-				"scrollX": true
+		try {
+			$(".tpast").click(function() {
+				objActiveMenu.emptyInfoMenu();
+				objActiveMenu.activate("sessions","sessionMenu");
+	
+				$("#info").load("views/client/therapiesPastA.html", function() {});
+	
+				$("#content").load("views/client/therapiesPast.html", function(){
+				
+				$('#pastTable').DataTable({
+					"language": objLanguage.espanol,
+					"scrollX": true
+					});
 				});
 			});
-		});
+		} catch(x) {
+			console.log("therapiePast: LoadView -", x.toString());
+		} 
 	}
 
 }

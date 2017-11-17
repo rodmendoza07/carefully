@@ -4,11 +4,15 @@ function myProfile(){
 	var objActiveMenu = new activeMenu();
 
 	this.loadProfile = function() {
-		$(".myprof").click(function() {
-			objActiveMenu.emptyInfoMenu();
-			objActiveMenu.activate("myprof","");
-
-			$("#content").load("views/client/myprofile.html", function(){});
-		});
+		try {
+			$(".myprof").click(function() {
+				objActiveMenu.emptyInfoMenu();
+				objActiveMenu.activate("myprof","");
+	
+				$("#content").load("views/client/myprofile.html", function(){});
+			});
+		} catch(x) {
+			console.log("myProfile: loadProfile -", x.toString());
+		}
 	}
 }

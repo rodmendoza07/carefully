@@ -11,18 +11,21 @@ function activeMenu () {
 			}
 			
 			$("#mimin-mobile-menu-opener").click();
-		}
-		catch(x) {
-			console.log("activeMenu - ",x.toString());
+		} catch(x) {
+			console.log("activeMenu: activate -",x.toString());
 		}
 	} 
 	this.emptyInfoMenu = function() {
-		var deactive = $(".active").data("option");
-		
-		$("." + deactive).removeClass("active");
-		$("." + deactive).removeAttr("style");
-		
-		$("#info").empty();
-		$("#content").empty();
+		try {
+			var deactive = $(".active").data("option");
+			
+			$("." + deactive).removeClass("active");
+			$("." + deactive).removeAttr("style");
+			
+			$("#info").empty();
+			$("#content").empty();
+		} catch(x) {
+			console.log("activeMenu: EmptyInfoMenu -", x.toString());
+		}
 	}
 }

@@ -4,8 +4,12 @@ function initHome() {
 	var objActiveMenu = new activeMenu();
 
 	this.LoadView = function() {
-		objActiveMenu.emptyInfoMenu();
-		
-		$("#content").load("views/client/cHome.html", function(){});
+		try {
+			objActiveMenu.emptyInfoMenu();
+			
+			$("#content").load("views/client/cHome.html", function(){});
+		} catch(x) {
+			console.log("initHome: LoadView -", x.toString());
+		}
 	}
 }
