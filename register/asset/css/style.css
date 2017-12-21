@@ -307,7 +307,7 @@ p.quote{
     .form-signin a{color: #fff !important;font-weight: bold;}
     .form-signin .btn{margin-top: 30px;}
     .form-signin .form-group{margin-bottom: 20px !important;}
-    .form-signin .panel{background: #fff;color: #fff;padding: 10px;border:none !important;box-shadow: 0 7px 16px #fff, 0 4px 5px #fff;}
+    .form-signin .panel{background: #fff;color: #000;padding: 10px;border:none !important;box-shadow: 0 7px 16px #fff, 0 4px 5px #fff;}
     .form-signin .panel-body{padding-bottom: 50px;padding-top: 30px;}
     .form-signin .atomic-number{font-size: 20px;}
     .form-signin .atomic-symbol{font-size: 10em !important;font-weight: 500;padding-bottom: 20spx;}
