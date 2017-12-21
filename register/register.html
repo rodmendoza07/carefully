@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="asset/css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/icheck/skins/flat/green.css"/>
+    <link rel="stylesheet" href="asset/css/toastr.min.css"/>
 	<!-- end: Css -->
   
   <!--Custom css-->
@@ -65,38 +66,38 @@
                         </div>
                         <div class="row">
                           <div class="col-md-12">
-                              <form class="form-signin">
+                              <form class="form-signin" id="register">
                                   <div class="panel periodic-login">
                                       <div class="panel-body text-center">
                         
                                           <div class="form-group form-animate-text">
-                                            <input type="text" class="form-text" required>
+                                            <input type="text" class="form-text" name="names" required>
                                             <span class="bar"></span>
                                             <label>Nombre(s)</label>
                                           </div>
                                           <div class="form-group form-animate-text">
-                                            <input type="text" class="form-text" required>
+                                            <input type="text" class="form-text" name="lastnames" required>
                                             <span class="bar"></span>
                                             <label>Apellidos</label>
                                           </div>
                                           <div class="form-group form-animate-text">
-                                            <input type="text" class="form-text" required>
+                                            <input type="text" class="form-text" name="userEmail" required>
                                             <span class="bar"></span>
                                             <label>Correo electrónico</label>
                                           </div>
                                           <div class="form-group form-animate-text">
-                                              <input type="password" class="form-text" required>
+                                              <input type="password" class="form-text" name="pwd" id="pwd" required>
                                               <span class="bar"></span>
                                               <label>Contraseña</label>
                                             </div>
                                             <div class="form-group form-animate-text">
-                                                <input type="password" class="form-text" required>
+                                                <input type="password" class="form-text" name="cpwd" id="cpwd" required>
                                                 <span class="bar"></span>
                                                 <label>Confirmar contraseña </label>
                                               </div>
                                           <label class="pull-left">
-                                          <input type="checkbox" class="icheck pull-left" name="checkbox1"/>&nbsp;Acepto los términos y condiciones de la política de privacidad</label>
-                                          <input type="submit" class="btn btn-primary btn-pill col-md-12" value="Aceptar"/>
+                                          <input type="checkbox" class="icheck pull-left" name="disclaimer" id="disclaimer"/>&nbsp;Acepto los términos y condiciones de la política de privacidad</label>
+                                          <button type="button" class="btn btn-primary btn-pill col-md-12" id="continueRegister">Aceptar</button>
                                       </div>
                                   </div>
                                 </form>
@@ -119,27 +120,12 @@
     <!-- plugins -->
     <script src="asset/js/plugins/moment.min.js"></script>
     <script src="asset/js/plugins/moment-timezone-with-data.min.js"></script>
-    <script src="asset/js/plugins/fullcalendar.min.js"></script>
     <script src="asset/js/plugins/jquery.nicescroll.js"></script>
-    <script src="asset/js/plugins/jquery.vmap.min.js"></script>
-    <script src="asset/js/plugins/maps/jquery.vmap.world.js"></script>
-    <script src="asset/js/plugins/jquery.vmap.sampledata.js"></script>
-    <script src="asset/js/plugins/chart.min.js"></script>
-    <script src="asset/js/plugins/jquery.datatables.min.js"></script>
-    <script src="asset/js/plugins/datatables.bootstrap.min.js"></script>
     <script src="asset/js/plugins/icheck.min.js"></script>
-
-    <!-- custom -->
+    <script src="asset/js/plugins/jquery.validate.min.js"></script>
+    <script src="asset/js/toastr.min.js"></script>
      <script src="asset/js/main.js"></script>
-     <script src="asset/customjs/AppBegin.js"></script>
-     <script src="asset/customjs/dataLanguage.js"></script>
-     <script src="asset/customjs/activeMenu.js"></script>
-     <script src="asset/customjs/initHome.js"></script>
-     <script src="asset/customjs/therapiest.js"></script>
-     <script src="asset/customjs/profile.js"></script>
-     <script src="asset/customjs/credit.js"></script>
-     <script src="asset/customjs/support.js"></script>
-     <script src="asset/customjs/therapiesPast.js"></script>
+     <script src="asset/js/register.js"></script>
 
      <script type="text/javascript"> 
       $(document).ready(function () {
