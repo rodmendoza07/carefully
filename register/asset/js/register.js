@@ -19,7 +19,11 @@ $(document).ready(function(){
                     required: true,
                     lettersonly: true
                 },
-                pwd: "required",
+                pwd: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 10
+                },
                 cpwd: {
                     required: true,
                     equalTo: "#pwd"
