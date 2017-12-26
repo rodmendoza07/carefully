@@ -2,10 +2,23 @@ $(document).ready(function(){
     var that = this;
 
     try {
+        jQuery.validator.addMethod("lettersonly", 
+            function (value, element) {
+                return this.optional(element) || /^[a-z\s]+$/i.test(value);
+            },
+            "Solo se permiten letras y espacios."
+        );
+
         $("#register").validate({
             rules: {
-                names: "required",
-                lastnames: "required",
+                names: {
+                    required: true,
+                    lettersonly: true
+                },
+                lastnames: {
+                    required: true,
+                    lettersonly: true
+                },
                 pwd: "required",
                 cpwd: {
                     required: true,
@@ -20,8 +33,14 @@ $(document).ready(function(){
                 }
             },
             messages: {
-                names: "<br><span style='color: red;'>*</span>",
-                lastnames: "<br><span style='color: red;'>*</span>",
+                names: {
+                    required: "<br><span style='color: red;'>*</span>",
+                    lettersonly: "<br><br><span style='color: red;'>Solo se permiten letras y espacios.</span>"
+                },
+                lastnames:{
+                    required: "<br><span style='color: red;'>*</span>",
+                    lettersonly: "<br><br><span style='color: red;'>Solo se permiten letras y espacios.</span>"
+                },
                 pwd: "<br><span style='color: red;'>*</span>",
                 cpwd: {
                     required: "<br><span style='color: red;'>*</span>",
