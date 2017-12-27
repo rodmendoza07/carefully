@@ -2,13 +2,6 @@ $(document).ready(function(){
     var that = this;
 
     try {
-        jQuery.validator.addMethod("lettersonly", 
-            function (value, element) {
-                return this.optional(element) || /^[a-z\s]+$/i.test(value);
-            },
-            "Solo se permiten letras y espacios."
-        );
-
         $("#formLogin").validate({
             rules: {
                 userName: "required",
@@ -20,9 +13,33 @@ $(document).ready(function(){
             }
         });
 
-        $("#formLogin").submit(function() {
+        $("#startSess").click(function() {
             if ($("#formLogin").valid()) {
                 console.log("submit");
+                var dataPost = {
+                    userName: $("#userName").val().trim(),
+                    passwd: $("#passwd").val().trim()
+                };
+                var ajaxF = $.ajax({
+                    contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    url: "http://localhost:3000/login",
+                    //url: "https://salty-harbor-47251.herokuapp.com/newUsers",
+                    //data: dataPost,
+                    dataType: 'JSON',
+                    data: JSON.stringify(dataPost),
+                    beforeSend: function() {
+                        $('#loading').modal();
+                    },
+                    success: function (response) {
+                        //$('#loading').modal('toggle');
+                        console.log(response);
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown){
+                        $('#loading').modal('toggle');
+                        toastr.error("Error: " + errorThrown, "¡Atención!");
+                    }
+                });
             }
         });
         // $("#continueRegister").click(function(){

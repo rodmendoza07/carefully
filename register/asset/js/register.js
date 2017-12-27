@@ -69,7 +69,6 @@ $(document).ready(function(){
                     return toastr.error("La contraseñas no coinciden","¡Ups! Error");
                 }
                 
-                
                 var dataPost = {
                     names: nombres,
                     lastnames: ap,
@@ -84,22 +83,22 @@ $(document).ready(function(){
                     type: "POST",
                     url: "http://localhost:3000/newUsers",
                     //url: "https://salty-harbor-47251.herokuapp.com/newUsers",
-                    data: dataPost,
+                    //data: dataPost,
                     dataType: 'JSON',
-                        data: JSON.stringify(dataPost),
-                        beforeSend: function() {
-                            $('#loading').modal();
-                        },
-                        success: function (response) {
-                            $('#loading').modal('toggle');
-                            $("#names").val("");
-                            $("#lastnames").val("");
-                            $("#userEmail").val("");
-                            $("#pwd").val("");
-                            $("#cpwd").val("");
-                            $('#confirmEmail').modal();
-                            console.log(response);
-                        },
+                    data: JSON.stringify(dataPost),
+                    beforeSend: function() {
+                        $('#loading').modal();
+                    },
+                    success: function (response) {
+                        $('#loading').modal('toggle');
+                        $("#names").val("");
+                        $("#lastnames").val("");
+                        $("#userEmail").val("");
+                        $("#pwd").val("");
+                        $("#cpwd").val("");
+                        $('#confirmEmail').modal();
+                        console.log(response);
+                    },
                     error: function (XMLHttpRequest, textStatus, errorThrown){
                         $('#loading').modal('toggle');
                         $("#names").val("");
