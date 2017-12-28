@@ -1,4 +1,4 @@
-CREATE DEFINER=`vyreym`@`%` PROCEDURE `sp_newUser`(
+CREATE PROCEDURE `sp_newUser` (
 	IN nombre varchar(40),
     IN ap varchar(100),
     IN correo varchar(50),

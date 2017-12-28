@@ -1,4 +1,4 @@
-CREATE DEFINER=`vyreym`@`%` PROCEDURE `sp_hashToken`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_hashToken`(
 	IN userName VARCHAR(50),
     IN passwd VARCHAR(15)
 )

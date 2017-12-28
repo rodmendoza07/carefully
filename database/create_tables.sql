@@ -10,14 +10,14 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema database
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `vyreym_carefully` ;
+DROP SCHEMA IF EXISTS `cuidadosamente` ;
 
 -- -----------------------------------------------------
 -- Schema database
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `vyreym_carefully` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `cuidadosamente` DEFAULT CHARACTER SET utf8 ;
 SHOW WARNINGS;
-USE `vyreym_carefully` ;
+USE `cuidadosamente` ;
 
 -- -----------------------------------------------------
 -- Table `nacionalidades`
@@ -376,7 +376,7 @@ CREATE TABLE IF NOT EXISTS `expedientePaciente` (
   `expP_doctor_id` INT NOT NULL DEFAULT 0,
   `expP_paciente_id` INT NOT NULL DEFAULT 0,
   `expP_estatus` TINYINT NOT NULL DEFAULT 1,
-  `expP_fecha_alta` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  /*`expP_fecha_alta` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,*/
   `expP_usr_id_alta` INT NOT NULL DEFAULT 0,
   `expP_fecha_cancelacion` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `expP_usr_id_cancelacion` INT NOT NULL DEFAULT 0,
@@ -414,7 +414,7 @@ CREATE TABLE IF NOT EXISTS `expedientePacienteDetalle` (
   `expPD_id` INT NOT NULL AUTO_INCREMENT,
   `expP_id` INT NOT NULL DEFAULT 0,
   `expPC_id` INT NOT NULL DEFAULT 0,
-  `expPD_comentario` MEDIUMTEXT NOT NULL DEFAULT '',
+  /*`expPD_comentario` MEDIUMTEXT NOT NULL DEFAULT '',*/
   `expPD_estatus` TINYINT NOT NULL DEFAULT 1,
   `expPD_fecha_alta` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `expPD_usr_id_alta` INT NOT NULL DEFAULT 0,
