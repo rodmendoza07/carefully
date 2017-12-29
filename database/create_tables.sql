@@ -456,6 +456,7 @@ CREATE TABLE IF NOT EXISTS `validateSess` (
   `vs_usr_id` INT NOT NULL DEFAULT 0,
   `vs_hash` VARCHAR(50) NOT NULL DEFAULT '',
   `vs_status` INT NOT NULL DEFAULT 0,
+  `vs_activateat` DATETIME NULL,
   PRIMARY KEY (`vs_id`))
 ENGINE = InnoDB;
 

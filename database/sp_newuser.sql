@@ -24,7 +24,7 @@ BEGIN
     END;
     
 	SET usrlevel = 1;
-    SET passHash =  md5(correo + pwd + (SELECT cfg_valor FROM configuraciones WHERE cfg_id = 1));
+    SET passHash =  md5(CONCAT(correo,pwd,(SELECT cfg_valor FROM configuraciones WHERE cfg_id = 1)));
     
     IF opt = 1 THEN
 		SET usr_dept = 2;
@@ -57,7 +57,7 @@ BEGIN
 	);
     
     SET userId = (SELECT usr_id FROM usuarios WHERE usr_correo = correo);
-    SET userHash = md5(convert(userId, char(50)) + correo + nombre);
+    SET userHash = md5(CONCAT(convert(userId, char(50)), correo, nombre));
     
     INSERT INTO validateSess (
 		vs_usr_id,
