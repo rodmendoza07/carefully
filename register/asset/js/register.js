@@ -70,7 +70,7 @@ $(document).ready(function(){
                 }
                 
                 var dataPost = {
-                    opt: 1,
+                    opt: '1',
                     names: nombres,
                     lastnames: ap,
                     userEmail: email,
@@ -90,22 +90,25 @@ $(document).ready(function(){
                     },
                     success: function (response) {
                         $('#loading').modal('toggle');
-                        $("#names").val("");
-                        $("#lastnames").val("");
-                        $("#userEmail").val("");
-                        $("#pwd").val("");
-                        $("#cpwd").val("");
-                        $('#confirmEmail').modal();
-                        console.log(response);
+                        $('#disclaimer').iCheck('uncheck');
+                        if (response.errno) {
+                            toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
+                            console.log('Register - ',response.message)
+                        } else {
+                            $("#names").val("");
+                            $("#lastnames").val("");
+                            $("#userEmail").val("");
+                            $("#pwd").val("");
+                            $("#cpwd").val("");
+                            $('#confirmEmail').modal();
+                        }
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown){
                         $('#loading').modal('toggle');
-                        $("#names").val("");
-                        $("#lastnames").val("");
-                        $("#userEmail").val("");
-                        $("#pwd").val("");
-                        $("#cpwd").val("");
-                        toastr.error("Error: " + errorThrown, "¡Atención1!");
+                        $('#disclaimer').iCheck('uncheck');
+                        toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+                        console.log('Register - ', errorThrown);
+                        console.log('Register - ', XMLHttpRequest);
                     }
                 });
             }
