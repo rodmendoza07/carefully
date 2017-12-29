@@ -1,12 +1,12 @@
 USE cuidadosamente;
 
-/*INSERT INTO configuraciones (
+INSERT INTO configuraciones (
 	cfg_nombre
     , cfg_valor
 ) VALUES (
 	'secret'
     , 'Uncarefully'
-);*/
+);
 
 INSERT INTO depatamentos(
 	depto_nombre
@@ -19,6 +19,10 @@ INSERT INTO depatamentos(
 ), (
 	'paciente'
     , 'paciente'
+    , 'cuidadosamente'
+), (
+    'terapia'
+    , 'terapia'
     , 'cuidadosamente'
 );
 
