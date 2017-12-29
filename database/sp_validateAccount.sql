@@ -1,4 +1,4 @@
-CREATE PROCEDURE `sp_validateAccount`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_validateAccount`(
 	IN codeAccount varchar(50)
 )
 BEGIN
@@ -26,7 +26,8 @@ BEGIN
         SELECT
 			'activate' as estatus
             , vs_activateat
-        FROM validateSess;
+        FROM validateSess
+        WHERE vs_hash = codeAccount;
 	ELSE
 		signal msgErr
 			SET message_text = 'Error en la activación';
