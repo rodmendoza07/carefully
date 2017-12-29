@@ -101,6 +101,9 @@ $(document).ready(function(){
                             $("#pwd").val("");
                             $("#cpwd").val("");
                             $('#confirmEmail').modal();
+                            $("#activateSes").click(function() {
+                                window.location = 'login.html';
+                            });
                         }
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown){

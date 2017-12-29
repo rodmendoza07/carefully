@@ -1,5 +1,5 @@
 <?php
-    //error_reporting(E_ERROR | E_PARSE);
+    error_reporting(E_ERROR | E_PARSE);
     include 'class/register.php';
 
     try {
@@ -16,13 +16,12 @@
                 $pwd = $json_obj['pwd'];
                 $newUser->addUser($name, $lastname, $email, $pwd, $opt);
                 break;
-            
             default:
-                # code...
+                $default = array('status' => 401, 'errno' => 1002, 'message' => 'Opción inválida');
                 break;
         }
     }  catch(Exception $e) {
-        $catch = array('estatus' => 500, 'errno' => 1001, 'message' => $e);
+        $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
         echo json_encode($catch);
     } 
 ?>
