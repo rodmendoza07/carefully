@@ -11,13 +11,17 @@ BEGIN
     DECLARE passHash varchar(50);
     DECLARE msgErr condition for sqlstate '10000';
     DECLARE `_rollback` BOOL DEFAULT 0;
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION SET `_rollback` = 1;
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION SET `_rollback` = 1;
     
     /*SELECT usr_id, usr_correo FROM usuarios;*/
+    DECLARE CONTINUE HANDLER FOR 1062
+    BEGIN
+		signal msgErr
+			SET message_text = 'La cuenta ya está en uso';
+    END;
     
 	SET usrlevel = 1;
     SET passHash =  md5(correo + pwd + (SELECT cfg_valor FROM configuraciones WHERE cfg_id = 1));
-	
     START TRANSACTION;
 	INSERT INTO usuarios (
 		usr_nombre,
@@ -34,9 +38,6 @@ BEGIN
         passHash,
         correo
     );
-    
-    signal msgErr;
-		SET message_text = 'Datos duplicados';
     
     SET userId = (SELECT usr_id FROM usuarios WHERE usr_correo = correo);
     SET userHash = md5(convert(userId, char(50)) + correo + nombre);
