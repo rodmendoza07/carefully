@@ -6,10 +6,15 @@
             include 'class/connection.php';
 
             $arreglo = array('name' => $name, 'lastname'=> $lastname, 'email'=>$email, 'passwd'=>$pwd);
-            $call = $conecta->prepare('CALL sp_newUser(?,?,?,?, @name,@lastname,@email,@pwd)');
-            $call->bind_param('iiii', $name, $lastname, $email, $pwd);
+            
+            $call = $conecta->prepare('CALL sp_newUser(?,?,?,?)');
+            $call->bind_param('ssss', $name, $lastname, $email, $pwd);
             $call->execute();
-            echo json_encode($arreglo);
+            echo $call->affected_rows;
+            while ($row = $call->fetch_array(MYSQLI_ASSOC)) {
+                echo $row['usr_name'];
+            }
+            //echo json_encode($arreglo);
         }
     }
 ?>
