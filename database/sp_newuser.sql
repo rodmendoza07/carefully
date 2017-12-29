@@ -1,8 +1,10 @@
-CREATE PROCEDURE `sp_newUser` (
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_newUser`(
 	IN nombre varchar(40),
     IN ap varchar(100),
     IN correo varchar(50),
-    IN pwd varchar(15)
+    IN pwd varchar(15),
+    IN puesto int,
+    IN department int
 )
 BEGIN
 	DECLARE	usrlevel int;
@@ -19,14 +21,18 @@ BEGIN
         usr_nivelUsr_id,
         usr_login,
         usr_password,
-        usr_correo
+        usr_correo,
+        usr_puesto_id,
+        usr_departamento_id
     ) VALUES(
 		nombre,
         ap,
         usrlevel,
         correo,
         passHash,
-        correo
+        correo,
+        puesto,
+        department
     );
     
     SET userId = (SELECT usr_id FROM usuarios WHERE usr_correo = correo);

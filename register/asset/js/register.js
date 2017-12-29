@@ -70,18 +70,17 @@ $(document).ready(function(){
                 }
                 
                 var dataPost = {
+                    opt: 1,
                     names: nombres,
                     lastnames: ap,
                     userEmail: email,
                     pwd: pwd
                 };
                 
-                console.log(dataPost);
-                
                 var ajaxF = $.ajax({
                     contentType: "application/json; charset=utf-8",
                     type: "POST",
-                    url: "http://localhost:3000/newUsers",
+                    url: "include/register.php",
                     //url: "https://salty-harbor-47251.herokuapp.com/newUsers",
                     //data: dataPost,
                     dataType: 'JSON',
@@ -106,10 +105,9 @@ $(document).ready(function(){
                         $("#userEmail").val("");
                         $("#pwd").val("");
                         $("#cpwd").val("");
-                        toastr.error("Error: " + errorThrown, "¡Atención!");
+                        toastr.error("Error: " + errorThrown, "¡Atención1!");
                     }
                 });
-                console.log(ajaxF);
             }
         });
 
