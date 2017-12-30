@@ -1,4 +1,9 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_validateAccount`(
+USE `cuidadosamente`;
+DROP procedure IF EXISTS `sp_validateAccount`;
+
+DELIMITER $$
+USE `cuidadosamente`$$
+CREATE PROCEDURE `sp_validateAccount`(
 	IN codeAccount varchar(50)
 )
 BEGIN
@@ -32,4 +37,7 @@ BEGIN
 		signal msgErr
 			SET message_text = 'Error en la activación';
     END IF;
-END
+END$$
+
+DELIMITER ;
+

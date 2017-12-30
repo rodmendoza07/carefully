@@ -1,4 +1,9 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_newUser`(
+USE `cuidadosamente`;
+DROP procedure IF EXISTS `sp_newUser`;
+
+DELIMITER $$
+USE `cuidadosamente`$$
+CREATE PROCEDURE `sp_newUser`(
 	IN nombre varchar(40),
     IN ap varchar(100),
     IN correo varchar(50),
@@ -16,7 +21,6 @@ BEGIN
     DECLARE `_rollback` BOOL DEFAULT 0;
     DECLARE CONTINUE HANDLER FOR SQLEXCEPTION SET `_rollback` = 1;
     
-    /*SELECT usr_id, usr_correo FROM usuarios;*/
     DECLARE CONTINUE HANDLER FOR 1062
     BEGIN
 		signal msgErr
@@ -74,4 +78,7 @@ BEGIN
 		COMMIT;
         SELECT vs_hash FROM validateSess WHERE vs_usr_id = userId;
     END IF;
-END
+END$$
+
+DELIMITER ;
+

@@ -1,6 +1,7 @@
 <?php
     $s = "localhost";
-    $u = "root";
+    //$u = "root";
+    $u = "xh2c0lsbptra";
     $p = "";
     $b = "cuidadosamente";
     $conecta = new mysqli($s, $u, $p, $b);
