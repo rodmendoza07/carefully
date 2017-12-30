@@ -8,7 +8,7 @@ INSERT INTO configuraciones (
     , 'Uncarefully'
 );
 
-INSERT INTO depatamentos(
+INSERT INTO departamentos(
 	depto_nombre
     , depto_abreviatura
     , depto_responsable 
