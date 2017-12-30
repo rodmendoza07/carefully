@@ -72,13 +72,10 @@ BEGIN
     );
     IF `_rollback` THEN
 		signal msgErr
-			SET message_text = 'Algo ha ido mal, intentalo más tarde.';
+			SET message_text = 'Algo ha ido mal, intentalo más tarder';
         ROLLBACK;
 	ELSE
 		COMMIT;
         SELECT vs_hash FROM validateSess WHERE vs_usr_id = userId;
     END IF;
-END$$
-
-DELIMITER ;
-
+END
