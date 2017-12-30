@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_newUser`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE PROCEDURE `sp_newUser`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_newUser`(
 	IN nombre varchar(40),
     IN ap varchar(100),
     IN correo varchar(50),
@@ -72,7 +72,7 @@ BEGIN
     );
     IF `_rollback` THEN
 		signal msgErr
-			SET message_text = 'camara';
+			SET message_text = 'Algo ha ido mal, intentalo más tarde.';
         ROLLBACK;
 	ELSE
 		COMMIT;
