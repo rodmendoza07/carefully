@@ -72,7 +72,7 @@ BEGIN
     );
     IF `_rollback` THEN
 		signal msgErr
-			SET message_text = 'Algo ha ido mal, intentalo más tarder';
+			SET message_text = 'Algo ha ido mal, intentalo más tarde.';
         ROLLBACK;
 	ELSE
 		COMMIT;
