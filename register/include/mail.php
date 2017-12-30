@@ -3,7 +3,7 @@
   $json_obj = json_decode($json_str, true);
 
   $destination = $json_obj['email'];
-  //$hash = $json_obj['hash'];
+  $hash = $json_obj['hash'];
   try {
     $to = $destination;
     $subject = utf8_decode("Activación CuidadosaMENTE");
