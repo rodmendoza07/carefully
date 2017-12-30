@@ -1,9 +1,4 @@
-<?php
-  $to = "lr.mendozar@icloud.com";
-  $subject = "HTML email";
-  
-  $message = "
-  <div style='margin-left:150px;padding:20px;width:600px;height:250px; border-radius: 25px;border: 2px solid #73AD21;'>
+<div style='margin-left:150px;padding:20px;width:600px;height:250px; border-radius: 25px;border: 2px solid #73AD21;'>
     <h1 style='color:#00C4B3;font-family: Arial, Helvetica, sans-serif;text-align:center;line-height:1.5em;'>Gracias por elegirnos</h1>
     <h1 style='font-family:Arial, Helvetica, sans-serif; text-align: center'>- Es hora de activar tu cuenta -</h1>
     <hr>
@@ -37,15 +32,3 @@
         </tr>
     </table>
 </div>
-  ";
-  
-  // Always set content-type when sending HTML email
-  $headers = "MIME-Version: 1.0" . "\r\n";
-  $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-  
-  // More headers
-  $headers .= 'From: <no-reply@cuidadosamente.com>' . "\r\n";
-  $headers .= 'Cc: myboss@example.com' . "\r\n";
-  
-  mail($to,$subject,$message,$headers);
-?>
