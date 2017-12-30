@@ -89,20 +89,43 @@ $(document).ready(function(){
                         $('#loading').modal();
                     },
                     success: function (response) {
-                        $('#loading').modal('toggle');
-                        $('#disclaimer').iCheck('uncheck');
                         if (response.errno) {
                             toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
                             console.log('Register - ',response.message)
                         } else {
-                            $("#names").val("");
-                            $("#lastnames").val("");
-                            $("#userEmail").val("");
-                            $("#pwd").val("");
-                            $("#cpwd").val("");
-                            $('#confirmEmail').modal();
-                            $("#activateSes").click(function() {
-                                window.location = 'login.html';
+                            var dataMail = {
+                                email: email,
+                                hash: response.data
+                            };
+                            var ajaxM = $.ajax({
+                                contentType: "application/json; charset=utf-8",
+                                type: "POST",
+                                url: "include/mail.php",
+                                dataType: 'JSON',
+                                data: JSON.stringify(dataMail),
+                                beforeSend: function() {
+                                    $('#loading').modal();
+                                },
+                                success: function (res) {
+                                    $('#loading').modal('toggle');
+                                    $('#disclaimer').iCheck('uncheck');
+                                    $("#names").val("");
+                                    $("#lastnames").val("");
+                                    $("#userEmail").val("");
+                                    $("#pwd").val("");
+                                    $("#cpwd").val("");
+                                    $('#confirmEmail').modal();
+                                    $("#activateSes").click(function() {
+                                        window.location = 'login.html';
+                                    });
+                                    console.log(res);
+                                },
+                                error: function (XMLHttpRequest, textStatus, errorThrown){
+                                    $('#loading').modal('toggle');
+                                    toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+                                    console.log('Register - ', errorThrown);
+                                    console.log('Register - ', XMLHttpRequest);
+                                }
                             });
                         }
                     },
