@@ -1,9 +1,9 @@
 <?php
-  $to = "lr.mendozar@icloud.com";
+  $to = "lr.mendozar@gmail.com";
   $subject = "HTML email";
   
   $message = "
-  <div style='margin-left:150px;padding:20px;width:600px;height:250px; border-radius: 25px;border: 2px solid #73AD21;'>
+  <div style='margin-left:10px;padding:20px;width:600px;height:250px; border-radius: 25px;border: 2px solid #73AD21;'>
     <h1 style='color:#00C4B3;font-family: Arial, Helvetica, sans-serif;text-align:center;line-height:1.5em;'>Gracias por elegirnos</h1>
     <h1 style='font-family:Arial, Helvetica, sans-serif; text-align: center'>- Es hora de activar tu cuenta -</h1>
     <hr>
