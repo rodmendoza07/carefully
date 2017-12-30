@@ -37,7 +37,7 @@
                   background-image: none;
                   border: 1px solid transparent;
                   border-radius: 4px;-webkit-appearance: button;
-                  cursor: pointer;'><a href='http://cuidadosamente.com/register/validateAccount.php?code=".$hash.">Clic aqu&iacute; para activar tu cuenta</button>
+                  cursor: pointer;'><a href='http://cuidadosamente.com/desarrollo/register/validateAccount.php?code=".$hash.">Clic aqu&iacute; para activar tu cuenta</button>
               </div>
           </td>
           </tr>
