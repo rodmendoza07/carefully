@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_validateAccount`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE PROCEDURE `sp_validateAccount`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_validateAccount`(
 	IN codeAccount varchar(50)
 )
 BEGIN
@@ -18,10 +18,10 @@ BEGIN
     
 	IF noRegister = 0 THEN
 		signal msgErr
-			SET message_text = 'Registrate para activar tu cuenta';
+			SET message_text = 'Registrate para activar tu cuenta.';
     ELSEIF registerallready > 0 THEN
 		signal msgErr
-			SET message_text = 'Tu cuenta ya ha sido activada';
+			SET message_text = 'Tu cuenta ya ha sido activada.';
 	ELSEIF registerActivate > 0 THEN
 		UPDATE validateSess SET
 			vs_status = 1
@@ -35,9 +35,8 @@ BEGIN
         WHERE vs_hash = codeAccount;
 	ELSE
 		signal msgErr
-			SET message_text = 'Error en la activación';
+			SET message_text = 'Error en la activación.';
     END IF;
 END$$
 
 DELIMITER ;
-
