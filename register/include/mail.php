@@ -1,6 +1,6 @@
 <?php
   $to = "lr.mendozar@gmail.com";
-  $subject = "HTML email";
+  $subject = "Activaci&oacuten CuidadosaMENTE";
   
   $message = "
   <div style='margin-left:10px;padding:20px;width:600px;height:250px; border-radius: 25px;border: 2px solid #73AD21;'>
@@ -45,7 +45,6 @@
   
   // More headers
   $headers .= 'From: <no-reply@cuidadosamente.com>' . "\r\n";
-  $headers .= 'Cc: myboss@example.com' . "\r\n";
   
   mail($to,$subject,$message,$headers);
 ?>
