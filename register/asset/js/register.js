@@ -118,7 +118,6 @@ $(document).ready(function(){
                                     $("#activateSes").click(function() {
                                         window.location = 'login.html';
                                     });
-                                    console.log(res);
                                 },
                                 error: function (XMLHttpRequest, textStatus, errorThrown){
                                     $('#loading').modal('toggle');

@@ -3,6 +3,7 @@
   $json_obj = json_decode($json_str, true);
 
   $destination = $json_obj['email'];
+  $hash = $json_obj['hash'];
   try {
     $to = $destination;
     $subject = utf8_decode("Activación CuidadosaMENTE");
@@ -36,7 +37,7 @@
                   background-image: none;
                   border: 1px solid transparent;
                   border-radius: 4px;-webkit-appearance: button;
-                  cursor: pointer;'>Clic aqu&iacute; para activar tu cuenta</button>
+                  cursor: pointer;'><a href='http://cuidadosamente.com/register/validateAccount.php?code=".$hash.">Clic aqu&iacute; para activar tu cuenta</button>
               </div>
           </td>
           </tr>
