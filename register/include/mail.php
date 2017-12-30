@@ -71,11 +71,7 @@
     // More headers
     $headers .= 'From: <no-reply@cuidadosamente.com>' . "\r\n";
     
-    echo $message;
-
-    echo "<br>";
-
-    //mail($to,$subject,$message,$headers);
+    mail($to,$subject,$message,$headers);
 
     $resp = array('status' => 200, 'data' => 'Message sent');
     echo json_encode($resp);
