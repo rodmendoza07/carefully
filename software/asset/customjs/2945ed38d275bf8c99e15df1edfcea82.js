@@ -14,7 +14,7 @@ function f2945ed38d275bf8c99e15df1edfcea82() {
                 $('#loading').modal();
             },
             success: function (response) {
-                $('#loading').modal('toggle');
+                //$('#loading').modal('toggle');
                 if (response.errno) {
                     return states = false;
                 } else {
