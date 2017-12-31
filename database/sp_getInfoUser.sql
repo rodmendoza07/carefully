@@ -3,18 +3,24 @@ DROP procedure IF EXISTS `sp_getInfoUser`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getInfoUser`(
+CREATE PROCEDURE `sp_getInfoUser`(
 	IN userName VARCHAR(50),
     IN passwd VARCHAR(15)
 )
-DECLARE msgErr condition for sqlstate '10000';
+BEGIN
+    
     DECLARE passCompare VARCHAR(40);
 	DECLARE userId INT;
     DECLARE validAccount INT;
     DECLARE sessToken VARCHAR(40);
     DECLARE previousToken INT;
     DECLARE `_rollback` BOOL DEFAULT 0;
-    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION SET `_rollback` = 1;
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+		SET `_rollback` = 1;
+		ROLLBACK;
+        RESIGNAL;
+    END;
     
     SET userId = (SELECT IFNULL(usr_id, 0) FROM usuarios WHERE usr_correo = userName);
 	
@@ -44,9 +50,8 @@ DECLARE msgErr condition for sqlstate '10000';
                         , sessToken
                     );
                     IF `_rollback` THEN
-						signal msgErr
+						SIGNAL SQLSTATE '45000'
 							SET message_text = 'Algo ha ido mal, intentalo más tarde.';
-						ROLLBACK;
 					ELSE
 						COMMIT;
 					END IF;
@@ -60,9 +65,8 @@ DECLARE msgErr condition for sqlstate '10000';
                         , sessToken
                     );
                     IF `_rollback` THEN
-						signal msgErr
+						SIGNAL SQLSTATE '45000'
 							SET message_text = 'Algo ha ido mal, intentalo más tarde.';
-						ROLLBACK;
 					ELSE
 						COMMIT;
 					END IF;
@@ -76,17 +80,20 @@ DECLARE msgErr condition for sqlstate '10000';
 				FROM usuarios
                 WHERE usr_id = userId;
 			ELSE
-				signal msgErr
-					SET message_text = 'Usuario y/o contraseña incorrectos.';
+				/*select 'entra else';*/
+				SIGNAL SQLSTATE '45000'
+					SET message_text = 'Usuario y/o contraseña inválidos.';
 			END IF;
 		
         ELSE
-			signal msgErr
-				SET message_text = 'Tu cuenta aún no ha sido activada.';
+			SIGNAL SQLSTATE '45000'
+				SET message_text = 'Activa tu cuenta para iniciar sesión.';
 		END IF;
 	
     ELSE
-		signal msgErr
+		SIGNAL SQLSTATE '45000'
 			SET message_text = 'Usuario y/o contraseña incorrectos.';
 	END IF;
-END
+END$$
+
+DELIMITER ;

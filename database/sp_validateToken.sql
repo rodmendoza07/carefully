@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_validateToken`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_validateToken`(
+CREATE PROCEDURE `sp_validateToken`(
 	IN sessToken VARCHAR(40)
 )
 BEGIN
@@ -22,8 +22,6 @@ BEGIN
 			signal msgErr
 			SET message_text = 'Sesión inválida.';
         END IF;
-        
-        SELECT validDate;
     ELSE
 		signal msgErr
 			SET message_text = 'Inicia sesión.';

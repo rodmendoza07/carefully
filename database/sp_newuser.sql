@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_newUser`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_newUser`(
+CREATE PROCEDURE `sp_newUser`(
 	IN nombre varchar(40),
     IN ap varchar(100),
     IN correo varchar(50),
@@ -19,8 +19,12 @@ BEGIN
     DECLARE usr_job int;
     DECLARE msgErr condition for sqlstate '10000';
     DECLARE `_rollback` BOOL DEFAULT 0;
-    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION SET `_rollback` = 1;
-    
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+	BEGIN
+		SET `_rollback` = 1;
+        ROLLBACK;
+        RESIGNAL;
+    END;
     DECLARE CONTINUE HANDLER FOR 1062
     BEGIN
 		signal msgErr
@@ -38,7 +42,7 @@ BEGIN
 		SET usr_dept = 3;
         SET usr_job = 3;
     END IF;
-    
+        
     START TRANSACTION;
 	INSERT INTO usuarios (
 		usr_nombre,
@@ -71,11 +75,12 @@ BEGIN
         userHash
     );
     IF `_rollback` THEN
-		signal msgErr
-			SET message_text = 'Algo ha ido mal, intentalo más tarder';
-        ROLLBACK;
+		SIGNAL SQLSTATE '45000'
+			SET message_text = 'Algo ha ido mal, intentalo más tarde.';
 	ELSE
 		COMMIT;
         SELECT vs_hash FROM validateSess WHERE vs_usr_id = userId;
     END IF;
-END
+END$$
+
+DELIMITER ;
