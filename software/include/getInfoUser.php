@@ -8,6 +8,9 @@
         $userName = $json_obj['userName'];
         $passwd = $json_obj['passwd'];
 
+        // $userName = 'lr.mend';
+        // $passwd = '789456123';
+
         $newAccess = new getInfoUser();
         $newAccess->accessLogin($userName, $passwd);
 

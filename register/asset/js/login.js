@@ -31,36 +31,42 @@ $(document).ready(function(){
                     passwd: $("#passwd").val().trim()
                 };
                 
-                $("#showErr").append(
-                    '<div class="panel panel-danger">'
-                        + '<div class="panel-heading">'
-                            + '<span style="color: #fff;">'
-                                + '<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;&nbsp;'
-                                + response
-                            + '</span>'
-                        + '</div>'
-                    + '</div>'
-                );
-                // var ajaxF = $.ajax({
-                //     contentType: "application/json; charset=utf-8",
-                //     type: "POST",
-                //     url: "http://localhost:3000/login",
-                //     //url: "https://salty-harbor-47251.herokuapp.com/newUsers",
-                //     //data: dataPost,
-                //     dataType: 'JSON',
-                //     data: JSON.stringify(dataPost),
-                //     beforeSend: function() {
-                //         $('#loading').modal();
-                //     },
-                //     success: function (response) {
-                //         //$('#loading').modal('toggle');
-                //         console.log(response);
-                //     },
-                //     error: function (XMLHttpRequest, textStatus, errorThrown){
-                //         $('#loading').modal('toggle');
-                //         toastr.error("Error: " + errorThrown, "¡Atención!");
-                //     }
-                // });
+                var ajaxF = $.ajax({
+                    contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    url: "../software/include/getInfoUser.php",
+                    //url: "https://salty-harbor-47251.herokuapp.com/newUsers",
+                    //data: dataPost,
+                    dataType: 'JSON',
+                    data: JSON.stringify(dataPost),
+                    beforeSend: function() {
+                        $('#loading').modal();
+                    },
+                    success: function (response) {
+                        $("#showErr").empty();
+                        $('#loading').modal('toggle');
+                        if (response.errno) {
+                            $("#showErr").append(
+                                '<div class="panel panel-danger">'
+                                    + '<div class="panel-heading">'
+                                        + '<span style="color: #fff;">'
+                                            + '<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;&nbsp;'
+                                            + response.message
+                                        + '</span>'
+                                    + '</div>'
+                                + '</div>'
+                            );
+                            console.log('Login - ',response.message)
+                        } else {
+                            window.location = '../software/include/testSession.php';
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown){
+                        $("#showErr").empty();
+                        $('#loading').modal('toggle');
+                        toastr.error("Error: " + errorThrown, "¡Atención!");
+                    }
+                });
             }
         });
         $("#activateSes").click(function(){
