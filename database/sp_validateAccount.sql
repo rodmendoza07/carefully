@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_validateAccount`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_validateAccount`(
+CREATE PROCEDURE `sp_validateAccount`(
 	IN codeAccount varchar(50)
 )
 BEGIN
