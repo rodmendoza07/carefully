@@ -1,6 +1,6 @@
 <?php
     error_reporting(E_ERROR | E_PARSE);
-    include 'class/register.php';
+    include 'class/class.register.php';
 
     try {
         $json_str = file_get_contents('php://input');
@@ -10,10 +10,10 @@
         
         switch ($opt) {
             case '1':
-                $name = $json_obj['names'];
-                $lastname = $json_obj['lastnames'];
-                $email = $json_obj['userEmail'];
-                $pwd = $json_obj['pwd'];
+                $name = strip_tags($json_obj['names']);
+                $lastname = strip_tags($json_obj['lastnames']);
+                $email = strip_tags($json_obj['userEmail']);
+                $pwd = strip_tags($json_obj['pwd']);
                 $newUser->addUser($name, $lastname, $email, $pwd, $opt);
                 break;
             default:
