@@ -35,8 +35,6 @@ $(document).ready(function(){
                     contentType: "application/json; charset=utf-8",
                     type: "POST",
                     url: "../software/include/getInfoUser.php",
-                    //url: "https://salty-harbor-47251.herokuapp.com/newUsers",
-                    //data: dataPost,
                     dataType: 'JSON',
                     data: JSON.stringify(dataPost),
                     beforeSend: function() {
@@ -58,7 +56,7 @@ $(document).ready(function(){
                             );
                             console.log('Login - ',response.message)
                         } else {
-                            window.location = '../software/include/testSession.php';
+                            window.location = '../software/';
                         }
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown){
