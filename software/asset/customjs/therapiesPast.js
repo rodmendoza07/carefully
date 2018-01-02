@@ -12,7 +12,7 @@ function therapiesPast () {
 	
 				$("#info").load("views/client/therapiesPastA.html", function() {});
 	
-				$("#content").load("views/client/therapiesPast.html", function(){
+				$("#content1").load("views/client/therapiesPast.html", function(){
 				
 					$('#pastTable').DataTable({
 						"language": objLanguage.espanol,

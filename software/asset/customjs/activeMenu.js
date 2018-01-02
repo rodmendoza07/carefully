@@ -23,7 +23,7 @@ function activeMenu () {
 			$("." + deactive).removeAttr("style");
 			
 			$("#info").empty();
-			$("#content").empty();
+			$("#content1").empty();
 		} catch(x) {
 			console.log("activeMenu: EmptyInfoMenu -", x.toString());
 		}

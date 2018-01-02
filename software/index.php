@@ -5,6 +5,10 @@
     
         if (!isset($_SESSION['9987435b7dbef543b786efd81d1b3dc9']) && empty($_SESSION['9987435b7dbef543b786efd81d1b3dc9'])) {    
             header('location: ../register/login.html');
+        } else {
+          $validS = new getInfoUser();    
+          $validatesta = $validS->validateSess(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']));
+          echo $validatesta;
         }
     } catch (Exception $e) {
         $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
@@ -148,7 +152,9 @@
           <!-- end: Left Menu -->
 
           <!-- start: content -->
-            <div id="content"></div>
+            <div id="content">
+              <div class="col-md-12 padding-0" id="content1"></div>
+            </div>
           <!-- end: content -->
           
       </div>

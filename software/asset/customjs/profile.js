@@ -9,7 +9,7 @@ function myProfile(){
 				objActiveMenu.emptyInfoMenu();
 				objActiveMenu.activate("myprof","");
 				
-				$("#content").load("views/client/myprofile.html", function(){
+				$("#content1").load("views/client/myprofile.html", function(){
 					console.log($("body").height());
 					var altura = $("body").height()
 					console.log(altura);
