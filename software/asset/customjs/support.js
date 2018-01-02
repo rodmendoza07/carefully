@@ -12,7 +12,7 @@ function clientSupport(){
 	
 				$("#info").load("views/client/ticketCreatedCA.html", function() {});
 	
-				$("#content").load("views/client/ticketCreatedC.html", function() {
+				$("#content1").load("views/client/ticketCreatedC.html", function() {
 					$('#supportTable').DataTable({
 						"language": objLanguage.espanol,
 						"scrollX": true

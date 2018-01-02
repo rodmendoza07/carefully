@@ -50,3 +50,36 @@ h1.tittle{
     margin-top: 5px;
     margin-right: 5px;
 }
+
+.custom-bg {
+	background-image: url(../img/home.jpg);
+	background-size: 100% 100%;
+    /*background-repeat: no-repeat;*/
+}
+
+/* html,body{
+	color:white;
+	font-family:'Opens Sans',helvetica;  
+	height:100%;
+	width:100%;
+	margin: 0px;
+  } */
+
+.eldiv {
+	color:#fff;
+	font-family:'Raleways',sans-serif; 
+	height:100%;
+	width:100%;
+	margin: 0px;
+}
+
+.portada{
+	background: url(../img/homebg.jpg) no-repeat fixed center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;
+	width: 100% ;
+	text-align: center;
+}

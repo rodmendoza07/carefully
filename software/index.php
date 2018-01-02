@@ -152,7 +152,9 @@
           <!-- end: Left Menu -->
 
           <!-- start: content -->
-            <div id="content"></div>
+            <div id="content">
+              <div class="col-md-12 padding-0" id="content1"></div>
+            </div>
           <!-- end: content -->
           
       </div>

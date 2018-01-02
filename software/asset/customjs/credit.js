@@ -10,7 +10,7 @@ function credit() {
 				objActiveMenu.emptyInfoMenu();
 				objActiveMenu.activate("mycredit","");
 	
-				$("#content").load("views/client/credit.html", function(){
+				$("#content1").load("views/client/credit.html", function(){
                     $('#creditTable').DataTable({
 						"language": objLanguage.espanol,
 						"scrollX": true
