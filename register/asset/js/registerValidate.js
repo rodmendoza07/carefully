@@ -64,7 +64,7 @@ $(document).ready(function() {
                         $("#panelbody").empty();
                         $("#panelbody").append(that.invalidR);
                         if (response.message == 'Tu cuenta ya ha sido activada') {
-                            toastr.error(response.message, "¡Upps!", 5000);
+                            toastr.error(response.message, "¡Upps!", 5000 );
                             $("#activateAccount").click(function() {
                                 window.location = 'login.html';
                             });
