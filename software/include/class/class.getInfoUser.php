@@ -44,6 +44,9 @@
                 if ($call->errno > 0) {
                     $errno = $call->errno;
                     $msg = $call->error;
+                    session_start();
+                    session_unset();
+                    session_destroy();
                     $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
                     echo json_encode($resp);
                 } else {
