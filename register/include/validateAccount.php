@@ -1,6 +1,6 @@
 <?php
     error_reporting(E_ERROR | E_PARSE);
-    include 'class/register.php';
+    include 'class/class.register.php';
 
     try {
         $codeAccount = $_GET['code'];
