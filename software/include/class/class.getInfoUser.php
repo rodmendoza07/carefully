@@ -50,8 +50,9 @@
                     $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
                     echo json_encode($resp);
                 } else {
+                    return true;
                     $resp = array('status' => 200, 'message' => $message, 'data' => $token);
-                    echo json_encode($resp);
+                    //echo json_encode($resp);
                 }
             } catch (Exception $e) {
                 $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
