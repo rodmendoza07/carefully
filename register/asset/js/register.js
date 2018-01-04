@@ -81,8 +81,6 @@ $(document).ready(function(){
                     contentType: "application/json; charset=utf-8",
                     type: "POST",
                     url: "include/register.php",
-                    //url: "https://salty-harbor-47251.herokuapp.com/newUsers",
-                    //data: dataPost,
                     dataType: 'JSON',
                     data: JSON.stringify(dataPost),
                     beforeSend: function() {
