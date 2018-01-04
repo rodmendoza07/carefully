@@ -8,7 +8,11 @@
         } else {
           $validS = new getInfoUser();    
           $validatesta = $validS->validateSess(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']));
-          echo $validatesta;
+          if ($validatesta != true) {
+            header('Location: ../register/login.html');
+          } else {
+            echo $validatesta;
+          }
         }
     } catch (Exception $e) {
         $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
@@ -164,12 +168,12 @@
         <div class="mimin-mobile-menu-list">
             <div class="col-md-12 sub-mimin-mobile-menu-list animated fadeInLeft">
                 <ul class="nav nav-list">
-                    <li class="ripple">
+                    <li class="ripple" style="height: auto;">
                       <a class="tree-toggle nav-header">
                         Agenda                       
                       </a>
                     </li>
-                    <li class="ripple sessions" data-option="sessions">
+                    <li class="ripple sessions" data-option="sessions" style="height: auto;">
                       <a class="tree-toggle nav-header">
                         Mi terapia
                         <span class="fa-angle-right fa right-arrow text-right"></span>
@@ -179,27 +183,27 @@
                         <li><a class="tnext">Próximas</a></li>
                       </ul>
                     </li>
-                    <li class="ripple therapiest" data-option="therapiest">
+                    <li class="ripple therapiest" data-option="therapiest" style="height: auto;">
                       <a class="tree-toggle nav-header">
                         Mi terapeuta
                       </a>
                     </li>
-                    <li class="ripple myprof" data-option="myprof">
+                    <li class="ripple myprof" data-option="myprof" style="height: auto;">
                       <a class="tree-toggle nav-header">
                         Mi perfíl
                       </a>
                     </li>
-                    <li class="ripple mycredit" data-option="mycredit">
+                    <li class="ripple mycredit" data-option="mycredit" style="height: auto;">
                       <a class="tree-toggle nav-header">
                         Crédito
                       </a>
                     </li>
-                    <li class="ripple supportC" data-option="supportC">
+                    <li class="ripple supportC" data-option="supportC" style="height: auto;">
                       <a class="tree-toggle nav-header">
                         Soporte
                       </a>
                     </li>
-                    <li class="ripple">
+                    <li class="ripple" style="height: auto;">
                       <a class="tree-toggle nav-header">
                         FAQ's
                       </a>
@@ -208,7 +212,7 @@
             </div>
         </div>       
       </div>
-      <button id="mimin-mobile-menu-opener" class="animated rubberBand btn btn-circle btn-danger">
+      <button id="mimin-mobile-menu-opener" class="animated rubberBand btn btn-circle movilBoton">
         <span class="fa fa-bars"></span>
       </button>
        <!-- end: Mobile -->
