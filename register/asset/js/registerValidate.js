@@ -82,7 +82,6 @@ $(document).ready(function() {
                         $("#activateAccount").click(function() {
                             window.location = 'login.html';
                         });
-                        console.log(response);
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown){
