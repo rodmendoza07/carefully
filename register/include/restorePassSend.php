@@ -3,12 +3,12 @@
     include 'class/class.register.php';
 
     try {
+        // $userEmail = $_GET['userEmail'];
         $json_str = file_get_contents('php://input');
         $json_obj = json_decode($json_str, true);
         $userEmail = $json_obj['userEmail'];
 
         $rPs = new Register();
-
         $rPs->restorePassSend($userEmail);
 
     } catch(Exception $e) {
