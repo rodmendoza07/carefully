@@ -38,7 +38,7 @@ $(document).ready(function() {
                var ajaxF = $.ajax({
                 contentType: "application/json; charset=utf-8",
                 type: "GET",
-                url: "include/validateAccount.php",
+                url: "include/restorePassSend.php",
                 dataType: 'JSON',
                 data: dataPost,
                 beforeSend: function() {
@@ -50,31 +50,32 @@ $(document).ready(function() {
                         toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
                         console.log('RestorePass - ',response.message)
                     } else {
-                        var dataMail = {
-                            email: userEmail,
-                            hash: response.data
-                        };
-                        var ajaxM = $.ajax({
-                            contentType: "application/json; charset=utf-8",
-                            type: "POST",
-                            url: "include/mail.php",
-                            dataType: 'JSON',
-                            data: JSON.stringify(dataMail),
-                            beforeSend: function() {
-                                $('#loading').modal();
-                            },
-                            success: function (res) {
-                                $("#activateSes").click(function() {
-                                    window.location = 'login.html';
-                                });
-                            },
-                            error: function (XMLHttpRequest, textStatus, errorThrown){
-                                $('#loading').modal('toggle');
-                                toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
-                                console.log('RestorePass - ', errorThrown);
-                                console.log('RestorePass - ', XMLHttpRequest);
-                            }
-                        });
+                        console.log(response.data);
+                        // var dataMail = {
+                        //     email: userEmail,
+                        //     hash: response.data
+                        // };
+                        // var ajaxM = $.ajax({
+                        //     contentType: "application/json; charset=utf-8",
+                        //     type: "POST",
+                        //     url: "include/mail.php",
+                        //     dataType: 'JSON',
+                        //     data: JSON.stringify(dataMail),
+                        //     beforeSend: function() {
+                        //         $('#loading').modal();
+                        //     },
+                        //     success: function (res) {
+                        //         $("#activateSes").click(function() {
+                        //             window.location = 'login.html';
+                        //         });
+                        //     },
+                        //     error: function (XMLHttpRequest, textStatus, errorThrown){
+                        //         $('#loading').modal('toggle');
+                        //         toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+                        //         console.log('RestorePass - ', errorThrown);
+                        //         console.log('RestorePass - ', XMLHttpRequest);
+                        //     }
+                        // });
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown){

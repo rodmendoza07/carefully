@@ -50,6 +50,35 @@
                     }
                 }
                 
+            } catch (Exception $e) {
+                $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
+                echo json_encode($catch);
+            }
+        }
+        
+        public function restorePassSend($email) {
+            try {
+                include 'class/connection.php';
+
+                $call = $conecta->prepare('CALL sp_getNewPwd(?,?,?,?)');
+                $opt = -1;
+                $pwdNew = "";
+                $valHash_ = "";
+                $call->bind_param('isss', $opt, $email, $pwdNew, $valHash_);
+                $call->execute();
+
+                if ($call->errno > 0) {
+                    $errno = $call->errno;
+                    $msg = $call->error;
+                    $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
+                    echo json_encode($resp);
+                } else {
+                    $call->bind_result($hashVal_);
+                    while ($call->fetch()) {
+                        $resp = array('status' => 200, 'data' => $hashVal_);
+                        echo json_encode($resp);
+                    }
+                }
 
             } catch (Exception $e) {
                 $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
