@@ -73,9 +73,9 @@
                     $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
                     echo json_encode($resp);
                 } else {
-                    $call->bind_result($hashVal_);
+                    $call->bind_result($hashVal);
                     while ($call->fetch()) {
-                        $resp = array('status' => 200, 'data' => $hashVal_);
+                        $resp = array('status' => 200, 'data' => $hashVal);
                         echo json_encode($resp);
                     }
                 }

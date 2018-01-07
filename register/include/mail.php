@@ -11,7 +11,7 @@
     $message = "
     <div style='margin-left:10px;padding:20px;width:600px;height:200px; border-radius: 25px;border: 2px solid #73AD21;'>
       <h1 style='color:#00C4B3;font-family: Arial, Helvetica, sans-serif;text-align:center;line-height:1.5em;'>Gracias por elegirnos</h1>
-      <h1 style='font-family:Arial, Helvetica, sans-serif; text-align: center'>- Es hora de activar tu cuenta -</h1>
+      <h1 style='font-family:Arial, Helvetica, sans-serif; text-align: center'><span style='color:#ff0066'>¡</span>Es hora de activar tu cuenta<span style='color:#ff0066'>!</span></h1>
       <hr>
       <table width='100%' style='text-align:center; padding-top:25px; padding-bottom:25px;'>
           <tr style='padding-top: 15px;'><td>

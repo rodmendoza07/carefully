@@ -43,6 +43,7 @@ BEGIN
 					SET message_text = 'Algo ha ido mal, intentalo más tarde.';
 			ELSE
 				COMMIT;
+                SELECT pwdHash;
 			END IF;
 			
 		ELSE
