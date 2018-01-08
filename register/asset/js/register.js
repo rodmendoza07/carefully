@@ -21,8 +21,7 @@ $(document).ready(function(){
                 },
                 pwd: {
                     required: true,
-                    minlength: 6,
-                    maxlength: 10
+                    minlength: 6
                 },
                 cpwd: {
                     required: true,
