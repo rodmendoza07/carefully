@@ -37,20 +37,20 @@
                   background-image: none;
                   border: 1px solid transparent;
                   border-radius: 4px;-webkit-appearance: button;
-                  cursor: pointer;'>Clic aqu&iacute; para activar tu cuenta</button></div>
+                  cursor: pointer;'>Clic aqu&iacute; para cambiar tu contrase&ntilde;a</button></div>
                 </a>
               </div>
           </td>
           </tr>
           <tr>
             <td style='font-family: Arial, Helvetica, sans-serif; padding-top: 15px;'>
-              Pega la siguiente direcci&oacute;n en tu navegador para activar tu cuenta:
+              <span style='color: #ff0066'>&Oacute;</span>&nbsp;Pega la siguiente direcci&oacute;n en tu navegador para activar tu cuenta:
             </td>
           </tr>
           <tr>
             <td style='font-family: Arial, Helvetica, sans-serif;'>
-              <a style='text-decoration:none;' href='http://cuidadosamente.com/desarrollo/register/registerValidation.html?code=".$hash."'>
-                http://cuidadosamente.com/desarrollo/register/registerValidation.html?code=".$hash."
+              <a style='text-decoration:none;' href='http://cuidadosamente.com/desarrollo/register/restoreNewPass.html?code=".$hash."'>
+                http://cuidadosamente.com/desarrollo/register/restoreNewPass.html?code=".$hash."
               </a>
             </td>
           </tr>

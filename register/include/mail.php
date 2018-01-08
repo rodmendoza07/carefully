@@ -45,7 +45,7 @@
           </tr>
           <tr>
             <td style='font-family: Arial, Helvetica, sans-serif; padding-top: 15px;'>
-              Pega la siguiente direcci&oacute;n en tu navegador para activar tu cuenta:
+              <span style='color: #ff0066'>&Oacute;</span>&nbsp;Pega la siguiente direcci&oacute;n en tu navegador para activar tu cuenta:
             </td>
           </tr>
           <tr>
