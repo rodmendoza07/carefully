@@ -87,7 +87,8 @@ $(document).ready(function(){
                     },
                     success: function (response) {
                         if (response.errno) {
-                            toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
+                            $('#loading').modal('toggle');
+                            toastr.error(response.message, "¡Upps!", 5000);
                             console.log('Register - ',response.message)
                         } else {
                             var dataMail = {
