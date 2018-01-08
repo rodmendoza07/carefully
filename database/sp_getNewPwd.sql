@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_getNewPwd`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE PROCEDURE `sp_getNewPwd`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getNewPwd`(
     IN opt INT,
 	IN userMail VARCHAR(50),
     IN pwdNew VARCHAR(15),
@@ -13,6 +13,7 @@ BEGIN
 	DECLARE eCounter INT;
     DECLARE userId INT;
     DECLARE pwdHash VARCHAR(35);
+    DECLARE userEmail VARCHAR(50);
     DECLARE `_rollback` BOOL DEFAULT 0;
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
@@ -43,6 +44,7 @@ BEGIN
 					SET message_text = 'Algo ha ido mal, intentalo más tarde.';
 			ELSE
 				COMMIT;
+                SELECT pwdHash;
 			END IF;
 			
 		ELSE
@@ -53,23 +55,32 @@ BEGIN
 	ELSEIF opt = -2 THEN
 		
         SET userId = (SELECT np_usr_id FROM newPwd WHERE np_hash = valHash_);
-		
-        START TRANSACTION;
-		
-        UPDATE usuarios SET
-			usr_password = md5(CONCAT((SELECT usr_correo FROM usuarios WHERE usr_id = userId), pwdNew, (SELECT cfg_valor FROM configuraciones WHERE cfg_id = 1)))
-		WHERE usr_id = userId;
+        SET userEmail = (SELECT usr_correo FROM usuarios WHERE usr_id = userId);
         
-        UPDATE newPwd SET
-			np_status = 1
-		WHERE np_hash = valHash_;
-        
-        IF `_rollback` THEN
+        IF userId <> 0 THEN
+            
+            START TRANSACTION;
+			UPDATE usuarios SET
+				usr_password = md5(CONCAT(userEmail, pwdNew, (SELECT cfg_valor FROM configuraciones WHERE cfg_id = 1)))
+                , usr_fecha_actualizacion = NOW()
+			WHERE usr_id = userId;
+			
+			UPDATE newPwd SET
+				np_status = 1
+			WHERE np_hash = valHash_;
+			
+			IF `_rollback` THEN
+				SIGNAL SQLSTATE '45000'
+					SET message_text = 'Algo ha ido mal, intentalo más tarde.';
+			ELSE
+				COMMIT;
+                SELECT 'OK' AS message;
+			END IF;
+            
+        ELSE
 			SIGNAL SQLSTATE '45000'
 				SET message_text = 'Algo ha ido mal, intentalo más tarde.';
-		ELSE
-			COMMIT;
-		END IF;
+        END IF;
 	END IF;
 END$$
 
