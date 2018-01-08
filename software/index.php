@@ -85,7 +85,7 @@
               <h3 class="animated fadeInLeft"></h3>
               <p class="animated fadeInRight">CDMX (GMT-6)</p>
             </li>
-            <li class="ripple">
+            <li class="ripple agenda" data-option="agenda">
               <a class="tree-toggle nav-header">
                 Agenda 
                 <span class="fa-angle-right fa right-arrow text-right"></span>
@@ -150,7 +150,7 @@
       <div class="mimin-mobile-menu-list">
           <div class="col-md-12 sub-mimin-mobile-menu-list animated fadeInLeft">
               <ul class="nav nav-list">
-                  <li class="ripple" style="height: auto;">
+                  <li class="ripple agenda" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       Agenda                       
                     </a>
@@ -242,7 +242,7 @@
     <script src="asset/customjs/credit.js"></script>
     <script src="asset/customjs/support.js"></script>
     <script src="asset/customjs/therapiesPast.js"></script>
-    <script src="asset/customjs/2945ed38d275bf8c99e15df1edfcea82.js"></script>
+    <script src="asset/customjs/agenda.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>
