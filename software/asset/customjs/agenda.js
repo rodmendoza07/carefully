@@ -39,44 +39,19 @@ function agenda() {
                                 + "</span> a <span style='font-weight:bold;'>" + endD.format("hh:mm:ss a") + "</span>?";
                             $("#agendadate").modal();
                             $("#datetitle").text("Nueva sesión");
-                            $("#dayD").text(dayD.format('DD/MM/YYYY'));
-                            $("#startD").text(startD.format('hh:mm:ss a'));
-                            $("#endD").text(endD.format('hh:mm:ss a'));
                             $("#dateText").empty();
                             $("#dateText").append(textD);
-                            $("#optionD").text();
-                            var allDay = !start.hasTime && !end.hasTime;
-                            alert(["Event Start date: " + moment(start).format(),
-                                   "Event End date: " + moment(end).add(20,'minutes').format(),
-                                   "AllDay: " + allDay].join("\n"));
+                            $("#cancelDc").click(function(){
+                                $("#agendadate").modal('toggle');
+                            });
                         },
                         eventClick: function(calEvent, jsEvent, view) {
 
-                            alert('Event: ' + calEvent.title);
-                            alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-                            alert('View: ' + view.name);
+                            // alert('Event: ' + calEvent.title);
+                            // alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+                            // alert('View: ' + view.name);
                         },
                         events: [
-                            {
-                                title: 'Business Lunch',
-                                start: '2018-01-03T13:00:00',
-                                //constraint: 'businessHours'
-                            },
-                            {
-                                title: 'Meeting',
-                                start: '2018-01-13T11:00:00',
-                                //constraint: 'availableForMeeting', // defined below
-                                //color: '#20C572'
-                            },
-                            {
-                                title: 'Conference',
-                                start: '2018-01-18',
-                                end: '2015-01-20'
-                            },
-                            {
-                                title: 'Party',
-                                start: '2018-01-20T20:00:00'
-                            }
                         ]
                     });
 				});
