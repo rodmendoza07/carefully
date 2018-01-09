@@ -11,6 +11,8 @@ function AppBegin() {
 			var objCredit = new credit();
 			var objTherapiesPast = new therapiesPast();
 			var objClientSupport = new clientSupport();
+			var objAgenda = new agenda();
+			objAgenda.LoadAgenda();
 			objHome.LoadView();
 			objTherapiest.loadProfile();
 			objprofile.loadProfile();
