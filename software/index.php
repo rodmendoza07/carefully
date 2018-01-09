@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css"/>
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/fullcalendar.min.css"/>
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/datatables.bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="asset/css/plugins/icheck/skins/flat/green.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="asset/css/style.css" rel="stylesheet">
     <!-- end: Css -->
@@ -85,7 +86,7 @@
               <h3 class="animated fadeInLeft"></h3>
               <p class="animated fadeInRight">CDMX (GMT-6)</p>
             </li>
-            <li class="ripple agenda" data-option="agenda">
+            <li class="ripple agenda" data-option="agenda" id="frontAgenda">
               <a class="tree-toggle nav-header">
                 Agenda 
                 <span class="fa-angle-right fa right-arrow text-right"></span>
@@ -230,6 +231,7 @@
     <script src="asset/js/plugins/jquery.datatables.min.js"></script>
     <script src="asset/js/plugins/datatables.bootstrap.min.js"></script>
     <script src="asset/js/toastr.min.js"></script>
+    <script src="asset/js/plugins/icheck.min.js"></script>
     <!-- custom -->
     <script src="asset/js/main.js"></script>
     <script src="asset/customjs/2945ed38d275bf8c99e15df1edfcea82.js"></script>

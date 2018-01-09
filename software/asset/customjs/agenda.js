@@ -12,6 +12,7 @@ function agenda() {
 				//$("#info").load("views/client/ticketCreatedCA.html", function() {});
 	
 				$("#content1").load("views/client/agenda.html", function() {
+                    $("#frontAgenda").datepicker();
 					$('#agenda').fullCalendar({
                         header: {
                             left: 'prev,next today',
@@ -21,58 +22,60 @@ function agenda() {
                         defaultDate: moment.tz('America/Mexico_City'),
                         defaultView: 'agendaWeek',
                         scrollTime :  "8:00:00",
-                        //businessHours: true, // display business hours
-                        editable: true,
+                        businessHours: {
+                            dow: [1,2,3,4,5],
+                            start: '7:59',
+                            end: '20:00'
+                        },
+                        selectable: true,
+                        select: function(start, end, jsEvent, view) {
+                            var dayD = moment(start);
+                            var startD = moment(start);
+                            var endD = moment(end).add(20,'minutes');
+                            var doctorD = "Sara Beneyto";
+                            var textD = "¿Estás seguro que quieres agendar una cita con <span style='font-weight:bold;'>"
+                                + doctorD + "</span> el día <span style='font-weight:bold;'>" + dayD.format("DD/MM/YYYY") 
+                                + "</span> de <span style='font-weight:bold;'>" + startD.format("hh:mm:ss a") 
+                                + "</span> a <span style='font-weight:bold;'>" + endD.format("hh:mm:ss a") + "</span>?";
+                            $("#agendadate").modal();
+                            $("#datetitle").text("Nueva sesión");
+                            $("#dayD").text(dayD.format('DD/MM/YYYY'));
+                            $("#startD").text(startD.format('hh:mm:ss a'));
+                            $("#endD").text(endD.format('hh:mm:ss a'));
+                            $("#dateText").empty();
+                            $("#dateText").append(textD);
+                            $("#optionD").text();
+                            var allDay = !start.hasTime && !end.hasTime;
+                            alert(["Event Start date: " + moment(start).format(),
+                                   "Event End date: " + moment(end).add(20,'minutes').format(),
+                                   "AllDay: " + allDay].join("\n"));
+                        },
+                        eventClick: function(calEvent, jsEvent, view) {
+
+                            alert('Event: ' + calEvent.title);
+                            alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+                            alert('View: ' + view.name);
+                        },
                         events: [
                             {
                                 title: 'Business Lunch',
-                                start: '2015-02-03T13:00:00',
-                                constraint: 'businessHours'
+                                start: '2018-01-03T13:00:00',
+                                //constraint: 'businessHours'
                             },
                             {
                                 title: 'Meeting',
-                                start: '2015-02-13T11:00:00',
-                                constraint: 'availableForMeeting', // defined below
-                                color: '#20C572'
+                                start: '2018-01-13T11:00:00',
+                                //constraint: 'availableForMeeting', // defined below
+                                //color: '#20C572'
                             },
                             {
                                 title: 'Conference',
-                                start: '2015-02-18',
-                                end: '2015-02-20'
+                                start: '2018-01-18',
+                                end: '2015-01-20'
                             },
                             {
                                 title: 'Party',
-                                start: '2015-02-29T20:00:00'
-                            },
-            
-                            // areas where "Meeting" must be dropped
-                            {
-                                id: 'availableForMeeting',
-                                start: '2015-02-11T10:00:00',
-                                end: '2015-02-11T16:00:00',
-                                rendering: 'background'
-                            },
-                            {
-                                id: 'availableForMeeting',
-                                start: '2015-02-13T10:00:00',
-                                end: '2015-02-13T16:00:00',
-                                rendering: 'background'
-                            },
-            
-                            // red areas where no events can be dropped
-                            {
-                                start: '2015-02-24',
-                                end: '2015-02-28',
-                                overlap: false,
-                                rendering: 'background',
-                                color: '#FF6656'
-                            },
-                            {
-                                start: '2015-02-06',
-                                end: '2015-02-08',
-                                overlap: true,
-                                rendering: 'background',
-                                color: '#FF6656'
+                                start: '2018-01-20T20:00:00'
                             }
                         ]
                     });
