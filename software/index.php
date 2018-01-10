@@ -151,42 +151,42 @@
       <div class="mimin-mobile-menu-list">
           <div class="col-md-12 sub-mimin-mobile-menu-list animated fadeInLeft">
               <ul class="nav nav-list">
-                  <li class="ripple agenda" style="height: auto;">
+                  <li class="ripple agenda heightAuto">
                     <a class="tree-toggle nav-header">
                       Agenda                       
                     </a>
                   </li>
-                  <li class="ripple sessions" data-option="sessions" style="height: auto;">
+                  <li class="ripple sessions heightAuto" data-option="sessions">
                     <a class="tree-toggle nav-header">
                       Mi terapia
                       <span class="fa-angle-right fa right-arrow text-right"></span>
                     </a>
                     <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
-                      <li><a class="tpast">Pasadas</a></li>
-                      <li><a class="tnext">Próximas</a></li>
+                      <li><a class="tpast heightAuto">Pasadas</a></li>
+                      <li><a class="tnext heightAuto">Próximas</a></li>
                     </ul>
                   </li>
-                  <li class="ripple therapiest" data-option="therapiest" style="height: auto;">
+                  <li class="ripple therapiest heightAuto" data-option="therapiest" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       Mi terapeuta
                     </a>
                   </li>
-                  <li class="ripple myprof" data-option="myprof" style="height: auto;">
+                  <li class="ripple myprof heightAuto" data-option="myprof" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       Mi perfíl
                     </a>
                   </li>
-                  <li class="ripple mycredit" data-option="mycredit" style="height: auto;">
+                  <li class="ripple mycredit heightAuto" data-option="mycredit" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       Crédito
                     </a>
                   </li>
-                  <li class="ripple supportC" data-option="supportC" style="height: auto;">
+                  <li class="ripple supportC heightAuto" data-option="supportC" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       Soporte
                     </a>
                   </li>
-                  <li class="ripple" style="height: auto;">
+                  <li class="ripple heightAuto" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       FAQ's
                     </a>

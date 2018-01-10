@@ -85,7 +85,11 @@ h1.tittle{
 }
 
 .movilBoton {
-	background-color: #8CC63D;
+	background-color: #8CC63F;
     color: #fff !important;
     border-color: #8CC63F;
+}
+
+.heightAuto {
+	height: auto;
 }
