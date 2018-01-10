@@ -335,6 +335,8 @@ CREATE TABLE IF NOT EXISTS `citas` (
   `cita_estatus` TINYINT NOT NULL DEFAULT 1,
   `cita_fecha_alta` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `cita_usr_id_alta` INT NOT NULL DEFAULT 0,
+  `cita_usr_id_update` INT NOT NULL DEFAULT 0,
+  `cita_fecha_update` DATETIME NULL,
   `cita_fecha_cancelacion` DATETIME NULL,
   `cita_usr_id_cancelacion` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`cita_id`))
