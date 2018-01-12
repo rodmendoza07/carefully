@@ -329,16 +329,19 @@ DROP TABLE IF EXISTS `citas` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `citas` (
   `cita_id` INT NOT NULL AUTO_INCREMENT,
-  `cita_fecha` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `cita_fecha_start` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `cita_fecha_end` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `cita_paciente_id` INT NOT NULL DEFAULT 0,
   `cita_doctor_id` INT NOT NULL DEFAULT 0,
   `cita_estatus` TINYINT NOT NULL DEFAULT 1,
   `cita_fecha_alta` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `cita_usr_id_alta` INT NOT NULL DEFAULT 0,
+  `cita_doctor_id_alta` INT NOT NULL DEFAULT 0,
   `cita_usr_id_update` INT NOT NULL DEFAULT 0,
   `cita_fecha_update` DATETIME NULL,
   `cita_fecha_cancelacion` DATETIME NULL,
   `cita_usr_id_cancelacion` INT NOT NULL DEFAULT 0,
+  `cita_title` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`cita_id`))
 ENGINE = InnoDB;
 
@@ -489,6 +492,38 @@ CREATE TABLE IF NOT EXISTS `newPwd` (
   `np_status` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`np_id`))
 ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+DROP TABLE IF EXISTS `staff` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `staff` (
+  `st_id` INT NOT NULL AUTO_INCREMENT,
+  `st_nombre` VARCHAR(45) NOT NULL DEFAULT '',
+  `st_paterno` VARCHAR(45) NOT NULL DEFAULT '',
+  `st_materno` VARCHAR(45) NOT NULL DEFAULT '',
+  `st_departamento_id` INT NOT NULL DEFAULT 0,
+  `st_puesto_id` INT NOT NULL DEFAULT 0,
+  `st_nivelUsr_id` INT NOT NULL DEFAULT 0,
+  `st_login` VARCHAR(45) NOT NULL DEFAULT '',
+  `st_password` VARCHAR(45) NOT NULL DEFAULT '',
+  `st_nacionalidad_id` INT NULL,
+  `st_correo` VARCHAR(100) NOT NULL UNIQUE DEFAULT '',
+  `st_casa` VARCHAR(15) NOT NULL DEFAULT '55-0000-0000',
+  `st_movil` VARCHAR(15) NOT NULL DEFAULT '55-0000-0000',
+  `st_estatus` TINYINT NOT NULL DEFAULT 1,
+  `st_fecha_alta` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `st_usr_id_alta` INT NOT NULL DEFAULT 0,
+  `st_fecha_actualizacion` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `st_usr_id_actualizacion` INT NOT NULL DEFAULT 0,
+  `st_fecha_cancelacion` DATETIME NULL,
+  `st_usr_id_cancelacion` INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`st_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE UNIQUE INDEX `st_id_UNIQUE` ON `staff` (`st_id` ASC);
 
 SHOW WARNINGS;
 
