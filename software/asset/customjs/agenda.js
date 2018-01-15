@@ -24,11 +24,12 @@ function agenda() {
                         scrollTime :  "8:00:00",
                         businessHours: {
                             dow: [1,2,3,4,5],
-                            start: '7:59',
+                            start: '8:00',
                             end: '20:00'
                         },
                         selectable: true,
                         select: function(start, end, jsEvent, view) {
+                            console.log(moment(start).minutes());
                             var dayD = moment(start);
                             var startD = moment(start);
                             var endD = moment(end).add(20,'minutes');
@@ -41,9 +42,9 @@ function agenda() {
                             $("#datetitle").text("Nueva sesión");
                             $("#dateText").empty();
                             $("#dateText").append(textD);
-                            $("#cancelDc").click(function(){
-                                $("#agendadate").modal('toggle');
-                            });
+                            // $("#cancelDc").click(function(){
+                            //     $("#agendadate").modal('toggle');
+                            // });
                         },
                         eventClick: function(calEvent, jsEvent, view) {
 
