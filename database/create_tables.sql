@@ -527,18 +527,19 @@ CREATE UNIQUE INDEX `st_id_UNIQUE` ON `staff` (`st_id` ASC);
 
 SHOW WARNINGS;
 
-DROP TABLE IF EXISTS `staff` ;
+DROP TABLE IF EXISTS `available_hours` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `available_hours` (
   `hh_id` INT NOT NULL AUTO_INCREMENT,
-  `hh_start` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `hh_end` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `hh_start` TIME,
+  `hh_end` TIME,
+  `hh_status` INT NOT NULL DEFAULT 1
   PRIMARY KEY (`hh_id`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
-CREATE UNIQUE INDEX `st_id_UNIQUE` ON `staff` (`st_id` ASC);
+CREATE UNIQUE INDEX `hh_id_UNIQUE` ON `available_hours` (`hh_id` ASC);
 
 SHOW WARNINGS;
 

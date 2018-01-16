@@ -3,10 +3,11 @@ DROP procedure IF EXISTS `sp_setNewDate`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE PROCEDURE `sp_setNewDate`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_setNewDate`(
 	IN token_hash VARCHAR(35),
     IN dateStart DATETIME,
-    IN dateEnd DATETIME
+    IN dateEnd DATETIME,
+    IN dateType INT
 )
 BEGIN
 	DECLARE userId INT;
@@ -29,7 +30,12 @@ BEGIN
         SET compareEnd = (SELECT COUNT(*) FROM citas WHERE cita_doctor_id = doctorId AND (cita_fecha_end BETWEEN dateStart AND dateEnd));
         
         IF compareStart = 0 && compareEnd = 0 THEN
-			SELECT userId, compareStart, compareEnd, doctorId,dateStart, dateEnd;
+			IF (SELECT COUNT(*) FROM available_hours WHERE (TIME(dateStart) BETWEEN hh_start AND hh_end) AND hh_status = 1) > 0 && (SELECT COUNT(*) FROM available_hours WHERE (TIME(dateEnd) BETWEEN hh_start AND hh_end) AND hh_status = 1) > 0 THEN
+				SELECT userId, compareStart, compareEnd, doctorId,dateStart, dateEnd, TIME(dateStart);
+			ELSE
+				SIGNAL SQLSTATE '45000'
+					SET message_text = 'Horario no disponible. Selecciona otro horario';
+            END IF;
         ELSE
 			SIGNAL SQLSTATE '45000'
 				SET message_text = 'Horario no disponible. Selecciona otro horario';
