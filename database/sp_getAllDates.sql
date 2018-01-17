@@ -19,10 +19,15 @@ BEGIN
 
 	IF userId > 0 THEN
 		SELECT 
-			cita_fecha_start
-            , cita_fecha_end
-            , cita_title
-		FROM citas 
+			c.cita_fecha_start
+            , c.cita_fecha_end
+            , c.cita_title
+            , c.cita_estatus
+            , cs.cs_desc
+            , cc.cc_desc
+		FROM citas c
+			INNER JOIN citas_status cs ON (c.cita_estatus = cs.cs_id)
+            INNER JOIN citas_communication cc ON (c.cita_title = cc.cc_id)
         WHERE cita_paciente_id = userId;
 	ELSE
 		SIGNAL SQLSTATE '45000'
