@@ -47,4 +47,26 @@ insert into staff (
     , 'sara@cuidadosamente.com'
 );
 
+INSERT INTO available_hours (
+    hh_start
+    , hh_end
+) VALUES (
+    '8:00:00'
+    , '20:00:00'
+);
+
+INSERT INTO citas_status (
+    cs_desc
+) VALUES
+    ('Enviada')
+    , ('Agendada')
+    , ('Reprogramada')
+    , ('Cancelada');
+
+INSERT INTO citas_communication (
+    cc_desc
+) VALUES
+    ('Chat')
+    , ('Videoconferencia');
+
 SELECT * FROM configuraciones;
