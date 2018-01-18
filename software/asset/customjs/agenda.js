@@ -13,6 +13,51 @@ function agenda() {
 	
 				$("#content1").load("views/client/agenda.html", function() {
                     $("#frontAgenda").datepicker();
+
+                    var ajaxF = $.ajax({
+                        contentType: "application/json; charset=utf-8",
+                        type: "GET",
+                        url: "include/9bc8f51edd581007d1ceae746a1d7802.php",
+                        dataType: 'JSON',
+                        // data: dataPost,
+                        beforeSend: function() {
+                            $('#loading').modal();
+                        },
+                        success: function (response) {
+                            $('#loading').modal('toggle');
+                            console.log(response);
+                            // if (response.errno) {
+                            //     $("#panelbody").empty();
+                            //     $("#panelbody").append(that.invalidR);
+                            //     if (response.message == 'Tu cuenta ya ha sido activada') {
+                            //         toastr.error(response.message, "¡Upps!", 5000 );
+                            //         $("#activateAccount").click(function() {
+                            //             window.location = 'login.html';
+                            //         });
+                            //     } else {
+                            //         toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
+                            //         console.log('Register - ',response.message);
+                            //         $("#activateAccount").click(function() {
+                            //             window.location = 'register.html';
+                            //         });
+                            //     }
+
+                            // } else {
+                            //     $("#panelbody").empty();
+                            //     $("#panelbody").append(that.validR);
+                            //     $("#activateAccount").click(function() {
+                            //         window.location = 'login.html';
+                            //     });
+                            // }
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown){
+                            $('#loading').modal('toggle');
+                            toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+                            console.log('getAllDates - ', errorThrown);
+                            console.log('getAllDates - ', XMLHttpRequest);
+                        }
+                    });
+
 					$('#agenda').fullCalendar({
                         header: {
                             left: 'prev,next today',
