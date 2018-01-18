@@ -18,13 +18,15 @@ BEGIN
 	SET userId = (SELECT IFNULL(vt_usr_id, 0) FROM validtokens WHERE vt_hash = token_hash AND vt_status= 1);
 
 	IF userId > 0 THEN
-		SELECT 
+		SELECT
+			/*COUNT(c.cita_title) AS dateNumber*/
 			c.cita_fecha_start
             , c.cita_fecha_end
             , c.cita_title
             , c.cita_estatus
             , cs.cs_desc
             , cc.cc_desc
+            , cs.cs_color
 		FROM citas c
 			INNER JOIN citas_status cs ON (c.cita_estatus = cs.cs_id)
             INNER JOIN citas_communication cc ON (c.cita_title = cc.cc_id)
@@ -37,3 +39,4 @@ BEGIN
 END$$
 
 DELIMITER ;
+
