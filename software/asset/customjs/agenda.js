@@ -1,9 +1,11 @@
 function agenda() {
 	var that = this;
-
 	var objActiveMenu = new activeMenu();
 
     this.events = [];
+    this.start;
+    this.end;
+    this.comm;
     this.viewAgenda = function() {
         $('#agenda').fullCalendar({
             header: {
@@ -21,6 +23,7 @@ function agenda() {
             },
             selectable: true,
             select: function(start, end, jsEvent, view) {
+                //$('.myCheckbox').prop('checked', false);
                 console.log(moment(start).minutes());
                 var dayD = moment(start);
                 var startD = moment(start);
@@ -34,9 +37,9 @@ function agenda() {
                 $("#datetitle").text("Nueva sesión");
                 $("#dateText").empty();
                 $("#dateText").append(textD);
-                // $("#cancelDc").click(function(){
-                //     $("#agendadate").modal('toggle');
-                // });
+
+                that.start = dayD.format('YYYY-MM-DD HH:mm:ss');
+                that.end = endD.format('YYYY-MM-DD HH:mm:ss');
             },
             eventClick: function(calEvent, jsEvent, view) {
 
@@ -65,7 +68,7 @@ function agenda() {
                 } else {
                     for (var index = 0; index < response.data.length; index++) {
                         var eventosR = {
-                            title: response.data[index].titleDesc,
+                            title: response.data[index].titleDesc + ' - ' + response.data[index].statusDesc,
                             start: response.data[index].start,
                             end: response.data[index].end,
                             color: response.data[index].color
@@ -82,7 +85,6 @@ function agenda() {
             }
         });
     }
-
 	this.LoadAgenda = function() {
 		try {
 			$(".agenda").click(function() {
@@ -95,6 +97,50 @@ function agenda() {
                     $("#frontAgenda").datepicker();
                     that.getEvents();
                     that.viewAgenda();
+                    $("#createSess").click(function() {
+                        console.log("se recarga agenda");
+                        console.log(that.start);
+                        console.log(that.end);
+                        console.log($('input[name=sessOpt]:checked', '#selectOpt').val());
+                        // var ajaxF = $.ajax({
+                        //     contentType: "application/json; charset=utf-8",
+                        //     type: "GET",
+                        //     url: "include/ca3e4974a8639906d8099f07c44b54ee.php",
+                        //     dataType: 'JSON',
+                        //     data: dataPost,
+                        //     async: false,
+                        //     beforeSend: function() {
+                        //         $('#loading').modal();
+                        //     },
+                        //     success: function (response) {
+                        //         $('#loading').modal('toggle');
+                        //         if (response.errno) {
+                        //             toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
+                        //             console.log('Agenda - ',response.message)
+                        //         } else {
+                        //             for (var index = 0; index < response.data.length; index++) {
+                        //                 var eventosR = {
+                        //                     title: response.data[index].titleDesc + ' - ' + response.data[index].statusDesc,
+                        //                     start: response.data[index].start,
+                        //                     end: response.data[index].end,
+                        //                     color: response.data[index].color
+                        //                 };
+                        //                 that.events.push(eventosR);
+                        //             }
+                        //         }
+                        //     },
+                        //     error: function (XMLHttpRequest, textStatus, errorThrown){
+                        //         $('#loading').modal('toggle');
+                        //         toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+                        //         console.log('getAllDates - ', errorThrown);
+                        //         console.log('getAllDates - ', XMLHttpRequest);
+                        //     }
+                        // });
+                    });
+                    $("#cancelDc").click(function(event){
+                        $("#chatC").iCheck('check');
+                        $("#videoC").iCheck('uncheck');
+                    });
                     that.events = [];
 				});
 			});
