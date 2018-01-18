@@ -7,9 +7,10 @@
         //$_SESSION['9987435b7dbef543b786efd81d1b3dc9'] = 'ad9cfdff972dd2d5dc132195fa706f64';
 
         //if (isset($_SESSION['9987435b7dbef543b786efd81d1b3dc9']) && !empty($_SESSION['9987435b7dbef543b786efd81d1b3dc9'])) {
-            $getAllDates = new agendaDates();    
-            $getAllDates->getAllDates(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']));
-            //$getAllDates->getAllDates('ad9cfdff972dd2d5dc132195fa706f64');
+            //echo $_SESSION['9987435b7dbef543b786efd81d1b3dc9'];
+            $getAllDates = new agendaDates();  
+            //$getAllDates->getAllDates(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']));
+            $getAllDates->getAllDates('872c7098627a16be698bbc3d0b015a2d');
             
 
 

@@ -551,6 +551,7 @@ CREATE TABLE IF NOT EXISTS `citas_status` (
   `cs_desc` VARCHAR(40) NOT NULL DEFAULT '',
   `cs_createat` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `cs_status` INT NOT NULL DEFAULT 1,
+  `cs_color` VARCHAR(10) NOT NULL DEFAULT '',
   PRIMARY KEY (`cs_id`))
 ENGINE = InnoDB;
 
