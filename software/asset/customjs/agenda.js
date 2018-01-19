@@ -7,6 +7,7 @@ function agenda() {
     this.end;
     this.comm;
     this.viewAgenda = function() {
+        var successs = false;
         $('#agenda').fullCalendar({
             header: {
                 left: 'prev,next today',
@@ -39,46 +40,72 @@ function agenda() {
                 $("#dateText").append(textD);
 
                 $("#createSess").click(function() {
+                    that.start = '';
+                    that.end = '';
                     var dataPost = {
                         dStart: that.start, 
                         dEnd: that.end,
                         dCom: $('input[name=sessOpt]:checked', '#selectOpt').val()
-                    }; 
+                    };
+                    var titleEvent = '';
+                    switch ($('input[name=sessOpt]:checked', '#selectOpt').val()) {
+                        case '1':
+                            titleEvent = 'Chat - Enviada';
+                            break;
+                        case '2':
+                            titleEvent = 'Videoconferencia - Enviada';
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                    var newEvent = {
+                        title: titleEvent,
+                        start: that.start,
+                        end: that.end,
+                        color: '#29ABE2'
+                    }
                     console.log(dataPost);
+                    //$("#agenda").fullCalendar('renderEvent', newEvent);
+                    
                     var ajaxF = $.ajax({
                         contentType: "application/json; charset=utf-8",
                         type: "POST",
                         url: "include/ca3e4974a8639906d8099f07c44b54ee.php",
                         dataType: 'JSON',
                         data: JSON.stringify(dataPost),
-                        //async: false,
+                        async: false,
                         beforeSend: function() {
-                            $('#loading').modal();
+                           // $('#loading').modal();
                         },
                         success: function (response) {
-                            if (response.errno) {
-                                $('#loading').modal('toggle');
-                                toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
+                            //$('#loading').modal('toggle');
+                            $("#agendadate").modal('toggle');
+                            if (response.errno) {   
+                                //alert("que pedo");
                                 console.log('Agenda - ',response.message)
+                                return toastr.error(response.message, "¡Upps!", 5000);
                             } else {
+                                successs = true;
+                                return successs;
+                                //$('#loading').modal('toggle');
                                 //$("#agenda").empty();
-                                that.getEvents();
-                                //$('#agenda').fullCalendar('destroy');
-                                $('#agenda').fullCalendar('rerenderEvents');
-                                //$("#agenda").fullCalendar('rerenderEvents');
-                                console.log(that.events);
-                                console.log($("#agenda"));
+                                // $("#agenda").fullCalendar('renderEvent', newEvent);
+                                // //$('#agenda').fullCalendar('destroy');
+                                // //$("#agenda").fullCalendar('rerenderEvents');
+                                // console.log(newEvent);
+                                // console.log($("#agenda"));
                                 //that.viewAgenda();
                                 
-                                $("#agendadate").modal('toggle');
+                                //$("#agendadate").modal('toggle');
                                 that.events = [];
                             }
                         },
                         error: function (XMLHttpRequest, textStatus, errorThrown){
-                            $('#loading').modal('toggle');
-                            toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+                            //$('#loading').modal('toggle');
                             console.log('getAllDates - ', errorThrown);
                             console.log('getAllDates - ', XMLHttpRequest);
+                            return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
                         }
                     });
                 });
@@ -94,6 +121,7 @@ function agenda() {
             },
             events: that.events
         });
+        console.log(successs);
     }
     this.getEvents = function() {
         var ajaxF = $.ajax({
