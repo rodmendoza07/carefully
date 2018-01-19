@@ -38,6 +38,51 @@ function agenda() {
                 $("#dateText").empty();
                 $("#dateText").append(textD);
 
+                $("#createSess").click(function() {
+                    var dataPost = {
+                        dStart: that.start, 
+                        dEnd: that.end,
+                        dCom: $('input[name=sessOpt]:checked', '#selectOpt').val()
+                    }; 
+                    console.log(dataPost);
+                    var ajaxF = $.ajax({
+                        contentType: "application/json; charset=utf-8",
+                        type: "POST",
+                        url: "include/ca3e4974a8639906d8099f07c44b54ee.php",
+                        dataType: 'JSON',
+                        data: JSON.stringify(dataPost),
+                        //async: false,
+                        beforeSend: function() {
+                            $('#loading').modal();
+                        },
+                        success: function (response) {
+                            if (response.errno) {
+                                $('#loading').modal('toggle');
+                                toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
+                                console.log('Agenda - ',response.message)
+                            } else {
+                                //$("#agenda").empty();
+                                that.getEvents();
+                                //$('#agenda').fullCalendar('destroy');
+                                $('#agenda').fullCalendar('rerenderEvents');
+                                //$("#agenda").fullCalendar('rerenderEvents');
+                                console.log(that.events);
+                                console.log($("#agenda"));
+                                //that.viewAgenda();
+                                
+                                $("#agendadate").modal('toggle');
+                                that.events = [];
+                            }
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown){
+                            $('#loading').modal('toggle');
+                            toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+                            console.log('getAllDates - ', errorThrown);
+                            console.log('getAllDates - ', XMLHttpRequest);
+                        }
+                    });
+                });
+
                 that.start = dayD.format('YYYY-MM-DD HH:mm:ss');
                 that.end = endD.format('YYYY-MM-DD HH:mm:ss');
             },
@@ -85,6 +130,9 @@ function agenda() {
             }
         });
     }
+    this.reload = function() {
+        
+    };
 	this.LoadAgenda = function() {
 		try {
 			$(".agenda").click(function() {
@@ -97,46 +145,7 @@ function agenda() {
                     $("#frontAgenda").datepicker();
                     that.getEvents();
                     that.viewAgenda();
-                    $("#createSess").click(function() {
-                        console.log("se recarga agenda");
-                        console.log(that.start);
-                        console.log(that.end);
-                        console.log($('input[name=sessOpt]:checked', '#selectOpt').val());
-                        // var ajaxF = $.ajax({
-                        //     contentType: "application/json; charset=utf-8",
-                        //     type: "GET",
-                        //     url: "include/ca3e4974a8639906d8099f07c44b54ee.php",
-                        //     dataType: 'JSON',
-                        //     data: dataPost,
-                        //     async: false,
-                        //     beforeSend: function() {
-                        //         $('#loading').modal();
-                        //     },
-                        //     success: function (response) {
-                        //         $('#loading').modal('toggle');
-                        //         if (response.errno) {
-                        //             toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
-                        //             console.log('Agenda - ',response.message)
-                        //         } else {
-                        //             for (var index = 0; index < response.data.length; index++) {
-                        //                 var eventosR = {
-                        //                     title: response.data[index].titleDesc + ' - ' + response.data[index].statusDesc,
-                        //                     start: response.data[index].start,
-                        //                     end: response.data[index].end,
-                        //                     color: response.data[index].color
-                        //                 };
-                        //                 that.events.push(eventosR);
-                        //             }
-                        //         }
-                        //     },
-                        //     error: function (XMLHttpRequest, textStatus, errorThrown){
-                        //         $('#loading').modal('toggle');
-                        //         toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
-                        //         console.log('getAllDates - ', errorThrown);
-                        //         console.log('getAllDates - ', XMLHttpRequest);
-                        //     }
-                        // });
-                    });
+                    
                     $("#cancelDc").click(function(event){
                         $("#chatC").iCheck('check');
                         $("#videoC").iCheck('uncheck');

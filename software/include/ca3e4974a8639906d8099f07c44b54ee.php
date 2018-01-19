@@ -14,7 +14,7 @@
         // $dCom = 1;
         
         //$_SESSION['9987435b7dbef543b786efd81d1b3dc9'] = 'ad9cfdff972dd2d5dc132195fa706f64';
-
+        //echo $dStart.$dEnd.$dCom;
         //if (isset($_SESSION['9987435b7dbef543b786efd81d1b3dc9']) && !empty($_SESSION['9987435b7dbef543b786efd81d1b3dc9'])) {
             //echo $_SESSION['9987435b7dbef543b786efd81d1b3dc9'];
             $setDate = new agendaDates();  
