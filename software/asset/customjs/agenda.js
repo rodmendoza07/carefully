@@ -42,6 +42,11 @@ function agenda() {
                 $("#createSess").click(function() {
                     that.start = '';
                     that.end = '';
+                    console.log(that.start);
+                    console.log(that.end);
+                    console.log(newEvent);
+                    that.start = dayD.format('YYYY-MM-DD HH:mm:ss');
+                    that.end = endD.format('YYYY-MM-DD HH:mm:ss');
                     var dataPost = {
                         dStart: that.start, 
                         dEnd: that.end,
@@ -66,8 +71,10 @@ function agenda() {
                         color: '#29ABE2'
                     }
                     console.log(dataPost);
+                    console.log(newEvent);
                     //$("#agenda").fullCalendar('renderEvent', newEvent);
-                    
+                    //$("#agenda").fullCalendar('refetchEvents');
+                    //onsole.log($("#agenda").fullCalendar('refetchEvents'));
                     var ajaxF = $.ajax({
                         contentType: "application/json; charset=utf-8",
                         type: "POST",
@@ -79,27 +86,34 @@ function agenda() {
                            // $('#loading').modal();
                         },
                         success: function (response) {
+                           // $("#agenda").fullCalendar( 'destroy' );
+                            //$("#agenda").fullCalendar('render');
                             //$('#loading').modal('toggle');
-                            $("#agendadate").modal('toggle');
+                            //$("#agendadate").modal('toggle');
+                            console.log(response);
+                            //$("#agenda").fullCalendar('renderEvents', that.events);
+                            //that.LoadAgenda();
                             if (response.errno) {   
                                 //alert("que pedo");
                                 console.log('Agenda - ',response.message)
                                 return toastr.error(response.message, "¡Upps!", 5000);
-                            } else {
-                                successs = true;
-                                return successs;
-                                //$('#loading').modal('toggle');
-                                //$("#agenda").empty();
-                                // $("#agenda").fullCalendar('renderEvent', newEvent);
-                                // //$('#agenda').fullCalendar('destroy');
-                                // //$("#agenda").fullCalendar('rerenderEvents');
-                                // console.log(newEvent);
-                                // console.log($("#agenda"));
-                                //that.viewAgenda();
+                            } 
+                            location.reload();
+                            //else {
+                            //     successs = true;
+                            //     return successs;
+                            //     //$('#loading').modal('toggle');
+                            //     //$("#agenda").empty();
+                            //     // $("#agenda").fullCalendar('renderEvent', newEvent);
+                            //     // //$('#agenda').fullCalendar('destroy');
+                            //     // //$("#agenda").fullCalendar('rerenderEvents');
+                            //     // console.log(newEvent);
+                            //     // console.log($("#agenda"));
+                            //     //that.viewAgenda();
                                 
-                                //$("#agendadate").modal('toggle');
-                                that.events = [];
-                            }
+                            //     //$("#agendadate").modal('toggle');
+                            //     that.events = [];
+                            // }
                         },
                         error: function (XMLHttpRequest, textStatus, errorThrown){
                             //$('#loading').modal('toggle');
@@ -109,9 +123,6 @@ function agenda() {
                         }
                     });
                 });
-
-                that.start = dayD.format('YYYY-MM-DD HH:mm:ss');
-                that.end = endD.format('YYYY-MM-DD HH:mm:ss');
             },
             eventClick: function(calEvent, jsEvent, view) {
 
@@ -121,7 +132,7 @@ function agenda() {
             },
             events: that.events
         });
-        console.log(successs);
+        console.log(that.events);
     }
     this.getEvents = function() {
         var ajaxF = $.ajax({
@@ -158,7 +169,7 @@ function agenda() {
             }
         });
     }
-    this.reload = function() {
+    this.saveEvents = function() {
         
     };
 	this.LoadAgenda = function() {
