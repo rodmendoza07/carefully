@@ -21,7 +21,7 @@ BEGIN
         RESIGNAL;
     END;
     
-    SET userId = (SELECT IFNULL(usr_id, 0) FROM staff WHERE st_correo = userName);
+    SET userId = (SELECT IFNULL(st_id, 0) FROM staff WHERE st_correo = userName);
 	
     IF userId > 0 THEN
     
@@ -74,8 +74,8 @@ BEGIN
                 /* Envia datos frontend */
                 SELECT 
 					sessToken as sessToken
-                    , usr_nombre
-                    , usr_paterno
+                    , st_nombre
+                    , st_paterno
 				FROM staff
                 WHERE st_id = userId;
 			ELSE
