@@ -22,7 +22,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" ng-app='carefully'>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +49,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body id="mimin" class="dashboard" onload="AppBegin();">
+  <body id="mimin" class="dashboard">
       <!-- start: Header -->
     <nav class="navbar navbar-default header navbar-fixed-top">
       <div class="col-md-12 nav-wrapper">
@@ -220,6 +220,7 @@
     <script src="asset/js/jquery.min.js"></script>
     <script src="asset/js/jquery.ui.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
+    <script src="asset/angularjs/angular.min.js"></script>
     <!-- plugins -->
     <script src="asset/js/plugins/moment.min.js"></script>
     <script src="asset/js/plugins/moment-timezone-with-data.min.js"></script>
@@ -235,7 +236,8 @@
     <script src="asset/js/plugins/icheck.min.js"></script>
     <!-- custom -->
     <script src="asset/js/main.js"></script>
-    <script src="asset/customjs/2945ed38d275bf8c99e15df1edfcea82.js"></script>
+    <script src="asset/customjs/app.js"></script>
+    <!-- <script src="asset/customjs/2945ed38d275bf8c99e15df1edfcea82.js"></script>
     <script src="asset/customjs/AppBegin.js"></script>
     <script src="asset/customjs/dataLanguage.js"></script>
     <script src="asset/customjs/activeMenu.js"></script>
@@ -245,7 +247,7 @@
     <script src="asset/customjs/credit.js"></script>
     <script src="asset/customjs/support.js"></script>
     <script src="asset/customjs/therapiesPast.js"></script>
-    <script src="asset/customjs/agenda.js"></script>
+    <script src="asset/customjs/agenda.js"></script> -->
   <!-- end: Javascript -->
   </body>
 </html>
