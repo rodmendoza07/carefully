@@ -240,6 +240,8 @@
     <!-- custom -->
     <script src="../asset/js/main.js"></script>
     <script src="../asset/customjs/staff/AppBegin.js"></script>
+    <script src="../asset/customjs/staff/activeMenu.js"></script>
+    <script src="../asset/customjs/staff/initHome.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>

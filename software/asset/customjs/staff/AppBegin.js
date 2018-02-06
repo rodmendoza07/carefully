@@ -3,7 +3,10 @@ function AppBegin() {
 
 	try {
 		// var v2945ed38d275bf8c99e15df1edfcea82 = new f2945ed38d275bf8c99e15df1edfcea82();
-		
+        var objHome = new initHome();
+
+        
+		objHome.LoadView();
 		// if (v2945ed38d275bf8c99e15df1edfcea82.fff2945ed38d275bf8c99e15df1edfcea82()) {	
 			
 		// } else {
