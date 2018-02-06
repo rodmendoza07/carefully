@@ -56,7 +56,7 @@ $(document).ready(function(){
                             );
                             console.log('Login - ',response.message)
                         } else {
-                            window.location = '../software/';
+                            window.location = '../' + response.url;
                         }
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown){
