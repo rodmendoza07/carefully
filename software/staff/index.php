@@ -101,28 +101,28 @@
             <li class="ripple sessions" data-option="sessions">
               <a class="tree-toggle nav-header">
                 Mi terapia
-                <span class="fa-angle-right fa right-arrow text-right"></span>
+                <!-- <span class="fa-angle-right fa right-arrow text-right"></span> -->
               </a>
-              <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
+              <!-- <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
                 <li><a class="tpast">Pasadas</a></li>
                 <li><a class="tnext">Próximas</a></li>
-              </ul>
+              </ul> -->
             </li>
-            <li class="ripple therapiest" data-option="therapiest">
+            <!-- <li class="ripple therapiest" data-option="therapiest">
               <a class="tree-toggle nav-header">
                 Mi terapeuta
               </a>
-            </li>
+            </li> -->
             <li class="ripple myprof" data-option="myprof">
               <a class="tree-toggle nav-header" >
                 Mi perfíl 
               </a>
             </li>
-            <li class="ripple mycredit" data-option="mycredit">
+            <!-- <li class="ripple mycredit" data-option="mycredit">
               <a class="tree-toggle nav-header">
                 Crédito 
               </a>
-            </li>
+            </li> -->
             <li class="ripple supportC" data-option="supportC">
               <a class="tree-toggle nav-header">
                 Soporte 
@@ -160,28 +160,28 @@
                   <li class="ripple sessions heightAuto" data-option="sessions">
                     <a class="tree-toggle nav-header">
                       Mi terapia
-                      <span class="fa-angle-right fa right-arrow text-right"></span>
+                      <!-- <span class="fa-angle-right fa right-arrow text-right"></span> -->
                     </a>
-                    <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
+                    <!-- <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
                       <li><a class="tpast heightAuto">Pasadas</a></li>
                       <li><a class="tnext heightAuto">Próximas</a></li>
-                    </ul>
+                    </ul> -->
                   </li>
-                  <li class="ripple therapiest heightAuto" data-option="therapiest" style="height: auto;">
+                  <!-- <li class="ripple therapiest heightAuto" data-option="therapiest" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       Mi terapeuta
                     </a>
-                  </li>
+                  </li> -->
                   <li class="ripple myprof heightAuto" data-option="myprof" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       Mi perfíl
                     </a>
                   </li>
-                  <li class="ripple mycredit heightAuto" data-option="mycredit" style="height: auto;">
+                  <!-- <li class="ripple mycredit heightAuto" data-option="mycredit" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       Crédito
                     </a>
-                  </li>
+                  </li> -->
                   <li class="ripple supportC heightAuto" data-option="supportC" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       Soporte

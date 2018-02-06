@@ -101,12 +101,12 @@
             <li class="ripple sessions" data-option="sessions">
               <a class="tree-toggle nav-header">
                 Mi terapia
-                <span class="fa-angle-right fa right-arrow text-right"></span>
+                <!-- <span class="fa-angle-right fa right-arrow text-right"></span> -->
               </a>
-              <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
+              <!-- <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
                 <li><a class="tpast">Pasadas</a></li>
                 <li><a class="tnext">Próximas</a></li>
-              </ul>
+              </ul> -->
             </li>
             <li class="ripple therapiest" data-option="therapiest">
               <a class="tree-toggle nav-header">
@@ -160,12 +160,12 @@
                   <li class="ripple sessions heightAuto" data-option="sessions">
                     <a class="tree-toggle nav-header">
                       Mi terapia
-                      <span class="fa-angle-right fa right-arrow text-right"></span>
+                      <!-- <span class="fa-angle-right fa right-arrow text-right"></span> -->
                     </a>
-                    <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
+                    <!-- <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
                       <li><a class="tpast heightAuto">Pasadas</a></li>
                       <li><a class="tnext heightAuto">Próximas</a></li>
-                    </ul>
+                    </ul> -->
                   </li>
                   <li class="ripple therapiest heightAuto" data-option="therapiest" style="height: auto;">
                     <a class="tree-toggle nav-header">
