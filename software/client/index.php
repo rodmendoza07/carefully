@@ -1,6 +1,6 @@
 <?php
     try {
-        include 'include/class/class.getInfoUser.php';
+        include '../include/class/class.getInfoUser.php';
         session_start();
     
         if (!isset($_SESSION['9987435b7dbef543b786efd81d1b3dc9']) && empty($_SESSION['9987435b7dbef543b786efd81d1b3dc9'])) {    
@@ -28,21 +28,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>[CuidadosaMENTE]</title>
     <!-- start: Css -->
-    <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../asset/css/bootstrap.min.css">
     <!-- plugins -->
-    <link rel="stylesheet" type="text/css" href="asset/css/plugins/font-awesome.min.css"/>
-    <link rel="stylesheet" type="text/css" href="asset/css/plugins/simple-line-icons.css"/>
-    <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css"/>
-    <link rel="stylesheet" type="text/css" href="asset/css/plugins/fullcalendar.min.css"/>
-    <link rel="stylesheet" type="text/css" href="asset/css/plugins/datatables.bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="asset/css/plugins/icheck/skins/flat/green.css"/>
-    <link rel="stylesheet" href="asset/css/toastr.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../asset/css/plugins/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../asset/css/plugins/simple-line-icons.css"/>
+    <link rel="stylesheet" type="text/css" href="../asset/css/plugins/animate.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../asset/css/plugins/fullcalendar.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../asset/css/plugins/datatables.bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../asset/css/plugins/icheck/skins/flat/green.css"/>
+    <link rel="stylesheet" href="../asset/css/toastr.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link href="asset/css/style.css" rel="stylesheet">
+    <link href="../asset/css/style.css" rel="stylesheet">
     <!-- end: Css -->
     <!--Custom css-->
-    <link rel="stylesheet" type="text/css" href="asset/css/customcss.css">
-    <link rel="shortcut icon" href="asset/img/favico.jpeg">
+    <link rel="stylesheet" type="text/css" href="../asset/css/customcss.css">
+    <link rel="shortcut icon" href="../asset/img/favico.jpeg">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -60,11 +60,11 @@
             <span class="bottom"></span>
           </div>
           <a href="index.html" class="navbar-brand" style="margin-left: 0px; margin-top: -8px;"> 
-            <img class="img-responsive" src="asset/img/logo-white1.png">
+            <img class="img-responsive" src="../asset/img/logo-white1.png">
           </a>
           <ul class="nav navbar-nav navbar-right user-nav">
             <li class="dropdown avatar-dropdown">
-              <img src="asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
+              <img src="../asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
               <ul class="dropdown-menu user-dropdown">
                 <li><a><span class="icons icon-emotsmile"></span>&nbsp;&nbsp;Mi perfil</a></li>
                 <li><a href="include/74c4e9f90722e101af64290a61bce1de.php"><span class="icons icon-logout"></span>&nbsp;&nbsp;Cerrar sesión</a></li>
@@ -217,35 +217,35 @@
       </div>
     </div>
     <!-- start: Javascript -->
-    <script src="asset/js/jquery.min.js"></script>
-    <script src="asset/js/jquery.ui.min.js"></script>
-    <script src="asset/js/bootstrap.min.js"></script>
+    <script src="../asset/js/jquery.min.js"></script>
+    <script src="../asset/js/jquery.ui.min.js"></script>
+    <script src="../asset/js/bootstrap.min.js"></script>
     <!-- plugins -->
-    <script src="asset/js/plugins/moment.min.js"></script>
-    <script src="asset/js/plugins/moment-timezone-with-data.min.js"></script>
-    <script src="asset/js/plugins/fullcalendar.min.js"></script>
-    <script src="asset/js/plugins/jquery.nicescroll.js"></script>
-    <script src="asset/js/plugins/jquery.vmap.min.js"></script>
-    <script src="asset/js/plugins/maps/jquery.vmap.world.js"></script>
-    <script src="asset/js/plugins/jquery.vmap.sampledata.js"></script>
-    <script src="asset/js/plugins/chart.min.js"></script>
-    <script src="asset/js/plugins/jquery.datatables.min.js"></script>
-    <script src="asset/js/plugins/datatables.bootstrap.min.js"></script>
-    <script src="asset/js/toastr.min.js"></script>
-    <script src="asset/js/plugins/icheck.min.js"></script>
+    <script src="../asset/js/plugins/moment.min.js"></script>
+    <script src="../asset/js/plugins/moment-timezone-with-data.min.js"></script>
+    <script src="../asset/js/plugins/fullcalendar.min.js"></script>
+    <script src="../asset/js/plugins/jquery.nicescroll.js"></script>
+    <script src="../asset/js/plugins/jquery.vmap.min.js"></script>
+    <script src="../asset/js/plugins/maps/jquery.vmap.world.js"></script>
+    <script src="../asset/js/plugins/jquery.vmap.sampledata.js"></script>
+    <script src="../asset/js/plugins/chart.min.js"></script>
+    <script src="../asset/js/plugins/jquery.datatables.min.js"></script>
+    <script src="../asset/js/plugins/datatables.bootstrap.min.js"></script>
+    <script src="../asset/js/toastr.min.js"></script>
+    <script src="../asset/js/plugins/icheck.min.js"></script>
     <!-- custom -->
-    <script src="asset/js/main.js"></script>
-    <script src="asset/customjs/2945ed38d275bf8c99e15df1edfcea82.js"></script>
-    <script src="asset/customjs/AppBegin.js"></script>
-    <script src="asset/customjs/dataLanguage.js"></script>
-    <script src="asset/customjs/activeMenu.js"></script>
-    <script src="asset/customjs/initHome.js"></script>
-    <script src="asset/customjs/therapiest.js"></script>
-    <script src="asset/customjs/profile.js"></script>
-    <script src="asset/customjs/credit.js"></script>
-    <script src="asset/customjs/support.js"></script>
-    <script src="asset/customjs/therapiesPast.js"></script>
-    <script src="asset/customjs/agenda.js"></script>
+    <script src="../asset/js/main.js"></script>
+    <script src="../asset/customjs/client/2945ed38d275bf8c99e15df1edfcea82.js"></script>
+    <script src="../asset/customjs/client/AppBegin.js"></script>
+    <script src="../asset/customjs/client/dataLanguage.js"></script>
+    <script src="../asset/customjs/client/activeMenu.js"></script>
+    <script src="../asset/customjs/client/initHome.js"></script>
+    <script src="../asset/customjs/client/therapiest.js"></script>
+    <script src="../asset/customjs/client/profile.js"></script>
+    <script src="../asset/customjs/client/credit.js"></script>
+    <script src="../asset/customjs/client/support.js"></script>
+    <script src="../asset/customjs/client/therapiesPast.js"></script>
+    <script src="../asset/customjs/client/agenda.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>
