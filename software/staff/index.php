@@ -49,7 +49,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body id="mimin" class="dashboard">
+  <body id="mimin" class="dashboard" onload="AppBegin();">
       <!-- start: Header -->
     <nav class="navbar navbar-default header navbar-fixed-top">
       <div class="col-md-12 nav-wrapper">
@@ -63,6 +63,10 @@
             <img class="img-responsive" src="../asset/img/logo-white1.png">
           </a>
           <ul class="nav navbar-nav navbar-right user-nav">
+            <li style="margin-top: 15px; margin-right:10px;">
+              <i class="fa fa-bell" style="font-size:25px;"></i>
+              <span class="label label-warning" style="margin-left:-8px;">10</span>
+            </li>
             <li class="dropdown avatar-dropdown">
               <img src="../asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
               <ul class="dropdown-menu user-dropdown">
@@ -235,6 +239,7 @@
     <script src="../asset/js/plugins/icheck.min.js"></script>
     <!-- custom -->
     <script src="../asset/js/main.js"></script>
+    <script src="../asset/customjs/staff/AppBegin.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>
