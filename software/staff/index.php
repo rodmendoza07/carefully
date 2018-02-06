@@ -1,4 +1,6 @@
 <?php
+    $tr = true;
+    echo $tr;
     /*try {
         include 'include/class/class.getInfoUser.php';
         session_start();
