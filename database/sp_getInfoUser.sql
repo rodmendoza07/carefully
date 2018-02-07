@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_getInfoUser`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE PROCEDURE `sp_getInfoUser`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getInfoUser`(
 	IN userName VARCHAR(50),
     IN passwd VARCHAR(15)
 )
@@ -14,6 +14,7 @@ BEGIN
     DECLARE validAccount INT;
     DECLARE sessToken VARCHAR(40);
     DECLARE previousToken INT;
+    DECLARE typeUser TINYINT;
     DECLARE `_rollback` BOOL DEFAULT 0;
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
@@ -23,24 +24,46 @@ BEGIN
     END;
     
     SET userId = (SELECT IFNULL(usr_id, 0) FROM usuarios WHERE usr_correo = userName);
-	
-    IF userId > 0 THEN
+	SET typeUser = 0;
+    SET userId = IFNULL(userId, 0);
     
-		SET validAccount = (SELECT COUNT(*) FROM validateSess WHERE vs_usr_id = userId AND vs_status = 1);
+    IF userId = 0 THEN
+		SET userId = (SELECT IFNULL(st_id, 0) FROM staff WHERE st_correo = userName);
+        SET typeUser = 1;
+	END IF;
+    
+    IF userId > 0 THEN
+		
+        IF typeUser = 0 THEN
+			SET validAccount = (SELECT COUNT(*) FROM validateSess WHERE vs_usr_id = userId AND vs_status = 1);
+        ELSEIF typeUser = 1 THEN 
+			SET validAccount = (SELECT COUNT(*) FROM validateSess WHERE vs_st_id = userId AND vs_status = 1);
+        END IF;
         
         IF validAccount > 0 THEN
 			SET passCompare = md5(CONCAT(userName, passwd, (SELECT cfg_valor FROM configuraciones WHERE cfg_id = 1)));
             
-            IF passCompare = (SELECT usr_password FROM usuarios WHERE usr_id = userId) THEN
+            IF (passCompare = (SELECT usr_password FROM usuarios WHERE usr_id = userId)) OR (passCompare = (SELECT st_password FROM staff WHERE st_id = userId)) THEN
+                select 'entra a la comparación de pass';
                 /*Sección token */
-				SET previousToken = (SELECT COUNT(*) FROM validtokens WHERE vt_usr_id = userId);
+                
                 SET sessToken = md5(CONCAT(DATE_FORMAT(NOW(), '%Y%c%d'),userName,passwd,(SELECT cfg_valor FROM configuraciones WHERE cfg_id =  1)));
                 
-                IF previousToken > 0 THEN
+                IF typeUser = 0 THEN
+					SET previousToken = (SELECT COUNT(*) FROM validtokens WHERE vt_usr_id = userId);
+                ELSEIF typeUser = 1 THEN
+					SET previousToken = (SELECT COUNT(*) FROM validtokens WHERE vt_st_id = userId);
+                END IF;
+                
+                IF previousToken > 0 AND typeUser = 0 THEN
 					UPDATE validtokens SET
 						vt_status = 0
 					WHERE vt_usr_id = userId;
-                    
+				ELSEIF previousToken > 0 AND typeUser = 1 THEN
+					UPDATE validtokens SET
+						vt_status = 0
+					WHERE vt_usr_id = userId;
+                /*
                     START TRANSACTION;
                     INSERT INTO validtokens (
 						vt_usr_id
@@ -54,7 +77,7 @@ BEGIN
 							SET message_text = 'Algo ha ido mal, intentalo más tarde.';
 					ELSE
 						COMMIT;
-					END IF;
+					END IF;*/
 				ELSE
 					START TRANSACTION;
                     INSERT INTO validtokens (
@@ -73,12 +96,12 @@ BEGIN
                 END IF;
                 
                 /* Envia datos frontend */
-                SELECT 
+                /*SELECT 
 					sessToken as sessToken
                     , usr_nombre
                     , usr_paterno
 				FROM usuarios
-                WHERE usr_id = userId;
+                WHERE usr_id = userId;*/
 			ELSE
 				/*select 'entra else';*/
 				SIGNAL SQLSTATE '45000'
