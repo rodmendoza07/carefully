@@ -140,6 +140,7 @@ BEGIN
 						sessToken as sessToken
 						, usr_nombre
 						, usr_paterno
+                        , '../software/client' AS url
 					FROM usuarios
 					WHERE usr_id = userId;
                 ELSEIF typeUser = 1 THEN  
@@ -147,6 +148,7 @@ BEGIN
 						sessToken as sessToken
 						, st_nombre
 						, st_paterno
+                        , '../software/staff' AS url
 					FROM staff
 					WHERE st_id = userId;
                 END IF;
