@@ -71,3 +71,15 @@ INSERT INTO citas_communication (
     , ('Videoconferencia');
 
 SELECT * FROM configuraciones;
+
+INSERT INTO validateSess (
+    vs_st_id
+    , vs_hash
+    , vs_status
+    , vs_activateat
+) VALUES(
+    1
+    , '2eac05d3927bee279984fcfd02a2e8cd'
+    , 1
+    , NOW()
+)
