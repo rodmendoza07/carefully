@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_getInfoUser`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getInfoUser`(
+CREATE PROCEDURE `sp_getInfoUser`(
 	IN userName VARCHAR(50),
     IN passwd VARCHAR(15)
 )
@@ -44,7 +44,6 @@ BEGIN
 			SET passCompare = md5(CONCAT(userName, passwd, (SELECT cfg_valor FROM configuraciones WHERE cfg_id = 1)));
             
             IF (passCompare = (SELECT usr_password FROM usuarios WHERE usr_id = userId)) OR (passCompare = (SELECT st_password FROM staff WHERE st_id = userId)) THEN
-                select 'entra a la comparación de pass';
                 /*Sección token */
                 
                 SET sessToken = md5(CONCAT(DATE_FORMAT(NOW(), '%Y%c%d'),userName,passwd,(SELECT cfg_valor FROM configuraciones WHERE cfg_id =  1)));
@@ -55,15 +54,14 @@ BEGIN
 					SET previousToken = (SELECT COUNT(*) FROM validtokens WHERE vt_st_id = userId);
                 END IF;
                 
+                SELECT previousToken;
+                
                 IF previousToken > 0 AND typeUser = 0 THEN
-					UPDATE validtokens SET
+                
+                    UPDATE validtokens SET
 						vt_status = 0
 					WHERE vt_usr_id = userId;
-				ELSEIF previousToken > 0 AND typeUser = 1 THEN
-					UPDATE validtokens SET
-						vt_status = 0
-					WHERE vt_usr_id = userId;
-                /*
+                    
                     START TRANSACTION;
                     INSERT INTO validtokens (
 						vt_usr_id
@@ -77,11 +75,36 @@ BEGIN
 							SET message_text = 'Algo ha ido mal, intentalo más tarde.';
 					ELSE
 						COMMIT;
-					END IF;*/
-				ELSE
+					END IF;
+                    
+                    
+				ELSEIF previousToken <= 0 AND typeUser = 0 THEN
+                
 					START TRANSACTION;
-                    INSERT INTO validtokens (
+					INSERT INTO validtokens (
 						vt_usr_id
+						, vt_hash
+					) VALUES (
+						userId
+						, sessToken
+					);
+					IF `_rollback` THEN
+						SIGNAL SQLSTATE '45000'
+							SET message_text = 'Algo ha ido mal, intentalo más tarde.';
+					ELSE
+						COMMIT;
+					END IF;
+					
+				END IF;
+				IF previousToken > 0 AND typeUser = 1 THEN
+                
+					UPDATE validtokens SET
+						vt_status = 0
+					WHERE vt_st_id = userId;
+                
+                    START TRANSACTION;
+                    INSERT INTO validtokens (
+						vt_st_id
                         , vt_hash
                     ) VALUES (
 						userId
@@ -93,17 +116,41 @@ BEGIN
 					ELSE
 						COMMIT;
 					END IF;
-                END IF;
+				ELSEIF previousToken <= 0 AND typeUser = 1 THEN
                 
+                    START TRANSACTION;
+                    INSERT INTO validtokens (
+						vt_st_id
+                        , vt_hash
+                    ) VALUES (
+						userId
+                        , sessToken
+                    );
+                    IF `_rollback` THEN
+						SIGNAL SQLSTATE '45000'
+							SET message_text = 'Algo ha ido mal, intentalo más tarde.';
+					ELSE
+						COMMIT;
+					END IF;
+                    
+                END IF;
                 /* Envia datos frontend */
-                /*SELECT 
-					sessToken as sessToken
-                    , usr_nombre
-                    , usr_paterno
-				FROM usuarios
-                WHERE usr_id = userId;*/
+				IF typeUser = 0 THEN 
+					SELECT 
+						sessToken as sessToken
+						, usr_nombre
+						, usr_paterno
+					FROM usuarios
+					WHERE usr_id = userId;
+                ELSEIF typeUser = 1 THEN  
+					SELECT 
+						sessToken as sessToken
+						, st_nombre
+						, st_paterno
+					FROM staff
+					WHERE st_id = userId;
+                END IF;
 			ELSE
-				/*select 'entra else';*/
 				SIGNAL SQLSTATE '45000'
 					SET message_text = 'Usuario y/o contraseña inválidos.';
 			END IF;
