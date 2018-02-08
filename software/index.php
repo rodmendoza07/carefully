@@ -1,3 +1,3 @@
 <?php
-    header("Location: ../register/register.html");
+    header("Location: ../register/register.html"); 
 ?>
