@@ -73,7 +73,7 @@
               <img src="../asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
               <ul class="dropdown-menu user-dropdown">
                 <li><a><span class="icons icon-emotsmile"></span>&nbsp;&nbsp;Mi perfil</a></li>
-                <li><a href="include/74c4e9f90722e101af64290a61bce1de.php"><span class="icons icon-logout"></span>&nbsp;&nbsp;Cerrar sesión</a></li>
+                <li><a href="../include/74c4e9f90722e101af64290a61bce1de.php"><span class="icons icon-logout"></span>&nbsp;&nbsp;Cerrar sesión</a></li>
               </ul>
             </li>
 
