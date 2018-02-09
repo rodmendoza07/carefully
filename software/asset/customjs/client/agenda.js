@@ -9,6 +9,8 @@ function agenda() {
     this.viewAgenda = function() {
         var successs = false;
         $('#agenda').fullCalendar({
+            height : screen.height,
+            width  : screen.width,
             header: {
                 left: 'prev,next today',
                 center: 'title',
@@ -78,7 +80,7 @@ function agenda() {
                     var ajaxF = $.ajax({
                         contentType: "application/json; charset=utf-8",
                         type: "POST",
-                        url: "include/ca3e4974a8639906d8099f07c44b54ee.php",
+                        url: "../include/ca3e4974a8639906d8099f07c44b54ee.php",
                         dataType: 'JSON',
                         data: JSON.stringify(dataPost),
                         async: false,
@@ -138,7 +140,7 @@ function agenda() {
         var ajaxF = $.ajax({
             contentType: "application/json; charset=utf-8",
             type: "GET",
-            url: "include/9bc8f51edd581007d1ceae746a1d7802.php",
+            url: "../include/9bc8f51edd581007d1ceae746a1d7802.php",
             dataType: 'JSON',
             async: false,
             beforeSend: function() {
