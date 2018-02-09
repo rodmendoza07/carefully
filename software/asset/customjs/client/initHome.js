@@ -7,9 +7,9 @@ function initHome() {
 		try {
 			objActiveMenu.emptyInfoMenu();
 			
-			$("#info").load("views/client/cHomeA.html", function() {});
+			$("#info").load("client/cHomeA.html", function() {});
 
-			$("#content1").load("views/client/cHome.html", function(){
+			$("#content1").load("client/cHome.html", function(){
 			});
 		} catch(x) {
 			console.log("initHome: LoadView -", x.toString());

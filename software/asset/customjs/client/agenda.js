@@ -180,7 +180,7 @@ function agenda() {
 	
 				//$("#info").load("views/client/ticketCreatedCA.html", function() {});
 	
-				$("#content1").load("views/client/agenda.html", function() {
+				$("#content1").load("client/agenda.html", function() {
                     $("#frontAgenda").datepicker();
                     that.getEvents();
                     that.viewAgenda();
