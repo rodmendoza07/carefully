@@ -9,7 +9,7 @@ function therapiest() {
                 objActiveMenu.emptyInfoMenu();
                 objActiveMenu.activate("therapiest","");
     
-                $("#content1").load("views/client/mytherapiest.html", function(){});
+                $("#content1").load("client/mytherapiest.html", function(){});
             });
         } catch(x) {
             console.log("therapiest: loadProfile -", x.toString());

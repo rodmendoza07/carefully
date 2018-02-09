@@ -10,9 +10,9 @@ function therapiesPast () {
 				objActiveMenu.emptyInfoMenu();
 				objActiveMenu.activate("sessions","sessionMenu");
 	
-				$("#info").load("views/client/therapiesPastA.html", function() {});
+				$("#info").load("client/therapiesPastA.html", function() {});
 	
-				$("#content1").load("views/client/therapiesPast.html", function(){
+				$("#content1").load("client/therapiesPast.html", function(){
 				
 					$('#pastTable').DataTable({
 						"language": objLanguage.espanol,

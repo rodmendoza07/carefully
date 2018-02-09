@@ -56,7 +56,7 @@ $(document).ready(function(){
                             );
                             console.log('Login - ',response.message)
                         } else {
-                            window.location = '../' + response.url;
+                            location.replace(response.urlLoc);
                         }
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown){
