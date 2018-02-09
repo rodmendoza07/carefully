@@ -372,10 +372,10 @@ SHOW WARNINGS;
 -- -----------------------------------------------------
 -- Table `expedientePaciente`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `expedientePaciente` ;
+DROP TABLE IF EXISTS `expedientepaciente` ;
 
 SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `expedientePaciente` (
+CREATE TABLE IF NOT EXISTS `expedientepaciente` (
   `expP_id` INT NOT NULL AUTO_INCREMENT,
   `expP_fecha_alta` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `expP_doctor_id` INT NOT NULL DEFAULT 0,
