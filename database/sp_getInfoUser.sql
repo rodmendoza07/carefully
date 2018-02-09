@@ -54,8 +54,6 @@ BEGIN
 					SET previousToken = (SELECT COUNT(*) FROM validtokens WHERE vt_st_id = userId);
                 END IF;
                 
-                SELECT previousToken;
-                
                 IF previousToken > 0 AND typeUser = 0 THEN
                 
                     UPDATE validtokens SET
