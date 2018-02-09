@@ -56,56 +56,46 @@ function agenda() {
     this.clickEvents = function(start, end, jsEvent, view){
         
         jsEvent.preventDefault();
-        console.log(that.counter);
         var dayD = moment(start);
         var startD = moment(start);
         var endD = moment(end).add(20,'minutes');
         var doctorD = "Sara Beneyto";
-
+        that.start = '';
+        that.end = '';
+        that.start = dayD.format('YYYY-MM-DD HH:mm:ss');
+        that.end = endD.format('YYYY-MM-DD HH:mm:ss');
         if (!that.counter) {
-            
             
             that.pmodal(dayD,startD, endD, doctorD);
 
             $("#createSess").click(function(event) {
                 that.counter = true;
                 event.preventDefault();
-                that.start = '';
-                that.end = '';
-                that.start = dayD.format('YYYY-MM-DD HH:mm:ss');
-                that.end = endD.format('YYYY-MM-DD HH:mm:ss');
                 var dataPost = {
                     dStart: that.start, 
                     dEnd: that.end,
                     dCom: $('input[name=sessOpt]:checked', '#selectOpt').val()
                 };
-                var titleEvent = '';
-                switch ($('input[name=sessOpt]:checked', '#selectOpt').val()) {
-                    case '1':
-                        titleEvent = 'Chat - Enviada';
-                        break;
-                    case '2':
-                        titleEvent = 'Videoconferencia - Enviada';
-                        break;
-                    default:
-                        break;
-                }
-                
-                var newEvent = {
-                    title: titleEvent,
-                    start: that.start,
-                    end: that.end,
-                    color: '#29ABE2'
-                }
+                console.log(dataPost);
+                // var titleEvent = '';
+                // switch ($('input[name=sessOpt]:checked', '#selectOpt').val()) {
+                //     case '1':
+                //         titleEvent = 'Chat - Enviada';
+                //         break;
+                //     case '2':
+                //         titleEvent = 'Videoconferencia - Enviada';
+                //         break;
+                //     default:
+                //         break;
+                // }
                 that.saveEvents(dataPost, event);
             });
             } else {
-                console.log();
-                $("#agendadate").empty();
+                $("#agendadate").on('hidden.bs.modal', function () {
+                    $(this).data('bs.modal', null);
+                });
                 that.pmodal(dayD,startD, endD, doctorD);
             }
-         //$('.myCheckbox').prop('checked', false);
-         
     }
     this.saveEvents = function(dataPost, event) {
         console.log(event);
@@ -117,28 +107,14 @@ function agenda() {
             dataType: 'JSON',
             data: JSON.stringify(dataPost),
             async: false,
-            beforeSend: function() {
-               // $('#loading').modal();
-            },
+            beforeSend: function() {},
             success: function (response) {
-               // $("#agenda").fullCalendar( 'destroy' );
-                //$("#agenda").fullCalendar('render');
-                //$('#loading').modal('toggle');
                 $("#agendadate").modal('toggle');
-                console.log(response);
                 $("#agenda").fullCalendar( 'destroy' );
                 that.viewAgenda();
-                //$('#calendar').fullCalendar('addEventSource',events);
-                //$("#agenda").fullCalendar('renderEvent', newEvent);
-                //that.LoadAgenda();
-                // if (response.errno) {   
-                //     console.log('Agenda - ',response.message)
-                //     return toastr.error(response.message, "¡Upps!", 5000);
-                // } 
                 
             },
             error: function (XMLHttpRequest, textStatus, errorThrown){
-                //$('#loading').modal('toggle');
                 console.log('getAllDates - ', errorThrown);
                 console.log('getAllDates - ', XMLHttpRequest);
                 return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
