@@ -8,7 +8,7 @@ function therapiesPast () {
 		try {
 			$(".tpast").click(function() {
 				objActiveMenu.emptyInfoMenu();
-				objActiveMenu.activate("sessions","sessionMenu");
+				objActiveMenu.activate("sessions","");
 	
 				$("#info").load("client/therapiesPastA.html", function() {});
 	

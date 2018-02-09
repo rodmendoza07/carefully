@@ -89,8 +89,7 @@
             </li>
             <li class="ripple agenda" data-option="agenda" id="frontAgenda">
               <a class="tree-toggle nav-header">
-                Agenda 
-                <span class="fa-angle-right fa right-arrow text-right"></span>
+                Agenda
               </a>
               <ul class="nav nav-list tree">
                 <li>
@@ -115,7 +114,7 @@
             </li>
             <li class="ripple myprof" data-option="myprof">
               <a class="tree-toggle nav-header" >
-                Mi perfíl 
+                Mi perfil 
               </a>
             </li>
             <li class="ripple mycredit" data-option="mycredit">

@@ -1084,7 +1084,7 @@ ul li a:focus {
   .badge-info {
     color: #fff !important;
     border: none !important;
-    background-color: #73CAEF !important;
+    background-color: #8CC63F !important;
   }
 
   .btn-danger,
@@ -1111,7 +1111,7 @@ ul li a:focus {
   .badge-default {
     color: #857E7E !important;
     border: none !important;
-    background-color: #fff !important;
+    background-color: #B3B3B3 !important;
   }
 
   .badges-v1 {

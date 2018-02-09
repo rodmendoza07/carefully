@@ -76,7 +76,6 @@ function agenda() {
                     dEnd: that.end,
                     dCom: $('input[name=sessOpt]:checked', '#selectOpt').val()
                 };
-                console.log(dataPost);
                 // var titleEvent = '';
                 // switch ($('input[name=sessOpt]:checked', '#selectOpt').val()) {
                 //     case '1':
@@ -98,7 +97,6 @@ function agenda() {
             }
     }
     this.saveEvents = function(dataPost, event) {
-        console.log(event);
         event.preventDefault();
         var ajaxF = $.ajax({
             contentType: "application/json; charset=utf-8",
@@ -154,7 +152,6 @@ function agenda() {
             },
             events: that.events
         });
-        console.log(that.events);
         that.events = [];
     }
     
@@ -164,7 +161,7 @@ function agenda() {
 				objActiveMenu.emptyInfoMenu();
 				objActiveMenu.activate("agenda","");
 	
-				//$("#info").load("views/client/ticketCreatedCA.html", function() {});
+				$("#info").load("client/agendaA.html", function() {});
 	
 				$("#content1").load("client/agenda.html", function(event) {
                     $("#frontAgenda").datepicker();
