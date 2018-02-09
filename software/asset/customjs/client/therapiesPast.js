@@ -6,9 +6,9 @@ function therapiesPast () {
 
 	this.LoadView = function () {
 		try {
-			$(".tpast").click(function() {
+			$(".sessions").click(function() {
 				objActiveMenu.emptyInfoMenu();
-				objActiveMenu.activate("sessions","sessionMenu");
+				objActiveMenu.activate("sessions","");
 	
 				$("#info").load("client/therapiesPastA.html", function() {});
 	
