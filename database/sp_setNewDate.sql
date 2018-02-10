@@ -15,6 +15,7 @@ BEGIN
     DECLARE compareStart INT;
     DECLARE compareEnd INT;
     DECLARE dates INT;
+    DECLARE lastIns INT;
     DECLARE `_rollback` BOOL DEFAULT 0;
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
@@ -53,6 +54,14 @@ BEGIN
 							, userId
 							, dateType
 						);
+                        
+                        SET lastIns = (SELECT cita_id FROM citas WHERE cita_paciente_id = userId ORDER BY cita_id DESC LIMIT 1);
+                        
+                        INSERT INTO citas_validation (
+							cv_c_id
+                        ) VALUES(
+							lastIns
+                        );
 						IF `_rollback` THEN
 							SIGNAL SQLSTATE '45000'
 								SET message_text = 'Algo ha ido mal, intentalo más tarde.';
