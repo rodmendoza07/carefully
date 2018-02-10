@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_checkNewDatesStaff`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_checkNewDatesStaff`(
+CREATE PROCEDURE `sp_checkNewDatesStaff`(
 	IN shash VARCHAR(35)
 )
 BEGIN
@@ -21,11 +21,14 @@ BEGIN
     SELECT
 		c.cita_fecha_start
         , c.cita_fecha_end
-		, c.* 
-    FROM citas c 
+        , cc.cc_desc
+        , CONCAT(usr.usr_nombre, ' ', usr.usr_paterno) AS usrNombre
+    FROM citas c
+		INNER JOIN citas_communication cc ON (c.cita_title = cc.cc_id)
+        INNER JOIN usuarios usr ON (c.cita_paciente_id = usr_id)
+        INNER JOIN citas_validation cv ON (c.cita_id = cv.cv_c_id)
     WHERE c.cita_doctor_id = userId
-     AND c.cita_estatus = 1;
-    
+     AND cv.cv_status = 0;
     SELECT userId;
 END$$
 
