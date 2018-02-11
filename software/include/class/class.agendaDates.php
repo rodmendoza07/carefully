@@ -61,7 +61,7 @@
             try {
                 include 'conection.php';
 
-                $opt = 1
+                $opt = 1;
                 $citaId = 0;
                 $dStart = '';
                 $dEnd = '';
@@ -79,7 +79,7 @@
                 } else {
                     $newDatesW = array();
                     while($call->fetch()){
-                        $aTemp = array('cId' => $cId, 'dStart' => $cDstart, 'dEnd' => $cDend, 'dType' => $dType, 'dStatus' => $dStatus 'dpName' => $dpName);
+                        $aTemp = array('cId' => $cId, 'dStart' => $cDstart, 'dEnd' => $cDend, 'dType' => $dType, 'dStatus' => $dStatus, 'dpName' => $dpName);
                         array_push($newDatesW,$aTemp);
                     }
                     $resp = array('status' => 200, 'data' => $newDatesW);
@@ -96,7 +96,7 @@
             try {
                 include 'conection.php';
 
-                $opt = 1
+                $opt = 1;
                 $citaId = 0;
                 $dStart = '';
                 $dEnd = '';
@@ -114,7 +114,7 @@
                 } else {
                     $newDatesW = array();
                     while($call->fetch()){
-                        $aTemp = array('cId' => $cId, 'dStart' => $cDstart, 'dEnd' => $cDend, 'dType' => $dType, 'dStatus' => $dStatus 'dpName' => $dpName);
+                        $aTemp = array('cId' => $cId, 'dStart' => $cDstart, 'dEnd' => $cDend, 'dType' => $dType, 'dStatus' => $dStatus, 'dpName' => $dpName);
                         array_push($newDatesW,$aTemp);
                     }
                     $resp = array('status' => 200, 'data' => $newDatesW);

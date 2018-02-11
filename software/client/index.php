@@ -63,6 +63,10 @@
             <img class="img-responsive" src="../asset/img/logo-white1.png">
           </a>
           <ul class="nav navbar-nav navbar-right user-nav">
+            <li style="margin-top: 15px; margin-right:10px;" id="newWarnings">
+              <i class="fa fa-bell" style="font-size:25px;"></i>
+              <span class="label label-warning" style="margin-left:-8px;">10</span>
+            </li>
             <li class="dropdown avatar-dropdown">
               <img src="../asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
               <ul class="dropdown-menu user-dropdown">
@@ -245,6 +249,7 @@
     <script src="../asset/customjs/client/support.js"></script>
     <script src="../asset/customjs/client/therapiesPast.js"></script>
     <script src="../asset/customjs/client/agenda.js"></script>
+    <script src="../asset/customjs/client/newWarnings.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>
