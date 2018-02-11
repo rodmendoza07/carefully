@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_checkNewDatesUsr`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE PROCEDURE `sp_checkNewDatesUsr`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_checkNewDatesUsr`(
 	IN shash VARCHAR(35),
     IN opt INT,
     IN cId INT,
@@ -16,7 +16,7 @@ BEGIN
     DECLARE ccStatus INT;
     DECLARE compareStart INT;
     DECLARE compareEnd INT;
-    DECLARE pacienteId INT;
+    DECLARE doctorId INT;
     DECLARE dates INT;
 	DECLARE `_rollback` BOOL DEFAULT 0;
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
@@ -43,12 +43,12 @@ BEGIN
 			INNER JOIN citas_validation cv ON (c.cita_id = cv.cv_c_id)
             INNER JOIN citas_status cst ON (c.cita_estatus = cst.cs_id)
             INNER JOIN usuarios usr ON (usr.usr_id = userId)
-		WHERE c.cita_paciente_id = userId
+		WHERE c.cita_doctor_id = userId
 			AND cv.cv_status_view = 1;
 	
     ELSEIF opt = 2 THEN
 		
-        SET pacienteId = (SELECT cita_paciente_id FROM citas WHERE cita_id = cId);
+        SET doctorId = (SELECT cita_doctor_id FROM citas WHERE cita_id = cId);
         SET ccStatus = (SELECT COUNT(*) FROM citas_status WHERE cs_id = cStatus);
         
 		IF cStatus > 0 THEN
@@ -72,8 +72,8 @@ BEGIN
 				WHERE cita_id = cId;
 			ELSEIF cStatus = 3 THEN 
 				
-				SET compareStart = (SELECT COUNT(*) FROM citas WHERE cita_paciente_id = pacienteId AND (cita_fecha_start BETWEEN dStart AND dEnd));
-				SET compareEnd = (SELECT COUNT(*) FROM citas WHERE cita_paciente_id = pacienteId AND (cita_fecha_end BETWEEN dStart AND dEnd));
+				SET compareStart = (SELECT COUNT(*) FROM citas WHERE cita_doctor_id = doctorId AND (cita_fecha_start BETWEEN dStart AND dEnd));
+				SET compareEnd = (SELECT COUNT(*) FROM citas WHERE cita_doctor_id = doctorId AND (cita_fecha_end BETWEEN dStart AND dEnd));
 				SET dates = (SELECT DATEDIFF(dStart, dEnd));
 			
 				IF compareStart = 0 && compareEnd = 0 && dates = 0 THEN
