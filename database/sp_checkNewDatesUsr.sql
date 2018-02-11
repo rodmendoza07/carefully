@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_checkNewDatesUsr`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_checkNewDatesUsr`(
+CREATE PROCEDURE `sp_checkNewDatesUsr`(
 	IN shash VARCHAR(35),
     IN opt INT,
     IN cId INT,
@@ -77,13 +77,29 @@ BEGIN
 				SET dates = (SELECT DATEDIFF(dStart, dEnd));
 			
 				IF compareStart = 0 && compareEnd = 0 && dates = 0 THEN
-					UPDATE citas SET
-					cita_estatus = cStatus
-						, cita_usr_id_update = userId
-						, cita_fecha_update = CURRENT_TIMESTAMP
-						, cita_fecha_start = dStart
-						, cita_fecha_end = dEnd
-					WHERE cita_id = cId;
+                
+					IF (SELECT COUNT(*) FROM available_hours WHERE (TIME(dStart) BETWEEN hh_start AND hh_end) AND hh_status = 1) > 0 && (SELECT COUNT(*) FROM available_hours WHERE (TIME(dEnd) BETWEEN hh_start AND hh_end) AND hh_status = 1) > 0 THEN
+						IF dStart < dEnd THEN
+							IF TIMEDIFF(dStart, dEnd) = '-00:50:00' THEN
+								UPDATE citas SET
+									cita_estatus = cStatus
+									, cita_usr_id_update = userId
+									, cita_fecha_update = CURRENT_TIMESTAMP
+									, cita_fecha_start = dStart
+									, cita_fecha_end = dEnd
+								WHERE cita_id = cId;
+							ELSE
+								SIGNAL SQLSTATE '45000'
+									SET message_text = 'Horario inválido';
+							END IF;
+						ELSE
+							SIGNAL SQLSTATE '45000'
+								SET message_text = 'Horario inválido';
+						END IF;
+					ELSE
+						SIGNAL SQLSTATE '45000'
+							SET message_text = 'Horario inválido';
+					END IF;
 				ELSE
 					SIGNAL SQLSTATE '45000'
 						SET message_text = 'Horario inválido';
