@@ -36,6 +36,7 @@ BEGIN
 			, c.cita_fecha_end
 			, cc.cc_desc
             , cst.cs_desc
+            , cst.cs_badge
 			, CONCAT(usr.usr_nombre, ' ', usr.usr_paterno) AS usrNombre
 		FROM citas c
 			INNER JOIN citas_communication cc ON (c.cita_title = cc.cc_id)

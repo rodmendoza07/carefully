@@ -63,9 +63,9 @@
             <img class="img-responsive" src="../asset/img/logo-white1.png">
           </a>
           <ul class="nav navbar-nav navbar-right user-nav">
-            <li style="margin-top: 15px; margin-right:10px;" id="newWarnings">
-              <i class="fa fa-bell" style="font-size:25px;"></i>
-              <span class="label label-warning" style="margin-left:-8px;">10</span>
+            <li class="dropdown avatar-dropdown" style="margin-top: 15px; margin-right:10px;" id="newWarnings">
+              <i class="fa fa-bell" style="font-size:25px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+              <span class="label label-warning" style="margin-left:-8px;" id="totalWarnings"></span>
             </li>
             <li class="dropdown avatar-dropdown">
               <img src="../asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
@@ -215,6 +215,29 @@
                       </h1>
                   </div>
                 </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="modal fade" id="mnewWarnings" role="dialog">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body text-center" id="detailWarning">
+              <div class="row">
+                <div class="col-md-12">
+                  <table class='table table-striped table-bordered'>
+                    <thead>
+                      <tr>
+                        <th class="text-center" style='background: #8CC63F; color:white;'>Día</th>
+                        <th class="text-center" style='background: #8CC63F; color:white;'>Inicio</th>
+                        <th class="text-center" style='background: #8CC63F; color:white;'>Fin</th>
+                        <th class="text-center" style='background: #8CC63F; color:white;'>Estatus</th>
+                      </tr>
+                    </thead>
+                    <tbody id="warningsBody"></tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
       </div>
