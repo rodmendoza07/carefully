@@ -12,6 +12,7 @@ function AppBegin() {
 			var objTherapiesPast = new therapiesPast();
 			var objClientSupport = new clientSupport();
 			var objAgenda = new agenda();
+			var objNewWarnings = new newWarnings();
 			objAgenda.LoadAgenda();
 			objHome.LoadView();
 			objTherapiest.loadProfile();
@@ -19,6 +20,8 @@ function AppBegin() {
 			objCredit.loadCredit();
 			objTherapiesPast.LoadView();
 			objClientSupport.createdTicket();
+			objNewWarnings.reviewWarningsNow();
+			objNewWarnings.reviewWarnings();
 		// } else {
 		// 	window.location = '../register/login.html';
 		// }

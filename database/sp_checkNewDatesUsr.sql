@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_checkNewDatesUsr`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_checkNewDatesUsr`(
+CREATE PROCEDURE `sp_checkNewDatesUsr`(
 	IN shash VARCHAR(35),
     IN opt INT,
     IN cId INT,
@@ -36,6 +36,7 @@ BEGIN
 			, c.cita_fecha_end
 			, cc.cc_desc
             , cst.cs_desc
+            , cst.cs_badge
 			, CONCAT(st.st_nombre, ' ', st.st_paterno) AS stNombre
 		FROM citas c
 			INNER JOIN citas_communication cc ON (c.cita_title = cc.cc_id)

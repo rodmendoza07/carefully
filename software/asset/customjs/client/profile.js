@@ -11,8 +11,7 @@ function myProfile(){
 				
 				$("#content1").load("client/myprofile.html", function(){
 					console.log($("body").height());
-					var altura = $("body").height()
-					console.log(altura);
+					var altura = $("body").height();
 					$("#menu-left").addAttr("height");
 				});
 			});

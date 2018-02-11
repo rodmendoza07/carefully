@@ -58,11 +58,12 @@ INSERT INTO available_hours (
 INSERT INTO citas_status (
     cs_desc
     , cs_color
+    , cs_badge
 ) VALUES
-    ('Enviada', '#29ABE2')
-    , ('Agendada', '#8CC63F')
-    , ('Reprogramada', '#FBB03B')
-    , ('Cancelada', '#F15A24');
+    ('Enviada', '#29ABE2', 'badge badge-enviado')
+    , ('Agendada', '#8CC63F', 'badge badge-info')
+    , ('Reprogramada', '#FBB03B', 'badge badge-reprogramado')
+    , ('Cancelada', '#F15A24', 'badge badge-cancelado');
 
 INSERT INTO citas_communication (
     cc_desc
