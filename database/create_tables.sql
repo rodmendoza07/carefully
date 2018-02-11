@@ -338,9 +338,11 @@ CREATE TABLE IF NOT EXISTS `citas` (
   `cita_usr_id_alta` INT NOT NULL DEFAULT 0,
   `cita_doctor_id_alta` INT NOT NULL DEFAULT 0,
   `cita_usr_id_update` INT NOT NULL DEFAULT 0,
+  `cita_st_update` INT NOT NULL DEFAULT 0,
   `cita_fecha_update` DATETIME NULL,
   `cita_fecha_cancelacion` DATETIME NULL,
   `cita_usr_id_cancelacion` INT NOT NULL DEFAULT 0,
+  `cita_st_id_cancelacion` INT NOT NULL DEFAULT 0,
   `cita_title` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`cita_id`))
 ENGINE = InnoDB;
@@ -587,6 +589,7 @@ CREATE TABLE IF NOT EXISTS `citas_validation` (
   `cv_createat` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `cv_validat` DATETIME,
   `cv_status` TINYINT NOT NULL DEFAULT 0,
+  `cv_status_view` TINYINT NOT NULL DEFAULT 0,
   `cv_usr_id` INT NOT NULL DEFAULT 0,
   `cv_st_id` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`cv_id`))
