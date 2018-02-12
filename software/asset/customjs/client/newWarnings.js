@@ -40,7 +40,9 @@ function newWarnings() {
                     }
                     var detailWarning = "";
                     $("#totalWarnings").empty();
-                    $("#totalWarnings").append(totalWarnings);
+                    if (totalWarnings < 0) {
+                        $("#totalWarnings").append(totalWarnings);
+                    }
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown){
