@@ -59,13 +59,13 @@
             <span class="middle"></span>
             <span class="bottom"></span>
           </div>
-          <a href="index.html" class="navbar-brand" style="margin-left: 0px; margin-top: -8px;"> 
+          <a href="./" class="navbar-brand" style="margin-left: 0px; margin-top: -8px;"> 
             <img class="img-responsive" src="../asset/img/logo-white1.png">
           </a>
           <ul class="nav navbar-nav navbar-right user-nav">
             <li class="dropdown avatar-dropdown" style="margin-top: 15px; margin-right:10px;" id="newWarnings">
               <i class="fa fa-bell" style="font-size:25px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
-              <span class="label label-warning" style="margin-left:-8px;" id="totalWarnings"></span>
+              <span class="label label-warning totalWarnings" style="margin-left:-8px;"></span>
             </li>
             <li class="dropdown avatar-dropdown">
               <img src="../asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
@@ -145,7 +145,31 @@
       <!-- end: Left Menu -->
       <!-- start: content -->
       <div id="content">
-        <div class="col-md-12 padding-0" id="content1"></div>
+        <div class="col-md-12 padding-0" id="content1">
+          <div class="col-md-12 eldiv portada">
+            <h1 style="font-size: 45px; padding-top:25px;">BIENVENID@</h1>
+            <div class="row text-center" style="padding-top: 60px;">
+              <div class="col-md-12">
+                <span style="font-size: 20px;">Tu terapeuta es:&nbsp;&nbsp;<span id="therapistName"></span></span>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-md-12">
+                <span style="font-size: 20px;">Tu plan contratado es:&nbsp;&nbsp;<span id="contractPlan"></span></span>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-md-12">
+                <span style="font-size: 20px;">Citas agendadas:&nbsp;&nbsp;<span class="totalWarnings"></span></span>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-md-12 custom-top">
+                <button class="btn btn-primary btn-pill agenda" style="color:#00C4B3 !important; background-color:#fff !important; font-weight:bold !important;">Agendar Sesión</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- end: content -->
     </div>

@@ -26,9 +26,12 @@ function newWarnings() {
                     toastr.error(response.message, "¡Upps!", 5000);
                     console.log('newWarnings - ',response.message)
                 } else {
+                    console.log(response.data);
                     var totalWarnings = response.data.length;
+                    var therapist = '';
                     $("#warningsBody").empty();
                     for(var i = 0; i < response.data.length; i++){
+                        therapist = response.data[i].dpName;
                         var divD = "<tr><td data-cId='" + response.data[i].cId + "' class='text-center' style='color:#000'>"
                         + moment(response.data[i].dStart).format("DD/MM/YY") + "</td><td class='text-center'>"
                         + moment(response.data[i].dStart).format("HH:mm") + "</td><td class='text-center'>"
@@ -39,8 +42,10 @@ function newWarnings() {
                         $("#warningsBody").append(divD);
                     }
                     var detailWarning = "";
-                    $("#totalWarnings").empty();
-                    $("#totalWarnings").append(totalWarnings);
+                    $(".totalWarnings").empty();
+                    $(".totalWarnings").append(totalWarnings);
+                    $("#therapistName").empty();
+                    $("#therapistName").append(therapist);
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown){
