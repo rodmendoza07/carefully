@@ -19,7 +19,10 @@ function agenda() {
                 $('#loading').modal();
             },
             success: function (response) {
-                $('#loading').modal('toggle');
+                $('#loading').modal('hide');
+                // $("#loading").on('hidden.bs.modal', function () {
+                //     $(this).data('bs.modal', null);
+                // });
                 if (response.errno) {
                     toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
                     console.log('Agenda - ',response.message)
@@ -110,7 +113,6 @@ function agenda() {
                 $("#agendadate").modal('toggle');
                 $("#agenda").fullCalendar( 'destroy' );
                 that.viewAgenda();
-                
             },
             error: function (XMLHttpRequest, textStatus, errorThrown){
                 console.log('getAllDates - ', errorThrown);
@@ -155,27 +157,32 @@ function agenda() {
         that.events = [];
     }
     
+    this.agendaOperations = function() {
+        objActiveMenu.emptyInfoMenu();
+        objActiveMenu.activate("agenda","");
+
+        $("#info").load("client/agendaA.html", function() {});
+
+        $("#content1").load("client/agenda.html", function() {
+            $("#frontAgenda").datepicker();
+
+            that.viewAgenda();
+            
+            $("#cancelDc").click(function(event){
+                event.preventDefault();
+                $("#chatC").iCheck('check');
+                $("#videoC").iCheck('uncheck');
+            });
+            that.events = [];
+        });
+    }
+
 	this.LoadAgenda = function() {
+        console.log("evento - ",);
 		try {
 			$(".agenda").click(function() {
-				objActiveMenu.emptyInfoMenu();
-				objActiveMenu.activate("agenda","");
-	
-				$("#info").load("client/agendaA.html", function() {});
-	
-				$("#content1").load("client/agenda.html", function(event) {
-                    $("#frontAgenda").datepicker();
-
-                    that.viewAgenda();
-                    
-                    $("#cancelDc").click(function(event){
-                        event.preventDefault();
-                        $("#chatC").iCheck('check');
-                        $("#videoC").iCheck('uncheck');
-                    });
-                    that.events = [];
-				});
-			});
+                that.agendaOperations();
+            });
 		} catch(x) {
 			console.log("initHome: LoadView -", x.toString());
 		}
