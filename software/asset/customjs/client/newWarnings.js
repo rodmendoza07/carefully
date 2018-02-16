@@ -42,8 +42,12 @@ function newWarnings() {
                         $("#warningsBody").append(divD);
                     }
                     var detailWarning = "";
+                  
                     $(".totalWarnings").empty();
-                    $(".totalWarnings").append(totalWarnings);
+                    if (totalWarnings < 0) {
+                        $("#totalWarningsBell").append(totalWarnings);
+                    }
+                    $("#totalWarningsHome").append(totalWarnings);
                     $("#therapistName").empty();
                     $("#therapistName").append(therapist);
                 }
