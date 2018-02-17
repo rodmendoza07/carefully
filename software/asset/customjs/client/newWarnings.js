@@ -34,13 +34,9 @@ function newWarnings() {
                         therapist = response.data[i].dpName;
                         var divD = "<tr><td data-cId='" + response.data[i].cId + "' class='text-center' style='color:#000'>"
                         + moment(response.data[i].dStart).format("DD/MM/YY HH:mm") + " - " + moment(response.data[i].dEnd).format("HH:mm") + "</td><td class='text-center'>"
-                        // + moment(response.data[i].dStart).format("HH:mm") + "</td><td class='text-center'>"
-                        // + moment(response.data[i].dEnd).format("HH:mm") + "</td><td class='text-center'>"
                         + "<span class='" + response.data[i].dBadge +"'>"+ response.data[i].dStatus +"</span></td><td class='text-center'>"
-                        + "<button class='btn btn-primary btn-pill' id='acept_" + response.data[i].cId + "'>Aceptar</button>&nbsp;&nbsp;"
-                        + "<button class='btn btn-danger btn-pill' id='cancel_" + response.data[i].cId + "'>Cancel</button></td></tr>"
-                        /*+ "</td><td class='text-center'><button class='btn btn-primary btn-pill'>Aceptar</button>&nbsp;&nbsp;"
-                        + "<button class='btn btn-danger btn-pill'>Cancelar</button></td></tr>"*/;
+                        + "<button class='btn btn-primary btn-pill cAcept' data-id='acept_" + response.data[i].cId + "'>Aceptar</button>&nbsp;&nbsp;"
+                        + "<button class='btn btn-danger btn-pill cCancel' id='cancel_" + response.data[i].cId + "'>Cancel</button></td></tr>"
                         $("#warningsBody").append(divD);
                     }
                     var detailWarning = "";
@@ -65,6 +61,15 @@ function newWarnings() {
     $("document").ready(function(){
         $("#newWarnings").click(function() {
             $("#mnewWarnings").modal();
+            $(".cAcept").click(function(e) {
+                var idConfEvent = e.target.dataset.id;
+                
+            });
+            $(".cCancel").click(function(e) {
+                console.log(e);
+                var idCancelEvent = e.target.dataset.id;
+            });
         });
+
     });
 }
