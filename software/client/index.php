@@ -258,10 +258,11 @@
                   <table class='table table-striped table-bordered'>
                     <thead>
                       <tr>
-                        <th class="text-center" style='background: #8CC63F; color:white;'>Día</th>
-                        <th class="text-center" style='background: #8CC63F; color:white;'>Inicio</th>
-                        <th class="text-center" style='background: #8CC63F; color:white;'>Fin</th>
+                        <th class="text-center" style='background: #8CC63F; color:white;'>Fecha(s)</th>
+                        <!-- <th class="text-center" style='background: #8CC63F; color:white;'>Inicio</th>
+                        <th class="text-center" style='background: #8CC63F; color:white;'>Fin</th> -->
                         <th class="text-center" style='background: #8CC63F; color:white;'>Estatus</th>
+                        <th class="text-center" style="background: #8CC63F; color:white;">Acciones</th>
                       </tr>
                     </thead>
                     <tbody id="warningsBody"></tbody>

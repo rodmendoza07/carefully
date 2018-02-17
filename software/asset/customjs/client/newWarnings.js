@@ -33,10 +33,12 @@ function newWarnings() {
                     for(var i = 0; i < response.data.length; i++){
                         therapist = response.data[i].dpName;
                         var divD = "<tr><td data-cId='" + response.data[i].cId + "' class='text-center' style='color:#000'>"
-                        + moment(response.data[i].dStart).format("DD/MM/YY") + "</td><td class='text-center'>"
-                        + moment(response.data[i].dStart).format("HH:mm") + "</td><td class='text-center'>"
-                        + moment(response.data[i].dEnd).format("HH:mm") + "</td><td class='text-center'>"
-                        + "<span class='" + response.data[i].dBadge +"'>"+ response.data[i].dStatus +"</span></td></tr>"
+                        + moment(response.data[i].dStart).format("DD/MM/YY HH:mm") + " - " + moment(response.data[i].dEnd).format("HH:mm") + "</td><td class='text-center'>"
+                        // + moment(response.data[i].dStart).format("HH:mm") + "</td><td class='text-center'>"
+                        // + moment(response.data[i].dEnd).format("HH:mm") + "</td><td class='text-center'>"
+                        + "<span class='" + response.data[i].dBadge +"'>"+ response.data[i].dStatus +"</span></td><td class='text-center'>"
+                        + "<button class='btn btn-primary btn-pill' id='acept_" + response.data[i].cId + "'>Aceptar</button>&nbsp;&nbsp;"
+                        + "<button class='btn btn-danger btn-pill' id='cancel_" + response.data[i].cId + "'>Cancel</button></td></tr>"
                         /*+ "</td><td class='text-center'><button class='btn btn-primary btn-pill'>Aceptar</button>&nbsp;&nbsp;"
                         + "<button class='btn btn-danger btn-pill'>Cancelar</button></td></tr>"*/;
                         $("#warningsBody").append(divD);
@@ -44,7 +46,7 @@ function newWarnings() {
                     var detailWarning = "";
                   
                     $(".totalWarnings").empty();
-                    if (totalWarnings < 0) {
+                    if (totalWarnings > 0) {
                         $("#totalWarningsBell").append(totalWarnings);
                     }
                     $("#totalWarningsHome").append(totalWarnings);
