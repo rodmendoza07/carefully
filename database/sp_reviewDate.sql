@@ -21,9 +21,9 @@ BEGIN
     SET userId = (SELECT vt_usr_id FROM validtokens WHERE vt_hash = shash AND vt_status = 1);
     SET userId = IFNULL(userId, -1);
     
-    IF userType = 1 THEN
+    IF userType = 0 THEN
 		select 'hola';
-    ELSEIF userType = 2 THEN
+    ELSEIF userType = 1 THEN
 		select 'bien y tu';
     ELSE
 		SIGNAL SQLSTATE '45000'

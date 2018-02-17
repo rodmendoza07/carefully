@@ -128,8 +128,21 @@
             }
         }
 
-        public function setReviewWarnings($token){
+        public function setReviewWarnings($token,$option){
             try {
+
+                $opt = strpos($option, 'acept_');
+
+                if ($opt === true) {
+                    $call = $conecta->prepare('CALL sp_reviewDate(?, ?, ?)');
+                    $call->bind_param('sis', $token, $userType, $cId);
+                    $call->execute();
+                    $call->bind_result($cId, $cDstart, $cDend, $dType, $dStatus, $dpName);
+                } else {
+                    
+                }
+                
+
                 echo 'token sesion - '.$_SESSION['9987435b7dbef543b786efd81d1b3dc9'].'<br>';
                 echo 'token - '.$token.'<br>';
                 echo 'sesion - '.$_SESSION['5ac7fb09a5264f6d78424dbdbf3f9187'];

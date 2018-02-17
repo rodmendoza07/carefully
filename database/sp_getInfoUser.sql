@@ -139,6 +139,7 @@ BEGIN
 						, usr_nombre
 						, usr_paterno
                         , '../software/client' AS url
+						, typeUser
 					FROM usuarios
 					WHERE usr_id = userId;
                 ELSEIF typeUser = 1 THEN  
@@ -147,6 +148,7 @@ BEGIN
 						, st_nombre
 						, st_paterno
                         , '../software/staff' AS url
+						, typeUser
 					FROM staff
 					WHERE st_id = userId;
                 END IF;

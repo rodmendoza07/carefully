@@ -36,7 +36,7 @@ function newWarnings() {
                         + moment(response.data[i].dStart).format("DD/MM/YY HH:mm") + " - " + moment(response.data[i].dEnd).format("HH:mm") + "</td><td class='text-center'>"
                         + "<span class='" + response.data[i].dBadge +"'>"+ response.data[i].dStatus +"</span></td><td class='text-center'>"
                         + "<button class='btn btn-primary btn-pill cAcept' data-id='acept_" + response.data[i].cId + "'>Aceptar</button>&nbsp;&nbsp;"
-                        + "<button class='btn btn-danger btn-pill cCancel' id='cancel_" + response.data[i].cId + "'>Cancel</button></td></tr>"
+                        + "<button class='btn btn-danger btn-pill cCancel' data-id='cancel_" + response.data[i].cId + "'>Cancel</button></td></tr>"
                         $("#warningsBody").append(divD);
                     }
                     var detailWarning = "";

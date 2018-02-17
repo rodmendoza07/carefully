@@ -16,13 +16,12 @@
                     echo json_encode($resp);
                 } else {
                     session_start();
-                    $call->bind_result($sessToken, $names, $lastnames, $urlLocation);
+                    $call->bind_result($sessToken, $names, $lastnames, $urlLocation,$typeUser);
                     $call->fetch();
                     $_SESSION['9987435b7dbef543b786efd81d1b3dc9'] = $sessToken;
                     $_SESSION['e4595499803bf2733cc9cb8e55c6ece3'] = $names;
                     $_SESSION['089e07ac4b0332dfc7fe1e4f0197fc11'] = $lastnames;
                     $_SESSION['5ac7fb09a5264f6d78424dbdbf3f9187'] = $typeUser;
-                    echo $typeUser.'<br>';
                     $resp = array('status' => 200, 'data' => 'Ok', 'urlLoc' => $urlLocation);
                     echo json_encode($resp);
                 }
