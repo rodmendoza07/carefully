@@ -34,11 +34,12 @@ BEGIN
             UPDATE citas_validation SET
 				cv_status_view = 2
                 , cv_status = 2
-			WHERE cv_c_id = validId;
+                , cv_validat = NOW()
+			WHERE cv_id = validId;
             
             IF ROW_COUNT() <= 0 THEN
 				SIGNAL SQLSTATE '45000'
-					SET message_text = 'Algo ha ido mal, intentalo más tarde.';
+					SET message_text = 'Algo ha ido mal, intentalo más tarde1.';
 			END IF;
             
             IF `_rollback` THEN
@@ -70,7 +71,8 @@ BEGIN
             UPDATE citas_validation SET
 				cv_status_view = 2
                 , cv_status = 2
-			WHERE cv_c_id = validId;
+                , cv_validat = NOW()
+			WHERE cv_id = validId;
             
             IF ROW_COUNT() <= 0 THEN
 				SIGNAL SQLSTATE '45000'

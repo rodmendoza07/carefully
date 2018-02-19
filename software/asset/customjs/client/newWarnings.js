@@ -4,6 +4,7 @@ function newWarnings() {
     this.reviewWarnings = function (){
         setInterval(function(){ 
             console.log("checa warnings");
+            that.getAllwarnings();
         }, 30000);
     };
 
@@ -26,7 +27,7 @@ function newWarnings() {
                     toastr.error(response.message, "¡Upps!", 5000);
                     console.log('newWarnings - ',response.message)
                 } else {
-                    console.log(response.data);
+                    console.log(response);
                     var totalWarnings = response.data.length;
                     var therapist = '';
                     $("#warningsBody").empty();
@@ -63,7 +64,31 @@ function newWarnings() {
             $("#mnewWarnings").modal();
             $(".cAcept").click(function(e) {
                 var idConfEvent = e.target.dataset.id;
-            
+                var dataPost = { cId : idConfEvent };
+                var ajaxW = $.ajax({
+                    contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    url: "../include/2d0e9de048e9f2b686ef346c4b716d39.php",
+                    data: JSON.stringify(dataPost),
+                    dataType: 'JSON',
+                    beforeSend: function() {
+                    },
+                    success: function (response) {
+                        $('#mnewWarnings').modal('toggle');
+                        if (response.errno) {
+                            toastr.error(response.message, "¡Upps!", 5000);
+                            console.log('newWarnings - ',response.message)
+                        } else {
+                            that.getAllwarnings();
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown){
+                        $('#mnewWarnings').modal('toggle');
+                        console.log('newWarnings - ', errorThrown);
+                        console.log('newWarnings - ', XMLHttpRequest);
+                        return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+                    }
+                });
             });
             $(".cCancel").click(function(e) {
                 console.log(e);
