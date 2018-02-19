@@ -65,7 +65,7 @@
           <ul class="nav navbar-nav navbar-right user-nav">
             <li class="dropdown avatar-dropdown" style="margin-top: 15px; margin-right:10px;" id="newWarnings">
               <i class="fa fa-bell" style="font-size:25px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
-              <span class="label label-warning totalWarnings" style="margin-left:-8px;"></span>
+              <span class="label label-warning totalWarnings" id="totalWarningsBell" style="margin-left:-8px;"></span>
             </li>
             <li class="dropdown avatar-dropdown">
               <img src="../asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
@@ -160,7 +160,7 @@
             </div>
             <div class="row text-center">
               <div class="col-md-12">
-                <span style="font-size: 20px;">Citas agendadas:&nbsp;&nbsp;<span class="totalWarnings"></span></span>
+                <span style="font-size: 20px;">Citas agendadas:&nbsp;&nbsp;<span class="totalWarnings" id="totalWarningsHome"></span></span>
               </div>
             </div>
             <div class="row text-center">
@@ -258,10 +258,9 @@
                   <table class='table table-striped table-bordered'>
                     <thead>
                       <tr>
-                        <th class="text-center" style='background: #8CC63F; color:white;'>Día</th>
-                        <th class="text-center" style='background: #8CC63F; color:white;'>Inicio</th>
-                        <th class="text-center" style='background: #8CC63F; color:white;'>Fin</th>
+                        <th class="text-center" style='background: #8CC63F; color:white;'>Fecha(s)</th>
                         <th class="text-center" style='background: #8CC63F; color:white;'>Estatus</th>
+                        <th class="text-center" style="background: #8CC63F; color:white;">Acciones</th>
                       </tr>
                     </thead>
                     <tbody id="warningsBody"></tbody>

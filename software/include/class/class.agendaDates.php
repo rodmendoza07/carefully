@@ -95,7 +95,7 @@
 
         public function getWarningsStaff($token) {
             try {
-                include 'conection.php';
+                include 'connection.php';
 
                 $opt = 1;
                 $citaId = 0;
@@ -126,6 +126,33 @@
                 $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
                 echo json_encode($catch);
             }
+        }
+
+        public function setReviewWarnings($token,$option){
+            try {
+
+                include 'connection.php';
+                
+                $userType = $_SESSION['5ac7fb09a5264f6d78424dbdbf3f9187'];
+                $call = $conecta->prepare('CALL sp_reviewDate(?, ?, ?)');
+                $call->bind_param('sii', $token, $userType, $option);
+                $call->execute();
+                $call->bind_result($statusV);
+                
+                if ($call->errno > 0) {
+                    $errno = $call->errno;
+                    $msg = $call->error;
+                    $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
+                    echo json_encode($resp);
+                } else {
+                    $resp = array('status' => 200, 'data' => $statusV);
+                    echo json_encode($resp);
+                }
+            } catch (Exception $e) {
+                $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
+                echo json_encode($catch);
+            }
+            
         }
     }
 

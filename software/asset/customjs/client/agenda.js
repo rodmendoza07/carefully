@@ -178,7 +178,6 @@ function agenda() {
     }
 
 	this.LoadAgenda = function() {
-        console.log("evento - ",);
 		try {
 			$(".agenda").click(function() {
                 that.agendaOperations();
