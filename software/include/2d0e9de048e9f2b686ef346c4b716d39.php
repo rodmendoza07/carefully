@@ -8,8 +8,10 @@
 
         //if (isset($_SESSION['9987435b7dbef543b786efd81d1b3dc9']) && !empty($_SESSION['9987435b7dbef543b786efd81d1b3dc9'])) {
             //echo $_SESSION['9987435b7dbef543b786efd81d1b3dc9'];
+            $cId = 'acept_3';
+            
             $getAllWarnings = new agendaDates();  
-            $getAllWarnings->setReviewWarnings(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']));
+            $getAllWarnings->setReviewWarnings(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $cId);
             //$getAllDates->getAllDates('872c7098627a16be698bbc3d0b015a2d');
             
 

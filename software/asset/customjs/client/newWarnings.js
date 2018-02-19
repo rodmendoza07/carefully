@@ -63,7 +63,7 @@ function newWarnings() {
             $("#mnewWarnings").modal();
             $(".cAcept").click(function(e) {
                 var idConfEvent = e.target.dataset.id;
-                
+            
             });
             $(".cCancel").click(function(e) {
                 console.log(e);
