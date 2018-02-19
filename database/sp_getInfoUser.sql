@@ -140,7 +140,10 @@ BEGIN
 						, usr_paterno
                         , '../software/client' AS url
 						, typeUser
-					FROM usuarios
+                        , CONCAT(st.st_nombre, ' ', st.st_paterno, ' ', st. st_materno) AS therapist
+					FROM usuarios usr
+						INNER JOIN expedientepaciente expP ON (expP.expP_paciente_id = usr.usr_id)
+                        INNER JOIN staff st ON (st.st_id = expP_doctor_id)
 					WHERE usr_id = userId;
                 ELSEIF typeUser = 1 THEN  
 					SELECT 

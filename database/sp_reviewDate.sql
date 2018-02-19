@@ -39,7 +39,7 @@ BEGIN
             
             IF ROW_COUNT() <= 0 THEN
 				SIGNAL SQLSTATE '45000'
-					SET message_text = 'Algo ha ido mal, intentalo más tarde1.';
+					SET message_text = 'Cita no encontrada.';
 			END IF;
             
             IF `_rollback` THEN
