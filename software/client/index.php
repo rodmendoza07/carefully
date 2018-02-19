@@ -150,7 +150,7 @@
             <h1 style="font-size: 45px; padding-top:25px;">BIENVENID@</h1>
             <div class="row text-center" style="padding-top: 60px;">
               <div class="col-md-12">
-                <span style="font-size: 20px;">Tu terapeuta es:&nbsp;&nbsp;<span id="therapistName"></span></span>
+                <span style="font-size: 20px;">Tu terapeuta es:&nbsp;&nbsp;<?php echo $_SESSION['c31628f91db9e419fa043ecf38bf3af4']; ?></span>
               </div>
             </div>
             <div class="row text-center">
@@ -255,13 +255,9 @@
             <div class="modal-body" id="detailWarning">
               <div class="row">
                 <div class="col-md-12">
+                  <div class="col-md-12" id="bodyWarnings"></div>
                   <table class='table table-striped table-bordered'>
-                    <thead>
-                      <tr>
-                        <th class="text-center" style='background: #8CC63F; color:white;'>Fecha(s)</th>
-                        <th class="text-center" style='background: #8CC63F; color:white;'>Estatus</th>
-                        <th class="text-center" style="background: #8CC63F; color:white;">Acciones</th>
-                      </tr>
+                    <thead id="theadWarnings">
                     </thead>
                     <tbody id="warningsBody"></tbody>
                   </table>

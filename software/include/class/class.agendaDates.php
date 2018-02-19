@@ -154,6 +154,35 @@
             }
             
         }
+
+        public function cancelWarning($token,$idDate) {
+            try {
+                include 'connection.php';
+
+                $opt = 2;
+                $dStart = '';
+                $dEnd = '';
+
+                $call = $conecta->prepare('CALL sp_checkNewDatesUsr(?, ?, ?, ?, ?, ?)');
+                $call->bind_param('siiiss', $token, $opt, $idDate,$dStart, $dEnd);
+                $call->execute();
+                $call->bind_result($statusV);
+
+                if ($call->errno > 0) {
+                    $errno = $call->errno;
+                    $msg = $call->error;
+                    $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
+                    echo json_encode($resp);
+                } else {
+                    $resp = array('status' => 200, 'data' => $statusV);
+                    echo json_encode($resp);
+                }
+                
+            } catch(Exception $e) {
+                $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
+                echo json_encode($catch);
+            }
+        }
     }
 
 ?>

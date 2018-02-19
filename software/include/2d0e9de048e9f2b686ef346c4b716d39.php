@@ -3,22 +3,41 @@
     try {
         include 'class/class.agendaDates.php';
         session_start();
-        $json_str = file_get_contents('php://input');
-        $json_obj = json_decode($json_str, true);
-        $cId = $json_obj['cId'];
+        // $json_str = file_get_contents('php://input');
+        // $json_obj = json_decode($json_str, true);
+        // $cId = $json_obj['cId'];
+
+        $cId = 'acept_3';
 
         $opt = strpos($cId, 't_');
         $ccId = substr($cId, $opt + 2);
 
-        if ($opt === false) {
+        $opt === false ? $typeOperation = 4 : $typeOperation = 2;
 
+        echo $typeOperation;
+
+        $getAllWarnings = new agendaDates();
+
+        switch($typeOperation) {
+            case '2':
+                    $getAllWarnings->setReviewWarnings(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $ccId);
+                    break;
             
-            $optNot = array('status' => 404, 'errno' => 1100, 'message' => 'Cita no encontrada');
-            echo json_encode($optNot).'<br>';
-        }  else {
-            $getAllWarnings = new agendaDates();  
-            $getAllWarnings->setReviewWarnings(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $ccId);
+            case '4':
+                    $getAllWarnings->cancelWarning(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $ccId);
+                    break;
+            
+            default:
+                    $optNot = array('status' => 404, 'errno' => 1100, 'message' => 'Cita no encontrada');
+                    break;
         }
+        // if ($opt === false) {
+        //     $typeOperation = 4;
+        //     // $optNot = array('status' => 404, 'errno' => 1100, 'message' => 'Cita no encontrada');
+        //     // echo json_encode($optNot).'<br>';
+        // }  else {
+        //     $typeOperation = 2;
+        // }
 
         //$_SESSION['9987435b7dbef543b786efd81d1b3dc9'] = 'ad9cfdff972dd2d5dc132195fa706f64';
 
