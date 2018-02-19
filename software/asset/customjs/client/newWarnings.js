@@ -32,7 +32,9 @@ function newWarnings() {
                     
                     if (totalWarnings == 0) {
                         $("#theadWarnings").empty();
+                        $("#warningsBody").empty();
                         $("#bodyWarnings").empty();
+                        $("#totalWarningsBell").empty();
                         $("#bodyWarnings").append(
                             "<h2>No hay avisos nuevos</h2>"
                         );
@@ -62,6 +64,7 @@ function newWarnings() {
                             $("#totalWarningsBell").append(totalWarnings);
                         }
                     }
+                    $("#totalWarningsHome").empty();
                     $("#totalWarningsHome").append(totalWarnings);
                 }
             },

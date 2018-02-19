@@ -3,18 +3,18 @@
     try {
         include 'class/class.agendaDates.php';
         session_start();
-        // $json_str = file_get_contents('php://input');
-        // $json_obj = json_decode($json_str, true);
-        // $cId = $json_obj['cId'];
+        $json_str = file_get_contents('php://input');
+        $json_obj = json_decode($json_str, true);
+        $cId = $json_obj['cId'];
 
-        $cId = 'acept_3';
+        // $cId = 'acept_3';
 
         $opt = strpos($cId, 't_');
         $ccId = substr($cId, $opt + 2);
 
         $opt === false ? $typeOperation = 4 : $typeOperation = 2;
 
-        echo $typeOperation;
+        //echo $typeOperation;
 
         $getAllWarnings = new agendaDates();
 
