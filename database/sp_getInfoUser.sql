@@ -152,6 +152,7 @@ BEGIN
 						, st_paterno
                         , '../software/staff' AS url
 						, typeUser
+                        , '' AS therapist
 					FROM staff
 					WHERE st_id = userId;
                 END IF;

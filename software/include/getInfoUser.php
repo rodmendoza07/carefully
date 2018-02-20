@@ -3,13 +3,13 @@
     include 'class/class.getInfoUser.php';
 
     try{
-        // $json_str = file_get_contents('php://input');
-        // $json_obj = json_decode($json_str, true);
-        // $userName = $json_obj['userName'];
-        // $passwd = $json_obj['passwd'];
+        $json_str = file_get_contents('php://input');
+        $json_obj = json_decode($json_str, true);
+        $userName = $json_obj['userName'];
+        $passwd = $json_obj['passwd'];
 
-        $userName = 'lr.mendozar@gmail.com';
-        $passwd = '12345678';
+        // $userName = 'lr.mendozar@gmail.com';
+        // $passwd = '12345678';
 
         $newAccess = new getInfoUser();
         $newAccess->accessLogin($userName, $passwd);
