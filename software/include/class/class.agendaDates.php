@@ -95,17 +95,19 @@
 
         public function getWarningsStaff($token) {
             try {
-                include 'connection.php';
 
                 $opt = 1;
                 $citaId = 0;
                 $dStart = '';
                 $dEnd = '';
+                $dateStatus = 0;
+                
+                include 'connection.php';
 
                 $call = $conecta->prepare('CALL sp_checkNewDatesStaff(?, ?, ?, ?, ?, ?)');
-                $call->bind_param('siiiss', $token, $opt, $citaId,$dStart, $dEnd);
+                $call->bind_param('siiiss', $token, $opt, $citaId, $dateStatus, $dStart, $dEnd);
                 $call->execute();
-                $call->bind_result($cId, $cDstart, $cDend, $dType, $dStatus, $dpName);
+                $call->bind_result($cId, $cDstart, $cDend, $dType, $dStatus, $dBadge,$dpName);
                 
                 if ($call->errno > 0) {
                     $errno = $call->errno;
@@ -115,7 +117,7 @@
                 } else {
                     $newDatesW = array();
                     while($call->fetch()){
-                        $aTemp = array('cId' => $cId, 'dStart' => $cDstart, 'dEnd' => $cDend, 'dType' => $dType, 'dStatus' => $dStatus, 'dpName' => $dpName);
+                        $aTemp = array('cId' => $cId, 'dStart' => $cDstart, 'dEnd' => $cDend, 'dType' => $dType, 'dStatus' => $dStatus, 'dpName' => $dpName, 'dBadge' => $dBadge);
                         array_push($newDatesW,$aTemp);
                     }
                     $resp = array('status' => 200, 'data' => $newDatesW);

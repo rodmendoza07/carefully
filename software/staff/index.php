@@ -1,12 +1,12 @@
 <?php
-    $tr = true;
-    echo $tr;
-    /*try {
-        include 'include/class/class.getInfoUser.php';
+    // $tr = true;
+    // echo $tr;
+    try {
+        include '../include/class/class.getInfoUser.php';
         session_start();
     
         if (!isset($_SESSION['9987435b7dbef543b786efd81d1b3dc9']) && empty($_SESSION['9987435b7dbef543b786efd81d1b3dc9'])) {    
-            header('location: ../register/login.html');
+            header('location: ../../register/login.html');
         } else {
           $validS = new getInfoUser();    
           $validatesta = $validS->validateSess(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']));
@@ -20,7 +20,7 @@
     } catch (Exception $e) {
         $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
         echo json_encode($catch);
-    }*/
+    }
 ?>
 
 <!DOCTYPE html>
@@ -65,9 +65,9 @@
             <img class="img-responsive" src="../asset/img/logo-white1.png">
           </a>
           <ul class="nav navbar-nav navbar-right user-nav">
-            <li style="margin-top: 15px; margin-right:10px;">
-              <i class="fa fa-bell" style="font-size:25px;"></i>
-              <span class="label label-warning" style="margin-left:-8px;">10</span>
+            <li class="dropdown avatar-dropdown" style="margin-top: 15px; margin-right:10px;" id="newWarnings">
+              <i class="fa fa-bell" style="font-size:25px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+              <span class="label label-warning totalWarnings" id="totalWarningsBell" style="margin-left:-8px;"></span>
             </li>
             <li class="dropdown avatar-dropdown">
               <img src="../asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
@@ -148,7 +148,21 @@
       <!-- end: Left Menu -->
       <!-- start: content -->
       <div id="content">
-        <div class="col-md-12 padding-0" id="content1"></div>
+      <div class="col-md-12 padding-0" id="content1">
+          <div class="col-md-12 eldiv portada">
+            <h1 style="font-size: 45px; padding-top:25px;">BIENVENID@</h1>
+            <div class="row text-center" style="padding-top: 60px;">
+              <div class="col-md-12">
+                <span style="font-size: 20px;">Citas agendadas:&nbsp;&nbsp;<span class="totalWarnings" id="totalWarningsHome"></span></span>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-md-12 custom-top">
+                <button class="btn btn-primary btn-pill agenda" style="color:#00C4B3 !important; background-color:#fff !important; font-weight:bold !important;">Agendar Sesión</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- end: content -->
     </div>
@@ -222,6 +236,30 @@
           </div>
       </div>
     </div>
+    <div class="modal fade" id="mnewWarnings" role="dialog">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <label style="font-size: 24px;">¡Avisos!</label>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="detailWarning">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="col-md-12" id="bodyWarnings"></div>
+                  <table class='table table-striped table-bordered'>
+                    <thead id="theadWarnings">
+                    </thead>
+                    <tbody id="warningsBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
     <!-- start: Javascript -->
     <script src="../asset/js/jquery.min.js"></script>
     <script src="../asset/js/jquery.ui.min.js"></script>
@@ -244,6 +282,8 @@
     <script src="../asset/customjs/staff/AppBegin.js"></script>
     <script src="../asset/customjs/staff/activeMenu.js"></script>
     <script src="../asset/customjs/staff/initHome.js"></script>
+    <script src="../asset/customjs/staff/agenda.js"></script>
+    <script src="../asset/customjs/staff/newWarnings.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>
