@@ -61,7 +61,7 @@
             <span class="middle"></span>
             <span class="bottom"></span>
           </div>
-          <a href="index.html" class="navbar-brand" style="margin-left: 0px; margin-top: -8px;"> 
+          <a href="./" class="navbar-brand" style="margin-left: 0px; margin-top: -8px;"> 
             <img class="img-responsive" src="../asset/img/logo-white1.png">
           </a>
           <ul class="nav navbar-nav navbar-right user-nav">

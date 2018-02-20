@@ -3,10 +3,12 @@ function AppBegin() {
 
 	try {
 
+		var objHome = new initHome();
 		var objAgenda = new agenda();
 		var objNewWarnings = new newWarnings();
 		
 		objAgenda.LoadAgenda();
+		objHome.LoadView();
 		objNewWarnings.reviewWarningsNow();
 		objNewWarnings.reviewWarnings();
 

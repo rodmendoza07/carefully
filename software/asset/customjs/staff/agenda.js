@@ -12,7 +12,7 @@ function agenda() {
         var ajaxF = $.ajax({
             contentType: "application/json; charset=utf-8",
             type: "GET",
-            url: "../include/9bc8f51edd581007d1ceae746a1d7802.php",
+            url: "../include/eb18f524d4cc2f06d791dd918ffbf597.php",
             dataType: 'JSON',
             async: false,
             beforeSend: function() {
@@ -125,6 +125,7 @@ function agenda() {
 
     this.viewAgenda = function() {
         that.getEvents();
+        console.log(that.events);
         var successs = false;
         $('#agenda').fullCalendar({
             height : screen.height,
