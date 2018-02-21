@@ -84,3 +84,53 @@ INSERT INTO validateSess (
     , 1
     , NOW()
 )
+
+INSERT INTO civil_estado (
+    ce_desc
+) VALUES 
+('Soltero')
+, ('Casado')
+, ('Divorciado')
+, ('Unión libre')
+, ('Otro');
+
+INSERT INTO gender (
+    g_desc
+) VALUES 
+('Femenino')
+, ('Masculino')
+, ('Otro');
+
+INSERT INTO emotions (
+    e_desc
+) VALUES 
+('Miedo')
+, ('Culpa')
+, ('Vergüenza')
+, ('Frustración')
+, ('Arrepentimiento')
+, ('Celos')
+, ('Inseguridad')
+, ('Desinterés')
+, ('Envídia')
+, ('Dolor');
+
+INSERT INTO frequency (
+    f_desc
+) VALUES
+('Nunca')
+, ('Varios días')
+, ('La mitad de los días')
+, ('Casí todos los días');
+
+INSERT INTO reference (
+    r_desc
+) VALUES
+('Un amigo o falimiar')
+, ('Mi doctor')
+, ('Busqué en internet')
+, ('Vi un anuncio')
+, ('Redes sociales')
+, ('En un artículo')
+, ('Medios de comunicación (radio/tv)')
+, ('Otro');
