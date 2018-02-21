@@ -3,7 +3,6 @@ function newWarnings() {
 
     this.reviewWarnings = function (){
         setInterval(function(){ 
-            console.log("checa warnings");
             that.getAllwarnings();
         }, 30000);
     };
