@@ -18,11 +18,20 @@
 
         switch($typeOperation) {
             case '2':
-                    $getAllWarnings->setReviewWarnings(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $ccId);
+                    if ($_SESSION['5ac7fb09a5264f6d78424dbdbf3f9187'] == 0) {
+                        $getAllWarnings->setReviewWarnings(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $ccId);
+                    } else {
+                        $getAllWarnings->changeStatusDateStaff(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $typeOperation, $ccId, $typeOperation, '', '');
+                    }
                     break;
             
             case '4':
-                    $getAllWarnings->cancelWarning(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $ccId);
+                    if ($_SESSION['5ac7fb09a5264f6d78424dbdbf3f9187'] == 0) {
+                        
+                    } else {
+                        echo 'entro a cancelar';
+                        $getAllWarnings->changeStatusDateStaff(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), 2, $ccId, $typeOperation, '', '');
+                    }
                     break;
             
             default:

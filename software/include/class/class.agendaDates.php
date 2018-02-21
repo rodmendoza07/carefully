@@ -223,7 +223,7 @@
                 $opt = 2;
 
                 $call = $conecta->prepare('CALL sp_checkNewDatesStaff(?, ?, ?, ?, ?, ?)');
-                $call->bind_param('siiiss', $token, $opt, $cId, $dStart, $dEnd);
+                $call->bind_param('siiiss', $token, $opt, $cId, $dateStatus, $dStart, $dEnd);
                 $call->execute();
                 $call->bind_result($statusV);
 
