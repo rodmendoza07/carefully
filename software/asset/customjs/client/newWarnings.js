@@ -3,7 +3,6 @@ function newWarnings() {
 
     this.reviewWarnings = function (){
         setInterval(function(){ 
-            console.log("checa warnings");
             that.getAllwarnings();
         }, 30000);
     };
@@ -27,7 +26,6 @@ function newWarnings() {
                     toastr.error(response.message, "¡Upps!", 5000);
                     console.log('newWarnings - ',response.message)
                 } else {
-                    console.log(response);
                     var totalWarnings = response.data.length;
                     
                     if (totalWarnings == 0) {
@@ -41,20 +39,30 @@ function newWarnings() {
                     } else {
                         var theader = "<tr>"
                                         + "<th class='text-center' style='background: #8CC63F; color:white;'>Fecha(s)</th>"
-                                        + "<th class='text-center' style='background: #8CC63F; color:white;'>Acciones</th>"
                                         + "<th class='text-center' style='background: #8CC63F; color:white;'>Estatus</th>"
+                                        + "<th class='text-center' style='background: #8CC63F; color:white;'>Acciones</th>"
                                     + "</tr>";
                         $("#theadWarnings").empty();
                         $("#theadWarnings").append(theader);
                         $("#bodyWarnings").empty();
                         $("#warningsBody").empty();
                         for(var i = 0; i < response.data.length; i++){
-                            therapist = response.data[i].dpName;
-                            var divD = "<tr><td data-cId='" + response.data[i].cId + "' class='text-center' style='color:#000'>"
-                            + moment(response.data[i].dStart).format("DD/MM/YY HH:mm") + " - " + moment(response.data[i].dEnd).format("HH:mm") + "</td><td class='text-center'>"
-                            + "<span class='" + response.data[i].dBadge +"'>"+ response.data[i].dStatus +"</span></td><td class='text-center'>"
-                            + "<button class='btn btn-primary btn-pill cAcept' data-id='acept_" + response.data[i].cId + "'>Aceptar</button>&nbsp;&nbsp;"
-                            + "<button class='btn btn-danger btn-pill cCancel' data-id='cancel_" + response.data[i].cId + "'>Cancel</button></td></tr>"
+                            var divD;
+                            if (response.data[i].dStatus == 'Cancelada') {
+                                divD = "<tr><td data-cId='" + response.data[i].cId + "' class='text-center' style='color:#000'>"
+                                + moment(response.data[i].dStart).format("DD/MM/YY HH:mm") + " - " + moment(response.data[i].dEnd).format("HH:mm") + "</td><td class='text-center'>"
+                                + "<span class='" + response.data[i].dBadge +"'>"+ response.data[i].dStatus +"</span></td><td class='text-center'>"
+                                + "<button class='btn btn-primary btn-pill cAcept' data-id='acept_" + response.data[i].cId + "' data-ps='"
+                                + response.data[i].dStatus + "'>Aceptar</button></td></tr>"
+                            } else {
+                                divD = "<tr><td data-cId='" + response.data[i].cId + "' class='text-center' style='color:#000'>"
+                                + moment(response.data[i].dStart).format("DD/MM/YY HH:mm") + " - " + moment(response.data[i].dEnd).format("HH:mm") + "</td><td class='text-center'>"
+                                + "<span class='" + response.data[i].dBadge +"'>"+ response.data[i].dStatus +"</span></td><td class='text-center'>"
+                                + "<button class='btn btn-primary btn-pill cAcept' data-id='acept_" + response.data[i].cId + "' data-ps='"
+                                + response.data[i].dStatus + "'>Aceptar</button>&nbsp;&nbsp;"
+                                + "<button class='btn btn-danger btn-pill cCancel' data-id='cancel_" + response.data[i].cId + "' data-ps='"
+                                + response.data[i].dStatus + "'>Cancel</button></td></tr>"
+                            }
                             $("#warningsBody").append(divD);
                         }
                         var detailWarning = "";
@@ -81,7 +89,8 @@ function newWarnings() {
             $("#mnewWarnings").modal();
             $(".cAcept").click(function(e) {
                 var idConfEvent = e.target.dataset.id;
-                var dataPost = { cId : idConfEvent };
+                var prevStat = e.target.dataset.ps;
+                var dataPost = { cId : idConfEvent, prevS: prevStat};
                 var ajaxW = $.ajax({
                     contentType: "application/json; charset=utf-8",
                     type: "POST",
@@ -110,6 +119,33 @@ function newWarnings() {
             $(".cCancel").click(function(e) {
                 console.log(e);
                 var idCancelEvent = e.target.dataset.id;
+                var prevStat = e.target.dataset.ps;
+                var dataPost = { cId : idCancelEvent, prevS: prevStat};
+                console.log(dataPost);
+                var ajaxW = $.ajax({
+                    contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    url: "../include/2d0e9de048e9f2b686ef346c4b716d39.php",
+                    data: JSON.stringify(dataPost),
+                    dataType: 'JSON',
+                    beforeSend: function() {
+                    },
+                    success: function (response) {
+                        $('#mnewWarnings').modal('toggle');
+                        if (response.errno) {
+                            toastr.error(response.message, "¡Upps!", 5000);
+                            console.log('newWarnings - ',response.message)
+                        } else {
+                            that.getAllwarnings();
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown){
+                        $('#mnewWarnings').modal('toggle');
+                        console.log('newWarnings - ', errorThrown);
+                        console.log('newWarnings - ', XMLHttpRequest);
+                        return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+                    }
+                });
             });
         });
 

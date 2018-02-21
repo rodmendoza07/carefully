@@ -178,10 +178,17 @@ function agenda() {
         });
     }
 
+	this.reloadAgenda = function() {
+        setInterval(function(){ 
+            that.agendaOperations();
+        }, 30000);
+    } 
+
 	this.LoadAgenda = function() {
 		try {
 			$(".agenda").click(function() {
                 that.agendaOperations();
+                that.reloadAgenda();
             });
 		} catch(x) {
 			console.log("initHome: LoadView -", x.toString());
