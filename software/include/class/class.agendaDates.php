@@ -216,11 +216,17 @@
             }
         }
 
-        public function changeStatusDateStaff($token, $dateStatus, $cId, $dStart, $dEnd) {
+        public function changeStatusDateStaff($token, $cId, $dateStatus, $dStart, $dEnd) {
             try {
                 include 'connection.php';
 
                 $opt = 2;
+
+                // echo $token.'token<br>';
+                // echo $dateStatus.'estado cita<br>';
+                // echo $cId.'id de cita<br>';
+                // echo $dStart.'inicio<br>';
+                // echo $dEnd.'termino<br>';
 
                 $call = $conecta->prepare('CALL sp_checkNewDatesStaff(?, ?, ?, ?, ?, ?)');
                 $call->bind_param('siiiss', $token, $opt, $cId, $dateStatus, $dStart, $dEnd);
