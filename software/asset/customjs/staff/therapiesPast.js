@@ -7,7 +7,7 @@ function therapiesPast () {
 	var columnas = [
 		{ title: 'Fecha', data: 'day'}
 		, {title: 'Horario', data: 'horario'}
-		, {title: 'Terapeuta', data: 'names'}
+		, {title: 'Paciente', data: 'names'}
 		, {title: 'Estatus', data: 'status'}
 	];
 
@@ -46,9 +46,9 @@ function therapiesPast () {
 				objActiveMenu.activate("sessions","");
 
 
-				$("#info").load("client/therapiesPastA.html", function() {});
+				$("#info").load("staff/therapiesPastA.html", function() {});
 	
-				$("#content1").load("client/therapiesPast.html", function(){
+				$("#content1").load("staff/therapiesPast.html", function(){
 					that.getTherapyE();
 				});
 			});

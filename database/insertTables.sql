@@ -84,3 +84,85 @@ INSERT INTO validateSess (
     , 1
     , NOW()
 )
+
+INSERT INTO civil_estado (
+    ce_desc
+) VALUES 
+('Soltero')
+, ('Casado')
+, ('Divorciado')
+, ('Unión libre')
+, ('Otro');
+
+INSERT INTO gender (
+    g_desc
+) VALUES 
+('Femenino')
+, ('Masculino')
+, ('Otro');
+
+INSERT INTO emotions (
+    e_desc
+) VALUES 
+('Miedo')
+, ('Culpa')
+, ('Vergüenza')
+, ('Frustración')
+, ('Arrepentimiento')
+, ('Celos')
+, ('Inseguridad')
+, ('Desinterés')
+, ('Envídia')
+, ('Dolor');
+
+INSERT INTO frequency (
+    f_desc
+) VALUES
+('Nunca')
+, ('Varios días')
+, ('La mitad de los días')
+, ('Casí todos los días');
+
+INSERT INTO reference (
+    r_desc
+) VALUES
+('Un amigo o falimiar')
+, ('Mi doctor')
+, ('Busqué en internet')
+, ('Vi un anuncio')
+, ('Redes sociales')
+, ('En un artículo')
+, ('Medios de comunicación (radio/tv)')
+, ('Otro');
+
+/** No insertar */
+INSERT INTO test_profile(
+    t_usr_id
+    , t_gender
+    , t_birthdate
+    , t_age
+    , t_service
+    , t_therapyBefore
+    , t_health
+    , t_sleep
+    , t_emotion_freq
+    , t_anxiety
+    , t_relationship
+    , t_relationship_freq
+    , t_reference
+) VALUES
+(
+    1
+    , 2
+    , '1987-04-11'
+    , 30
+    , 5
+    , 0
+    , 2
+    , 3
+    , 1
+    , 1
+    , 4
+    , 1
+    , 5
+);
