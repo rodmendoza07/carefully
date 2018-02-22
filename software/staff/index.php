@@ -283,7 +283,9 @@
     <script src="../asset/customjs/staff/activeMenu.js"></script>
     <script src="../asset/customjs/staff/initHome.js"></script>
     <script src="../asset/customjs/staff/agenda.js"></script>
+    <script src="../asset/customjs/staff/dataLanguage.js"></script>
     <script src="../asset/customjs/staff/newWarnings.js"></script>
+    <script src="../asset/customjs/staff/therapiesPast.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>
