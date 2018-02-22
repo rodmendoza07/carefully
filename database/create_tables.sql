@@ -617,10 +617,10 @@ CREATE UNIQUE INDEX `ce_id_UNIQUE` ON `civil_estado` (`ce_id` ASC);
 
 SHOW WARNINGS;
 
-DROP TABLE IF EXISTS `test-profile` ;
+DROP TABLE IF EXISTS `test_profile` ;
 
 SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `test-profile` (
+CREATE TABLE IF NOT EXISTS `test_profile` (
   `t_id` INT NOT NULL AUTO_INCREMENT,
   `t_usr_id` INT NOT NULL DEFAULT 0,
   `t_gender` INT NOT NULL DEFAULT 0,
@@ -635,12 +635,12 @@ CREATE TABLE IF NOT EXISTS `test-profile` (
   `t_relationship` INT NOT NULL DEFAULT 0,
   `t_relationship_freq` INT NOT NULL DEFAULT 0,
   `t_reference` INT NOT NULL DEFAULT 0,
-  `t_service` INT NOT NULL DEFAULT 0,
+  `t_civilState` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`t_id`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
-CREATE UNIQUE INDEX `t_id_UNIQUE` ON `test-profile` (`t_id` ASC);
+CREATE UNIQUE INDEX `t_id_UNIQUE` ON `test_profile` (`t_id` ASC);
 
 SHOW WARNINGS;
 
@@ -651,7 +651,7 @@ CREATE TABLE IF NOT EXISTS `gender` (
   `g_id` INT NOT NULL AUTO_INCREMENT,
   `g_desc` VARCHAR(45) NOT NULL DEFAULT '',
   `g_createat` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `g_status` INT NOT NULL 1, 
+  `g_status` INT NOT NULL DEFAULT 1, 
   PRIMARY KEY (`g_id`))
 ENGINE = InnoDB;
 
@@ -733,6 +733,23 @@ ENGINE = InnoDB;
 
 SHOW WARNINGS;
 CREATE UNIQUE INDEX `tdm_id_UNIQUE` ON `testD_medicine` (`tdm_id` ASC);
+
+SHOW WARNINGS;
+
+DROP TABLE IF EXISTS `patientAddon` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `patientAddon` (
+  `pa_id` INT NOT NULL AUTO_INCREMENT,
+  `pa_usr_id` INT NOT NULL DEFAULT 0,
+  `pa_addon` TEXT NOT NULL DEFAULT '',
+  `pa_createat` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `pa_updateat` DATETIME,
+  PRIMARY KEY (`pa_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE UNIQUE INDEX `pa_id_UNIQUE` ON `patientAddon` (`pa_id` ASC);
 
 SHOW WARNINGS;
 
