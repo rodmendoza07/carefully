@@ -37,6 +37,7 @@
                                 break;
                             default:
                                 $optNot = array('status' => 401, 'errno' => 1100, 'message' => 'Acción inválida');
+                                echo json_encode($optNot);
                                 break;
                         }
                     } else {
@@ -51,6 +52,7 @@
                                 break;
                             default:
                                 $optNot = array('status' => 401, 'errno' => 1100, 'message' => 'Acción inválida');
+                                echo json_encode($optNot);
                                 break;
                         }
                     }
@@ -68,6 +70,7 @@
             
             default:
                     $optNot = array('status' => 404, 'errno' => 1100, 'message' => 'Cita no encontrada');
+                    echo json_encode($optNot);
                     break;
         }
         

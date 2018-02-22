@@ -116,3 +116,10 @@ h1.tittle{
 	padding-left: 15px;
 	padding-top: 10px; 
 }
+
+.dtables > thead > tr > th {
+	background-color: #8CC63F;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}

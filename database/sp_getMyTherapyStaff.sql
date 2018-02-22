@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_getMyTherapyStaff`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getMyTherapyStaff`(
+CREATE PROCEDURE `sp_getMyTherapyStaff`(
 	IN shash VARCHAR(35)
 )
 BEGIN
@@ -23,7 +23,7 @@ BEGIN
 		SELECT
 			DATE_FORMAT(c.cita_fecha_start, '%d/%m/%Y') AS dia
             , CONCAT(DATE_FORMAT(c.cita_fecha_start, '%h:%i %p'), '-', DATE_FORMAT(c.cita_fecha_end, '%h:%i %p')) AS horario
-            , cs.cs_desc
+            , CONCAT('<span class="',cs.cs_badge,'" style="font-size:18px;">', cs.cs_desc, '</span>') AS cs_desc
             , CONCAT(usr.usr_nombre, ' ', usr.usr_paterno, ' ', usr.usr_materno) AS patient
 		FROM citas c
 			INNER JOIN citas_status cs ON (c.cita_estatus = cs.cs_id)
