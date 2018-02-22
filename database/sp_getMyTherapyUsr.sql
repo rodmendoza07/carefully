@@ -21,14 +21,9 @@ BEGIN
     
     IF userId > 0 THEN
 		SELECT
-			/*COUNT(c.cita_title) AS dateNumber*/
-			c.cita_fecha_start
-            , c.cita_fecha_end
-            , c.cita_title
-            , c.cita_estatus
+            DATE_FORMAT(c.cita_fecha_start, '%d/%m/%Y') AS dia
+            , CONCAT(DATE_FORMAT(c.cita_fecha_start, '%h:%i %p'), '-', DATE_FORMAT(c.cita_fecha_end, '%h:%i %p')) AS horario
             , cs.cs_desc
-            , cc.cc_desc
-            , cs.cs_color
             , CONCAT(st.st_nombre, ' ', st.st_paterno, ' ', st.st_materno) AS therapist
 		FROM citas c
 			INNER JOIN citas_status cs ON (c.cita_estatus = cs.cs_id)
