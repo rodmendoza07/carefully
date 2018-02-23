@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_getProfileUsr`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getProfileUsr`(
+CREATE PROCEDURE `sp_getProfileUsr`(
 	IN shash VARCHAR(35)
 )
 BEGIN
