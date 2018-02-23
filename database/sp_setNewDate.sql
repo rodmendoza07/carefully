@@ -16,6 +16,8 @@ BEGIN
     DECLARE compareEnd INT;
     DECLARE dates INT;
     DECLARE lastIns INT;
+	DECLARE configStart DATETIME
+	DECLARE configEnd DATETIME
     DECLARE `_rollback` BOOL DEFAULT 0;
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
@@ -34,8 +36,11 @@ BEGIN
         SET dates = (SELECT DATEDIFF(dateStart, dateEnd));
         
         IF compareStart = 0 && compareEnd = 0 && dates = 0 THEN
+
+			SET configStart = (SELECT cfg_valor FROM configuraciones WHERE cfg_nombre = 'hh_start' AND cfg_estatus = 1);
+			SET configEnd = (SELECT cfg_valor FROM configuraciones WHERE cfg_nombre = 'hh_end' AND cfg_estatus = 1);
 			
-			IF (SELECT COUNT(*) FROM available_hours WHERE (TIME(dateStart) BETWEEN hh_start AND hh_end) AND hh_status = 1) > 0 && (SELECT COUNT(*) FROM available_hours WHERE (TIME(dateEnd) BETWEEN hh_start AND hh_end) AND hh_status = 1) > 0 THEN
+			IF (SELECT COUNT(*) FROM configuraciones WHERE (TIME(dateStart) BETWEEN hh_start AND hh_end) AND hh_status = 1) > 0 && (SELECT COUNT(*) FROM available_hours WHERE (TIME(dateEnd) BETWEEN hh_start AND hh_end) AND hh_status = 1) > 0 THEN
 				IF dateStart < dateEnd THEN
 					IF TIMEDIFF(dateStart, dateEnd) = '-00:50:00' THEN
 						START TRANSACTION;
