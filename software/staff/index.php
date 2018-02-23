@@ -6,7 +6,7 @@
         session_start();
     
         if (!isset($_SESSION['9987435b7dbef543b786efd81d1b3dc9']) && empty($_SESSION['9987435b7dbef543b786efd81d1b3dc9'])) {    
-            header('location: ../../register/login.html');
+            header('location: ../register/login.html');
         } else {
           $validS = new getInfoUser();    
           $validatesta = $validS->validateSess(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']));
