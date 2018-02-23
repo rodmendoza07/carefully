@@ -379,3 +379,39 @@ SHOW WARNINGS;
 CREATE UNIQUE INDEX `pa_id_UNIQUE` ON `patientAddon` (`pa_id` ASC);
 
 SHOW WARNINGS;
+
+/* Puestos */
+DROP TABLE IF EXISTS `puestos` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `puestos` (
+  `puesto_id` INT NOT NULL AUTO_INCREMENT,
+  `puesto_descripcion` VARCHAR(45) NOT NULL DEFAULT '',
+  `puesto_estatus` TINYINT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`puesto_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+/* Departamentos */
+
+DROP TABLE IF EXISTS `departamentos` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `departamentos` (
+  `depto_id` INT NOT NULL AUTO_INCREMENT,
+  `depto_nombre` VARCHAR(45) NOT NULL DEFAULT '',
+  `depto_abreviatura` VARCHAR(5) NOT NULL DEFAULT '',
+  `depto_responsable` INT NOT NULL DEFAULT 0,
+  `depto_fecha_alta` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `depto_usr_id_alta` INT NOT NULL DEFAULT 0,
+  `depto_fecha_actualizacion` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `depto_usr_id_actualizacion` INT NOT NULL DEFAULT 0,
+  `depto_estatus` TINYINT NULL DEFAULT 1,
+  PRIMARY KEY (`depto_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE UNIQUE INDEX `depto_id_UNIQUE` ON `departamentos` (`depto_id` ASC);
+
+SHOW WARNINGS;
