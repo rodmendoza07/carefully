@@ -102,14 +102,6 @@ INSERT INTO departamentos(
 INSERT INTO puestos (puesto_descripcion)
 VALUES ('admin'), ('paciente'), ('terapeuta');
 
-INSERT INTO available_hours (
-    hh_start
-    , hh_end
-) VALUES (
-    '8:00:00'
-    , '20:00:00'
-);
-
 INSERT INTO citas_status (
     cs_desc
     , cs_color
