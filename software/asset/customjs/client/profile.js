@@ -3,16 +3,29 @@ function myProfile(){
 
 	var objActiveMenu = new activeMenu();
 
+	this.getProfInfo = function() {
+
+	}
+	
 	this.loadProfile = function() {
 		try {
 			$(".myprof").click(function() {
 				objActiveMenu.emptyInfoMenu();
 				objActiveMenu.activate("myprof","");
 				
+				$("#info").load("client/cHomeA.html", function() {});
+
 				$("#content1").load("client/myprofile.html", function(){
-					console.log($("body").height());
-					var altura = $("body").height();
-					$("#menu-left").addAttr("height");
+					
+					that.getProfInfo();
+					
+					$("#ePersonal").click(function() {
+
+					});
+
+					$("#ePaditional").click(function() {
+
+					});
 				});
 			});
 		} catch(x) {

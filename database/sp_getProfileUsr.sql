@@ -29,11 +29,20 @@ BEGIN
         , usr.usr_movil AS phoneContact
         , usr.usr_correo AS email
         , pa.pa_addon AS aditional
+        , bp.bp_famHist AS famHist
+        , bp.bp_dynFam AS dinamicaFamiliar
+        , bp.bp_reazons AS movitosConsulta
+        , bp.bp_actualProblem AS problematicaActual
+        , bp.bp_medicalAspects AS aspectosMedicos
+        , bp.bp_pshicological AS psicologicos
+        , bp.bp_trauma AS traumas
+        , bp.bp_socialProfile AS perfilSocial
     FROM test_profile tp
 		INNER JOIN usuarios usr ON (usr.usr_id = tp.t_usr_id)
 		LEFT JOIN gender gen ON (gen.g_id = tp.t_gender)
 		LEFT JOIN nacionalidades na ON (na.nacionalidad_id = usr.usr_nacionalidad_id)
         LEFT JOIN patientAddon pa ON (pa.pa_usr_id = usr.usr_id)
+        LEFT JOIN bitacoraPaciente bp ON (bp.bp_usr_id = usr.usr_id)
 	WHERE usr.usr_id = userId;
 END$$
 

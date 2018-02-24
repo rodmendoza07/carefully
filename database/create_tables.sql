@@ -754,6 +754,27 @@ SHOW WARNINGS;
 CREATE UNIQUE INDEX `pa_id_UNIQUE` ON `patientAddon` (`pa_id` ASC);
 
 SHOW WARNINGS;
+DROP TABLE IF EXISTS `bitacoraPaciente` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `bitacoraPaciente` (
+  `bp_id` INT NOT NULL AUTO_INCREMENT,
+  `bp_usr_id` INT NOT NULL DEFAULT 0,
+  `bp_famHist` TEXT NOT NULL DEFAULT '',
+  `bp_dynFam` TEXT NOT NULL DEFAULT '',
+  `bp_reazons` TEXT NOT NULL DEFAULT '',
+  `bp_actualProblem` TEXT NOT NULL DEFAULT '',
+  `bp_medicalAspects` TEXT NOT NULL DEFAULT '',
+  `bp_pshicological` TEXT NOT NULL DEFAULT '',
+  `bp_trauma` TEXT NOT NULL DEFAULT '',
+  `bp_socialProfile` TEXT NOT NULL DEFAULT '',
+  PRIMARY KEY (`bp_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE UNIQUE INDEX `bp_id_UNIQUE` ON `bitacoraPaciente` (`bp_id` ASC);
+
+SHOW WARNINGS;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
