@@ -23,7 +23,7 @@
                     $_SESSION['089e07ac4b0332dfc7fe1e4f0197fc11'] = $lastnames;
                     $_SESSION['5ac7fb09a5264f6d78424dbdbf3f9187'] = $typeUser;
                     $_SESSION['c31628f91db9e419fa043ecf38bf3af4'] = $therapist;
-                    $resp = array('status' => 200, 'data' => 'Ok', 'urlLoc' => $urlLocation);
+                    $resp = array('status' => 200, 'data' => 'Ok', 'urlLoc' => $urlLocation, 'quepasa' => $_SESSION['e4595499803bf2733cc9cb8e55c6ece3'] );
                     echo json_encode($resp);
                 }
                 $call->close();
