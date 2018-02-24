@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `sp_getNewPwd`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getNewPwd`(
+CREATE PROCEDURE `sp_getNewPwd`(
     IN opt INT,
 	IN userMail VARCHAR(50),
     IN pwdNew VARCHAR(15),
