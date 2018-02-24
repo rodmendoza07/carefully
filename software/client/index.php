@@ -148,7 +148,7 @@
       <!-- start: content -->
       <div id="content">
         <div class="col-md-12 padding-0" id="content1">
-          <div class="col-md-12 eldiv portada">
+          <div class="col-md-12 eldiv portada" style="margin-top: -32px;">
             <h1 style="font-size: 45px; padding-top:25px;">BIENVENID@</h1>
             <div class="row text-center" style="padding-top: 60px;">
               <div class="col-md-12">

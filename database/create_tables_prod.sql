@@ -415,3 +415,41 @@ SHOW WARNINGS;
 CREATE UNIQUE INDEX `depto_id_UNIQUE` ON `departamentos` (`depto_id` ASC);
 
 SHOW WARNINGS;
+
+/* Nacionalidades */
+DROP TABLE IF EXISTS `nacionalidades` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `nacionalidades` (
+  `nacionalidad_id` INT NOT NULL AUTO_INCREMENT,
+  `nacionalidad_desc` VARCHAR(45) NOT NULL DEFAULT '',
+  `nacionalidad_abreviatura` VARCHAR(45) NOT NULL DEFAULT '',
+  `nacionalidad_estatus` TINYINT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`nacionalidad_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+/* Bitacora del paciente */
+
+DROP TABLE IF EXISTS `bitacoraPaciente` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `bitacoraPaciente` (
+  `bp_id` INT NOT NULL AUTO_INCREMENT,
+  `bp_usr_id` INT NOT NULL DEFAULT 0,
+  `bp_famHist` TEXT NOT NULL DEFAULT '',
+  `bp_dynFam` TEXT NOT NULL DEFAULT '',
+  `bp_reazons` TEXT NOT NULL DEFAULT '',
+  `bp_actualProblem` TEXT NOT NULL DEFAULT '',
+  `bp_medicalAspects` TEXT NOT NULL DEFAULT '',
+  `bp_pshicological` TEXT NOT NULL DEFAULT '',
+  `bp_trauma` TEXT NOT NULL DEFAULT '',
+  `bp_socialProfile` TEXT NOT NULL DEFAULT '',
+  PRIMARY KEY (`bp_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE UNIQUE INDEX `bp_id_UNIQUE` ON `bitacoraPaciente` (`bp_id` ASC);
+
+SHOW WARNINGS;

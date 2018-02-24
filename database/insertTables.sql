@@ -167,3 +167,9 @@ INSERT INTO reference (
 , ('En un artículo')
 , ('Medios de comunicación (radio/tv)')
 , ('Otro');
+
+INSERT INTO nacionalidades (
+    nacionalidad_desc
+    , nacionalidad_abreviatura
+) VALUES 
+('MEX', 'México');
