@@ -10,7 +10,8 @@
           $validS = new getInfoUser();    
           $validatesta = $validS->validateSess(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']));
           if ($validatesta != true) {
-            header('Location: ../../register/login.html');
+           echo 'validate sesss';
+            //header('Location: ../../register/login.html');
           } else {
             $cName = $_SESSION['e4595499803bf2733cc9cb8e55c6ece3']." ".$_SESSION['089e07ac4b0332dfc7fe1e4f0197fc11'];
             echo $validatesta;
