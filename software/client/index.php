@@ -3,8 +3,6 @@
         include '../include/class/class.getInfoUser.php';
         session_start();
 
-        echo $_SESSION['9987435b7dbef543b786efd81d1b3dc9'].'<br>';
-
         if (!isset($_SESSION['9987435b7dbef543b786efd81d1b3dc9']) && empty($_SESSION['9987435b7dbef543b786efd81d1b3dc9'])) {    
           header('location: ../../register/login.html');
         } else {
@@ -133,7 +131,7 @@
                 Soporte 
               </a>
             </li>
-            <li class="ripple">
+            <li class="ripple faqs" data-option="faqs">
               <a class="tree-toggle nav-header">
                 FAQ's 
               </a>
@@ -148,7 +146,7 @@
       <!-- start: content -->
       <div id="content">
         <div class="col-md-12 padding-0" id="content1">
-          <div class="col-md-12 eldiv portada" style="margin-top: -32px;">
+          <div class="col-md-12 eldiv portada">
             <h1 style="font-size: 45px; padding-top:25px;">BIENVENID@</h1>
             <div class="row text-center" style="padding-top: 60px;">
               <div class="col-md-12">
@@ -216,7 +214,7 @@
                       Soporte
                     </a>
                   </li>
-                  <li class="ripple heightAuto" style="height: auto;">
+                  <li class="ripple faqs heightAuto" data-option="faqs" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       FAQ's
                     </a>
@@ -300,6 +298,7 @@
     <script src="../asset/customjs/client/therapiesPast.js"></script>
     <script src="../asset/customjs/client/agenda.js"></script>
     <script src="../asset/customjs/client/newWarnings.js"></script>
+    <script src="../asset/customjs/client/faqs.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>

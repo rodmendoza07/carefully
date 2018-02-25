@@ -174,5 +174,34 @@
                 echo json_encode($catch);
             }
         }
+
+        public function getFaqsUsr() {
+            try {
+                include 'connection.php';
+
+                $call = $conecta->prepare('CALL sp_getAllFaqs()');
+                $call->execute();
+                $call->bind_result($qId, $qQuestion, $aId, $aAnswer);
+
+                if ($call->errno > 0) {
+                    $errno = $call->errno;
+                    $msg = $call->error;
+                    $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
+                    echo json_encode($resp);
+                } else {
+                    $faqs = array();
+                    while ($call->fetch()) {
+                        $aTemp = array('qId' => $qId, 'qQuestion' => utf8_encode($qQuestion), 'aId' => $aId, 'aAnswer' => utf8_encode($aAnswer));
+                        array_push($faqs,$aTemp);
+                    }
+                    $resp = array('status' => 200, 'data' => $faqs);
+                    echo json_encode($resp);
+                }
+                
+            } catch(Exception $e) {
+                $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
+                echo json_encode($catch);
+            }
+        }
     }
 ?>

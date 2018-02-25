@@ -2762,7 +2762,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b3', end
 
 /*start: box v-4*/
 .box-v4{}
-  .box-v4 .panel-heading{padding: 20px;}
+  .box-v4 .panel-heading{padding: 10px;}
   .box-v4 .panel-body{}
     .box-v4 .panel-body .box-v4-alert{
       width: 100%;

@@ -453,3 +453,62 @@ SHOW WARNINGS;
 CREATE UNIQUE INDEX `bp_id_UNIQUE` ON `bitacoraPaciente` (`bp_id` ASC);
 
 SHOW WARNINGS;
+
+/*faqs preguntas*/
+DROP TABLE IF EXISTS `faq_question` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `faq_question` (
+  `fqq_id` INT NOT NULL AUTO_INCREMENT,
+  `fqq_st_id` INT NOT NULL DEFAULT 0,
+  `fqq_question` TEXT NOT NULL DEFAULT '',
+  `fqq_createat` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `fqq_updateat` DATETIME,
+  `fqq_st_id_update` INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`fqq_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE UNIQUE INDEX `fqq_id_UNIQUE` ON `faq_question` (`fqq_id` ASC);
+
+SHOW WARNINGS;
+
+/* faqs respuestas */
+DROP TABLE IF EXISTS `faq_answers` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `faq_answers` (
+  `fqa_id` INT NOT NULL AUTO_INCREMENT,
+  `fqa_st_id` INT NOT NULL DEFAULT 0,
+  `fqa_q_id` INT NOT NULL DEFAULT 0,
+  `fqa_answer` TEXT NOT NULL DEFAULT '',
+  `fqa_createat` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `fqa_updateat` DATETIME,
+  `fqa_st_id_update` INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`fqa_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE UNIQUE INDEX `fqa_id_UNIQUE` ON `faq_answers` (`fqa_id` ASC);
+
+SHOW WARNINGS;
+
+/*faqs tags para busqueda*/
+DROP TABLE IF EXISTS `faq_tags` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `faq_tags` (
+  `fqt_id` INT NOT NULL AUTO_INCREMENT,
+  `fqt_st_id` INT NOT NULL DEFAULT 0,
+  `fqt_q_id` INT NOT NULL DEFAULT 0,
+  `fqt_tag` VARCHAR(50), 
+  `fqt_createat` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `fqt_updateat` DATETIME,
+  `fqt_st_id_update` INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`fqt_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE UNIQUE INDEX `fqt_id_UNIQUE` ON `faq_tags` (`fqt_id` ASC);
+
+SHOW WARNINGS;
