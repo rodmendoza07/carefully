@@ -13,6 +13,7 @@ function AppBegin() {
 			var objClientSupport = new clientSupport();
 			var objAgenda = new agenda();
 			var objNewWarnings = new newWarnings();
+			var objFaqs = new faqs();
 			objAgenda.LoadAgenda();
 			objHome.LoadView();
 			objTherapiest.loadProfile();
@@ -22,6 +23,7 @@ function AppBegin() {
 			objClientSupport.createdTicket();
 			objNewWarnings.reviewWarningsNow();
 			objNewWarnings.reviewWarnings();
+			objFaqs.loadfaqs();
 		// } else {
 		// 	window.location = '../register/login.html';
 		// }

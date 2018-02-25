@@ -19,7 +19,7 @@ function myProfile(){
                     toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
                     console.log('GetProfileUsr - ',response.message)
                 } else {
-					
+					var historial;
 					console.log(response);
 					$("#usrName").empty();
 					$("#usrGender").empty();
@@ -31,11 +31,14 @@ function myProfile(){
 					that.getCivilState(response.idCs);
 					that.getGender(response.idGender);
 					that.getNationality(response.idNac);
-					//$("#usrGender").val(response.gender);
-					//$("#usrNation").text(response.nation);
 					$("#usrAge").text(response.age);	
 					$("#usrBirthDate").text(moment(response.birthdate).format('DD/MM/YYYY'));
-					//$("#usrCs").val(response.idCe);
+					$("#usrEmail").text(response.email);
+					$("#usrTcontact").val(response.phoneContact);
+					response.ps == "" ? historial = 'No existen datos en la bitácora' : historial = response.ps;
+					console.log(response.ps);
+					console.log(historial);
+					$("#histhosp").text(historial);
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown){

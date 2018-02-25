@@ -65,6 +65,26 @@ INSERT INTO test_profile(
     , 5
 );
 
+/* dummy de faqs */
+INSERT INTO faq_question (
+    fqq_st_id
+    , fqq_question
+) VALUES 
+(1, '¿Para que sirve el inicio de sesión?')
+, (1,'¿Cómo agendo una cita?')
+, (1, '¿Puedo agendar todas mis sesiones el mismo día?')
+, (1, '¿Con cuántas horas de anticipación puedo cancelar mi sesión?');
+
+INSERT INTO faq_answers (
+    fqa_st_id
+    , fqa_q_id
+    , fqa_answer
+) VALUES
+(1, 1, 'Para mantener seguros tus datos.')
+, (1, 2, 'En la sección de agenda da clic en cualquier sección en blanco dentro del calendario.')
+, (1, 3, 'Si')
+, (1, 4, 'Puedes hacer la cancelación de tu sesión 12 horas antes de la hora de inicio.');
+
 /*******************************************************************************/
 
 INSERT INTO configuraciones (
