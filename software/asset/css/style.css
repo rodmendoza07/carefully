@@ -6108,11 +6108,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b3', end
 
 .form-group.form-animate-text {
   position: relative;
-  margin-bottom: 45px;
+  /*margin-bottom: 45px;*/
 }
 
 .form-group.form-animate-text .form-text {
-  font-size: 18px;
+  font-size: 14px;
   padding: 10px 10px 10px 5px;
   display: block;
   width: 100%;
