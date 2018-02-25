@@ -61,5 +61,33 @@
                 echo json_encode($catch);
             }
         }
+
+        public function profileUsr($token) {
+            try {
+                include 'connection.php';
+
+                $call = $conecta->prepare('CALL sp_getProfileUsr(?)');
+                $call->bind_param('s', $token);
+                $call->execute();
+                $call->bind_result($name, $gender, $nation, $age, $birthDate, $civilState, $phoneContact, $email, $aditional, $famHist, $df, $mc, $pa, $am, $psic, $traumas, $ps);
+                $call->fetch();
+
+                if ($call->errno > 0) {
+                    $errno = $call->errno;
+                    $msg = $call->error;
+                    $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
+                    echo json_encode($resp);
+                } else {
+                    $resp = array('status' => 200, 'name' => $name, 'gender' => $gender, 'nation' => $nation, 'age' => $age, 'birthdate' => $birthDate, 'civilState' => $civilState, 'phoneContact' => $phoneContact, 'email' => $email, 'aditional' => $aditional, 'famHist' => $famHist, 'df' => $df, 'mc' => $mc, 'pa' => $pa, 'am' => $am, 'psic' => $psic, 'traumas' => $traumas, 'ps' => $ps);
+                    echo json_encode($resp);
+                }
+
+            } catch(Exception $e) {
+                $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
+                echo json_encode($catch);
+            }
+
+
+        }
     }
 ?>

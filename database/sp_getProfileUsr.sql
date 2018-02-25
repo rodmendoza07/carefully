@@ -28,15 +28,15 @@ BEGIN
         , tp.t_civilState AS civilState
         , usr.usr_movil AS phoneContact
         , usr.usr_correo AS email
-        , pa.pa_addon AS aditional
-        , bp.bp_famHist AS famHist
-        , bp.bp_dynFam AS dinamicaFamiliar
-        , bp.bp_reazons AS movitosConsulta
-        , bp.bp_actualProblem AS problematicaActual
-        , bp.bp_medicalAspects AS aspectosMedicos
-        , bp.bp_pshicological AS psicologicos
-        , bp.bp_trauma AS traumas
-        , bp.bp_socialProfile AS perfilSocial
+        , IFNULL(pa.pa_addon, '') AS aditional
+        , IFNULL(bp.bp_famHist, '') AS famHist
+        , IFNULL(bp.bp_dynFam, '') AS dinamicaFamiliar
+        , IFNULL(bp.bp_reazons, '') AS movitosConsulta
+        , IFNULL(bp.bp_actualProblem, '') AS problematicaActual
+        , IFNULL(bp.bp_medicalAspects, '') AS aspectosMedicos
+        , IFNULL(bp.bp_pshicological, '') AS psicologicos
+        , IFNULL(bp.bp_trauma, '') AS traumas
+        , IFNULL(bp.bp_socialProfile, '') AS perfilSocial
     FROM test_profile tp
 		INNER JOIN usuarios usr ON (usr.usr_id = tp.t_usr_id)
 		LEFT JOIN gender gen ON (gen.g_id = tp.t_gender)
