@@ -44,7 +44,7 @@
     <!-- end: Css -->
     <!--Custom css-->
     <link rel="stylesheet" type="text/css" href="../asset/css/customcss.css">
-    <link rel="shortcut icon" href="../asset/img/favico.jpeg">
+    <link rel="shortcut icon" href="asset/img/favico.jpeg">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -107,34 +107,24 @@
             <li class="ripple sessions" data-option="sessions">
               <a class="tree-toggle nav-header">
                 Mi terapia
-                <!-- <span class="fa-angle-right fa right-arrow text-right"></span> -->
               </a>
-              <!-- <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
-                <li><a class="tpast">Pasadas</a></li>
-                <li><a class="tnext">Próximas</a></li>
-              </ul> -->
             </li>
-            <!-- <li class="ripple therapiest" data-option="therapiest">
-              <a class="tree-toggle nav-header">
-                Mi terapeuta
-              </a>
-            </li> -->
             <li class="ripple myprof" data-option="myprof">
               <a class="tree-toggle nav-header" >
                 Mi perfíl 
               </a>
             </li>
-            <!-- <li class="ripple mycredit" data-option="mycredit">
+            <li class="ripple filex" data-option="filex">
               <a class="tree-toggle nav-header">
-                Crédito 
+                Expedientes 
               </a>
-            </li> -->
+            </li>
             <li class="ripple supportC" data-option="supportC">
               <a class="tree-toggle nav-header">
                 Soporte 
               </a>
             </li>
-            <li class="ripple">
+            <li class="ripple faqs" data-option="faqs">
               <a class="tree-toggle nav-header">
                 FAQ's 
               </a>
@@ -180,34 +170,24 @@
                   <li class="ripple sessions heightAuto" data-option="sessions">
                     <a class="tree-toggle nav-header">
                       Mi terapia
-                      <!-- <span class="fa-angle-right fa right-arrow text-right"></span> -->
                     </a>
-                    <!-- <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
-                      <li><a class="tpast heightAuto">Pasadas</a></li>
-                      <li><a class="tnext heightAuto">Próximas</a></li>
-                    </ul> -->
                   </li>
-                  <!-- <li class="ripple therapiest heightAuto" data-option="therapiest" style="height: auto;">
-                    <a class="tree-toggle nav-header">
-                      Mi terapeuta
-                    </a>
-                  </li> -->
                   <li class="ripple myprof heightAuto" data-option="myprof" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       Mi perfíl
                     </a>
                   </li>
-                  <!-- <li class="ripple mycredit heightAuto" data-option="mycredit" style="height: auto;">
+                  <li class="ripple filex heightAuto" data-option="filex" style="height: auto;">
                     <a class="tree-toggle nav-header">
-                      Crédito
+                      Expedientes
                     </a>
-                  </li> -->
+                  </li>
                   <li class="ripple supportC heightAuto" data-option="supportC" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       Soporte
                     </a>
                   </li>
-                  <li class="ripple heightAuto" style="height: auto;">
+                  <li class="ripple faqs heightAuto" data-option="faqs" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       FAQ's
                     </a>
@@ -286,6 +266,7 @@
     <script src="../asset/customjs/staff/dataLanguage.js"></script>
     <script src="../asset/customjs/staff/newWarnings.js"></script>
     <script src="../asset/customjs/staff/therapiesPast.js"></script>
+    <script src="../asset/customjs/staff/faqs.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>

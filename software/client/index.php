@@ -42,7 +42,7 @@
     <!-- end: Css -->
     <!--Custom css-->
     <link rel="stylesheet" type="text/css" href="../asset/css/customcss.css">
-    <link rel="shortcut icon" href="../asset/img/favico.jpeg">
+    <link rel="shortcut icon" href="asset/img/favico.jpeg">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
