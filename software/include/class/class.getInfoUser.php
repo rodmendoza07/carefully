@@ -86,8 +86,31 @@
                 $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
                 echo json_encode($catch);
             }
+        }
 
+        public function getAllCivilS() {
+            try {
+                include 'connection.php';
 
+                $call = $conecta->prepare('CALL sp_getAllce()');
+                $call->execute();
+                $call->bind_result($ceId, $ceDesc);
+                $call->fetch();
+
+                if ($call->errno > 0) {
+                    $errno = $call->errno;
+                    $msg = $call->error;
+                    $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
+                    echo json_encode($resp);
+                } else {
+                    $resp = array('status' => 200, 'ceId' => $ceId, 'ceDesc' => $ceDesc);
+                    echo json_encode($resp);
+                }
+
+            } catch(Exception $e) {
+                $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
+                echo json_encode($catch);
+            }
         }
     }
 ?>
