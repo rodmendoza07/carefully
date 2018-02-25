@@ -69,7 +69,7 @@
                 $call = $conecta->prepare('CALL sp_getProfileUsr(?)');
                 $call->bind_param('s', $token);
                 $call->execute();
-                $call->bind_result($name, $gender, $nation, $age, $birthDate, $civilState, $phoneContact, $email, $aditional, $famHist, $df, $mc, $pa, $am, $psic, $traumas, $ps);
+                $call->bind_result($name, $idGender, $gender, $idNac, $nation, $age, $birthDate, $idCs, $civilState, $phoneContact, $email, $aditional, $famHist, $df, $mc, $pa, $am, $psic, $traumas, $ps);
                 $call->fetch();
 
                 if ($call->errno > 0) {
@@ -78,7 +78,7 @@
                     $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
                     echo json_encode($resp);
                 } else {
-                    $resp = array('status' => 200, 'name' => $name, 'gender' => $gender, 'nation' => $nation, 'age' => $age, 'birthdate' => $birthDate, 'civilState' => $civilState, 'phoneContact' => $phoneContact, 'email' => $email, 'aditional' => $aditional, 'famHist' => $famHist, 'df' => $df, 'mc' => $mc, 'pa' => $pa, 'am' => $am, 'psic' => $psic, 'traumas' => $traumas, 'ps' => $ps);
+                    $resp = array('status' => 200, 'name' => $name, 'idGender' => $idGender, 'gender' => $gender, 'idNac' => $idNac,'nation' => $nation, 'age' => $age, 'birthdate' => $birthDate, 'idCs' => $idCs, 'civilState' => $civilState, 'phoneContact' => $phoneContact, 'email' => $email, 'aditional' => $aditional, 'famHist' => $famHist, 'df' => $df, 'mc' => $mc, 'pa' => $pa, 'am' => $am, 'psic' => $psic, 'traumas' => $traumas, 'ps' => $ps);
                     echo json_encode($resp);
                 }
 
@@ -92,10 +92,9 @@
             try {
                 include 'connection.php';
 
-                $call = $conecta->prepare('CALL sp_getAllce()');
+                $call = $conecta->prepare('CALL sp_getAllCe()');
                 $call->execute();
                 $call->bind_result($ceId, $ceDesc);
-                $call->fetch();
 
                 if ($call->errno > 0) {
                     $errno = $call->errno;
@@ -103,7 +102,70 @@
                     $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
                     echo json_encode($resp);
                 } else {
-                    $resp = array('status' => 200, 'ceId' => $ceId, 'ceDesc' => $ceDesc);
+                    $estadosCiviles = array();
+                    while ($call->fetch()) {
+                        $aTemp = array('ceId' => $ceId, 'ceDesc' => utf8_encode($ceDesc));
+                        array_push($estadosCiviles,$aTemp);
+                    }
+                    $resp = array('status' => 200, 'data' => $estadosCiviles);
+                    echo json_encode($resp);
+                }
+
+            } catch(Exception $e) {
+                $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
+                echo json_encode($catch);
+            }
+        }
+
+        public function getAllGenders() {
+            try {
+                include 'connection.php';
+
+                $call = $conecta->prepare('CALL sp_getAllgender()');
+                $call->execute();
+                $call->bind_result($gId, $gDesc);
+
+                if ($call->errno > 0) {
+                    $errno = $call->errno;
+                    $msg = $call->error;
+                    $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
+                    echo json_encode($resp);
+                } else {
+                    $generos = array();
+                    while ($call->fetch()) {
+                        $aTemp = array('gId' => $gId, 'gDesc' => utf8_encode($gDesc));
+                        array_push($generos,$aTemp);
+                    }
+                    $resp = array('status' => 200, 'data' => $generos);
+                    echo json_encode($resp);
+                }
+
+            } catch(Exception $e) {
+                $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
+                echo json_encode($catch);
+            }
+        }
+
+        public function getAllN() {
+            try {
+                include 'connection.php';
+
+                $call = $conecta->prepare('CALL sp_getAllNations()');
+                $call->execute();
+                $call->bind_result($nId, $nDesc);
+
+                if ($call->errno > 0) {
+                    $errno = $call->errno;
+                    $msg = $call->error;
+                    $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
+                    echo json_encode($resp);
+                } else {
+                    $nations = array();
+                    while ($call->fetch()) {
+                        $aTemp = array('nId' => $nId, 'nDesc' => utf8_encode($nDesc));
+                        array_push($nations,$aTemp);
+                    }
+                    $resp = array('status' => 200, 'data' => $nations);
                     echo json_encode($resp);
                 }
 
