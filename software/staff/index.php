@@ -267,6 +267,7 @@
     <script src="../asset/customjs/staff/newWarnings.js"></script>
     <script src="../asset/customjs/staff/therapiesPast.js"></script>
     <script src="../asset/customjs/staff/faqs.js"></script>
+    <script src="../asset/customjs/staff/filex.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>
