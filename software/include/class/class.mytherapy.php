@@ -68,7 +68,7 @@
                 $call = $conecta->prepare('CALL sp_getAllPatients(?)');
                 $call->bind_param('s', $token);
                 $call->execute();
-                $call->bind_result($uId, $uName);
+                $call->bind_result($uId, $uName, $btns);
 
                 if ($call->errno > 0) {
                     $errno = $call->errno;
@@ -78,7 +78,7 @@
                 } else {
                     $patients = array();
                     while($call->fetch()){
-                        $aTempArray = array('uId' => $uId, 'uName' => $uName);
+                        $aTempArray = array('uId' => $uId, 'uName' => $uName, 'btns' => $btns);
                         array_push($patients, $aTempArray);
                     }
                     $resp = array('status' => 200, 'data' => $patients);

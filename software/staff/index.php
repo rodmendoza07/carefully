@@ -268,6 +268,7 @@
     <script src="../asset/customjs/staff/therapiesPast.js"></script>
     <script src="../asset/customjs/staff/faqs.js"></script>
     <script src="../asset/customjs/staff/filex.js"></script>
+    <script src="../asset/customjs/staff/filexDetail.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>

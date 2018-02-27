@@ -3,10 +3,16 @@ function filex() {
     var that = this;
 
 	var objLanguage = new IdiomaDataTables();
-    var objActiveMenu = new activeMenu();
+	var objActiveMenu = new activeMenu();
+	var objFilexD = new filexD();
 
     var columnas = [
-		{ title: 'Paciente', data: 'uName'}
+		{ title: 'Paciente', data: 'uName'},
+		{ title: 'Acción', data: 'btns'}
+	];
+
+	var columnasDefs = [
+		{ targets: 1, className: 'text-center' }
 	];
 
     this.getPatients = function() {
@@ -25,9 +31,14 @@ function filex() {
 					"language": objLanguage.espanol,
 					"scrollX": true,
 					data: datosTabla,
-					columns: columnas
-                });
-                console.log(response);
+					columns: columnas,
+					columnDefs: columnasDefs
+				});
+				
+				objFilexD.loadFilexD();
+				// $(".editar").click(function() {
+				// 	var targetId = $(".editar").data("pid");
+				// });
 			},
 			error: function (XMLHttpRequest, textStatus, errorThrown){
 				$('#loading').modal('toggle');
@@ -41,13 +52,16 @@ function filex() {
     this.loadFilex = function () {
         try {
             $(".filex").click(function() {
+				
+				
+
 				objActiveMenu.emptyInfoMenu();
 				objActiveMenu.activate("filex","");
 				
 				$("#info").load("staff/cHomeA.html", function() {});
 
 				$("#content1").load("staff/filex.html", function(){
-                    that.getPatients();
+					that.getPatients();
 				});
 			});
         } catch(x) {
