@@ -94,8 +94,8 @@ function filexD () {
         try {
             $(".editar").click(function() {
                 var pat = $(".editar").data("pid");
-                var pName = $(".editar").data("pName");
-
+                var pName = $(".editar").data("pname") + ' ' + $(".editar").data("paterno") + ' ' + $(".editar").data("materno");
+                
                 objActiveMenu.emptyInfoMenu();
 				objActiveMenu.activate("filex","");
 
