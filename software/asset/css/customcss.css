@@ -123,3 +123,8 @@ h1.tittle{
 	font-weight: bold;
 	text-align: center;
 }
+
+.title-customHi {
+	color:#8CC63F;
+	font-size: 18px;
+}
