@@ -22,7 +22,7 @@ BEGIN
     SELECT
 		u.usr_id
 		, CONCAT(u.usr_nombre, ' ', u.usr_paterno, ' ', u.usr_materno) AS patienName
-		, CONCAT('<button class="btn btn-primary btn-pill editar" data-pId="', u.usr_id, '">Editar</button>&nbsp;&nbsp;<button class="btn btn-warning btn-pill transferir" data-pId="', u.usr_id, '">Transferir</button>') AS btns
+		, CONCAT('<button class="btn btn-primary btn-pill editar" data-pId="', u.usr_id, '" data-pName="', CONCAT(u.usr_nombre, ' ', u.usr_paterno, ' ', u.usr_materno),'">Editar</button>&nbsp;&nbsp;<button class="btn btn-warning btn-pill transferir" data-pId="', u.usr_id, '">Transferir</button>') AS btns
     FROM expedientepaciente e
 		INNER JOIN usuarios u ON (e.expP_paciente_id = u.usr_id)
 	WHERE e.expP_doctor_id = userId;

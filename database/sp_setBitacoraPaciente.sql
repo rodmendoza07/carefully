@@ -29,11 +29,11 @@ BEGIN
     SET userId = (SELECT IFNULL(vt_st_id, 0) FROM validtokens WHERE vt_hash = shash AND vt_status = 1 AND vt_usr_id = 0);
 	SET userId = IFNULL(userId, -1);
     
-    SET expCount = (SELECT COUNT(*) FROM bitacorapaciente);
+    SET expCount = (SELECT COUNT(*) FROM bitacoraPaciente);
     
     IF expCount = 0 THEN
 		START TRANSACTION;
-            INSERT INTO bitacorapaciente (
+            INSERT INTO bitacoraPaciente (
 				bp_usr_id
                 , bp_famHist
                 , bp_dynFam
@@ -67,49 +67,49 @@ BEGIN
         START TRANSACTION;
         
         IF histFam != '' THEN
-			UPDATE bitacorapaciente SET 
+			UPDATE bitacoraPaciente SET 
 				bp_famHist = histFam
 			WHERE bp_usr_id = userId;
 		END IF;
         
         IF dinFam != '' THEN
-			UPDATE bitacorapaciente SET 
+			UPDATE bitacoraPaciente SET 
 				bp_dynFam = dinFam
 			WHERE bp_usr_id = userId;
 		END IF;
         
         IF mc != '' THEN
-			UPDATE bitacorapaciente SET 
+			UPDATE bitacoraPaciente SET 
 				bp_reazons = mc
 			WHERE bp_usr_id = userId;
 		END IF;
         
         IF hpa != '' THEN
-			UPDATE bitacorapaciente SET 
+			UPDATE bitacoraPaciente SET 
 				bp_actualProblem = hpa
 			WHERE bp_usr_id = userId;
 		END IF;
         
         IF am != '' THEN
-			UPDATE bitacorapaciente SET 
+			UPDATE bitacoraPaciente SET 
 				bp_medicalAspects = am
 			WHERE bp_usr_id = userId;
 		END IF;
         
         IF psi != '' THEN
-			UPDATE bitacorapaciente SET 
+			UPDATE bitacoraPaciente SET 
 				bp_pshicological = psi
 			WHERE bp_usr_id = userId;
 		END IF;
         
         IF trauma != '' THEN
-			UPDATE bitacorapaciente SET 
+			UPDATE bitacoraPaciente SET 
 				bp_trauma = trauma
 			WHERE bp_usr_id = userId;
 		END IF;
         
         IF ps != '' THEN
-			UPDATE bitacorapaciente SET 
+			UPDATE bitacoraPaciente SET 
 				bp_socialProfile = ps
 			WHERE bp_usr_id = userId;
 		END IF;

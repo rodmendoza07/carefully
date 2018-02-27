@@ -3,7 +3,7 @@ function filexD () {
     
     var objActiveMenu = new activeMenu();
 
-    this.getBitacora = function(patient) {
+    this.getBitacora = function(patient, pName) {
         var dataPost = {pId: patient};
         var ajaxGb = $.ajax({
             contentType: "application/json; charset=utf-8",
@@ -30,7 +30,7 @@ function filexD () {
                     $("#ps").empty();
                     $("#usrName").empty();
 
-                    $("#usrName").text(response.name);
+                    $("#usrName").text(pName);
                     $("#histFam").val(response.df);
                     $("#dinFam").val(response.hf);
                     $("#mc").val(response.mc);
@@ -94,14 +94,15 @@ function filexD () {
         try {
             $(".editar").click(function() {
                 var pat = $(".editar").data("pid");
-                
+                var pName = $(".editar").data("pName");
+
                 objActiveMenu.emptyInfoMenu();
 				objActiveMenu.activate("filex","");
 
 				$("#info").load("staff/cHomeA.html", function() {});
 
 				$("#content1").load("staff/filexD.html", function(){
-                    that.getBitacora(pat);
+                    that.getBitacora(pat, pName);
 
                     $("#saveBit").click(function() {
                         that.setBitacora(pat);

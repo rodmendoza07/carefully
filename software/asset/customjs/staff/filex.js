@@ -52,8 +52,6 @@ function filex() {
     this.loadFilex = function () {
         try {
             $(".filex").click(function() {
-				
-				
 
 				objActiveMenu.emptyInfoMenu();
 				objActiveMenu.activate("filex","");

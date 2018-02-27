@@ -30,7 +30,7 @@ BEGIN
         , bp.bp_pshicological
         , bp.bp_trauma
         , bp.bp_socialProfile
-	FROM bitacorapaciente bp
+	FROM bitacoraPaciente bp
 		INNER JOIN usuarios usr ON (usr.usr_id = bp.bp_usr_id)
 	WHERE bp_usr_id = usrId;
 END$$
