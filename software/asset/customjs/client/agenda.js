@@ -187,7 +187,7 @@ function agenda() {
 		try {
 			$(".agenda").click(function() {
                 that.agendaOperations();
-                that.reloadAgenda();
+                //that.reloadAgenda();
             });
 		} catch(x) {
 			console.log("initHome: LoadView -", x.toString());
