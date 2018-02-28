@@ -77,38 +77,35 @@
 			<div class="row" style="margin-top: 25px;">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">EDAD</h1>
+						<h1 style="font-weight:bolder; color:white;">SERVICIO</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<h4>Instrucciones</h4>
-					<h4>Desliza el controlador para determinar tu edad.</h4>
+					<h4>Haz click en la opción que corresponda.</h4>
 				</div>
 			</div>
 			<div class="row" style="margin-top: 25px;">
-				<div class="col-md-5 col-md-offset-6">
+				<div class="col-md-8 col-md-offset-4 text-center">
 					<div class="form-group">
-						<input type="text" id="range1" />
+                        <h2>¿En cuál de nuestros servicios estás interesado?</h2>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-5 col-md-offset-6 text-center">
-					<h2 id="edadDat">0 AÑOS.</h2>
+				<div class="col-md-8 col-md-offset-4">
+					
 				</div>
-			</div>
-			<div class="row" style="margin-top:25px;">
-				<div class="col-md-5 col-md-offset-6">
-					<button class="btn btn-default btn-pill pull-left">
+            </div>
+            <div class="row" style="margin-top:25px;">
+				<div class="col-md-8 col-md-offset-4 text-center">
+					<button class="btn btn-default btn-pill">
 						<span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
-					</button>
-					<button class="btn btn-default btn-pill pull-right">
-						<span style="font-weight: bold; color: #000">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
-					</button>
-				</div>
-			</div>
+                    </button>
+                </div>
+            </div>
 		</div>
 	</div>
 	<!-- /.modal -->
@@ -144,7 +141,7 @@
 			onFinish: function (data) {
 				console.log(data.from);
 				$("#edadDat").empty();
-				$("#edadDat").append(data.from + ' AÑOS.')
+				$("#edadDat").append(data.from + ' Años.')
 			},
 		});
 	});
@@ -152,5 +149,4 @@
 
 	<!-- end: Javascript -->
 </body>
-
 </html>
