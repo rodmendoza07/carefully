@@ -127,17 +127,6 @@
 			checkboxClass: 'icheckbox_flat-green',
 			radioClass: 'iradio_flat-green'
 		});
-		$("#range1").ionRangeSlider({
-			grid: true,
-			min: 0,
-			max: 100,
-			from: 0,
-			onFinish: function (data) {
-				console.log(data.from);
-				$("#edadDat").empty();
-				$("#edadDat").append(data.from + ' Años.')
-			},
-		});
 	});
 	</script>
 

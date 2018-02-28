@@ -52,50 +52,30 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">CALIDAD DE SUEÑO</h1>
+						<h1 style="font-weight:bolder; color:white;">EMOCIONES</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2>¿CÓMO CALIFICARÍAS TUS HABITOS DE SUEÑO ACTUALES?</h2>
-					<h4>Instrucciones: Haz click en la opción que corresponda.</h4>
+					<h2>DURANTE LAS ÚLTIMAS SEMANAS ¿CON QUÉ FRECUENCIA HAS SENTIDO LOS SIGUIENTES PROBLEMAS?</h2>
 				</div>
 			</div>
 			<div class="row" style="margin-top: 25px;">
 				<div class="col-md-8 col-md-offset-4 text-center">
-                    <div class="col-md-4">
-                        <a href="#">
-                            <img src="emo/1f604.png">
-                            <div class="row">
-                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Buenos</label>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#">
-                            <img src="emo/1f611.png">
-                            <div class="row">
-                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Razonables</label>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#">
-                            <img src="emo/1f61f.png">
-                            <div class="row">
-                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Malos</label>
-                            </div>
-                        </a>
-                    </div>
-				</div>
+                    <h2 style="font-weight: bold;">a) Poco interés o placer en hacer las cosas</h2>
+                </div>
 			</div>
-			
             <div class="row" style="margin-top:25px;">
 				<div class="col-md-8 col-md-offset-4">
                     <div class="col-md-4 text-center">
                         <button class="btn btn-default btn-pill">
                             <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+                        </button>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4 text-center">
+                        <button class="btn btn-default btn-pill">
+                            <span style="font-weight: bold; color: #000">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
                         </button>
                     </div>
                 </div>

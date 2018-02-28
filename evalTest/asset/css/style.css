@@ -6566,3 +6566,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b3', end
   }
 
 }
+
+.pt-c{
+  padding-top: 5px;
+}
