@@ -24,6 +24,8 @@
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css"/>
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/fullcalendar.min.css"/>
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/datatables.bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="asset/css/plugins/ionrangeslider/ion.rangeSlider.css"/>
+    <link rel="stylesheet" type="text/css" href="asset/css/plugins/ionrangeslider/ion.rangeSlider.skinHTML5.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="asset/css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/icheck/skins/flat/green.css"/>
@@ -81,8 +83,10 @@
                 </div>
               </div>
               <div class="row" style="margin-top: 25px;">
-                  <div class="form-group">
+                  <div class="col-md-4 col-md-offset-4">
+                    <div class="form-group">
                       <input type="text" id="range1"/>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -118,6 +122,7 @@
     <script src="asset/js/plugins/icheck.min.js"></script>
     <script src="asset/js/plugins/jquery.validate.min.js"></script>
     <script src="asset/js/toastr.min.js"></script>
+    <script src="asset/js/plugins/ion.rangeSlider.min.js"></s
     <script src="asset/js/main.js"></script>
 
      <script type="text/javascript"> 
@@ -125,6 +130,15 @@
         $('input').iCheck({
           checkboxClass: 'icheckbox_flat-green', radioClass:
             'iradio_flat-green'
+        });
+        $("#range1").ionRangeSlider({
+          grid: true,
+          min: 0,
+          max: 100,
+          from: 0,
+          onFinish: function (data) {
+        console.log(data.from);
+    },
         });
       });
     </script>
