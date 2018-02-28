@@ -52,38 +52,34 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">EDAD</h1>
+						<h1 style="font-weight:bolder; color:white;">EMOCIONES</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h4>Instrucciones</h4>
-					<h4>Desliza el controlador para determinar tu edad.</h4>
+					<h2>DURANTE LAS ÚLTIMAS SEMANAS ¿CON QUÉ FRECUENCIA HAS SENTIDO LOS SIGUIENTES PROBLEMAS?</h2>
 				</div>
 			</div>
 			<div class="row" style="margin-top: 25px;">
-				<div class="col-md-5 col-md-offset-6">
-					<div class="form-group">
-						<input type="text" id="range1" />
-					</div>
-				</div>
+				<div class="col-md-8 col-md-offset-4 text-center">
+                    <h2 style="font-weight: bold;">a) Poco interés o placer en hacer las cosas</h2>
+                </div>
 			</div>
-			<div class="row">
-				<div class="col-md-5 col-md-offset-6 text-center">
-					<h2 id="edadDat">0 AÑOS.</h2>
-				</div>
-			</div>
-			<div class="row" style="margin-top:25px;">
-				<div class="col-md-5 col-md-offset-6">
-					<button class="btn btn-default btn-pill pull-left">
-						<span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
-					</button>
-					<button class="btn btn-default btn-pill pull-right">
-						<span style="font-weight: bold; color: #000">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
-					</button>
-				</div>
-			</div>
+            <div class="row" style="margin-top:25px;">
+				<div class="col-md-8 col-md-offset-4">
+                    <div class="col-md-4 text-center">
+                        <button class="btn btn-default btn-pill">
+                            <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+                        </button>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4 text-center">
+                        <button class="btn btn-default btn-pill">
+                            <span style="font-weight: bold; color: #000">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</div>
 	<!-- /.modal -->
@@ -111,21 +107,9 @@
 			checkboxClass: 'icheckbox_flat-green',
 			radioClass: 'iradio_flat-green'
 		});
-		$("#range1").ionRangeSlider({
-			grid: true,
-			min: 0,
-			max: 100,
-			from: 0,
-			onFinish: function (data) {
-				console.log(data.from);
-				$("#edadDat").empty();
-				$("#edadDat").append(data.from + ' AÑOS.')
-			},
-		});
 	});
 	</script>
 
 	<!-- end: Javascript -->
 </body>
-
 </html>

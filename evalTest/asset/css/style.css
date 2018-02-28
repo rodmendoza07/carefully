@@ -2700,7 +2700,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b3', end
 }
 
 #content {
-  margin-top: 51px;
   padding: 0px;
   padding-bottom: 10px;
   width: 100%;
@@ -6566,4 +6565,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b3', end
     display: none;
   }
 
+}
+
+.pt-c{
+  padding-top: 5px;
 }

@@ -52,38 +52,54 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">EDAD</h1>
+						<h1 style="font-weight:bolder; color:white;">SALUD FÍSICA</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h4>Instrucciones</h4>
-					<h4>Desliza el controlador para determinar tu edad.</h4>
+					<h2>¿CÓMO CALIFICARÍAS TU SALUD FÍSICA ACTUAL?</h2>
+					<h4>Instrucciones: Haz click en la opción que corresponda.</h4>
 				</div>
 			</div>
 			<div class="row" style="margin-top: 25px;">
-				<div class="col-md-5 col-md-offset-6">
-					<div class="form-group">
-						<input type="text" id="range1" />
-					</div>
+				<div class="col-md-8 col-md-offset-4 text-center">
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img src="emo/1f61f.png">
+                            <div class="row">
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Mala</label>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img src="emo/1f642.png">
+                            <div class="row">
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Buena</label>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#">
+                            <img src="emo/1f604.png">
+                            <div class="row">
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Excelente</label>
+                            </div>
+                        </a>
+                    </div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-5 col-md-offset-6 text-center">
-					<h2 id="edadDat">0 AÑOS.</h2>
-				</div>
-			</div>
-			<div class="row" style="margin-top:25px;">
-				<div class="col-md-5 col-md-offset-6">
-					<button class="btn btn-default btn-pill pull-left">
-						<span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
-					</button>
-					<button class="btn btn-default btn-pill pull-right">
-						<span style="font-weight: bold; color: #000">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
-					</button>
-				</div>
-			</div>
+			
+            <div class="row" style="margin-top:25px;">
+				<div class="col-md-8 col-md-offset-4">
+                    <div class="col-md-4 text-center">
+                        <button class="btn btn-default btn-pill">
+                            <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</div>
 	<!-- /.modal -->
@@ -111,21 +127,9 @@
 			checkboxClass: 'icheckbox_flat-green',
 			radioClass: 'iradio_flat-green'
 		});
-		$("#range1").ionRangeSlider({
-			grid: true,
-			min: 0,
-			max: 100,
-			from: 0,
-			onFinish: function (data) {
-				console.log(data.from);
-				$("#edadDat").empty();
-				$("#edadDat").append(data.from + ' AÑOS.')
-			},
-		});
 	});
 	</script>
 
 	<!-- end: Javascript -->
 </body>
-
 </html>
