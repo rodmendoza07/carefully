@@ -82,8 +82,8 @@
               </div>
               <div class="row" style="margin-top: 25px;">
                 <div class="col-md-4 col-md-offset-4 text-center">
-                  <a href="#" style="color: white !important;"><i class="fa fa-male" aria-hidden="true" style="font-size:220px;"></i></a>&nbsp;&nbsp;
-                  <a href="#" style="color: white !important;"><i class="fa fa-female" aria-hidden="true" style="font-size:220px;"></i></a>
+                  <a href="#" style="color: white !important;"><i class="fa fa-female" aria-hidden="true" style="font-size:220px;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="#" style="color: white !important;"><i class="fa fa-male" aria-hidden="true" style="font-size:220px;"></i></a>
                 </div>
               </div>
             </div>
@@ -109,8 +109,7 @@
     <!-- start: Javascript -->
     <script src="asset/js/jquery.min.js"></script>
     <script src="asset/js/jquery.ui.min.js"></script>
-    <script src="asset/js/bootstrap.min.js"></script>
-   
+    <script src="asset/js/bootstrap.min.js"></script>cript>
     <!-- plugins -->
     <script src="asset/js/plugins/moment.min.js"></script>
     <script src="asset/js/plugins/moment-timezone-with-data.min.js"></script>
