@@ -42,32 +42,12 @@
   </head>
 
  <body id="mimin" class="dashboard">
-      <!-- start: Header -->
-        <nav class="navbar navbar-default header navbar-fixed-top">
-          <div class="col-md-12 nav-wrapper">
-            <div class="navbar-header" style="width:100%;">
-              <a href="index.html" class="navbar-brand" style="margin-left: 0px; margin-top: -8px;"> 
-                <img class="img-responsive" src="asset/img/logo-white1.png">
-              </a>
-              <ul class="nav navbar-nav navbar-right user-nav">
-                <li class="dropdown avatar-dropdown">
-                    <a href="login.html" style="margin-top: -12px; margin-right: -15px;">
-                        <img src="asset/img/user_lock.png" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
-                    </a>
-                 </li>
-                <li class="user-name"><span><a href="login.html">Iniciar sesión</a></span></li>
-                  
-              </ul>
-            </div>
-          </div>
-        </nav>
-      <!-- end: Header -->
 
       <div class="container-fluid">
 
           <!-- start: content -->
-            <div id="content" style="padding-top:15px;">
-              <div class="row" style="margin-top: 25px;">
+            <div id="content">
+              <div class="row">
                 <div class="col-md-12 padding-0">
                   <div class="col-md-12">
                     <h1 style="font-weight:bolder; color:white;">GÉNERO</h1>
@@ -109,7 +89,7 @@
     <!-- start: Javascript -->
     <script src="asset/js/jquery.min.js"></script>
     <script src="asset/js/jquery.ui.min.js"></script>
-    <script src="asset/js/bootstrap.min.js"></script>cript>
+    <script src="asset/js/bootstrap.min.js"></script>
     <!-- plugins -->
     <script src="asset/js/plugins/moment.min.js"></script>
     <script src="asset/js/plugins/moment-timezone-with-data.min.js"></script>

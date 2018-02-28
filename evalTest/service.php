@@ -45,36 +45,11 @@
 </head>
 
 <body id="mimin" class="dashboard">
-	<!-- start: Header -->
-	<nav class="navbar navbar-default header navbar-fixed-top">
-		<div class="col-md-12 nav-wrapper">
-			<div class="navbar-header" style="width:100%;">
-				<a href="index.html" class="navbar-brand" style="margin-left: 0px; margin-top: -8px;">
-				<img class="img-responsive" src="asset/img/logo-white1.png">
-				</a>
-				<ul class="nav navbar-nav navbar-right user-nav">
-					<li class="dropdown avatar-dropdown">
-						<a href="login.html" style="margin-top: -12px; margin-right: -15px;">
-							<img src="asset/img/user_lock.png" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="true" />
-						</a>
-					</li>
-					<li class="user-name">
-						<span>
-							<a href="login.html">Iniciar sesión</a>
-						</span>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<!-- end: Header -->
-
 	<div class="container-fluid">
 
 	<!-- start: content -->
-		<div id="content" style="padding-top:15px;">
-			<div class="row" style="margin-top: 25px;">
+		<div id="content">
+			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
 						<h1 style="font-weight:bolder; color:white;">SERVICIO</h1>
@@ -88,15 +63,64 @@
 				</div>
 			</div>
 			<div class="row" style="margin-top: 25px;">
-				<div class="col-md-8 col-md-offset-4 text-center">
+				<div class="col-md-10 col-md-offset-2 text-center">
 					<div class="form-group">
                         <h2>¿En cuál de nuestros servicios estás interesado?</h2>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-4">
-					
+				<div class="col-md-10 col-md-offset-2">
+					<div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
+                        <a href="#">
+                            <img src="asset/img/servicetest/servicio1.png">
+                            <div class="row">
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Terapia</label>
+                            </div>
+                            <div class="row">
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Individual</label>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
+                        <a href="#">
+                            <img src="asset/img/servicetest/servicio2.png">
+                            <div class="row">
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Terapia</label>
+                            </div>
+                            <div class="row">
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">en pareja</label>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
+                        <a href="#">
+                            <img src="asset/img/servicetest/servicio3.png">
+                            <div class="row">
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Terapia</label>
+                            </div>
+                            <div class="row">
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">deportiva</label>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
+                        <a href="#">
+                            <img src="asset/img/servicetest/servicio4.png">
+                            <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Tanatología</label>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
+                        <a href="#">
+                            <img src="asset/img/servicetest/servicio5.png">
+                            <div class="row">
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Terapia</label>
+                            </div>
+                            <div class="row">
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">empresarial</label>
+                            </div>
+                        </a>
+                    </div>
 				</div>
             </div>
             <div class="row" style="margin-top:25px;">
