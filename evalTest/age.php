@@ -1,3 +1,12 @@
+<?php
+  try {
+
+
+  } catch (Exception $e) {
+    $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
+    echo json_encode($catch);
+  }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -61,27 +70,21 @@
               <div class="row" style="margin-top: 25px;">
                 <div class="col-md-12 padding-0">
                   <div class="col-md-12">
-                    <h2 class="text-center" style="font-weight:bolder; color:white;">Test de evaluación</h2>
+                    <h1 style="font-weight:bolder; color:white;">EDAD</h1>
                   </div>
                 </div>
               </div>
-              <div class="row" style="margin-top: 25px;">
-                <div class="col-md-6 col-md-offset-3">
-                    <p class="text-center">
-                        La información que se proporciona en el test es meramente
-                        orientativa y tendrá como finalidad obtener información
-                        básica de tu problemática para derivarte con el terapeuta
-                        más adecuado para ti. Te agradecemos responder de la
-                        manera más veraz posible.
-                    </p>
+              <div class="row">
+                <div class="col-md-12">
+                  <h4>Instrucciones</h4>
+                  <h4>Desliza el controlador para determinar tu edad.</h4>
                 </div>
               </div>
               <div class="row" style="margin-top: 25px;">
-                  <div class="col-md-2 col-md-offset-5">
-                    <button class="btn btn-default btn-pill btn-block">
-                        <span style="font-weight: bolder;">INICIAR</span>
-                    </button>
+                  <div class="form-group">
+                      <input type="text" id="range1"/>
                   </div>
+                </div>
               </div>
             </div>
             <div class="modal fade" id="loading" role="dialog">
