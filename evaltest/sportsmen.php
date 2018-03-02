@@ -52,52 +52,30 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">EMOCIONES</h1>
+						<h1 style="font-weight:bolder; color:white;">DEPORTISTAS</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2>DURANTE LAS ÚLTIMAS SEMANAS ¿CON QUÉ FRECUENCIA HAS SENTIDO LOS SIGUIENTES PROBLEMAS?</h2>
+					<h2>¿HAS SUFRIDO LA PÉRDIDA DE UN SER QUERIDO RECIENTE?</h2>
 				</div>
 			</div>
 			<div class="row" style="margin-top: 25px;">
 				<div class="col-md-8 col-md-offset-4 text-center">
-                    <div class="col-md-3">
+                    <div class="col-md-6">
+                        <a href="#">
+                            <img src="emo/1f630.png">
+                            <div class="row">
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Si</label>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
                         <a href="#">
                             <img src="emo/1f60f.png">
                             <div class="row">
-                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Nunca</label>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#">
-                            <img src="emo/1f605.png">
-                            <div class="row">
-                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Varios días</label>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#">
-                            <img src="emo/1f616.png">
-                            <div class="row">
-                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">La mitad</label>
-                            </div>
-                            <div class="row">
-                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">de los días</label>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#">
-                            <img src="emo/1f62d.png">
-                            <div class="row">
-                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Casi todos</label>
-                            </div>
-                            <div class="row">
-                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">los días</label>
+                                <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">No</label>
                             </div>
                         </a>
                     </div>
@@ -106,7 +84,7 @@
 			
             <div class="row" style="margin-top:25px;">
 				<div class="col-md-8 col-md-offset-4">
-                    <div class="col-md-3 text-center">
+                    <div class="col-md-6 text-center">
                         <button class="btn btn-default btn-pill">
                             <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
                         </button>
