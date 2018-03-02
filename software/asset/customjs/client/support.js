@@ -99,7 +99,14 @@ function clientSupport(){
 					that.getTickets();
 
 					$("#createT").click(function() {
+						$("#ssubject").val('');
+						$("#smessage").val('');
 						that.sendTicket();
+					});
+
+					$("#cancelT").click(function() {
+						$("#ssubject").val('');
+						$("#smessage").val('');
 					});
 				});
 			});
