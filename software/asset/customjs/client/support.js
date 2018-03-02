@@ -18,6 +18,7 @@ function clientSupport(){
 		, {targets: 2, width:'text-center'}
 	];
 
+
 	this.getTickets = function() {
 		var ajaxT = $.ajax({
 			contentType: "application/json; charset=utf-8",
@@ -34,7 +35,9 @@ function clientSupport(){
                     console.log('clientSupport - ',response.message)
                 } else {
 					var datosTabla = response.data;
-					$('#supportTable').DataTable({
+					var tableSupport = '<table class="table table-bordered dtables" id="supportTable" width="100%"></table>'
+					$("#tableContent").append(tableSupport);
+					$("#supportTable").DataTable({
 						"language": objLanguage.espanol,
 						"scrollX": true,
 						data: datosTabla,
@@ -72,7 +75,7 @@ function clientSupport(){
                     console.log('clientSupport - ',response.message)
                 } else {
 					console.log(response)
-					
+					$("#tableContent").empty();
 					that.getTickets();
 				}
 			},
