@@ -28,12 +28,12 @@ BEGIN
             , DATE_FORMAT(su.spu_createat, '%d/%m/%Y') AS dateS
             , DATE_FORMAT(su.spu_createat, '%h:%i %p') AS hours
             , su.spu_subject AS asunto
-            , CONCAT('<span class="', ss.spe_badge,'style="font-size:18px;">', ss.spe_desc, '</span>') AS estado
+            , CONCAT('<span class="', ss.spe_badge,'" style="font-size:18px;">', ss.spe_desc, '</span>') AS estado
 		FROM supportUsr su
 			INNER JOIN supportStatus ss ON (ss.spe_id = su.spu_status)
         WHERE su.spu_usr_id = userId;
     ELSEIF opt = 2 THEN
-		/*START TRANSACTION;
+		START TRANSACTION;
 		
         INSERT INTO supportUsr (
 			spu_usr_id
@@ -53,8 +53,7 @@ BEGIN
 		ELSE
 			COMMIT;
 			SELECT 'OK' AS msg;
-		END IF;*/
-        select descriptionm;
+		END IF;
     ELSE
 		SIGNAL SQLSTATE '45000'
 			SET message_text = 'Opción inválida.';

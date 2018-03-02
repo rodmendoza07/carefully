@@ -22,7 +22,7 @@
                 } else {
                     $ticketArray = array();
                     while($call->fetch()){
-                        $aTempArray = array('folio' => $folio, 'dateS' => $dia, 'hours' => $hora, 'asunto' => $asunto, 'estado' => $estado);
+                        $aTempArray = array('folio' => $folio, 'dateS' => $dia, 'hours' => $hora, 'asunto' => $asuntoR, 'estado' => $estado);
                         array_push($ticketArray, $aTempArray);
                     }
                     $resp = array('status' => 200, 'data' => $ticketArray);
