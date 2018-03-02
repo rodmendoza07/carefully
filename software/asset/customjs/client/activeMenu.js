@@ -28,11 +28,4 @@ function activeMenu () {
 			console.log("activeMenu: EmptyInfoMenu -", x.toString());
 		}
 	}
-
-	this.stopAgenda = function(id_selector) {
-		var objAgenda = new agenda();
-		if (id_selector != 'agenda') {
-			clearInterval(objAgenda.reloadAgenda());
-		}
-	}
 }

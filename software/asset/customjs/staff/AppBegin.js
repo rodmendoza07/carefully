@@ -9,6 +9,7 @@ function AppBegin() {
 		var objTherapiesPast = new therapiesPast();
 		var objFaqs = new faqs();
 		var objFilex = new filex();
+		var objClientSupport = new clientSupport();
 
 		objAgenda.LoadAgenda();
 		objHome.LoadView();
@@ -17,6 +18,7 @@ function AppBegin() {
 		objTherapiesPast.LoadView();
 		objFaqs.loadfaqs();
 		objFilex.loadFilex();
+		objClientSupport.createdTicket();
 
 	} catch(x) {
 		console.log("Error en AppBegin -", x.toString());

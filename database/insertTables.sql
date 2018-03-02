@@ -193,3 +193,11 @@ INSERT INTO nacionalidades (
     , nacionalidad_abreviatura
 ) VALUES 
 ('MEX', 'México');
+
+INSERT INTO supportStatus (
+    spe_desc
+    , spe_badge
+) VALUES
+('Resuelto', 'badge badge-success')
+, ('En proceso', 'badge badge-enviado')
+, ('Pendiente', 'badge badge-warning');
