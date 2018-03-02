@@ -339,7 +339,7 @@ BEGIN
 		RESIGNAL;
 	END;
 
-	SET userId = (SELECT IFNULL(vt_usr_id, 0) FROM validtokens WHERE vt_hash = token_hash AND vt_status= 1);
+	SET userId = (SELECT IFNULL(vt_st_id, 0) FROM validtokens WHERE vt_hash = token_hash AND vt_status= 1);
 
 	IF userId > 0 THEN
 		SELECT
@@ -357,7 +357,7 @@ BEGIN
         WHERE cita_doctor_id = userId;
 	ELSE
 		SIGNAL SQLSTATE '45000'
-			SET message_text = 'No existen citas.';
+			SET message_text = 'Opción inválida.';
     END IF;
 END$$
 

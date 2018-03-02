@@ -44,7 +44,6 @@ function therapiesPast () {
 			$(".sessions").click(function() {
 				objActiveMenu.emptyInfoMenu();
 				objActiveMenu.activate("sessions","");
-				objActiveMenu.stopAgenda("sessions")
 
 				$("#info").load("client/therapiesPastA.html", function() {});
 	
