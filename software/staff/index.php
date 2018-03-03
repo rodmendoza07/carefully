@@ -257,6 +257,7 @@
     <script src="../asset/js/plugins/datatables.bootstrap.min.js"></script>
     <script src="../asset/js/toastr.min.js"></script>
     <script src="../asset/js/plugins/icheck.min.js"></script>
+    <script src="../asset/js/plugins/jquery.validate.min.js"></script>
     <!-- custom -->
     <script src="../asset/js/main.js"></script>
     <script src="../asset/customjs/staff/AppBegin.js"></script>

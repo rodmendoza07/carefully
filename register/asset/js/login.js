@@ -24,7 +24,6 @@ $(document).ready(function(){
 
         $("#startSess").click(function() {
             if ($("#formLogin").valid()) {
-                console.log("submit");
                 var response = "Activa tu cuenta para iniciar sesión"; 
                 var dataPost = {
                     userName: $("#userName").val().trim(),
