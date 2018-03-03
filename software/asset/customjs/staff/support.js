@@ -93,15 +93,36 @@ function clientSupport(){
 				objempty.emptyInfoMenu();
 				objempty.activate("supportC","");
 	
-				$("#info").load("staff/ticketCreatedCA.html", function() {});
+				$("#info").load("staff/ticketCreatedCA.html", function() {
+					$("#formNumber").validate({
+						rules: {
+							phone: {
+								required: true,
+								number: true
+							}
+						},
+						messages: {
+							phone: {
+								required: "<span class='text-danger'>Campo obligatorio</span>",
+								number: "<span class='text-danger'>Ingresa un número válido</span>"
+							}
+						}
+					});
+
+					$("#sendPhone").click(function() {
+						if ($("#formNumber").valid()) {
+							console.log('numero telefono');
+						}
+					});
+				});
 	
 				$("#content1").load("staff/ticketCreatedC.html", function() {
 					that.getTickets();
 
 					$("#createT").click(function() {
+						that.sendTicket();
 						$("#ssubject").val('');
 						$("#smessage").val('');
-						that.sendTicket();
 					});
 
 					$("#cancelT").click(function() {
