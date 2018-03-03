@@ -40,14 +40,24 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+  <style>
+    body {
+      background: url('resource/bkg1.png');
+    }
+  </style>
   </head>
-
+  
  <body id="mimin" class="dashboard">
 
       <div class="container-fluid">
 
           <!-- start: content -->
             <div id="content" style="padding-top: 80px;">
+              <div class="row">
+                <div class="parafondiux">
+                  <img src="resource/logo.png" class="img-responsive">
+                </div>
+              </div>
               <div class="row" style="margin-top: 25px;">
                 <div class="col-md-12 padding-0">
                   <div class="col-md-12">
@@ -56,8 +66,8 @@
                 </div>
               </div>
               <div class="row" style="margin-top: 25px;">
-                <div class="col-md-6 col-md-offset-3">
-                    <p class="text-center">
+                <div class="col-md-12 text-center">
+                    <p >
                         La información que se proporciona en el test es meramente
                         orientativa y tendrá como finalidad obtener información
                         básica de tu problemática para derivarte con el terapeuta
@@ -67,7 +77,7 @@
                 </div>
               </div>
               <div class="row" style="margin-top: 25px;">
-                  <div class="col-md-2 col-md-offset-5">
+                  <div class="col-md-2 col-md-offset-5 col-xs-4">
                     <button class="btn btn-default btn-pill btn-block">
                         <span style="font-weight: bolder;">INICIAR</span>
                     </button>
