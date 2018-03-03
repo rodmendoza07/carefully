@@ -55,10 +55,13 @@ function clientSupport(){
 		});
 	}
 
-	this.sendTicket =  function() {
+	this.sendTicket =  function(ssubjcet, smessage) {
+		var _ssubjcet = ssubjcet;
+		var _smessage = smessage;
+
 		var dataPost = {
-			ssubjcet: $("#ssubject").val(), 
-			smessage: $("#smessage").val()
+			ssubjcet: _ssubjcet, 
+			smessage: _smessage
 		};
 
 		var ajaxst = $.ajax({
@@ -111,7 +114,8 @@ function clientSupport(){
 
 					$("#sendPhone").click(function() {
 						if ($("#formNumber").valid()) {
-							console.log('numero telefono');
+							that.sendTicket('Solicitud de llamada Soporte Técnico', 'Llamar al número ' + $("#number").val());
+							$("#number").val('');
 						}
 					});
 				});
@@ -120,7 +124,7 @@ function clientSupport(){
 					that.getTickets();
 
 					$("#createT").click(function() {
-						that.sendTicket();
+						that.sendTicket($("#ssubject").val(), $("#smessage").val());
 						$("#ssubject").val('');
 						$("#smessage").val('');
 					});

@@ -27,6 +27,7 @@ DROP TABLE IF EXISTS `nacionalidades` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `nacionalidades` (
   `nacionalidad_id` INT NOT NULL AUTO_INCREMENT,
+  `nacionalidad_code` INT NOT NULL DEFAULT 0,
   `nacionalidad_desc` VARCHAR(45) NOT NULL DEFAULT '',
   `nacionalidad_abreviatura` VARCHAR(45) NOT NULL DEFAULT '',
   `nacionalidad_estatus` TINYINT NOT NULL DEFAULT 1,

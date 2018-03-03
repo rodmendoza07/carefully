@@ -284,6 +284,7 @@
     <script src="../asset/js/plugins/datatables.bootstrap.min.js"></script>
     <script src="../asset/js/toastr.min.js"></script>
     <script src="../asset/js/plugins/icheck.min.js"></script>
+    <script src="../asset/js/plugins/jquery.validate.min.js"></script>
     <!-- custom -->
     <script src="../asset/js/main.js"></script>
     <script src="../asset/customjs/client/2945ed38d275bf8c99e15df1edfcea82.js"></script>
