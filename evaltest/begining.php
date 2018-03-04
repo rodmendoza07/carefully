@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css"/>
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/fullcalendar.min.css"/>
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/datatables.bootstrap.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> -->
     <link href="asset/css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/icheck/skins/flat/green.css"/>
     <link rel="stylesheet" href="asset/css/toastr.min.css"/>
@@ -52,38 +52,33 @@
       <div class="container-fluid">
 
           <!-- start: content -->
-            <div id="content" style="padding-top: 80px;">
+            <div id="content">
               <div class="row">
-                <div class="parafondiux">
+                <div class="col-md-2 col-xs-8" style="padding-top: 30px;">
                   <img src="resource/logo.png" class="img-responsive">
                 </div>
               </div>
-              <div class="row" style="margin-top: 25px;">
-                <div class="col-md-12 padding-0">
-                  <div class="col-md-12">
-                    <h1 class="text-center" style="font-weight:bolder; color:white;">Test de evaluación</h1>
-                  </div>
+                <div class="row" style="margin-top: 10%">
+                    <div class="col-md-12 col-xs-12">
+                      <h1 class="text-center titleBold" style="color:white;">Test de evaluación</h1>
+                      <div class="col-md-12 text-center" style="padding-bottom:25px;">
+                          <p class="col-md-6 col-md-offset-3 col-xs-12" style="font-size: 18px;">
+                              La información que se proporciona en el test es meramente
+                              orientativa y tendrá como finalidad obtener información
+                              básica de tu problemática para derivarte con el terapeuta
+                              más adecuado para ti. Te agradecemos responder de la
+                              manera más veraz posible.
+                          </p>
+                      </div>
+                      <!-- <div class="row" style="margin-top: 25px;"> -->
+                          <div class="col-md-2 col-md-offset-5 col-xs-12">
+                            <button class="btn btn-default btn-pill btn-block">
+                                <span class="buttonReef">INICIAR</span>
+                            </button>
+                          </div>
+                      <!-- </div> -->
+                    </div>
                 </div>
-              </div>
-              <div class="row" style="margin-top: 25px;">
-                <div class="col-md-12 text-center">
-                    <p >
-                        La información que se proporciona en el test es meramente
-                        orientativa y tendrá como finalidad obtener información
-                        básica de tu problemática para derivarte con el terapeuta
-                        más adecuado para ti. Te agradecemos responder de la
-                        manera más veraz posible.
-                    </p>
-                </div>
-              </div>
-              <div class="row" style="margin-top: 25px;">
-                  <div class="col-md-2 col-md-offset-5 col-xs-4">
-                    <button class="btn btn-default btn-pill btn-block">
-                        <span style="font-weight: bolder;">INICIAR</span>
-                    </button>
-                  </div>
-              </div>
-            </div>
             <div class="modal fade" id="loading" role="dialog">
               <div class="modal-dialog modal-sm">
                  <div class="modal-content">

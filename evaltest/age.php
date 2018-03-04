@@ -42,6 +42,12 @@
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+	<style>
+		body {
+			background: url('resource/bkg2.png');
+			background-size:     cover;
+		}
+  	</style>
 </head>
 
 <body id="mimin" class="dashboard">
@@ -52,37 +58,40 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">EDAD</h1>
+						<h1 class="titleBold" style="color:white;">EDAD</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h4>Instrucciones</h4>
-					<h4>Desliza el controlador para determinar tu edad.</h4>
+					<h4 class="subtitleBold">Instrucciones</h4>
+					<h4 class="subtitleBold">Desliza el controlador para determinar tu edad.</h4>
 				</div>
 			</div>
-			<div class="row" style="margin-top: 25px;">
-				<div class="col-md-5 col-md-offset-6">
+			<div class="row" style="margin-top: 7%;">
+				<div class="col-md-6 col-md-offset-5">
 					<div class="form-group">
 						<input type="text" id="range1" />
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-5 col-md-offset-6 text-center">
-					<h2 id="edadDat">0 AÑOS.</h2>
+			<div class="row" style="margin-top:25px;">
+				<div class="col-md-6 col-md-offset-5 text-center">
+					<h2 id="edadDat" class="subtitleBold" style="font-size: 35px;">0 AÑOS.</h2>
 				</div>
 			</div>
-			<div class="row" style="margin-top:25px;">
-				<div class="col-md-5 col-md-offset-6">
+			<div class="row" style="margin-top:15px;">
+				<div class="col-md-6 col-md-offset-5">
 					<button class="btn btn-default btn-pill pull-left">
-						<span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+						<span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
 					</button>
 					<button class="btn btn-default btn-pill pull-right">
-						<span style="font-weight: bold; color: #000">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+						<span class="buttonReef">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
 					</button>
 				</div>
+				<div class="col-md-2 col-xs-2" style="margin-top:5px; position:absolute;">
+                  <img class="img-responsive" src="resource/n2.png">
+                </div>
 			</div>
 		</div>
 	</div>

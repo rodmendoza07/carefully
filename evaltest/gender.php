@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css"/>
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/fullcalendar.min.css"/>
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/datatables.bootstrap.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> -->
     <link href="asset/css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="asset/css/plugins/icheck/skins/flat/green.css"/>
     <link rel="stylesheet" href="asset/css/toastr.min.css"/>
@@ -50,20 +50,23 @@
               <div class="row">
                 <div class="col-md-12 padding-0">
                   <div class="col-md-12">
-                    <h1 style="font-weight:bolder; color:white;">GÉNERO</h1>
+                    <h1 class="titleBold" style="color:white;">GÉNERO</h1>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <h4>Instrucciones</h4>
-                  <h4>Haz click en la opción que corresponda.</h4>
+                  <h4 class="subtitleBold">Instrucciones</h4>
+                  <h4 class="subtitleBold">Haz click en la opción que corresponda.</h4>
                 </div>
               </div>
-              <div class="row" style="margin-top: 25px;">
+              <div class="row" style="margin-top: 5%;">
                 <div class="col-md-4 col-md-offset-4 text-center">
-                  <a href="#" style="color: white !important;"><i class="fa fa-female" aria-hidden="true" style="font-size:220px;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a href="#" style="color: white !important;"><i class="fa fa-male" aria-hidden="true" style="font-size:220px;"></i></a>
+                  <a href="#" style="color: white !important;"><i class="fa fa-female" aria-hidden="true" style="font-size:280px;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="#" style="color: white !important;"><i class="fa fa-male" aria-hidden="true" style="font-size:280px;"></i></a>
+                </div>
+                <div class="col-md-2 col-xs-2" style="position:absolute;">
+                  <img class="img-responsive" src="resource/n1.png">
                 </div>
               </div>
             </div>
