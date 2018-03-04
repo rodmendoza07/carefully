@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-xs-6">
+                        <div class="col-md-3 col-xs-6 col-sm-6">
                             <img src="resource/e6.png" class="img-responsive">
                         </div>
                         <div class="col-md-3 col-xs-6">
