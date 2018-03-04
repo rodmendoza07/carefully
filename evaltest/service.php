@@ -52,14 +52,14 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">SERVICIO</h1>
+						<h1 class="titleBold" style="color:white;">SERVICIO</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h4>Instrucciones</h4>
-					<h4>Haz click en la opción que corresponda.</h4>
+					<h4 class="subtitleBold">Instrucciones</h4>
+					<h4 class="subtitleBold">Haz click en la opción que corresponda.</h4>
 				</div>
 			</div>
 			<div class="row" style="margin-top: 25px;">
@@ -69,11 +69,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-10 col-md-offset-2">
+			<div class="row" style="margin-top: 3.6%;">
+				<div class="col-md-9 col-md-offset-3">
 					<div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
                         <a href="#">
-                            <img src="asset/img/servicetest/servicio1.png">
+                            <img src="resource/s1.png" class="img-responsive">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Terapia</label>
                             </div>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
                         <a href="#">
-                            <img src="asset/img/servicetest/servicio2.png">
+                            <img src="resource/s2.png" class="img-responsive">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Terapia</label>
                             </div>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
                         <a href="#">
-                            <img src="asset/img/servicetest/servicio3.png">
+                            <img src="resource/s3.png" class="img-responsive">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Terapia</label>
                             </div>
@@ -106,13 +106,13 @@
                     </div>
                     <div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
                         <a href="#">
-                            <img src="asset/img/servicetest/servicio4.png">
+                            <img src="resource/s4.png" class="img-responsive">
                             <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Tanatología</label>
                         </a>
                     </div>
                     <div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
                         <a href="#">
-                            <img src="asset/img/servicetest/servicio5.png">
+                            <img src="resource/s5.png" class="img-responsive">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Terapia</label>
                             </div>
@@ -120,13 +120,16 @@
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">empresarial</label>
                             </div>
                         </a>
-                    </div>
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-3" style="position:absolute;">
+						<img class="img-responsive" src="resource/n3.png">
 				</div>
             </div>
-            <div class="row" style="margin-top:25px;">
-				<div class="col-md-8 col-md-offset-4 text-center">
+            <div class="row" style="margin-top:45px;">
+				<div class="col-md-2 col-md-offset-3">
 					<button class="btn btn-default btn-pill">
-						<span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+						<span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
                     </button>
                 </div>
             </div>

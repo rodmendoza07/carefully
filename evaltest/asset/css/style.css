@@ -6296,63 +6296,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b3', end
 
 
 /*========Responsive========*/
-@media only screen and (max-width: 767px) {
-
-.parafondiux{
-  background: url(asset/img/homebg.jpg) center center cover no-repeat fixed; 
-  height: auto !important;
-  min-height: 100%;
-  height: 100%;
-    background-position: center center;
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-size: cover;
-  }
-
-  }
-
-@media only screen and (max-width: 620px) {
-
-.parafondiux{ 
-  width:  400px;
-  padding: 25px;
-  /*display: block;*/
-  margin-left: auto;
-  margin-right: auto;
-  height: auto !important;
-  min-height: 100%;
-  height: 100%;
-  }
-  
-  }
-  @media only screen and (max-width: 480px) {
-
-.parafondiux{
-  width:  350px;
-  padding: 15px;
-  /*display: block;*/
-  margin-left: auto;
-  margin-right: auto;
-  height: auto !important;
-  min-height: 100%;
-  height: 100%;
-  }
-  
-  }
-  @media only screen and (max-width: 320px) {
-
-.parafondiux{
-  width:  250px;
-  padding: 10px;
-  /*display: block;*/
-  margin-left: auto;
-  margin-right: auto;
-  height: auto !important;
-  min-height: 100%;
-  height: 100%;
-  }
-  
-  }
 
 @media (max-width: 1200px) {
   #content{
@@ -6567,8 +6510,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c4b3', end
     display: none;
   }
 
-}
-
-.pt-c{
-  padding-top: 5px;
 }

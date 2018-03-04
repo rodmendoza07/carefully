@@ -3,6 +3,20 @@
 	src:url(../fonts/Raleway-Regular.ttf) format("truetype");
 }
 
+@font-face {
+	font-family: 'Raleway-bold';
+	src:url(../fonts/Raleway-Bold.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: 'Reef';
+	src:url(../fonts/Reef.otf) format("truetype");
+}
+
+body {
+	font-family: 'Raleways';
+}
+
 h1.tittle{
 	font-family: 'Raleways',sans-serif;
 }
@@ -50,3 +64,38 @@ h1.tittle{
     margin-top: 5px;
     margin-right: 5px;
 }
+
+.centerEldiv{
+	display: inline-block;
+    vertical-align: middle;
+    float: none;
+	
+	/*position: fixed;
+	top: 50%;
+	transform: translateY(-50%);*/
+	/*position: fixed;
+	top: 50%;
+   	left: 50%;
+	transform: translate(-50%, -50%);*/
+}
+
+.titleBold {
+	font-family: 'Raleway-Bold';
+	font-size:58px;
+}
+
+.buttonReef {
+	font-family: 'Reef';
+	font-weight: bold;
+	color: #000;
+	font-size: 25px;
+}
+
+.subtitleBold {
+	font-family: 'Raleway-Bold';
+	font-size:20px;
+}
+
+.pt-c{
+	padding-top: 5px;
+  }
