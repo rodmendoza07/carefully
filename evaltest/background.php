@@ -42,6 +42,12 @@
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+	<style>
+		body{
+			background:url('resource/bkg3.png');
+			/*background-size: cover;*/
+		}
+	</style>
 </head>
 
 <body id="mimin" class="dashboard">
@@ -52,18 +58,18 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">ANTECEDENTES</h1>
+						<h1 class="titleBold" style="color:white;">ANTECEDENTES</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2>¿HAS RECIBIDO APOYO PSICOLÓGICO ANTERIORMETE?</h2>
-					<h4>Instrucciones: Haz click en la opción que corresponda.</h4>
+					<h2 style="font-family:'Raleway-Bold'">¿HAS RECIBIDO APOYO PSICOLÓGICO ANTERIORMETE?</h2>
+					<h4 class="subtitleBold">Instrucciones: Haz click en la opción que corresponda.</h4>
 				</div>
 			</div>
 			<div class="row" style="margin-top: 25px;">
-				<div class="col-md-8 col-md-offset-4 text-center">
+				<div class="col-md-5 col-md-offset-5 text-center">
                     <div class="col-md-6">
                         <a href="#" style="color: yellow !important;"><i class="fa fa-times-circle" aria-hidden="true" style="font-size:220px;"></i></a>
                     </div>
@@ -73,15 +79,18 @@
 				</div>
 			</div>
 			
-            <div class="row" style="margin-top:25px;">
+            <div class="row" style="margin-top:8%;">
 				<div class="col-md-8 col-md-offset-4">
                     <div class="col-md-6 text-center">
                         <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+                            <span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
                         </button>
                     </div>
                 </div>
-            </div>
+				<div class="col-md-3 col-xs-3" style="margin-top:-13.7%; position:absolute;">
+					<img class="img-responsive" src="resource/n4.png">
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- /.modal -->

@@ -52,25 +52,25 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">EMOCIONES</h1>
+						<h1 class="titleBold" style="color:white;">EMOCIONES</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2>¿CON CUÁL DE ESTAS EMOCIONES NEGATIVAS TE HAS SENTIDO IDENTIFICADO ÚLTIMAMENTE?</h2>
-					<h4>Instrucciones: Haz click en la opción que corresponda.</h4>
+					<h2 style="font-family:'Raleway-bold'">¿CON CUÁL DE ESTAS EMOCIONES NEGATIVAS TE HAS SENTIDO IDENTIFICADO ÚLTIMAMENTE?</h2>
+					<h4 class="subtitleBold">Instrucciones: Haz click en la opción que corresponda.</h4>
 				</div>
 			</div>
-			<div class="row" style="margin-top: 25px;">
-				<div class="col-md-8 col-md-offset-4 text-center">
+			<div class="row" style="margin-top: 1%;">
+				<div class="col-md-7 col-md-offset-5 col-xs-12 text-center">
                     <div class="row">
-                        <div class="col-md-3 col-xs-6" style="padding-right: 0px;">
-                            <img src="emo/1f630.png" class="pull-right">
+                        <div class="col-md-3 col-xs-6">
+                            <img src="resource/e5.png" class="img-responsive">
                         </div>
                         <div class="col-md-3 col-xs-6">
                             <div class="form-group">
-                                <div class="row">
+                                <div class="row" style="margin-top:20px;">
                                     <div class="col-md-12 text-left">
                                         <input type="checkbox"> Miedo
                                     </div>
@@ -97,12 +97,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-xs-6" style="padding-right: 0px;">
-                            <img src="emo/1f612.png" class="pull-right">
+                        <div class="col-md-3 col-xs-6">
+                            <img src="resource/e6.png" class="img-responsive">
                         </div>
                         <div class="col-md-3 col-xs-6">
                             <div class="form-group">
-                                <div class="row">
+                                <div class="row" style="margin-top:20px;">
                                     <div class="col-md-12 text-left">
                                         <input type="checkbox"> Celos
                                     </div>
@@ -130,13 +130,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="margin-top: 15px;">
-                        <div class="col-md-3 col-md-offset-6 col-xs-6" style="padding-right: 0px;">
-                            <i class="fa fa-times-circle pull-right" aria-hidden="true" style="font-size:140px;"></i>
+                    <div class="row" style="margin-top: 25px;">
+                        <div class="col-md-3 col-md-offset-6 col-xs-6">
+                            <img src="resource/x.png" class="img-responsive">
                         </div>
                         <div class="col-md-3 col-xs-6">
                             <div class="form-group">
-                                <div class="row">
+                                <div class="row" style="margin-top:45%;">
                                     <div class="col-md-12 text-left">
                                         <input type="checkbox"> Ningúna
                                     </div>
@@ -146,18 +146,21 @@
                     </div>
 				</div>
 			</div>
-            <div class="row" style="margin-top:25px;">
-				<div class="col-md-8 col-md-offset-4">
-                    <div class="col-md-4 text-center">
-                        <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-4">
+                    <div class="col-md-3 col-xs-12" style="margin-top:10px;">
+                        <button class="btn btn-default btn-pill btn-block">
+                            <span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
                         </button>
                     </div>
-                    <div class="col-md-4 col-md-offset-4 text-center">
-                        <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                    <div class="col-md-3 col-md-offset-6 col-xs-12" style="margin-top:10px;">
+                        <button class="btn btn-default btn-block btn-pill">
+                            <span class="buttonReef">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
                         </button>
                     </div>
+                </div>
+                <div class="col-md-3 col-xs-3" style="margin-top:-20%; position:absolute;">
+                    <img class="img-responsive" src="resource/n7.png">
                 </div>
             </div>
 		</div>

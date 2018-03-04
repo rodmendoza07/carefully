@@ -52,21 +52,21 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">CALIDAD DE SUEÑO</h1>
+						<h1 class="titleBold" style="color:white;">CALIDAD DE SUEÑO</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2>¿CÓMO CALIFICARÍAS TUS HABITOS DE SUEÑO ACTUALES?</h2>
-					<h4>Instrucciones: Haz click en la opción que corresponda.</h4>
+					<h2 style="font-family:'Raleway-Bold'">¿CÓMO CALIFICARÍAS TUS HABITOS DE SUEÑO ACTUALES?</h2>
+					<h4 class="subtitleBold">Instrucciones: Haz click en la opción que corresponda.</h4>
 				</div>
 			</div>
-			<div class="row" style="margin-top: 25px;">
+			<div class="row" style="margin-top: 5%;">
 				<div class="col-md-8 col-md-offset-4 text-center">
                     <div class="col-md-4">
                         <a href="#">
-                            <img src="emo/1f604.png">
+                            <img src="resource/e3.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Buenos</label>
                             </div>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-md-4">
                         <a href="#">
-                            <img src="emo/1f611.png">
+                            <img src="resource/e4.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Razonables</label>
                             </div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-md-4">
                         <a href="#">
-                            <img src="emo/1f61f.png">
+                            <img src="resource/e1.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Malos</label>
                             </div>
@@ -91,13 +91,16 @@
 				</div>
 			</div>
 			
-            <div class="row" style="margin-top:25px;">
+            <div class="row" style="margin-top:8%;">
 				<div class="col-md-8 col-md-offset-4">
                     <div class="col-md-4 text-center">
                         <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+                            <span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
                         </button>
                     </div>
+				</div>
+				<div class="col-md-3 col-xs-3" style="margin-top:-23%; position:absolute;">
+                	<img class="img-responsive" src="resource/n6.png">
                 </div>
             </div>
 		</div>

@@ -45,7 +45,7 @@
 	<style>
 		body {
 			background: url('resource/bkg2.png');
-			background-size:     cover;
+			background-size: cover;
 		}
   	</style>
 </head>
@@ -82,15 +82,15 @@
 			</div>
 			<div class="row" style="margin-top:15px;">
 				<div class="col-md-6 col-md-offset-5">
-					<button class="btn btn-default btn-pill pull-left">
+					<button class="btn btn-default btn-pill pull-left col-md-3 col-xs-12" style="margin-top: 10px;">
 						<span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
 					</button>
-					<button class="btn btn-default btn-pill pull-right">
+					<button class="btn btn-default btn-pill pull-right col-md-3 col-xs-12" style="margin-top: 10px;">
 						<span class="buttonReef">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
 					</button>
 				</div>
-				<div class="col-md-2 col-xs-2" style="margin-top:5px; position:absolute;">
-                  <img class="img-responsive" src="resource/n2.png">
+				<div class="col-md-3 col-xs-3" style="margin-top:-10%; position:absolute;">
+                	<img class="img-responsive" src="resource/n2.png">
                 </div>
 			</div>
 		</div>
