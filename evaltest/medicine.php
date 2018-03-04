@@ -64,9 +64,9 @@
 			<div class="row" style="margin-top: 25px;">
 				<div class="col-md-7 col-md-offset-5">
                     <div class="row">
-                        <div class="col-md-3">
-                            <a href="#" style="color: yellow !important;"><i class="fa fa-times-circle" aria-hidden="true" style="font-size:140px;"></i></a>
-                        </div>
+						<div class="col-md-3">
+							<img src="resource/m1.png" class="img-responsive">
+						</div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>¿Cuál(es)?</label>
@@ -75,25 +75,32 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
-                            <a href="#" style="color: yellow !important;"><i class="fa fa-times-circle" aria-hidden="true" style="font-size:140px;"></i></a>
-                        </div>
+						<div class="col-md-3">
+							<img src="resource/m2.png" class="img-responsive">
+						</div>
                     </div>
 				</div>
 			</div>
 			
-            <div class="row" style="margin-top:25px;">
+            <div class="row" style="margin-top:40px;">
 				<div class="col-md-7 col-md-offset-5">
-                    <div class="col-md-6">
-                        <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
-                        </button>
+                    <div class="col-md-6 col-xs-12" style="margin-top:10px;">
+						<div class="col-md-6">
+							<button class="btn btn-block btn-default btn-pill">
+								<span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+							</button>
+						</div>
                     </div>
-                    <div class="col-md-6 text-right">
-                        <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
-                        </button>
+                    <div class="col-md-6 col-xs-12" style="margin-top:10px;">
+						<div class="col-md-6 col-md-offset-6">
+							<button class="btn btn-block btn-default btn-pill">
+								<span class="buttonReef">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+							</button>
+						</div>
                     </div>
+                </div>
+				<div class="col-md-5 col-xs-5" style="margin-top:-20.2%; position:absolute;">
+                	<img class="img-responsive" src="resource/n10.png">
                 </div>
             </div>
 		</div>

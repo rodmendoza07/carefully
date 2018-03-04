@@ -52,20 +52,25 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">EMOCIONES</h1>
+						<h1 class="titleBold" style="color:white;">EMOCIONES</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2>DURANTE LAS ÚLTIMAS SEMANAS ¿CON QUÉ FRECUENCIA HAS SENTIDO LOS SIGUIENTES PROBLEMAS?</h2>
+					<h2 style="font-family:'Raleway-Bold'">DURANTE LAS ÚLTIMAS SEMANAS ¿CON QUÉ FRECUENCIA HAS SENTIDO LOS SIGUIENTES PROBLEMAS?</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4 text-center">
+					<h2 style="font-family:'Raleway-Bold'">a) Poco interés o placer en hacer las cosas</h4>
 				</div>
 			</div>
 			<div class="row" style="margin-top: 25px;">
 				<div class="col-md-8 col-md-offset-4 text-center">
                     <div class="col-md-3">
                         <a href="#">
-                            <img src="emo/1f60f.png">
+                            <img src="resource/f1.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Nunca</label>
                             </div>
@@ -73,7 +78,7 @@
                     </div>
                     <div class="col-md-3">
                         <a href="#">
-                            <img src="emo/1f605.png">
+                            <img src="resource/f2.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Varios días</label>
                             </div>
@@ -81,7 +86,7 @@
                     </div>
                     <div class="col-md-3">
                         <a href="#">
-                            <img src="emo/1f616.png">
+                            <img src="resource/f3.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">La mitad</label>
                             </div>
@@ -92,7 +97,7 @@
                     </div>
                     <div class="col-md-3">
                         <a href="#">
-                            <img src="emo/1f62d.png">
+                            <img src="resource/f4.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Casi todos</label>
                             </div>
@@ -108,9 +113,12 @@
 				<div class="col-md-8 col-md-offset-4">
                     <div class="col-md-3 text-center">
                         <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+                            <span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
                         </button>
                     </div>
+                </div>
+				<div class="col-md-3 col-xs-3" style="margin-top:-18%; position:absolute;">
+                	<img class="img-responsive" src="resource/n8.png">
                 </div>
             </div>
 		</div>

@@ -52,17 +52,17 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">ANSIEDAD</h1>
+						<h1 class="titleBold" style="color:white;">ANSIEDAD</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2>¿ESTÁS SUFRIENDO DE ANSIEDAD, ATAQUES DE PÁNICO O TIENES ALGUNA FOBIA?</h2>
+					<h2 style="font-family:'Raleway-Bold'">¿ESTÁS SUFRIENDO DE ANSIEDAD, ATAQUES DE PÁNICO O TIENES ALGUNA FOBIA?</h2>
 				</div>
 			</div>
-			<div class="row" style="margin-top: 25px;">
-				<div class="col-md-8 col-md-offset-4 text-center">
+			<div class="row" style="margin-top: 7%;">
+				<div class="col-md-5 col-md-offset-6 text-center">
                     <div class="col-md-6">
                         <a href="#" style="color: yellow !important;"><i class="fa fa-times-circle" aria-hidden="true" style="font-size:220px;"></i></a>
                     </div>
@@ -72,13 +72,16 @@
 				</div>
 			</div>
 			
-            <div class="row" style="margin-top:25px;">
+            <div class="row" style="margin-top:5%;">
 				<div class="col-md-8 col-md-offset-4">
                     <div class="col-md-6 text-center">
                         <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+                            <span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
                         </button>
                     </div>
+                </div>
+				<div class="col-md-4 col-xs-4" style="margin-top:-19.3%; position:absolute;">
+                	<img class="img-responsive" src="resource/n9.png">
                 </div>
             </div>
 		</div>
