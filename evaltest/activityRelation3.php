@@ -52,17 +52,17 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">ACTIVIDAD Y RELACIONES</h1>
+						<h1 class="subtitleBold" style="color:white;">ACTIVIDAD Y RELACIONES</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2>¿QUIÉN LO REFIRIÓ A CUIDADOSAMENTE?</h2>
+					<h2 style="font-family:'Raleway-Bold'">¿QUIÉN LO REFIRIÓ A CUIDADOSAMENTE?</h2>
 				</div>
 			</div>
 			
-			<div class="row" style="margin-top: 25px;">
+			<div class="row" style="margin-top: 8%">
 				<div class="col-md-5 col-md-offset-7">
                     <div class="row">
                         <div class="col-md-12">
@@ -123,18 +123,21 @@
 				</div>
 			</div>
 			
-            <div class="row" style="margin-top:25px;">
+            <div class="row" style="margin-top:3%">
 				<div class="col-md-7 col-md-offset-5">
                     <div class="col-md-6 col-xs-6">
                         <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+                            <span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
                         </button>
                     </div>
                     <div class="col-md-6 col-xs-6">
                         <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                            <span class="buttonReef">SIGUIENTE&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
                         </button>
                     </div>
+                </div>
+				<div class="col-md-5 col-xs-5" style="margin-top:-21.5%; position:absolute;">
+                	<img class="img-responsive" src="resource/n13.png">
                 </div>
             </div>
 		</div>

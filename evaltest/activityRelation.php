@@ -52,21 +52,21 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">ACTIVIDAD Y RELACIONES</h1>
+						<h1 class="titleBold" style="color:white;">ACTIVIDAD Y RELACIONES</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2>¿TIENES ALGUNA DIFICULTAD PARA REALIZAR TU TRABAJO, ACTIVIDADES EN CASA O RELACIONARTE CON OTRAS PERSONAS?</h2>
+					<h2 style="font-family:'Raleway-Bold'">¿TIENES ALGUNA DIFICULTAD PARA REALIZAR TU TRABAJO, ACTIVIDADES EN CASA O RELACIONARTE CON OTRAS PERSONAS?</h2>
 				</div>
 			</div>
 			
-			<div class="row" style="margin-top: 25px;">
+			<div class="row" style="margin-top: 5%">
 				<div class="col-md-8 col-md-offset-4 text-center">
                     <div class="col-md-3">
                         <a href="#">
-                            <img src="emo/1f60f.png">
+                            <img src="resource/e7.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">No es difícil</label>
                             </div>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="col-md-3">
                         <a href="#">
-                            <img src="emo/1f605.png">
+                            <img src="resource/e8.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Algo</label>
                             </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="col-md-3">
                         <a href="#">
-                            <img src="emo/1f616.png">
+                            <img src="resource/e9.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Muy</label>
                             </div>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="col-md-3">
                         <a href="#">
-                            <img src="emo/1f62d.png">
+                            <img src="resource/e10.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Extremadamente</label>
                             </div>
@@ -111,13 +111,16 @@
 				</div>
 			</div>
 			
-            <div class="row" style="margin-top:25px;">
+            <div class="row" style="margin-top:5%">
 				<div class="col-md-8 col-md-offset-4">
                     <div class="col-md-3 text-center">
                         <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+                            <span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
                         </button>
                     </div>
+                </div>
+				<div class="col-md-4 col-xs-4" style="margin-top:-13.3%; position:absolute;">
+                	<img class="img-responsive" src="resource/n11.png">
                 </div>
             </div>
 		</div>

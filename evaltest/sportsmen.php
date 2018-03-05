@@ -52,28 +52,28 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">DEPORTISTAS</h1>
+						<h1 class="titleBold" style="color:white;">DEPORTISTAS</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2>¿HAS SUFRIDO LA PÉRDIDA DE UN SER QUERIDO RECIENTE?</h2>
+					<h2 style="font-family:'Raleway-Bold'">¿ESTÁS SUFRIENDO ALGÚN TIPO DE DESORGANIZACIÓN EMOCIONAL QUE ESTÁ AFECTANDO A TU RENDIMIENTO DEPORTIVO?</h2>
 				</div>
 			</div>
-			<div class="row" style="margin-top: 25px;">
-				<div class="col-md-8 col-md-offset-4 text-center">
-                    <div class="col-md-6">
+			<div class="row" style="margin-top: 3%">
+				<div class="col-md-5 col-md-offset-6 text-center">
+                    <div class="col-md-6 col-xs-12">
                         <a href="#">
-                            <img src="emo/1f630.png">
+                            <img src="resource/e5.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Si</label>
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-xs-12">
                         <a href="#">
-                            <img src="emo/1f60f.png">
+                            <img src="resource/e7.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">No</label>
                             </div>
@@ -82,13 +82,16 @@
 				</div>
 			</div>
 			
-            <div class="row" style="margin-top:25px;">
+            <div class="row" style="margin-top:5%">
 				<div class="col-md-8 col-md-offset-4">
                     <div class="col-md-6 text-center">
                         <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+                            <span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
                         </button>
                     </div>
+                </div>
+				<div class="col-md-4 col-xs-4" style="margin-top:-19.5%; position:absolute;">
+                	<img class="img-responsive" src="resource/n4.png">
                 </div>
             </div>
 		</div>
