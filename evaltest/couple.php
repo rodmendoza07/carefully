@@ -52,36 +52,36 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 style="font-weight:bolder; color:white;">PAREJA</h1>
+						<h1 class="titleBold" style="color:white;">PAREJA</h1>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2>¿AMBOS MIEMBROS DE LA PAREJA ESTAN INTERESADOS EN RECIBIR APOYO PSICOLOGICO?</h2>
+					<h2 style="font-family:'Raleway-Bold'">¿AMBOS MIEMBROS DE LA PAREJA ESTAN INTERESADOS EN RECIBIR APOYO PSICOLOGICO?</h2>
 				</div>
 			</div>
-			<div class="row" style="margin-top: 25px;">
-				<div class="col-md-8 col-md-offset-4 text-center">
-                    <div class="col-md-4">
+			<div class="row" style="margin-top: 5%">
+				<div class="col-md-9 col-md-offset-3 text-center">
+                    <div class="col-md-4 col-xs-12">
                         <a href="#">
-                            <img src="emo/1f618.png"><img src="emo/1f612.png">
+                            <img src="resource/c1.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Sólo uno</label>
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-xs-12">
                         <a href="#">
-                            <img src="emo/1f618.png"><img src="emo/1f604.png">
+                            <img src="resource/c2.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Ambos</label>
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-xs-12">
                         <a href="#">
-                            <img src="emo/1f604.png"><img src="emo/1f611.png">
+                            <img src="resource/c3.png">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Uno más</label>
                             </div>
@@ -93,13 +93,16 @@
 				</div>
 			</div>
 			
-            <div class="row" style="margin-top:25px;">
-				<div class="col-md-8 col-md-offset-4">
-                    <div class="col-md-4 text-center">
+            <div class="row" style="margin-top:5%">
+				<div class="col-md-9 col-md-offset-3">
+                    <div class="col-md-4">
                         <button class="btn btn-default btn-pill">
-                            <span style="font-weight: bold; color: #000"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
+                            <span class="buttonReef"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;ATRÁS</span>
                         </button>
                     </div>
+                </div>
+				<div class="col-md-3 col-xs-3" style="margin-top:-12%; position:absolute;">
+                	<img class="img-responsive" src="resource/n4.png">
                 </div>
             </div>
 		</div>
