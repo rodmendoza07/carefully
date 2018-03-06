@@ -451,3 +451,79 @@ INSERT INTO supportStatus (
 ('Resuelto', 'badge badge-success')
 , ('En proceso', 'badge badge-enviado')
 , ('Pendiente', 'badge badge-warning');
+
+INSERT INTO faq_category (
+    fqc_view
+    , fqc_desc
+) VALUES
+(1, 'Agenda')
+, (1, 'Mi Terapia')
+, (1, 'Mi Terapeuta')
+, (1, 'Mi Perfil')
+, (1, 'Crédito')
+, (1, 'Soporte')
+, (2, 'Agenda')
+, (2, 'Mi Terapia')
+, (2, 'Mi Perfil')
+, (2, 'Expedientes')
+, (2, 'Soporte');
+
+INSERT INTO faq_question (
+    fqq_st_id
+    , fqq_question
+    , fqq_cat
+) VALUES 
+(1, '¿Cómo agendo una cita?', 1)
+, (1, '¿Cómo sé que mi terapeuta confirmó nuestra cita?', 1)
+, (1, '¿Cómo interpreto los colores de las citas visibles en mi agenda?', 1)
+, (1, '¿Qué ocurre si mi terapeuta no confirma la cita solicitada?', 1)
+, (1, '¿Qué motivos tiene mi terapeuta para cancelar su sesión?', 1)
+, (1, '¿Qué pasa si mi sesión es aceptada?', 1)
+, (1, '¿Cómo cancelo una cita?', 1)
+, (1, '¿Qué hago si me equivoco agendadndo una cita?', 1)
+, (1, '¿Qúe pasa si cancelo mi cita despueés de las 12h?', 1)
+, (1, '¿Cuál es el huso horario de la agenda?', 1)
+, (1, '¿Cuántas citas puedo agendar de una vez?', 1)
+, (1, '¿Puedo agendar todas mis citas en un mismo día?', 1)
+, (1, '¿Qué puedo encontrar aquí?¿Para qué sirve?', 2)
+, (1, '¿Qué es esto?', 3)
+, (1, '¿Qué puedo encontrar en MI PERFIL?', 4)
+, (1, '¿Tengo que rellenar todos los datos personales?', 4)
+, (1, '¿Quién puede acceder a mi información?', 4)
+, (1, '¿Qué es la historia clínica?', 4)
+, (1, 'Si deseo cambiar de terapeuta, ¿Se pierde mi información?', 4)
+, (1, '¿Cómo cambio mis datos de información?', 4)
+, (1, '¿Qué puedo hacer aquí?', 5)
+, (1, '¿Cómo consigo un código de descuento?', 5)
+, (1, '¿Cómo canjeo mi código?', 5)
+, (1, '¿Qué puedo hacer aquí?', 6)
+, (1, '¿Cuánto tiempo tardan en resolver mi problema?', 6)
+, (1, '¿Quién puede agendar las sesiones?', 7)
+, (1, '¿Tengo que confirmar la sesión al paciente para que quede aceptada?', 7)
+, (1, '¿Qué ocurre si deseo cancelar o rechazar una sesión?', 7)
+, (1, '¿Cómo interpreto los colores de las citas visibles en mi agenda?', 7)
+, (1, '¿Qué ocurre al aceptar la sesión?', 7)
+, (1, '¿Qué pasa si mi paciente cancela su cita?', 7)
+, (1, '¿Cuál es el Huso horario de la agenda?', 7)
+, (1, '¿Cuántas citas puede agendar mi paciente de una vez?', 7)
+, (1, '¿Pueden agendar todas las citas en un mismo día?', 7)
+, (1, '¿Qué puedo encontrar aquí?', 8)
+, (1, '¿Para qué sirve?', 9)
+, (1, '¿Qué información debe recoger el expediente?', 10)
+, (1, '¿Debo rellenar todos los campos?', 10)
+, (1, '¿Cuándo puedo transferir o derivar un paciente?', 10)
+, (1, '¿Mi paciente puede elegir ser transferido?', 10)
+, (1, 'Sí me derivan un paciente, ¿Qué información tendré de él?', 10)
+, (1, '¿Qué puedo hacer aquí?', 11)
+, (1, '¿Cuánto tiempo tardan en resolver mi problema?', 11);
+
+INSERT INTO faq_answers (
+    fqa_st_id
+    , fqa_q_id
+    , fqa_answer
+    , fqa_cat
+) VALUES
+(1, 1, '')
+, (1, 2, 'En la sección de agenda da clic en cualquier sección en blanco dentro del calendario.')
+, (1, 3, 'Si')
+, (1, 4, 'Puedes hacer la cancelación de tu sesión 12 horas antes de la hora de inicio.');
