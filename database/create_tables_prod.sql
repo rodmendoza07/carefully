@@ -463,6 +463,7 @@ CREATE TABLE IF NOT EXISTS `faq_question` (
   `fqq_id` INT NOT NULL AUTO_INCREMENT,
   `fqq_st_id` INT NOT NULL DEFAULT 0,
   `fqq_question` TEXT NOT NULL DEFAULT '',
+  `fqq_cat` INT NOT NULL DEFAULT 0,
   `fqq_createat` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fqq_updateat` DATETIME,
   `fqq_st_id_update` INT NOT NULL DEFAULT 0,
@@ -482,6 +483,7 @@ CREATE TABLE IF NOT EXISTS `faq_answers` (
   `fqa_id` INT NOT NULL AUTO_INCREMENT,
   `fqa_st_id` INT NOT NULL DEFAULT 0,
   `fqa_q_id` INT NOT NULL DEFAULT 0,
+  `fqa_cat` INT NOT NULL DEFAULT 0,
   `fqa_answer` TEXT NOT NULL DEFAULT '',
   `fqa_createat` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fqa_updateat` DATETIME,
@@ -511,6 +513,23 @@ ENGINE = InnoDB;
 
 SHOW WARNINGS;
 CREATE UNIQUE INDEX `fqt_id_UNIQUE` ON `faq_tags` (`fqt_id` ASC);
+
+SHOW WARNINGS;
+
+/* faqs categorias */
+DROP TABLE IF EXISTS `faq_category` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `faq_category` (
+  `fqc_id` INT NOT NULL AUTO_INCREMENT,
+  `fqc_view` INT NOT NULL DEFAULT 0,
+  `fqc_desc` VARCHAR(50), 
+  `fqc_createat` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`fqc_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE UNIQUE INDEX `fqc_id_UNIQUE` ON `faq_category` (`fqc_id` ASC);
 
 SHOW WARNINGS;
 

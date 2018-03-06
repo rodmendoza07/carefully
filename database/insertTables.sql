@@ -451,3 +451,87 @@ INSERT INTO supportStatus (
 ('Resuelto', 'badge badge-success')
 , ('En proceso', 'badge badge-enviado')
 , ('Pendiente', 'badge badge-warning');
+
+INSERT INTO faq_category (
+    fqc_view
+    , fqc_desc
+) VALUES
+(1, 'Agenda')
+, (1, 'Mi Terapia')
+, (1, 'Mi Terapeuta')
+, (1, 'Mi Perfil')
+, (1, 'Crédito')
+, (1, 'Soporte')
+, (2, 'Agenda')
+, (2, 'Mi Terapia')
+, (2, 'Mi Perfil')
+, (2, 'Expedientes')
+, (2, 'Soporte');
+
+INSERT INTO faq_question (
+    fqq_st_id
+    , fqq_question
+    , fqq_cat
+) VALUES 
+(1, '¿Cómo agendo una cita?', 1)
+, (1, '¿Cómo sé que mi terapeuta confirmó nuestra cita?', 1)
+, (1, '¿Cómo interpreto los colores de las citas visibles en mi agenda?', 1)
+, (1, '¿Qué ocurre si mi terapeuta no confirma la cita solicitada?', 1)
+, (1, '¿Qué motivos tiene mi terapeuta para cancelar su sesión?', 1)
+, (1, '¿Qué pasa si mi sesión es aceptada?', 1)
+, (1, '¿Cómo cancelo una cita?', 1)
+, (1, '¿Qué hago si me equivoco agendadndo una cita?', 1)
+, (1, '¿Qúe pasa si cancelo mi cita despueés de las 12h?', 1)
+, (1, '¿Cuál es el huso horario de la agenda?', 1)
+, (1, '¿Cuántas citas puedo agendar de una vez?', 1)
+, (1, '¿Puedo agendar todas mis citas en un mismo día?', 1)
+, (1, '¿Qué puedo encontrar aquí?¿Para qué sirve?', 2)
+, (1, '¿Qué es esto?', 3)
+, (1, '¿Qué puedo encontrar en MI PERFIL?', 4)
+, (1, '¿Tengo que rellenar todos los datos personales?', 4)
+, (1, '¿Quién puede acceder a mi información?', 4)
+, (1, '¿Qué es la historia clínica?', 4)
+, (1, 'Si deseo cambiar de terapeuta, ¿Se pierde mi información?', 4)
+, (1, '¿Cómo cambio mis datos de información?', 4)
+, (1, '¿Qué puedo hacer aquí?', 5)
+, (1, '¿Cómo consigo un código de descuento?', 5)
+, (1, '¿Cómo canjeo mi código?', 5)
+, (1, '¿Qué puedo hacer aquí?', 6)
+, (1, '¿Cuánto tiempo tardan en resolver mi problema?', 6)
+, (1, '¿Quién puede agendar las sesiones?', 7)
+, (1, '¿Tengo que confirmar la sesión al paciente para que quede aceptada?', 7)
+, (1, '¿Qué ocurre si deseo cancelar o rechazar una sesión?', 7)
+, (1, '¿Cómo interpreto los colores de las citas visibles en mi agenda?', 7)
+, (1, '¿Qué ocurre al aceptar la sesión?', 7)
+, (1, '¿Qué pasa si mi paciente cancela su cita?', 7)
+, (1, '¿Cuál es el Huso horario de la agenda?', 7)
+, (1, '¿Cuántas citas puede agendar mi paciente de una vez?', 7)
+, (1, '¿Pueden agendar todas las citas en un mismo día?', 7)
+, (1, '¿Qué puedo encontrar aquí?', 8)
+, (1, '¿Para qué sirve?', 9)
+, (1, '¿Qué información debe recoger el expediente?', 10)
+, (1, '¿Debo rellenar todos los campos?', 10)
+, (1, '¿Cuándo puedo transferir o derivar un paciente?', 10)
+, (1, '¿Mi paciente puede elegir ser transferido?', 10)
+, (1, 'Sí me derivan un paciente, ¿Qué información tendré de él?', 10)
+, (1, '¿Qué puedo hacer aquí?', 11)
+, (1, '¿Cuánto tiempo tardan en resolver mi problema?', 11);
+
+INSERT INTO faq_answers (
+    fqa_st_id
+    , fqa_q_id
+    , fqa_answer
+    , fqa_cat
+) VALUES
+(1, 1, '<div class="text-justify">Debes hacer click en el horario de tu preferencia, confirmar el medio de contacto mediante el que deseas tomar tu sesión (Videollamada o chat) y hacer click en aceptar. Inmediatamente tu terapeuta recibirá tu solicitud. Debes esperar que tu solicitud sea aceptada por tu terapeuta para que tu cita quede confirmada. Este proceso puede tardar unos minutos.</div>', 1)
+, (1, 2, '<div class="text-justify">Al iniciar sesión podrás observar una campanita arriba a la derecha, junto a tu nombre de usuario, ahí es donde te llegarán las notificaciones tanto de aceptación como de rechazo de tu solicitud de sesión.<br><br>
+También puedes observar tu AGENDA, en la que podrás visualizar el estatus de tu sesión. (Puedes interpretarlo con la leyenda visible en la parte inferior derecha).<br><br>
+Además de las anteriores también puedes saber el estatus de tu sesión en la sección de MI TERAPIA dónde aparece al detalle la información de tus sesiones</div>.
+', 1)
+, (1, 3, '<div class="text-justify">En la parte baja izquierda de tu AGENDA puedes observar una leyenda con la interpretación de los colores de tus sesiones.<br><br><ul><li><span class="text-default">Color gris:</span><label>&nbsp;&nbsp;Espacio No disponible</label></li><li><span class="text-agendado">Color verde:</span><label>&nbsp;&nbsp;Sesión agendada</label></li><li><span class="text-enviado">Color azul:</span><label>&nbsp;&nbsp;Sesión enviada</label></li><li><span class="text-reprogramado">Color naranja:</span><label>&nbsp;&nbsp;Sesión reprogramada</label></li><li><span class="text-cancelado">Color rojo:</span><label>&nbsp;&nbsp;Sesión cancelada</label></li></ul></div>', 1)
+, (1, 4, '<div class="text-justity">Tu terapeuta puede elegir no aceptar la cita solicitada. En ese caso, deberás programar una nueva cita. (Ver pregunta 2 para más información)</div>',1)
+, (1, 5, '<div class="text-justify">Los motivos por los que tu terapeuta puede cancelar tu sesión son siempre personales y de importancia. Y todos quedan registrados en su expediente. Si observas que tu terapeuta cancela repetitivamente las citas háznoslo saber en el siguiente correo:  XX@cuidadosamente.com</div>',1)
+, (1, 6, '<div class="text-justify">Solo deberás conectarte el día de tu cita, 5 min antes de tu sesión y empezar con tu terapia.</div>', 1)
+, (1, 7, '<div class="text-justify">Muy sencillo, solo debes hacer click en la agenda, encima de tu cita y cambiar la opción de “agendada” por “cancelar”. Recuerda que sólo puedes cancelar tu cita 12 horas antes de tu sesión, en caso contrario, no podrás recuperar tu sesión.</div>', 1)
+, (1, 8, '<div class="text-justify">Cada vez que agendas una cita cuentas con 15 minutos desde la hora en que la agendaste para modificarla de manera inmediata, si deseas cancelar o modificar tu sesión después de este periodo, debes asegurarte que no rebasas las 12 horas previas a tu cita.</div>',1)
+, (1, 9, '', 1);

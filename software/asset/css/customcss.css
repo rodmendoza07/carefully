@@ -100,16 +100,32 @@ h1.tittle{
     background-color: #29ABE2 !important;
 }
 
+.text-agendado {
+	color:#8CC63F;
+}
+
+.text-enviado {
+	color: #29ABE2 !important;
+}
+
 .badge-reprogramado {
 	color: #857E7E !important;
     border: none !important;
     background-color: #FBB03B !important;
 }
 
+.text-reprogramado {
+	color: #FBB03B !important;
+}
+
 .badge-cancelado {
 	color: #fff !important;
     border: none !important;
     background-color: #F15A24 !important;
+}
+
+.text-cancelado {
+	color: #F15A24 !important;
 }
 
 .padding-badge {
