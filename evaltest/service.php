@@ -123,7 +123,7 @@
 					</div>
 				</div>
 				<div class="col-md-3 col-xs-3" style="position:absolute;">
-						<img class="img-responsive" src="resource/n3.png">
+					<img class="img-responsive" src="resource/n3.png">
 				</div>
             </div>
             <div class="row" style="margin-top:45px;">

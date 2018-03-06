@@ -58,7 +58,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2 style="font-family:'Raleway-Bold'">¿HAS SUFRIDO LA PÉRDIDA DE UN SER QUERIDO RECIENTE?</h2>
+					<h2 style="font-family:'Raleway-Bold'">¿HAS SUFRIDO LA PÉRDIDA DE UN SER QUERIDO RECIENTEMENTE?</h2>
 				</div>
 			</div>
 			<div class="row" style="margin-top: 8%">

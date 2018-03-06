@@ -42,12 +42,12 @@
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	<style>
+	<!-- <style>
 		body{
 			background:url('resource/bkg3.png');
 			/*background-size: cover;*/
 		}
-	</style>
+	</style> -->
 </head>
 
 <body id="mimin" class="dashboard">
@@ -64,7 +64,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h2 style="font-family:'Raleway-Bold'">¿HAS RECIBIDO APOYO PSICOLÓGICO ANTERIORMETE?</h2>
+					<h2 style="font-family:'Raleway-Bold'">¿HAS RECIBIDO APOYO PSICOLÓGICO ANTERIORMENTE?</h2>
 					<h4 class="subtitleBold">Instrucciones: Haz click en la opción que corresponda.</h4>
 				</div>
 			</div>
