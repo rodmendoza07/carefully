@@ -523,7 +523,10 @@ INSERT INTO faq_answers (
     , fqa_answer
     , fqa_cat
 ) VALUES
-(1, 1, '')
-, (1, 2, 'En la sección de agenda da clic en cualquier sección en blanco dentro del calendario.')
-, (1, 3, 'Si')
-, (1, 4, 'Puedes hacer la cancelación de tu sesión 12 horas antes de la hora de inicio.');
+(1, 1, '<div class="text-justify">Debes hacer click en el horario de tu preferencia, confirmar el medio de contacto mediante el que deseas tomar tu sesión (Videollamada o chat) y hacer click en aceptar. Inmediatamente tu terapeuta recibirá tu solicitud. Debes esperar que tu solicitud sea aceptada por tu terapeuta para que tu cita quede confirmada. Este proceso puede tardar unos minutos.</div>', 1)
+, (1, 2, '<div class="text-justify">Al iniciar sesión podrás observar una campanita arriba a la derecha, junto a tu nombre de usuario, ahí es donde te llegarán las notificaciones tanto de aceptación como de rechazo de tu solicitud de sesión.<br><br>
+También puedes observar tu AGENDA, en la que podrás visualizar el estatus de tu sesión. (Puedes interpretarlo con la leyenda visible en la parte inferior derecha).<br><br>
+Además de las anteriores también puedes saber el estatus de tu sesión en la sección de MI TERAPIA dónde aparece al detalle la información de tus sesiones</div>.
+', 1)
+, (1, 3, '<div class="text-justify">En la parte baja izquierda de tu AGENDA puedes observar una leyenda con la interpretación de los colores de tus sesiones.<br><br><ul><li><span class="text-default">Color gris:</span><label>&nbsp;&nbsp;Espacio No disponible</label></li><li><span class="text-agendado">Color verde:</span><label>&nbsp;&nbsp;Sesión agendada</label></li><li><span class="text-enviado">Color azul:</span><label>&nbsp;&nbsp;Sesión enviada</label></li><li><span class="text-reprogramado">Color naranja:</span><label>&nbsp;&nbsp;Sesión reprogramada</label></li><li><span class="text-cancelado">Color rojo:</span><label>&nbsp;&nbsp;Sesión cancelada</label></li></ul></div>', 1)
+, (1, 4, '<div class="text-justity">Tu terapeuta puede elegir no aceptar la cita solicitada. En ese caso, deberás programar una nueva cita. (Ver pregunta 2 para más información)</div>',1);
