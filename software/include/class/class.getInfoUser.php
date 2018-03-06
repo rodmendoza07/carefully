@@ -175,13 +175,14 @@
             }
         }
 
-        public function getFaqsUsr() {
+        public function getFaqsUsr($token, $tp) {
             try {
                 include 'connection.php';
 
-                $call = $conecta->prepare('CALL sp_getAllFaqs()');
+                $call = $conecta->prepare('CALL sp_getAllFaqs(?,?)');
+                $call->bind_param('ss', $token, $tp);
                 $call->execute();
-                $call->bind_result($qId, $qQuestion, $aId, $aAnswer);
+                $call->bind_result($qId, $qQuestion, $aId, $aAnswer, $cDesc, $cat);
 
                 if ($call->errno > 0) {
                     $errno = $call->errno;
@@ -191,7 +192,7 @@
                 } else {
                     $faqs = array();
                     while ($call->fetch()) {
-                        $aTemp = array('qId' => $qId, 'qQuestion' => utf8_encode($qQuestion), 'aId' => $aId, 'aAnswer' => utf8_encode($aAnswer));
+                        $aTemp = array('qId' => $qId, 'qQuestion' => utf8_encode($qQuestion), 'aId' => $aId, 'aAnswer' => utf8_encode($aAnswer), 'cdesc' => utf8_encode($cDesc), 'cat' => $cat);
                         array_push($faqs,$aTemp);
                     }
                     $resp = array('status' => 200, 'data' => $faqs);
