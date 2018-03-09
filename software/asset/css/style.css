@@ -2,9 +2,24 @@
  * (c) Mimin Admin Page v1.0
  */
 
+@font-face{
+	font-family:'Raleways';
+	src:url(../fonts/Raleway-Regular.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: 'Raleway-bold';
+	src:url(../fonts/Raleway-Bold.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: 'Reef';
+	src:url(../fonts/Reef.otf) format("truetype");
+}
+
 body {
   /*font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;*/
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleways', sans-serif; 
   font-size: 13px;
   background-color:#f0f3f4;
   line-height: 1.42857143 !important;
