@@ -24,7 +24,7 @@ function faqs() {
                         newsectitle = response.data[i].cat;
                         if (pastsectitle != newsectitle) {
                             $("#faqContent").append(
-                                '<div class="col-md-12" style="padding: 10px;">'
+                                '<div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px; padding-right: 25px; padding-left:25px">'
                                     + '<h4 class="tittle">' + response.data[i].cdesc + '</h4>'
                                 + '</div>'
                                 + '<div class="col-md-12 padding-0">'
