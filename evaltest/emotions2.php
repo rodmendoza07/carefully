@@ -70,7 +70,7 @@
 				<div class="col-md-8 col-md-offset-4 text-center">
                     <div class="col-md-3">
                         <a href="#">
-                            <img src="resource/f1.png">
+                            <img src="resource/f1.png" class="img-responsive">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Nunca</label>
                             </div>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="col-md-3">
                         <a href="#">
-                            <img src="resource/f2.png">
+                            <img src="resource/f2.png" class="img-responsive">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Varios días</label>
                             </div>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="col-md-3">
                         <a href="#">
-                            <img src="resource/f3.png">
+                            <img src="resource/f3.png" class="img-responsive">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">La mitad</label>
                             </div>
@@ -97,7 +97,7 @@
                     </div>
                     <div class="col-md-3">
                         <a href="#">
-                            <img src="resource/f4.png">
+                            <img src="resource/f4.png" class="img-responsive">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Casi todos</label>
                             </div>
