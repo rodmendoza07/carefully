@@ -3,6 +3,16 @@
 	src:url(../fonts/Raleway-Regular.ttf) format("truetype");
 }
 
+@font-face {
+	font-family: 'Raleway-bold';
+	src:url(../fonts/Raleway-Bold.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: 'Reef';
+	src:url(../fonts/Reef.otf) format("truetype");
+}
+
 h1.tittle{
 	font-family: 'Raleways',sans-serif;
 }
@@ -143,4 +153,10 @@ h1.tittle{
 .title-customHi {
 	color:#8CC63F;
 	font-size: 18px;
+}
+
+.font-faqs {
+	font-size: 18px;
+	font-family: 'Raleway-Bold';
+	font-weight: bold;
 }

@@ -37,7 +37,6 @@
     <link rel="stylesheet" type="text/css" href="../asset/css/plugins/datatables.bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="../asset/css/plugins/icheck/skins/flat/green.css"/>
     <link rel="stylesheet" href="../asset/css/toastr.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="../asset/css/style.css" rel="stylesheet">
     <!-- end: Css -->
     <!--Custom css-->
