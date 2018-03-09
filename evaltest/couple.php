@@ -73,26 +73,26 @@
 				</div>
 			</div>
 			<div class="row" style="margin-top: 5%">
-				<div class="col-md-9 col-md-offset-3 text-center">
-                    <div class="col-md-4 col-xs-12">
+				<div class="col-md-8 col-md-offset-4 text-center">
+                    <div class="col-md-3 col-md-offset-3 col-xs-12">
                         <a href="#">
-                            <img src="resource/c1.png">
+                            <img src="resource/c1.png" class="img-responsive">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Sólo uno</label>
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4 col-xs-12">
+                    <div class="col-md-3 col-xs-12">
                         <a href="#">
-                            <img src="resource/c2.png">
+                            <img src="resource/c2.png" class="img-responsive">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Ambos</label>
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4 col-xs-12">
+                    <div class="col-md-3 col-xs-12">
                         <a href="#">
-                            <img src="resource/c3.png">
+                            <img src="resource/c3.png" class="img-responsive">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Uno más</label>
                             </div>

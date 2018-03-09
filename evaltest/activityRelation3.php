@@ -52,7 +52,7 @@
 			<div class="row">
 				<div class="col-md-12 padding-0">
 					<div class="col-md-12">
-						<h1 class="subtitleBold" style="color:white;">ACTIVIDAD Y RELACIONES</h1>
+						<h1 class="titleBold" style="color:white;">ACTIVIDAD Y RELACIONES</h1>
 					</div>
 				</div>
 			</div>
@@ -63,7 +63,7 @@
 			</div>
 			
 			<div class="row" style="margin-top: 8%">
-				<div class="col-md-5 col-md-offset-7">
+				<div class="col-md-5 col-md-offset-7 font-check">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">

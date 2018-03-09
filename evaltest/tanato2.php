@@ -74,7 +74,7 @@
 			</div>
 			
 			<div class="row" style="margin-top: 8%">
-				<div class="col-md-5 col-md-offset-7">
+				<div class="col-md-5 col-md-offset-7 font-check">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
