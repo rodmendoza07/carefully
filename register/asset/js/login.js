@@ -66,6 +66,13 @@ $(document).ready(function(){
                 });
             }
         });
+
+        $("#formLogin").keypress(function(e) {
+            if(e.which == 13){
+                $("#startSess").click();
+            }
+        });
+
         $("#activateSes").click(function(){
             $("#confirmEmail").modal("toggle");
         });
