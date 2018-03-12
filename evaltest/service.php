@@ -71,9 +71,9 @@
 			</div>
 			<div class="row" style="margin-top: 3.6%;">
 				<div class="col-md-9 col-md-offset-3">
-					<div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
+					<div class="col-md-2 text-center product" style="padding: 0px; margin-right: 20px;">
                         <a href="#">
-                            <img src="resource/s1.png" class="img-responsive">
+                            <img src="resource/s1.png" class="img-responsive services">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Terapia</label>
                             </div>
@@ -82,9 +82,9 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
+                    <div class="col-md-2 text-center product" style="padding: 0px; margin-right: 20px;">
                         <a href="#">
-                            <img src="resource/s2.png" class="img-responsive">
+                            <img src="resource/s2.png" class="img-responsive services">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Terapia</label>
                             </div>
@@ -93,9 +93,9 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
+                    <div class="col-md-2 text-center product" style="padding: 0px; margin-right: 20px;">
                         <a href="#">
-                            <img src="resource/s3.png" class="img-responsive">
+                            <img src="resource/s3.png" class="img-responsive services">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Terapia</label>
                             </div>
@@ -104,15 +104,15 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
+                    <div class="col-md-2 text-center product" style="padding: 0px; margin-right: 20px;">
                         <a href="#">
-                            <img src="resource/s4.png" class="img-responsive">
+                            <img src="resource/s4.png" class="img-responsive services">
                             <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Tanatología</label>
                         </a>
                     </div>
-                    <div class="col-md-2 text-center" style="padding: 0px; margin-right: 20px;">
+                    <div class="col-md-2 text-center product" style="padding: 0px; margin-right: 20px;">
                         <a href="#">
-                            <img src="resource/s5.png" class="img-responsive">
+                            <img src="resource/s5.png" class="img-responsive services">
                             <div class="row">
                                 <label class="text-center" style="color: white !important; font-size: 18px; font-weight: bold;">Terapia</label>
                             </div>

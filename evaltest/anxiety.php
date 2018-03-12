@@ -45,12 +45,6 @@
 	<style>
 		body {
 			background: url('resource/001.jpg');
-			/*background-size: cover;*/
-			background-size: cover; 
-			-ms-background-size: cover;
-			-o-background-size: cover; 
-			-moz-background-size: cover; 
-			-webkit-background-size: cover;
 		}
   	</style>
 </head>
