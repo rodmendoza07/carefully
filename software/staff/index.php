@@ -93,7 +93,7 @@
               <h3 class="animated fadeInLeft"></h3>
               <p class="animated fadeInRight">CDMX (GMT-6)</p>
             </li>
-            <li class="ripple agenda" data-option="agenda" id="frontAgenda">
+            <li class="ripple agenda menu-hover" data-option="agenda" id="frontAgenda">
               <a class="tree-toggle nav-header">
                 Agenda 
                 <span class="fa-angle-right fa right-arrow text-right"></span>
@@ -104,27 +104,27 @@
                 </li>
               </ul>
             </li>
-            <li class="ripple sessions" data-option="sessions">
+            <li class="ripple sessions menu-hover" data-option="sessions">
               <a class="tree-toggle nav-header">
                 Mi terapia
               </a>
             </li>
-            <li class="ripple myprof" data-option="myprof">
+            <li class="ripple myprof menu-hover" data-option="myprof">
               <a class="tree-toggle nav-header" >
                 Mi perfíl 
               </a>
             </li>
-            <li class="ripple filex" data-option="filex">
+            <li class="ripple filex menu-hover" data-option="filex">
               <a class="tree-toggle nav-header">
                 Expedientes 
               </a>
             </li>
-            <li class="ripple supportC" data-option="supportC">
+            <li class="ripple supportC menu-hover" data-option="supportC">
               <a class="tree-toggle nav-header">
                 Soporte 
               </a>
             </li>
-            <li class="ripple faqs" data-option="faqs">
+            <li class="ripple faqs menu-hover" data-option="faqs">
               <a class="tree-toggle nav-header">
                 FAQ's 
               </a>
