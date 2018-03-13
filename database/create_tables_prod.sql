@@ -594,3 +594,20 @@ SHOW WARNINGS;
 CREATE UNIQUE INDEX `spe_id_UNIQUE` ON `supportStatus` (`spe_id` ASC);
 
 SHOW WARNINGS;
+
+/* Recuperación de password */
+
+DROP TABLE IF EXISTS `newPwd` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `newPwd` (
+  `np_id` INT NOT NULL AUTO_INCREMENT,
+  `np_createat` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `np_usr_id` INT NOT NULL DEFAULT 0,
+  `np_st_id` INT NOT NULL DEFAULT 0,
+  `np_hash` VARCHAR(50) NOT NULL DEFAULT '',
+  `np_status` INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`np_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;

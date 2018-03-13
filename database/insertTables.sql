@@ -456,17 +456,17 @@ INSERT INTO faq_category (
     fqc_view
     , fqc_desc
 ) VALUES
-(1, 'Agenda')
-, (1, 'Mi Terapia')
-, (1, 'Mi Terapeuta')
-, (1, 'Mi Perfil')
-, (1, 'Crédito')
-, (1, 'Soporte')
-, (2, 'Agenda')
-, (2, 'Mi Terapia')
-, (2, 'Mi Perfil')
-, (2, 'Expedientes')
-, (2, 'Soporte');
+(1, 'AGENDA')
+, (1, 'MI TERAPIA')
+, (1, 'MI TERAPEUTA')
+, (1, 'MI PERFIL')
+, (1, 'CRÉDITO')
+, (1, 'SOPORTE')
+, (2, 'AGENDA')
+, (2, 'MI TERAPIA')
+, (2, 'MI PERFIL')
+, (2, 'EXPEDIENTES')
+, (2, 'SOPORTE');
 
 INSERT INTO faq_question (
     fqq_st_id

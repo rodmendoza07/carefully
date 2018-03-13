@@ -145,3 +145,7 @@ h1.tittle{
 	font-family: 'Raleway-Bold';
 	font-weight: bold;
 }
+
+.menu-hover:hover {
+	background-color: #8CC63F;
+}

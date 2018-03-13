@@ -91,7 +91,7 @@
               <h3 class="animated fadeInLeft"></h3>
               <p class="animated fadeInRight">CDMX (GMT-6)</p>
             </li>
-            <li class="ripple agenda" data-option="agenda" id="frontAgenda">
+            <li class="ripple agenda menu-hover" data-option="agenda" id="frontAgenda">
               <a class="tree-toggle nav-header">
                 Agenda
               </a>
@@ -101,7 +101,7 @@
                 </li>
               </ul>
             </li>
-            <li class="ripple sessions" data-option="sessions">
+            <li class="ripple sessions menu-hover" data-option="sessions">
               <a class="tree-toggle nav-header">
                 Mi terapia
                 <!-- <span class="fa-angle-right fa right-arrow text-right"></span> -->
@@ -111,27 +111,27 @@
                 <li><a class="tnext">Próximas</a></li>
               </ul> -->
             </li>
-            <li class="ripple therapiest" data-option="therapiest">
+            <li class="ripple therapiest menu-hover" data-option="therapiest">
               <a class="tree-toggle nav-header">
                 Mi terapeuta
               </a>
             </li>
-            <li class="ripple myprof" data-option="myprof">
+            <li class="ripple myprof menu-hover" data-option="myprof">
               <a class="tree-toggle nav-header" >
                 Mi perfil 
               </a>
             </li>
-            <li class="ripple mycredit" data-option="mycredit">
+            <li class="ripple mycredit menu-hover" data-option="mycredit">
               <a class="tree-toggle nav-header">
                 Crédito 
               </a>
             </li>
-            <li class="ripple supportC" data-option="supportC">
+            <li class="ripple supportC menu-hover" data-option="supportC">
               <a class="tree-toggle nav-header">
                 Soporte 
               </a>
             </li>
-            <li class="ripple faqs" data-option="faqs">
+            <li class="ripple faqs menu-hover" data-option="faqs">
               <a class="tree-toggle nav-header">
                 FAQ's 
               </a>
