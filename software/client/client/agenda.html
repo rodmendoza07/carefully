@@ -49,6 +49,48 @@
         </div>
     </div>
 </div>
+<div class="modal fade modal-v1" id="dateModify">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="text-center" id="datetitle"></h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div style="color: #00C4B3;">
+                            ¿Estás seguro de cambiar el horario de tu cita?
+                        </div>
+                    </div>
+                    <div class="col-md-12 custom-top">
+                        <div class="custom-top" id="selectOpt">
+                            <div class="col-md-12 text-center">
+                                <span style="color:#000; font-weight:bold">Selecciona el modo de contacto.</span>
+                            </div>
+                            <div class="col-md-8 col-md-offset-2 custom-top">
+                                <div class="input-group date" data-datepicker-format="DD/MM/YYYY">
+                                    <input type="text" class="form-control">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" data-dismiss="modal" id="cancelDc" class="btn btn-danger btn-pill">Cancelar</button>
+                        <button type="button" id="createSess" class="btn btn-primary btn-pill">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript"> 
     $(document).ready(function () {
       $('input').iCheck({
