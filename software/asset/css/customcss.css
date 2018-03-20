@@ -149,3 +149,14 @@ h1.tittle{
 .menu-hover:hover {
 	background-color: #8CC63F;
 }
+
+.btn-pill-small {
+	border-radius: 999rem !important;
+	width: auto !important;
+	height: auto !important;
+	margin-top: 0px !important;
+}
+
+.care-warning {
+	font-size: 14px;
+}
