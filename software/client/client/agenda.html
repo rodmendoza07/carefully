@@ -49,11 +49,60 @@
         </div>
     </div>
 </div>
+<div class="modal fade modal-v1" id="dateModify">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="text-center" id="datetitle"></h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="color: #00C4B3;">
+                                ¿Estás seguro de cambiar el horario de tu cita?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-top">
+                        <div class="col-xs-6 custom-top">
+                            <div class="form-group form-animate-text">
+                                <input type="text" class="form-text date">
+                                <span class="bar"></span>
+                                <label><span class="fa fa-calendar"></span>&nbsp;&nbsp;Nueva fecha:</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 custom-top">
+                            <div class="form-group form-animate-text">
+                                <input type="text" class="form-text time">
+                                <span class="bar"></span>
+                                <label><span class="fa fa-clock-o"></span>&nbsp;&nbsp;Hora:</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" data-dismiss="modal" id="cancelDc" class="btn btn-danger btn-pill">Cancelar</button>
+                        <button type="button" id="createSess" class="btn btn-primary btn-pill">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript"> 
     $(document).ready(function () {
       $('input').iCheck({
         checkboxClass: 'icheckbox_flat-green', radioClass:
           'iradio_flat-green'
       });
+      $('.date').bootstrapMaterialDatePicker({ weekStart : 0, time: false});
+      $('.time').bootstrapMaterialDatePicker({ date: false,format:'HH:mm',animation:true});
     });
   </script>

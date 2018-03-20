@@ -147,10 +147,8 @@ function agenda() {
                 that.clickEvents(start, end, jsEvent, view)
             },
             eventClick: function(calEvent, jsEvent, view) {
-
-                // alert('Event: ' + calEvent.title);
-                // alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-                // alert('View: ' + view.name);
+                jsEvent.preventDefault();
+                $("#dateModify").modal();
             },
             events: that.events
         });
