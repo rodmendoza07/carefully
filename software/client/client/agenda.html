@@ -60,21 +60,26 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div style="color: #00C4B3;">
-                            ¿Estás seguro de cambiar el horario de tu cita?
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="color: #00C4B3;">
+                                ¿Estás seguro de cambiar el horario de tu cita?
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-12 custom-top">
-                        <div class="custom-top" id="selectOpt">
-                            <div class="col-md-12 text-center">
-                                <span style="color:#000; font-weight:bold">Selecciona el modo de contacto.</span>
+                    <div class="row custom-top">
+                        <div class="col-xs-6 custom-top">
+                            <div class="form-group form-animate-text">
+                                <input type="text" class="form-text date">
+                                <span class="bar"></span>
+                                <label><span class="fa fa-calendar"></span>&nbsp;&nbsp;Nueva fecha:</label>
                             </div>
-                            <div class="col-md-8 col-md-offset-2 custom-top">
-                                <div class="input-group date" data-datepicker-format="DD/MM/YYYY">
-                                    <input type="text" class="form-control">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                </div>
+                        </div>
+                        <div class="col-xs-6 custom-top">
+                            <div class="form-group form-animate-text">
+                                <input type="text" class="form-text time">
+                                <span class="bar"></span>
+                                <label><span class="fa fa-clock-o"></span>&nbsp;&nbsp;Hora:</label>
                             </div>
                         </div>
                     </div>
@@ -97,5 +102,7 @@
         checkboxClass: 'icheckbox_flat-green', radioClass:
           'iradio_flat-green'
       });
+      $('.date').bootstrapMaterialDatePicker({ weekStart : 0, time: false});
+      $('.time').bootstrapMaterialDatePicker({ date: false,format:'HH:mm',animation:true});
     });
   </script>

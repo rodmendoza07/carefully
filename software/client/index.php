@@ -43,6 +43,7 @@
     <!--Custom css-->
     <link rel="stylesheet" type="text/css" href="../asset/css/customcss.css">
     <link rel="shortcut icon" href="asset/img/favico.jpeg">
+    <link rel="stylesheet" type="text/css" href="../asset/css/plugins/bootstrap-material-datetimepicker.css"/>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -285,6 +286,7 @@
     <script src="../asset/js/toastr.min.js"></script>
     <script src="../asset/js/plugins/icheck.min.js"></script>
     <script src="../asset/js/plugins/jquery.validate.min.js"></script>
+    <script src="../asset/js/plugins/bootstrap-material-datetimepicker.js"></script>
     <!-- custom -->
     <script src="../asset/js/main.js"></script>
     <script src="../asset/customjs/client/2945ed38d275bf8c99e15df1edfcea82.js"></script>
