@@ -180,69 +180,6 @@ function newWarnings() {
 
             that.getAllwarnings();
 
-            //  $(".cAcept").click(function(e) {
-
-            //     console.log("hola");
-            //     var idConfEvent = e.target.dataset.id;
-            //     var prevStat = e.target.dataset.ps;
-            //     var dataPost = { cId : idConfEvent, prevS: prevStat};
-            //     console.log(dataPost);
-            //     var ajaxW = $.ajax({
-            //         contentType: "application/json; charset=utf-8",
-            //         type: "POST",
-            //         url: "../include/2d0e9de048e9f2b686ef346c4b716d39.php",
-            //         data: JSON.stringify(dataPost),
-            //         dataType: 'JSON',
-            //         beforeSend: function() {
-            //         },
-            //         success: function (response) {
-            //             if (response.errno) {
-            //                 toastr.error(response.message, "¡Upps!", 5000);
-            //                 console.log('newWarnings - ',response.message)
-            //             } else {
-            //                 $("#theadWarnings").empty();
-            //                 $("#warningsBody").empty();
-            //                 that.getAllwarnings();
-            //             }
-            //         },
-            //         error: function (XMLHttpRequest, textStatus, errorThrown){
-            //             $('#mnewWarnings').modal('toggle');
-            //             console.log('newWarnings - ', errorThrown);
-            //             console.log('newWarnings - ', XMLHttpRequest);
-            //             return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
-            //         }
-            //     });
-            // });
-            // $(".cCancel").click(function(e) {
-            //     console.log(e);
-            //     var idCancelEvent = e.target.dataset.id;
-            //     var prevStat = e.target.dataset.ps;
-            //     var dataPost = { cId : idCancelEvent, prevS: prevStat};
-            //     console.log(dataPost);
-            //     var ajaxW = $.ajax({
-            //         contentType: "application/json; charset=utf-8",
-            //         type: "POST",
-            //         url: "../include/2d0e9de048e9f2b686ef346c4b716d39.php",
-            //         data: JSON.stringify(dataPost),
-            //         dataType: 'JSON',
-            //         beforeSend: function() {
-            //         },
-            //         success: function (response) {
-            //             if (response.errno) {
-            //                 toastr.error(response.message, "¡Upps!", 5000);
-            //                 console.log('newWarnings - ',response.message)
-            //             } else {
-            //                 that.getAllwarnings();
-            //             }
-            //         },
-            //         error: function (XMLHttpRequest, textStatus, errorThrown){
-            //             $('#mnewWarnings').modal('toggle');
-            //             console.log('newWarnings - ', errorThrown);
-            //             console.log('newWarnings - ', XMLHttpRequest);
-            //             return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
-            //         }
-            //     });
-            // });
         });
 
     });
