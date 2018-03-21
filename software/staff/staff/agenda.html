@@ -23,17 +23,20 @@
                     <div class="col-md-12">
                         <div style="color: #00C4B3;" id="dateText"></div>
                     </div>
-                    <div class="col-md-12 custom-top">
-                        <div class="custom-top" id="selectOpt">
-                            <div class="col-md-12 text-center">
-                                <span style="color:#000; font-weight:bold">Selecciona el modo de contacto.</span>
-                            </div>
-                            <div class="col-md-5 col-xs-4 custom-top">
-                                <label class="pull-right"><input type="radio" class="icheck" name="sessOpt" id="chatC" value="1" checked/>Chat</label>
-                            </div>
-                            <div class="col-md-7 col-xs-8 custom-top">
-                                <label class="pull-left"><input type="radio" class="icheck" name="sessOpt"  id="videoC" value="2"/>Videoconferencia</label>
-                            </div>
+                </div>
+                <div class="row custom-top-modal">
+                    <div class="col-xs-6">
+                        <div class="form-group form-animate-text">
+                            <input type="text" class="form-text min-date" id="sincewhen" required>
+                            <span class="bar"></span>
+                            <label style="color: #000;"><span class="fa fa-calendar"></span>&nbsp;&nbsp;A partir de:</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group form-animate-text">
+                            <input type="text" class="form-text min-date" id="towhen" required>
+                            <span class="bar"></span>
+                            <label style="color: #000;"><span class="fa fa-calendar"></span>&nbsp;&nbsp;Hasta:</label>
                         </div>
                     </div>
                 </div>
@@ -55,5 +58,6 @@
         checkboxClass: 'icheckbox_flat-green', radioClass:
           'iradio_flat-green'
       });
+      $('.min-date').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });
     });
   </script>

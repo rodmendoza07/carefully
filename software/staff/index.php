@@ -44,6 +44,7 @@
     <!-- end: Css -->
     <!--Custom css-->
     <link rel="stylesheet" type="text/css" href="../asset/css/customcss.css">
+    <link rel="stylesheet" type="text/css" href="../asset/css/plugins/bootstrap-material-datetimepicker.css"/>
     <link rel="shortcut icon" href="../asset/img/favico.jpeg">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -257,6 +258,7 @@
     <script src="../asset/js/toastr.min.js"></script>
     <script src="../asset/js/plugins/icheck.min.js"></script>
     <script src="../asset/js/plugins/jquery.validate.min.js"></script>
+    <script src="../asset/js/plugins/bootstrap-material-datetimepicker.js"></script>
     <!-- custom -->
     <script src="../asset/js/main.js"></script>
     <script src="../asset/customjs/staff/AppBegin.js"></script>

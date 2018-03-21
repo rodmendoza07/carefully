@@ -109,6 +109,12 @@ h1.tittle{
     background-color: #FBB03B !important;
 }
 
+.bagde-bloqueado {
+	color: #fff !important;
+    border: none !important;
+    background-color: #B3B3B3 !important;
+}
+
 .text-reprogramado {
 	color: #FBB03B !important;
 }
@@ -159,4 +165,12 @@ h1.tittle{
 
 .care-warning {
 	font-size: 14px;
+}
+
+.care-warning-modal {
+	font-size: 16px;
+}
+
+.custom-top-modal {
+	padding-top: 20px;
 }
