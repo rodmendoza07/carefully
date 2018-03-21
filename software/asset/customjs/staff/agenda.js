@@ -6,6 +6,7 @@ function agenda() {
     this.start;
     this.end;
     this.comm;
+    this.currentDate;
     this.counter = false;
 
     this.getEvents = function() {
@@ -65,8 +66,15 @@ function agenda() {
         var doctorD = "Sara Beneyto";
         that.start = '';
         that.end = '';
+        that.currentDate = '';
         that.start = dayD.format('YYYY-MM-DD HH:mm:ss');
         that.end = endD.format('YYYY-MM-DD HH:mm:ss');
+        that.currentDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        if (that.currentDate > that.start) {
+            console.log('agenda - Fecha menor a la actual');
+            return toastr.error('Selecciona una fecha válida', "¡Upps!", 5000);
+        }
+
         if (!that.counter) {
             
             that.pmodal(dayD,startD, endD, doctorD);
@@ -113,7 +121,7 @@ function agenda() {
                 $("#agendadate").modal('toggle');
                 if (response.errno) {
                     toastr.error(response.message, "¡Upps!", 5000);
-                    console.log('agenda - ',response.message)
+                    console.log('agenda - ',response.message);
                 } else {
                     $("#agenda").fullCalendar( 'destroy' );
                     that.viewAgenda();

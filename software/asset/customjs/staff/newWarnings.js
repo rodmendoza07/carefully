@@ -53,11 +53,8 @@ function newWarnings() {
             type: "POST",
             url: "../include/c0c6123e62150bcfeac54bc06a055bc8.php",
             dataType: 'JSON',
-            beforeSend: function() {
-                $('#loading').modal();
-            },
+            beforeSend: function() {},
             success: function (response) {
-                $('#loading').modal('toggle');
                 if (response.errno) {
                     toastr.error(response.message, "¡Upps!", 5000);
                     console.log('newWarnings - ',response.message)
@@ -112,8 +109,7 @@ function newWarnings() {
                                     url: "../include/2d0e9de048e9f2b686ef346c4b716d39.php",
                                     data: JSON.stringify(dataPost),
                                     dataType: 'JSON',
-                                    beforeSend: function() {
-                                    },
+                                    beforeSend: function() {},
                                     success: function (response) {
                                         if (response.errno) {
                                             toastr.error(response.message, "¡Upps!", 5000);
@@ -144,8 +140,7 @@ function newWarnings() {
                                 url: "../include/2d0e9de048e9f2b686ef346c4b716d39.php",
                                 data: JSON.stringify(dataPost),
                                 dataType: 'JSON',
-                                beforeSend: function() {
-                                },
+                                beforeSend: function() {},
                                 success: function (response) {
                                     if (response.errno) {
                                         toastr.error(response.message, "¡Upps!", 5000);
