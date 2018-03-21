@@ -78,7 +78,7 @@
                     $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
                     echo json_encode($resp);
                 } else {
-                    $resp = array('status' => 200, 'name' => $name, 'idGender' => $idGender, 'gender' => $gender, 'idNac' => $idNac,'nation' => $nation, 'age' => $age, 'birthdate' => $birthDate, 'idCs' => $idCs, 'civilState' => $civilState, 'phoneContact' => $phoneContact, 'email' => $email, 'aditional' => $aditional, 'famHist' => $famHist, 'df' => $df, 'mc' => $mc, 'pa' => $pa, 'am' => $am, 'psic' => $psic, 'traumas' => $traumas, 'ps' => $ps);
+                    $resp = array('status' => 200, 'name' => $name, 'idGender' => $idGender, 'gender' => $gender, 'idNac' => $idNac,'nation' => utf8_encode($nation), 'age' => $age, 'birthdate' => $birthDate, 'idCs' => $idCs, 'civilState' => $civilState, 'phoneContact' => $phoneContact, 'email' => $email, 'aditional' => $aditional, 'famHist' => $famHist, 'df' => $df, 'mc' => $mc, 'pa' => $pa, 'am' => $am, 'psic' => $psic, 'traumas' => $traumas, 'ps' => $ps);
                     echo json_encode($resp);
                 }
 
