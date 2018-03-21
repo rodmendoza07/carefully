@@ -111,8 +111,13 @@ function agenda() {
             beforeSend: function() {},
             success: function (response) {
                 $("#agendadate").modal('toggle');
-                $("#agenda").fullCalendar( 'destroy' );
-                that.viewAgenda();
+                if (response.errno) {
+                    toastr.error(response.message, "¡Upps!", 5000);
+                    console.log('agenda - ',response.message)
+                } else {
+                    $("#agenda").fullCalendar( 'destroy' );
+                    that.viewAgenda();
+                }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown){
                 console.log('getAllDates - ', errorThrown);
