@@ -6,6 +6,7 @@ function agenda() {
     this.start;
     this.end;
     this.comm;
+    this.currentDate;
     this.counter = false;
 
     this.getEvents = function() {
@@ -47,17 +48,14 @@ function agenda() {
         });
     }
     this.pmodal = function(dayD,startD, endD, doctorD) {
-        var textD = "¿Estás seguro que quieres agendar una cita con <span style='font-weight:bold;'>"
-            + doctorD + "</span> el día <span style='font-weight:bold;'>" + dayD.format("DD/MM/YYYY") 
-            + "</span> de <span style='font-weight:bold;'>" + startD.format("hh:mm:ss a") 
-            + "</span> a <span style='font-weight:bold;'>" + endD.format("hh:mm:ss a") + "</span>?";
+        var textD = "<span class='care-warning-modal'>Estarás como<span style='font-weight:bold;'>"
+            + " NO DISPONIBLE</span></span>";
         $("#agendadate").modal();
-        $("#datetitle").text("Nueva sesión");
+        $("#datetitle").text("Fechas no disponibles");
         $("#dateText").empty();
         $("#dateText").append(textD);
     }
     this.clickEvents = function(start, end, jsEvent, view){
-        
         jsEvent.preventDefault();
         var dayD = moment(start);
         var startD = moment(start);
@@ -65,8 +63,15 @@ function agenda() {
         var doctorD = "Sara Beneyto";
         that.start = '';
         that.end = '';
+        that.currentDate = '';
         that.start = dayD.format('YYYY-MM-DD HH:mm:ss');
         that.end = endD.format('YYYY-MM-DD HH:mm:ss');
+        that.currentDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        if (that.currentDate > that.start) {
+            console.log('agenda - Fecha menor a la actual');
+            return toastr.error('Selecciona una fecha válida', "¡Upps!", 5000);
+        }
+
         if (!that.counter) {
             
             that.pmodal(dayD,startD, endD, doctorD);
@@ -74,22 +79,39 @@ function agenda() {
             $("#createSess").click(function(event) {
                 that.counter = true;
                 event.preventDefault();
+                var since = $("#sincewhen").val();
+                var too =  $("#towhen").val();
+                since = since.split(" ");
+                too = too.split(" ");
+                var since1 = since[0];
+                var since2 = since[1] + ':00';
+                var too1 = too[0];
+                var too2 = too[1] + ':00';
+                since1 =  since1.split("/");
+                since1 = since1[2] + '-' + since1[1] + '-' + since1[0];
+                since = since1 + ' ' + since2;
+                too1 = too1.split("/");
+                too1 = too1[2] + '-' + too1[1] + '-' + too1[0];
+                too = too1 + ' ' + too2;
+                that.start = since;
+                that.end = too;
                 var dataPost = {
                     dStart: that.start, 
                     dEnd: that.end,
-                    dCom: $('input[name=sessOpt]:checked', '#selectOpt').val()
+                    dCom: 3
                 };
-                // var titleEvent = '';
-                // switch ($('input[name=sessOpt]:checked', '#selectOpt').val()) {
-                //     case '1':
-                //         titleEvent = 'Chat - Enviada';
-                //         break;
-                //     case '2':
-                //         titleEvent = 'Videoconferencia - Enviada';
-                //         break;
-                //     default:
-                //         break;
-                // }
+                console.log(dataPost);
+                // // var titleEvent = '';
+                // // switch ($('input[name=sessOpt]:checked', '#selectOpt').val()) {
+                // //     case '1':
+                // //         titleEvent = 'Chat - Enviada';
+                // //         break;
+                // //     case '2':
+                // //         titleEvent = 'Videoconferencia - Enviada';
+                // //         break;
+                // //     default:
+                // //         break;
+                // // }
                 that.saveEvents(dataPost, event);
             });
             } else {
@@ -111,8 +133,13 @@ function agenda() {
             beforeSend: function() {},
             success: function (response) {
                 $("#agendadate").modal('toggle');
-                $("#agenda").fullCalendar( 'destroy' );
-                that.viewAgenda();
+                if (response.errno) {
+                    toastr.error(response.message, "¡Upps!", 5000);
+                    console.log('agenda - ',response.message);
+                } else {
+                    $("#agenda").fullCalendar( 'destroy' );
+                    that.viewAgenda();
+                }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown){
                 console.log('getAllDates - ', errorThrown);
@@ -122,6 +149,14 @@ function agenda() {
         });
     };
 
+    this.editEvents = function(titleEvent) {
+        if (titleEvent == 'Chat - Cancelada' || titleEvent == 'Videoconferencia - Cancelada') {
+            console.log('agenda - Cita cancelada');
+            return toastr.error('Las citas canceladas no se pueden reprogramar', "¡Upps!", 5000);
+        }
+
+
+    };
 
     this.viewAgenda = function() {
         that.getEvents();
@@ -148,10 +183,8 @@ function agenda() {
                 that.clickEvents(start, end, jsEvent, view)
             },
             eventClick: function(calEvent, jsEvent, view) {
-
-                alert('Event: ' + calEvent.title);
-                alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-                alert('View: ' + view.name);
+                jsEvent.preventDefault();
+                that.editEvents(calEvent.title);
             },
             events: that.events
         });
