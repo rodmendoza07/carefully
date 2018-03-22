@@ -97,8 +97,7 @@ function agenda() {
                 that.end = too;
                 var dataPost = {
                     dStart: that.start, 
-                    dEnd: that.end,
-                    dCom: 3
+                    dEnd: that.end
                 };
                 console.log(dataPost);
                 // // var titleEvent = '';
@@ -126,7 +125,7 @@ function agenda() {
         var ajaxF = $.ajax({
             contentType: "application/json; charset=utf-8",
             type: "POST",
-            url: "../include/ca3e4974a8639906d8099f07c44b54ee.php",
+            url: "../include/6252f5a0abbad6ecc357bb1de3171348.php",
             dataType: 'JSON',
             data: JSON.stringify(dataPost),
             async: false,
@@ -149,13 +148,35 @@ function agenda() {
         });
     };
 
-    this.editEvents = function(titleEvent) {
-        if (titleEvent == 'Chat - Cancelada' || titleEvent == 'Videoconferencia - Cancelada') {
+    this.editEvents = function(evento) {
+        if (evento.title == 'Chat - Cancelada' || evento.title == 'Videoconferencia - Cancelada') {
             console.log('agenda - Cita cancelada');
             return toastr.error('Las citas canceladas no se pueden reprogramar', "¡Upps!", 5000);
         }
 
+        $("#reprogramm").modal();
+        $("#sessType").empty();
+        $("#sessType").append(evento.title);
 
+        if (evento.title == 'No disponible - Fecha bloqueada') {
+            $("#pacienteNombre").css('display','none');
+            $("#pacienteName").empty();
+            $("#pacienteName").css('display', 'none')
+            $("#debloqOpts").css('display','block');
+            $("#debloqD").iCheck("uncheck");
+            $("#debloqA").iCheck("uncheck");
+            $("#debloqD").on("ifChecked", function(){
+                $("#dateIntervaldb").css('display', 'block');
+            });
+            $("#debloqA").on("ifChecked", function() {
+                $("#dateIntervaldb").css('display', 'none');
+            });
+        } else {
+            $("#pacienteNombre").empty();
+            $("#pacienteNombre").css('display','block');
+            $("#debloqOpts").css('display','none');
+            $("#dateIntervaldb").css('display', 'block');
+        }
     };
 
     this.viewAgenda = function() {
@@ -184,7 +205,7 @@ function agenda() {
             },
             eventClick: function(calEvent, jsEvent, view) {
                 jsEvent.preventDefault();
-                that.editEvents(calEvent.title);
+                that.editEvents(calEvent);
             },
             events: that.events
         });

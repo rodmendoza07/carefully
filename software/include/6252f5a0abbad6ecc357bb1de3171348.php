@@ -7,10 +7,9 @@
         $json_obj = json_decode($json_str, true);
         $dStart = $json_obj['dStart'];
         $dEnd = $json_obj['dEnd'];
-        $dCom = $json_obj['dCom'];
 
         $setDate = new agendaDates();  
-        $setDate->setDates(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $dStart, $dEnd, $dCom);
+        $setDate->setDatesStaff(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $dStart, $dEnd);
             
     } catch (Exception $e) {
         $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);

@@ -95,10 +95,10 @@ INSERT INTO configuraciones (
     , 'Uncarefully'
 ), (
     'hh_start'
-    , '8:00:00'
+    , '0:00:00'
 ), (
     'hh_end'
-    , '20:00:00'
+    , '23:59:59'
 );
 
 INSERT INTO departamentos(
@@ -131,7 +131,8 @@ INSERT INTO citas_status (
     , ('Agendada', '#8CC63F', 'badge badge-info')
     , ('Reprogramada', '#FBB03B', 'badge badge-reprogramado')
     , ('Cancelada', '#F15A24', 'badge badge-cancelado')
-    , ('Fecha bloqueada', '#B3B3B3', 'badge badge-bloqueado');
+    , ('Fecha bloqueada', '#B3B3B3', 'badge badge-bloqueado')
+    , ('Fecha desbloqueada', '', '');
 
 INSERT INTO citas_communication (
     cc_desc

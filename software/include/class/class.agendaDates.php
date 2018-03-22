@@ -284,6 +284,31 @@
                 echo json_encode($catch);
             }
         }
-    }
 
+        public function setDatesStaff($token, $dStart, $dEnd) {
+            try {
+                include 'connection.php';
+
+                $call = $conecta->prepare('CALL sp_blockDoctorDates(?, ?, ?)');
+                $call->bind_param('sss', $token, $dStart, $dEnd);
+                $call->execute();
+                $call->bind_result($mess);
+
+                if ($call->errno > 0) {
+                    $errno = $call->errno;
+                    $msg = $call->error;
+                    $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
+                    echo json_encode($resp);
+                } else {
+                    $call->fetch();
+                    $resp = array('status' => 200, 'data' => $mess);
+                    echo json_encode($resp);
+                }
+                $call->close();
+            } catch (Exception $e) {
+                $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
+                echo json_encode($catch);
+            }
+        }
+    }
 ?>
