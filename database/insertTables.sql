@@ -131,14 +131,14 @@ INSERT INTO citas_status (
     , ('Agendada', '#8CC63F', 'badge badge-info')
     , ('Reprogramada', '#FBB03B', 'badge badge-reprogramado')
     , ('Cancelada', '#F15A24', 'badge badge-cancelado')
-    , ('Bloqueada', '#B3B3B3', 'badge badge-bloqueado');
+    , ('Fecha bloqueada', '#B3B3B3', 'badge badge-bloqueado');
 
 INSERT INTO citas_communication (
     cc_desc
 ) VALUES
     ('Chat')
     , ('Videoconferencia')
-    , ('None');
+    , ('No disponible');
 
 INSERT INTO civil_estado (
     ce_desc
