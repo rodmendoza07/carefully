@@ -173,11 +173,11 @@ function agenda() {
             defaultDate: moment.tz('America/Mexico_City'),
             defaultView: 'agendaWeek',
             scrollTime :  "8:00:00",
-            businessHours: {
+            /*businessHours: {
                 dow: [1,2,3,4,5],
                 start: '8:00',
                 end: '20:00'
-            },
+            },*/
             selectable: true,
             select: function(start, end, jsEvent, view){
                 that.clickEvents(start, end, jsEvent, view)

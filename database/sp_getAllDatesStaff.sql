@@ -20,7 +20,7 @@ BEGIN
 	IF userId > 0 THEN
 		SELECT
 			/*COUNT(c.cita_title) AS dateNumber*/
-			c.cita_fecha_start
+			DISTINCT(c.cita_fecha_start)
             , c.cita_fecha_end
             , c.cita_title
             , c.cita_estatus
