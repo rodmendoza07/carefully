@@ -159,6 +159,7 @@ function agenda() {
         $("#sessType").append(evento.title);
 
         if (evento.title == 'No disponible - Fecha bloqueada') {
+            $("#dateIntervaldb").css('display', 'none');
             $("#pacienteNombre").css('display','none');
             $("#pacienteName").empty();
             $("#pacienteName").css('display', 'none')
