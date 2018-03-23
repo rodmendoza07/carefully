@@ -25,8 +25,8 @@ function agenda() {
                 //     $(this).data('bs.modal', null);
                 // });
                 if (response.errno) {
-                    toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
                     console.log('Agenda - ',response.message)
+                    return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
                 } else {
                     for (var index = 0; index < response.data.length; index++) {
                         var eventosR = {
@@ -121,8 +121,8 @@ function agenda() {
             success: function (response) {
                 $("#agendadate").modal('toggle');
                 if (response.errno) {
-                    toastr.error(response.message, "¡Upps!", 5000);
                     console.log('agenda - ',response.message);
+                    return toastr.error(response.message, "¡Upps!", 5000);
                 } else {
                     $("#agenda").fullCalendar( 'destroy' );
                     that.viewAgenda();
@@ -188,8 +188,8 @@ function agenda() {
                 beforeSend: function() {},
                 success: function (response) {
                     if (response.errno) {
-                        toastr.error(response.message, "¡Upps!", 5000);
                         console.log('getPatientNames - ',response.message);
+                        return toastr.error(response.message, "¡Upps!", 5000);
                     } else {
                         console.log(response);
                         $("#pacienteNombre").css('display','block');
@@ -246,12 +246,14 @@ function agenda() {
             async: false,
             beforeSend: function() {},
             success: function (response) {
+                $("#reprogramm").modal('toggle');
                 if (response.errno) {
-                    toastr.error(response.message, "¡Upps!", 5000);
                     console.log('editBlock - ',response.message);
+                    return toastr.error(response.message, "¡Upps!", 5000);
                 } else {
                     $("#agenda").fullCalendar( 'destroy' );
                     that.viewAgenda();
+                    return toastr.success('Reprogramación', '¡Exitósa!', 5000);
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown){
@@ -265,7 +267,6 @@ function agenda() {
 
     this.viewAgenda = function() {
         that.getEvents();
-        console.log(that.events);
         var successs = false;
         $('#agenda').fullCalendar({
             height : screen.height,
@@ -284,7 +285,6 @@ function agenda() {
             },
             eventClick: function(calEvent, jsEvent, view) {
                 jsEvent.preventDefault();
-                console.log(calEvent);
                 that.editEvents(calEvent);
             },
             events: that.events
