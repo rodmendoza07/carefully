@@ -117,6 +117,8 @@ BEGIN
                     UPDATE citas SET
 						cita_fecha_start = dateStart
                         , cita_fecha_end = dateEnd
+                        , cita_fecha_update = NOW()
+                        , cita_st_update =  userId
 					WHERE cita_id = tmp_citaId;
                     
 					IF `_rollback` THEN
