@@ -84,7 +84,7 @@ BEGIN
 				SELECT 'OK' AS message;
 			ELSE
 				SIGNAL SQLSTATE '45000'
-					SET message_text = 'No puedes bloquear las fechas con sesiones agendadas. Por favor selecciona fechas de bloqueo posteriores a tus sesiones';
+					SET message_text = 'No puedes bloquear las fechas con sesiones agendadas. Por favor selecciona fechas de bloqueo que no interfieran con tus sesiones.';
 			END IF;
             
 		ELSEIF optBloq = 2 THEN
@@ -132,7 +132,7 @@ BEGIN
 				SELECT 'OK' AS message;
 			ELSE
 				SIGNAL SQLSTATE '45000'
-					SET message_text = 'No puedes bloquear las fechas con sesiones agendadas. Por favor selecciona fechas de bloqueo posteriores a tus sesiones';
+					SET message_text = 'No puedes bloquear las fechas con sesiones agendadas. Por favor selecciona fechas de bloqueo que no interfieran con tus sesiones.';
 			END IF;
         ELSE
 			SIGNAL SQLSTATE '45000'

@@ -142,6 +142,11 @@ function agenda() {
             return toastr.error('Las citas canceladas no se pueden reprogramar', "¡Upps!", 5000);
         }
 
+        if(moment().format('YYYY-MM-DD HH:mm:ss') > evento.start.format('YYYY-MM-DD H:mm:ss')){
+            console.log('agenda - Evento anterior');
+            return toastr.error('Los eventos expirados no se pueden reprogramar', "¡Upps!", 5000);
+        }
+
         $("#reprogramm").modal();
         $("#sessType").empty();
         $("#sessType").append(evento.title);
@@ -156,6 +161,13 @@ function agenda() {
             $("#debloqA").iCheck("uncheck");
             $("#debloqD").on("ifChecked", function(){
                 $("#dateIntervaldb").css('display', 'block');
+                $("#sincewhendb").val('');
+                $("#towhendb").val('');
+                $("#saveR").click(function() {
+                    var sincedb = $("#sincewhendb").val();
+                    var toodb = $("#towhendb").val();
+                    that.editBlock(evento.start,sincedb,toodb);
+                });
             });
             $("#debloqA").on("ifChecked", function() {
                 $("#dateIntervaldb").css('display', 'none');
@@ -194,6 +206,63 @@ function agenda() {
         }
     };
 
+    this.editBlock = function(dateold, datenew, endDate) {
+        var since = datenew;
+        var too =  endDate;
+        since = since.split(" ");
+        too = too.split(" ");
+        var since1 = since[0];
+        var since2 = since[1] + ':59';
+        var too1 = too[0];
+        var too2 = too[1] + ':59';
+        since1 =  since1.split("/");
+        since1 = since1[2] + '-' + since1[1] + '-' + since1[0];
+        since = since1 + ' ' + since2;
+        too1 = too1.split("/");
+        too1 = too1[2] + '-' + too1[1] + '-' + too1[0];
+        too = too1 + ' ' + too2;
+
+        if (moment().format('YYYY-MM-DD HH:mm:ss') > since) {
+            console.log('agenda - Fecha menor a la actual');
+            return toastr.error('Selecciona una fecha válida', "¡Upps!", 5000);
+        }
+        if (since > too) {
+            console.log('agenda - Fecha inicio mayor a la fecha de termino');
+            return toastr.error('La fecha de inicio no puede ser posterior a la fecha de termino.', "¡Upps!", 5000);
+        }
+
+        var dataPost = {
+            dStart: since,
+            dEnd: too,
+            dOld: dateold.format('YYYY-MM-DD HH:mm:ss')
+        };
+
+        var ajaxRb = $.ajax({
+            contentType: "application/json; charset=utf-8",
+            type: "POST",
+            url: "../include/4be6f695514b3ce01546dd1b38b181ff.php",
+            dataType: 'JSON',
+            data: JSON.stringify(dataPost),
+            async: false,
+            beforeSend: function() {},
+            success: function (response) {
+                if (response.errno) {
+                    toastr.error(response.message, "¡Upps!", 5000);
+                    console.log('editBlock - ',response.message);
+                } else {
+                    $("#agenda").fullCalendar( 'destroy' );
+                    that.viewAgenda();
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown){
+                console.log('editBlock - ', errorThrown);
+                console.log('editBlock - ', XMLHttpRequest);
+                return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+            }
+        });
+
+    };
+
     this.viewAgenda = function() {
         that.getEvents();
         console.log(that.events);
@@ -209,11 +278,6 @@ function agenda() {
             defaultDate: moment.tz('America/Mexico_City'),
             defaultView: 'agendaWeek',
             scrollTime :  "8:00:00",
-            /*businessHours: {
-                dow: [1,2,3,4,5],
-                start: '8:00',
-                end: '20:00'
-            },*/
             selectable: true,
             select: function(start, end, jsEvent, view){
                 that.clickEvents(start, end, jsEvent, view)
