@@ -99,18 +99,6 @@ function agenda() {
                     dStart: that.start, 
                     dEnd: that.end
                 };
-                console.log(dataPost);
-                // // var titleEvent = '';
-                // // switch ($('input[name=sessOpt]:checked', '#selectOpt').val()) {
-                // //     case '1':
-                // //         titleEvent = 'Chat - Enviada';
-                // //         break;
-                // //     case '2':
-                // //         titleEvent = 'Videoconferencia - Enviada';
-                // //         break;
-                // //     default:
-                // //         break;
-                // // }
                 that.saveEvents(dataPost, event);
             });
             } else {

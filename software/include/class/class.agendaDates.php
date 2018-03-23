@@ -289,8 +289,11 @@
             try {
                 include 'connection.php';
 
-                $call = $conecta->prepare('CALL sp_blockDoctorDates(?, ?, ?)');
-                $call->bind_param('sss', $token, $dStart, $dEnd);
+                $optBloq = 1;
+                $dateStartOld = '';
+
+                $call = $conecta->prepare('CALL sp_blockDoctorDates(?, ?, ?, ?, ?)');
+                $call->bind_param('sssis', $token, $dStart, $dEnd, $optBloq, $dateStartOld);
                 $call->execute();
                 $call->bind_result($mess);
 
