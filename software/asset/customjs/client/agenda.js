@@ -136,6 +136,16 @@ function agenda() {
         });
     };
 
+    this.editEvents = function(titleEvent) {
+        if (titleEvent == 'Chat - Cancelada' || titleEvent == 'Videoconferencia - Cancelada') {
+            console.log('agenda - Cita cancelada');
+            return toastr.error('Las citas canceladas no se pueden reprogramar', "¡Upps!", 5000);
+        }
+        if (titleEvent == 'No disponible - Fecha bloqueada') {
+            console.log('agenda - Fecha bloqueada doctor');
+            return toastr.warning('No puedes agendar citas cuando tu terapeuta no está disponible', "¡Atención!", 5000);
+        }
+    }
 
     this.viewAgenda = function() {
         that.getEvents();
@@ -151,18 +161,20 @@ function agenda() {
             defaultDate: moment.tz('America/Mexico_City'),
             defaultView: 'agendaWeek',
             scrollTime :  "8:00:00",
-            businessHours: {
+            /*businessHours: {
                 dow: [1,2,3,4,5],
                 start: '8:00',
                 end: '20:00'
-            },
+            },*/
             selectable: true,
             select: function(start, end, jsEvent, view){
                 that.clickEvents(start, end, jsEvent, view)
             },
             eventClick: function(calEvent, jsEvent, view) {
                 jsEvent.preventDefault();
-                $("#dateModify").modal();
+                that.editEvents(calEvent.title);
+                
+                //$("#dateModify").modal();
             },
             events: that.events
         });

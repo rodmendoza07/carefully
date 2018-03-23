@@ -97,8 +97,7 @@ function agenda() {
                 that.end = too;
                 var dataPost = {
                     dStart: that.start, 
-                    dEnd: that.end,
-                    dCom: 3
+                    dEnd: that.end
                 };
                 console.log(dataPost);
                 // // var titleEvent = '';
@@ -126,7 +125,7 @@ function agenda() {
         var ajaxF = $.ajax({
             contentType: "application/json; charset=utf-8",
             type: "POST",
-            url: "../include/ca3e4974a8639906d8099f07c44b54ee.php",
+            url: "../include/6252f5a0abbad6ecc357bb1de3171348.php",
             dataType: 'JSON',
             data: JSON.stringify(dataPost),
             async: false,
@@ -149,13 +148,62 @@ function agenda() {
         });
     };
 
-    this.editEvents = function(titleEvent) {
-        if (titleEvent == 'Chat - Cancelada' || titleEvent == 'Videoconferencia - Cancelada') {
+    this.editEvents = function(evento) {
+        if (evento.title == 'Chat - Cancelada' || evento.title == 'Videoconferencia - Cancelada') {
             console.log('agenda - Cita cancelada');
             return toastr.error('Las citas canceladas no se pueden reprogramar', "¡Upps!", 5000);
         }
 
+        $("#reprogramm").modal();
+        $("#sessType").empty();
+        $("#sessType").append(evento.title);
 
+        if (evento.title == 'No disponible - Fecha bloqueada') {
+            $("#dateIntervaldb").css('display', 'none');
+            $("#pacienteNombre").css('display','none');
+            $("#pacienteName").empty();
+            $("#pacienteName").css('display', 'none')
+            $("#debloqOpts").css('display','block');
+            $("#debloqD").iCheck("uncheck");
+            $("#debloqA").iCheck("uncheck");
+            $("#debloqD").on("ifChecked", function(){
+                $("#dateIntervaldb").css('display', 'block');
+            });
+            $("#debloqA").on("ifChecked", function() {
+                $("#dateIntervaldb").css('display', 'none');
+            });
+        } else {
+            $("#debloqOpts").css('display','none');
+            $("#dateIntervaldb").css('display', 'block');
+            var dataPost = {
+                dStart: evento.start
+            };
+            var ajaxN = $.ajax({
+                contentType: "application/json; charset=utf-8",
+                type: "POST",
+                url: "../include/3c33832f1baa148c9263c308db15a243.php",
+                dataType: 'JSON',
+                data: JSON.stringify(dataPost),
+                async: false,
+                beforeSend: function() {},
+                success: function (response) {
+                    if (response.errno) {
+                        toastr.error(response.message, "¡Upps!", 5000);
+                        console.log('getPatientNames - ',response.message);
+                    } else {
+                        console.log(response);
+                        $("#pacienteNombre").css('display','block');
+                        $("#pacienteName").empty();
+                        $("#pacienteName").append(response.data);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown){
+                    console.log('getPatientNames - ', errorThrown);
+                    console.log('getPatientNames - ', XMLHttpRequest);
+                    return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+                }
+            });
+        }
     };
 
     this.viewAgenda = function() {
@@ -173,18 +221,19 @@ function agenda() {
             defaultDate: moment.tz('America/Mexico_City'),
             defaultView: 'agendaWeek',
             scrollTime :  "8:00:00",
-            businessHours: {
+            /*businessHours: {
                 dow: [1,2,3,4,5],
                 start: '8:00',
                 end: '20:00'
-            },
+            },*/
             selectable: true,
             select: function(start, end, jsEvent, view){
                 that.clickEvents(start, end, jsEvent, view)
             },
             eventClick: function(calEvent, jsEvent, view) {
                 jsEvent.preventDefault();
-                that.editEvents(calEvent.title);
+                console.log(calEvent);
+                that.editEvents(calEvent);
             },
             events: that.events
         });

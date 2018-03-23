@@ -44,8 +44,7 @@ BEGIN
 			INNER JOIN citas_validation cv ON (c.cita_id = cv.cv_c_id)
             INNER JOIN staff st ON (st.st_id = userId)
             INNER JOIN citas_status cst ON (c.cita_estatus = cst.cs_id)
-		WHERE c.cita_paciente_id = userId
-			AND (cv.cv_status = 0 OR cv.cv_status_view = 0);
+		WHERE (cv.cv_status = 0 OR cv.cv_status_view = 0);
 	
     ELSEIF opt = 2 THEN
 		
