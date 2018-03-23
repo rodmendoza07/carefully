@@ -29,7 +29,8 @@ BEGIN
 			INNER JOIN citas_status cs ON (c.cita_estatus = cs.cs_id)
             INNER JOIN citas_communication cc ON (c.cita_title = cc.cc_id)
             INNER JOIN usuarios usr ON (usr.usr_id = c.cita_paciente_id)
-        WHERE cita_doctor_id = userId;
+        WHERE c.cita_doctor_id = userId
+			AND c.cita_estatus < 5;
 	ELSE
 		SIGNAL SQLSTATE '45000'
 			SET message_text = 'Algo ha ido mal, intentelo más tarde.';
@@ -38,4 +39,3 @@ BEGIN
 END$$
 
 DELIMITER ;
-

@@ -18,6 +18,7 @@ BEGIN
     DECLARE tmp_citaId INT;
     DECLARE cDateStart INT;
     DECLARE cDateEnd INT;
+    DECLARE statusUbk INT;
 	DECLARE `_rollback` BOOL DEFAULT 0;
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
@@ -84,7 +85,7 @@ BEGIN
 				SELECT 'OK' AS message;
 			ELSE
 				SIGNAL SQLSTATE '45000'
-					SET message_text = 'No puedes bloquear las fechas con sesiones agendadas. Por favor selecciona fechas de bloqueo posteriores a tus sesiones';
+					SET message_text = 'No puedes bloquear las fechas con sesiones agendadas. Por favor selecciona fechas de bloqueo que no interfieran con tus sesiones.';
 			END IF;
             
 		ELSEIF optBloq = 2 THEN
@@ -109,7 +110,13 @@ BEGIN
 			SET cDateEnd = (SELECT COUNT(*) FROM citas WHERE cita_doctor_id = userId AND cita_fecha_end BETWEEN dateStart AND dateEnd AND cita_estatus < 4);
 			
 			IF cDateStart = 0 OR cDateEnd = 0 THEN 
-            
+				
+                IF dateStart = '0000-00-00 00:00:00' THEN
+					SET statusUbk = 6;
+				ELSE
+					SET statusUbk = 5;
+                END IF;
+				
 				WHILE firstId <= lastId DO
 					SET tmp_citaId = (SELECT dates FROM tmp_dates WHERE id_date = firstId);
 					START TRANSACTION;
@@ -117,6 +124,9 @@ BEGIN
                     UPDATE citas SET
 						cita_fecha_start = dateStart
                         , cita_fecha_end = dateEnd
+                        , cita_fecha_update = NOW()
+                        , cita_st_update =  userId
+                        , cita_estatus = statusUbk
 					WHERE cita_id = tmp_citaId;
                     
 					IF `_rollback` THEN
@@ -132,7 +142,7 @@ BEGIN
 				SELECT 'OK' AS message;
 			ELSE
 				SIGNAL SQLSTATE '45000'
-					SET message_text = 'No puedes bloquear las fechas con sesiones agendadas. Por favor selecciona fechas de bloqueo posteriores a tus sesiones';
+					SET message_text = 'No puedes bloquear las fechas con sesiones agendadas. Por favor selecciona fechas de bloqueo que no interfieran con tus sesiones.';
 			END IF;
         ELSE
 			SIGNAL SQLSTATE '45000'

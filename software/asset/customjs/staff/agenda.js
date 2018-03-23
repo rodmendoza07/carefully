@@ -25,8 +25,8 @@ function agenda() {
                 //     $(this).data('bs.modal', null);
                 // });
                 if (response.errno) {
-                    toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
                     console.log('Agenda - ',response.message)
+                    return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
                 } else {
                     for (var index = 0; index < response.data.length; index++) {
                         var eventosR = {
@@ -99,18 +99,6 @@ function agenda() {
                     dStart: that.start, 
                     dEnd: that.end
                 };
-                console.log(dataPost);
-                // // var titleEvent = '';
-                // // switch ($('input[name=sessOpt]:checked', '#selectOpt').val()) {
-                // //     case '1':
-                // //         titleEvent = 'Chat - Enviada';
-                // //         break;
-                // //     case '2':
-                // //         titleEvent = 'Videoconferencia - Enviada';
-                // //         break;
-                // //     default:
-                // //         break;
-                // // }
                 that.saveEvents(dataPost, event);
             });
             } else {
@@ -133,16 +121,17 @@ function agenda() {
             success: function (response) {
                 $("#agendadate").modal('toggle');
                 if (response.errno) {
-                    toastr.error(response.message, "¡Upps!", 5000);
                     console.log('agenda - ',response.message);
+                    return toastr.error(response.message, "¡Upps!", 5000);
                 } else {
                     $("#agenda").fullCalendar( 'destroy' );
                     that.viewAgenda();
+                    return toastr.success('Bloqueo de fechas', '¡Exitóso!', 5000);
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown){
-                console.log('getAllDates - ', errorThrown);
-                console.log('getAllDates - ', XMLHttpRequest);
+                console.log('saveEvents - ', errorThrown);
+                console.log('saveEvents - ', XMLHttpRequest);
                 return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
             }
         });
@@ -154,12 +143,18 @@ function agenda() {
             return toastr.error('Las citas canceladas no se pueden reprogramar', "¡Upps!", 5000);
         }
 
+        if(moment().format('YYYY-MM-DD HH:mm:ss') > evento.start.format('YYYY-MM-DD H:mm:ss')){
+            console.log('agenda - Evento anterior');
+            return toastr.error('Los eventos expirados no se pueden reprogramar', "¡Upps!", 5000);
+        }
+
         $("#reprogramm").modal();
         $("#sessType").empty();
         $("#sessType").append(evento.title);
 
         if (evento.title == 'No disponible - Fecha bloqueada') {
             $("#dateIntervaldb").css('display', 'none');
+            $("#reprogramOpts").css('display', 'none');
             $("#pacienteNombre").css('display','none');
             $("#pacienteName").empty();
             $("#pacienteName").css('display', 'none')
@@ -168,13 +163,23 @@ function agenda() {
             $("#debloqA").iCheck("uncheck");
             $("#debloqD").on("ifChecked", function(){
                 $("#dateIntervaldb").css('display', 'block');
+                $("#sincewhendb").val('');
+                $("#towhendb").val('');
+                $("#saveR").click(function() {
+                    var sincedb = $("#sincewhendb").val();
+                    var toodb = $("#towhendb").val();
+                    that.editBlock(evento.start,sincedb,toodb);
+                });
             });
             $("#debloqA").on("ifChecked", function() {
                 $("#dateIntervaldb").css('display', 'none');
+                $("#saveR").click(function() {
+                    that.unblockA(evento.start);
+                });
             });
         } else {
             $("#debloqOpts").css('display','none');
-            $("#dateIntervaldb").css('display', 'block');
+            $("#reprogramOpts").css('display', 'block');
             var dataPost = {
                 dStart: evento.start
             };
@@ -188,13 +193,27 @@ function agenda() {
                 beforeSend: function() {},
                 success: function (response) {
                     if (response.errno) {
-                        toastr.error(response.message, "¡Upps!", 5000);
                         console.log('getPatientNames - ',response.message);
+                        return toastr.error(response.message, "¡Upps!", 5000);
                     } else {
                         console.log(response);
                         $("#pacienteNombre").css('display','block');
                         $("#pacienteName").empty();
                         $("#pacienteName").append(response.data);
+                        
+                        $("#cambioHorario").on('ifChecked', function() {
+                            $("#dateIntervaldb").css('display', 'block');
+                            $("#saveR").click(function() {
+                                that.editEventos();
+                            });
+                        });
+
+                        $("#sesCancelalo").on('ifChecked', function() {
+                            $("#saveR").click(function() {
+                                that.cancelEventos();
+                            });
+                        });
+
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown){
@@ -206,9 +225,105 @@ function agenda() {
         }
     };
 
+    this.editBlock = function(dateold, datenew, endDate) {
+        var since = datenew;
+        var too =  endDate;
+        since = since.split(" ");
+        too = too.split(" ");
+        var since1 = since[0];
+        var since2 = since[1] + ':59';
+        var too1 = too[0];
+        var too2 = too[1] + ':59';
+        since1 =  since1.split("/");
+        since1 = since1[2] + '-' + since1[1] + '-' + since1[0];
+        since = since1 + ' ' + since2;
+        too1 = too1.split("/");
+        too1 = too1[2] + '-' + too1[1] + '-' + too1[0];
+        too = too1 + ' ' + too2;
+
+        if (moment().format('YYYY-MM-DD HH:mm:ss') > since) {
+            console.log('agenda - Fecha menor a la actual');
+            return toastr.error('Selecciona una fecha válida', "¡Upps!", 5000);
+        }
+        if (since > too) {
+            console.log('agenda - Fecha inicio mayor a la fecha de termino');
+            return toastr.error('La fecha de inicio no puede ser posterior a la fecha de termino.', "¡Upps!", 5000);
+        }
+
+        var dataPost = {
+            dStart: since,
+            dEnd: too,
+            dOld: dateold.format('YYYY-MM-DD HH:mm:ss')
+        };
+
+        var ajaxRb = $.ajax({
+            contentType: "application/json; charset=utf-8",
+            type: "POST",
+            url: "../include/4be6f695514b3ce01546dd1b38b181ff.php",
+            dataType: 'JSON',
+            data: JSON.stringify(dataPost),
+            async: false,
+            beforeSend: function() {},
+            success: function (response) {
+                $("#reprogramm").modal('toggle');
+                if (response.errno) {
+                    console.log('editBlock - ',response.message);
+                    return toastr.error(response.message, "¡Upps!", 5000);
+                } else {
+                    $("#agenda").fullCalendar( 'destroy' );
+                    that.viewAgenda();
+                    return toastr.success('Reprogramación', '¡Exitósa!', 5000);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown){
+                console.log('editBlock - ', errorThrown);
+                console.log('editBlock - ', XMLHttpRequest);
+                return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+            }
+        });
+
+    };
+
+    this.unblockA = function(dateOld) {
+        var dataPost = {
+            dOld: dateOld.format('YYYY-MM-DD HH:mm:ss')
+        };
+        
+        var ajaxUa = $.ajax({
+            contentType: "application/json; charset=utf-8",
+            type: "POST",
+            url: "../include/0a252b809a182a1f4ca8d10ac5a4edd3.php",
+            dataType: 'JSON',
+            data: JSON.stringify(dataPost),
+            async: false,
+            beforeSend: function() {},
+            success: function (response) {
+                $("#reprogramm").modal('toggle');
+                if (response.errno) {
+                    console.log('unblockA - ',response.message);
+                    return toastr.error(response.message, "¡Upps!", 5000);
+                } else {
+                    $("#agenda").fullCalendar( 'destroy' );
+                    that.viewAgenda();
+                    return toastr.success('Desbloqueo de fechas', '¡Exitóso!', 5000);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown){
+                console.log('unblockA - ', errorThrown);
+                console.log('unblockA - ', XMLHttpRequest);
+                return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+            }
+        });
+    };
+
+    this.editEventos = function(dateOld) {
+
+    };
+
+    this.cancelEventos = function() {};
+
     this.viewAgenda = function() {
         that.getEvents();
-        console.log(that.events);
         var successs = false;
         $('#agenda').fullCalendar({
             height : screen.height,
@@ -221,18 +336,12 @@ function agenda() {
             defaultDate: moment.tz('America/Mexico_City'),
             defaultView: 'agendaWeek',
             scrollTime :  "8:00:00",
-            /*businessHours: {
-                dow: [1,2,3,4,5],
-                start: '8:00',
-                end: '20:00'
-            },*/
             selectable: true,
             select: function(start, end, jsEvent, view){
                 that.clickEvents(start, end, jsEvent, view)
             },
             eventClick: function(calEvent, jsEvent, view) {
                 jsEvent.preventDefault();
-                console.log(calEvent);
                 that.editEvents(calEvent);
             },
             events: that.events

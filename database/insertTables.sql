@@ -132,7 +132,7 @@ INSERT INTO citas_status (
     , ('Reprogramada', '#FBB03B', 'badge badge-reprogramado')
     , ('Cancelada', '#F15A24', 'badge badge-cancelado')
     , ('Fecha bloqueada', '#B3B3B3', 'badge badge-bloqueado')
-    , ('Fecha desbloqueada', '', '');
+    , ('Fecha desbloqueada', '#27C24C', 'badge badge-success');
 
 INSERT INTO citas_communication (
     cc_desc
