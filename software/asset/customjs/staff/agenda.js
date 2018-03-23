@@ -126,11 +126,12 @@ function agenda() {
                 } else {
                     $("#agenda").fullCalendar( 'destroy' );
                     that.viewAgenda();
+                    return toastr.success('Bloqueo de fechas', '¡Exitóso!', 5000);
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown){
-                console.log('getAllDates - ', errorThrown);
-                console.log('getAllDates - ', XMLHttpRequest);
+                console.log('saveEvents - ', errorThrown);
+                console.log('saveEvents - ', XMLHttpRequest);
                 return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
             }
         });
@@ -153,6 +154,7 @@ function agenda() {
 
         if (evento.title == 'No disponible - Fecha bloqueada') {
             $("#dateIntervaldb").css('display', 'none');
+            $("#reprogramOpts").css('display', 'none');
             $("#pacienteNombre").css('display','none');
             $("#pacienteName").empty();
             $("#pacienteName").css('display', 'none')
@@ -171,10 +173,13 @@ function agenda() {
             });
             $("#debloqA").on("ifChecked", function() {
                 $("#dateIntervaldb").css('display', 'none');
+                $("#saveR").click(function() {
+                    that.unblockA(evento.start);
+                });
             });
         } else {
             $("#debloqOpts").css('display','none');
-            $("#dateIntervaldb").css('display', 'block');
+            $("#reprogramOpts").css('display', 'block');
             var dataPost = {
                 dStart: evento.start
             };
@@ -195,6 +200,20 @@ function agenda() {
                         $("#pacienteNombre").css('display','block');
                         $("#pacienteName").empty();
                         $("#pacienteName").append(response.data);
+                        
+                        $("#cambioHorario").on('ifChecked', function() {
+                            $("#dateIntervaldb").css('display', 'block');
+                            $("#saveR").click(function() {
+                                that.editEventos();
+                            });
+                        });
+
+                        $("#sesCancelalo").on('ifChecked', function() {
+                            $("#saveR").click(function() {
+                                that.cancelEventos();
+                            });
+                        });
+
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown){
@@ -264,6 +283,44 @@ function agenda() {
         });
 
     };
+
+    this.unblockA = function(dateOld) {
+        var dataPost = {
+            dOld: dateOld.format('YYYY-MM-DD HH:mm:ss')
+        };
+        
+        var ajaxUa = $.ajax({
+            contentType: "application/json; charset=utf-8",
+            type: "POST",
+            url: "../include/0a252b809a182a1f4ca8d10ac5a4edd3.php",
+            dataType: 'JSON',
+            data: JSON.stringify(dataPost),
+            async: false,
+            beforeSend: function() {},
+            success: function (response) {
+                $("#reprogramm").modal('toggle');
+                if (response.errno) {
+                    console.log('unblockA - ',response.message);
+                    return toastr.error(response.message, "¡Upps!", 5000);
+                } else {
+                    $("#agenda").fullCalendar( 'destroy' );
+                    that.viewAgenda();
+                    return toastr.success('Desbloqueo de fechas', '¡Exitóso!', 5000);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown){
+                console.log('unblockA - ', errorThrown);
+                console.log('unblockA - ', XMLHttpRequest);
+                return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+            }
+        });
+    };
+
+    this.editEventos = function(dateOld) {
+
+    };
+
+    this.cancelEventos = function() {};
 
     this.viewAgenda = function() {
         that.getEvents();
