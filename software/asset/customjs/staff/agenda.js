@@ -173,10 +173,36 @@ function agenda() {
                 $("#dateIntervaldb").css('display', 'none');
             });
         } else {
-            $("#pacienteNombre").empty();
-            $("#pacienteNombre").css('display','block');
             $("#debloqOpts").css('display','none');
             $("#dateIntervaldb").css('display', 'block');
+            var dataPost = {
+                dStart: evento.start
+            };
+            var ajaxN = $.ajax({
+                contentType: "application/json; charset=utf-8",
+                type: "POST",
+                url: "../include/3c33832f1baa148c9263c308db15a243.php",
+                dataType: 'JSON',
+                data: JSON.stringify(dataPost),
+                async: false,
+                beforeSend: function() {},
+                success: function (response) {
+                    if (response.errno) {
+                        toastr.error(response.message, "¡Upps!", 5000);
+                        console.log('getPatientNames - ',response.message);
+                    } else {
+                        console.log(response);
+                        $("#pacienteNombre").css('display','block');
+                        $("#pacienteName").empty();
+                        $("#pacienteName").append(response.data);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown){
+                    console.log('getPatientNames - ', errorThrown);
+                    console.log('getPatientNames - ', XMLHttpRequest);
+                    return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+                }
+            });
         }
     };
 
@@ -206,6 +232,7 @@ function agenda() {
             },
             eventClick: function(calEvent, jsEvent, view) {
                 jsEvent.preventDefault();
+                console.log(calEvent);
                 that.editEvents(calEvent);
             },
             events: that.events

@@ -4,9 +4,9 @@ DROP procedure IF EXISTS `sp_getPatientDocNames`;
 DELIMITER $$
 USE `cuidadosamente`$$
 CREATE PROCEDURE `sp_getPatientDocNames`(
-	IN shash INT,
+	IN shash VARCHAR(35),
     IN typePerson INT,
-    IN startDate DATETIME
+    IN startDate VARCHAR(100)
 )
 BEGIN
 	DECLARE userId INT;
