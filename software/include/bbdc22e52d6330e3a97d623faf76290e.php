@@ -1,5 +1,5 @@
 <?php
-    //error_reporting(E_ERROR | E_PARSE);
+    error_reporting(E_ERROR | E_PARSE);
     try {
         include 'class/class.agendaDates.php';
         session_start();
