@@ -98,6 +98,22 @@
                         </div>
                     </div>
                 </div>
+                <div class="row custom-top-modal" id="reprogsess" style="display: none;">
+                    <div class="col-xs-6">
+                        <div class="form-group form-animate-text">
+                            <input type="text" class="form-text dateAnimate" id="reprogStart" required>
+                            <span class="bar"></span>
+                            <label style="color: #000;"><span class="fa fa-calendar"></span>&nbsp;&nbsp;Fecha nueva sesión:</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group form-animate-text">
+                            <input type="text" class="form-text time" id="hourStartreprog" required>
+                            <span class="bar"></span>
+                            <label style="color: #000;"><span class="fa fa-clock-o"></span>&nbsp;&nbsp;Nueva hora:</label>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <div class="row">
@@ -112,10 +128,12 @@
 </div>
 <script type="text/javascript"> 
     $(document).ready(function () {
-      $('input').iCheck({
-        checkboxClass: 'icheckbox_flat-green', radioClass:
-          'iradio_flat-green'
-      });
-      $('.min-date').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_flat-green', radioClass:
+                'iradio_flat-green'
+        });
+        $('.min-date').bootstrapMaterialDatePicker({ format: 'DD/MM/YYYY HH:mm', minDate: new Date() });
+        $('.dateAnimate').bootstrapMaterialDatePicker({ weekStart: 0, time: false, animation: true, format: 'DD/MM/YYYY' });
+        $('.time').bootstrapMaterialDatePicker({ date: false, format: 'HH:mm', animation: true });
     });
-  </script>
+</script>

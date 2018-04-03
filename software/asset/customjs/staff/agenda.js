@@ -153,6 +153,7 @@ function agenda() {
         $("#sessType").append(evento.title);
 
         if (evento.title == 'No disponible - Fecha bloqueada') {
+            $("#reprogsess").css('display', 'none');
             $("#dateIntervaldb").css('display', 'none');
             $("#reprogramOpts").css('display', 'none');
             $("#pacienteNombre").css('display','none');
@@ -178,6 +179,8 @@ function agenda() {
                 });
             });
         } else {
+            $("#cambioHorario").iCheck('uncheck');
+            $("#reprogsess").css('display', 'none');
             $("#debloqOpts").css('display','none');
             $("#reprogramOpts").css('display', 'block');
             var dataPost = {
@@ -196,20 +199,25 @@ function agenda() {
                         console.log('getPatientNames - ',response.message);
                         return toastr.error(response.message, "¡Upps!", 5000);
                     } else {
-                        console.log(response);
                         $("#pacienteNombre").css('display','block');
                         $("#pacienteName").empty();
                         $("#pacienteName").append(response.data);
                         
                         $("#cambioHorario").on('ifChecked', function() {
-                            $("#dateIntervaldb").css('display', 'block');
-                            $("#saveR").click(function() {
-                                that.editEventos();
+                            $("#reprogsess").css('display', 'block');
+                            $("#reprogStart").val('');
+                            $("#hourStartreprog").val('');
+                            $("#saveR").click(function(e) {
+                                e.stopPropagation();
+                                var nuevafecha = $("#reprogStart").val();
+                                var nuevahora = $("#hourStartreprog").val();
+                                that.editEventos(evento.start, nuevafecha, nuevahora);
                             });
                         });
 
                         $("#sesCancelalo").on('ifChecked', function() {
-                            $("#saveR").click(function() {
+                            $("#reprogsess").css('display', 'none')
+                            $("#saveR").click(function() {;
                                 that.cancelEventos();
                             });
                         });
@@ -316,8 +324,50 @@ function agenda() {
         });
     };
 
-    this.editEventos = function(dateOld) {
-
+    this.editEventos = function(dateOld, dateNew, hourNew) {
+        if (dateNew == '' || hourNew == '') {
+            return toastr.error("La fecha y hora de la nueva sesión son requeridos", "¡Upps!", 5000);
+        }
+        var nuevaDate = dateNew.split("/");
+        nuevaDate = nuevaDate[2] + '-' + nuevaDate[1] + '-' + nuevaDate[0];
+        hourNew = hourNew + ':59';
+        var nuevaFechahora = nuevaDate + ' ' + hourNew;
+        if (moment().format('YYYY-MM-DD HH:mm:ss') > nuevaFechahora) {
+            return toastr.error("La fecha y hora de la nueva sesión no pueden ser anteriores a la fecha y hora actuales", "¡Upps!", 5000);
+        }
+        console.log(nuevaDate);
+        console.log(hourNew);
+        var fechafinalprog = moment(nuevaFechahora).add(50, 'minutes')
+        var dataPost = {
+            dOld: dateOld.format('YYYY-MM-DD HH:mm:ss'),
+            dNew: nuevaFechahora,
+            dEnd: fechafinalprog.format('YYYY-MM-DD HH:mm:ss')
+        };
+        console.log(dataPost);
+        var ajaxReprog = $.ajax({
+            contentType: "application/json; charset=utf-8",
+            type: "POST",
+            url: "../include/bbdc22e52d6330e3a97d623faf76290e.php",
+            dataType: 'JSON',
+            data: JSON.stringify(dataPost),
+            async: false,
+            beforeSend: function() {},
+            success: function (response) {
+                if (response.errno) {
+                    console.log('editEventos - ',response.message);
+                    return toastr.error(response.message, "¡Upps!", 5000);
+                } else {
+                    $("#agenda").fullCalendar( 'destroy' );
+                    that.viewAgenda();
+                    return toastr.success('Reprogramación', '¡Exitósa!', 5000);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown){
+                console.log('editEventos - ', errorThrown);
+                console.log('editEventos - ', XMLHttpRequest);
+                return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+            }
+        });
     };
 
     this.cancelEventos = function() {};
