@@ -1,0 +1,176 @@
+h1.tittle{
+	font-family: 'Raleways',sans-serif;
+}
+
+.tittle {
+	font-weight: bold;
+	color: #00C4B3;
+}
+
+.info-p {
+	line-height: 105%;
+	padding: 0px;
+	font-size: 11.3px;
+}
+
+.custom-top{
+	padding-top: 10px;
+}
+
+.btn-pill {
+	border-radius: 999rem !important;
+}
+
+.custom-left {
+	padding-left: 0px; 
+}
+
+.custom-right {
+	padding-right: 0px;
+}
+
+.custom-bottom {
+	padding-bottom: 10px;
+}
+
+.avatar1 {
+	position: relative;
+	padding: 0px;
+}
+
+.avatar1{
+	height: 250px;
+    width: 250px;
+    border: 4px solid #00C4B3 !important;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.custom-bg {
+	background-image: url(../img/home.jpg);
+	background-size: 100% 100%;
+    /*background-repeat: no-repeat;*/
+}
+
+/* html,body{
+	color:white;
+	font-family:'Opens Sans',helvetica;  
+	height:100%;
+	width:100%;
+	margin: 0px;
+  } */
+
+.eldiv {
+	color:#fff;
+	font-family:'Raleways',sans-serif; 
+	height:100%;
+	width:100%;
+	margin: -14px 0px 0px 0px;
+}
+
+.portada {
+	background: url(../img/homebg.jpg) no-repeat fixed center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;
+	width: 100% ;
+	text-align: center;
+}
+
+.movilBoton {
+	background-color: #8CC63F;
+    color: #fff !important;
+    border-color: #8CC63F;
+}
+
+.heightAuto {
+	height: auto;
+}
+
+.badge-enviado {
+	color: #fff !important;
+    border: none !important;
+    background-color: #29ABE2 !important;
+}
+
+.text-agendado {
+	color:#8CC63F;
+}
+
+.text-enviado {
+	color: #29ABE2 !important;
+}
+
+.badge-reprogramado {
+	color: #fff !important;
+    border: none !important;
+    background-color: #FBB03B !important;
+}
+
+.bagde-bloqueado {
+	color: #fff !important;
+    border: none !important;
+    background-color: #B3B3B3 !important;
+}
+
+.text-reprogramado {
+	color: #FBB03B !important;
+}
+
+.badge-cancelado {
+	color: #fff !important;
+    border: none !important;
+    background-color: #F15A24 !important;
+}
+
+.text-cancelado {
+	color: #F15A24 !important;
+}
+
+.padding-badge {
+	padding-left: 15px;
+	padding-top: 10px; 
+}
+
+.dtables > thead > tr > th {
+	background-color: #8CC63F;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
+
+.title-customHi {
+	color:#8CC63F;
+	font-size: 18px;
+}
+
+.font-faqs {
+	font-size: 18px;
+	font-family: 'Raleway-Bold';
+	font-weight: bold;
+}
+
+.menu-hover:hover {
+	background-color: #8CC63F;
+}
+
+.btn-pill-small {
+	border-radius: 999rem !important;
+	width: auto !important;
+	height: auto !important;
+	margin-top: 0px !important;
+}
+
+.care-warning {
+	font-size: 14px;
+}
+
+.care-warning-modal {
+	font-size: 16px;
+}
+
+.custom-top-modal {
+	padding-top: 20px;
+}
