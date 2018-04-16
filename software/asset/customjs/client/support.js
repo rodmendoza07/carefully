@@ -77,9 +77,9 @@ function clientSupport(){
                     toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Upps!", 5000);
                     console.log('clientSupport - ',response.message)
                 } else {
-					console.log(response)
 					$("#tableContent").empty();
 					that.getTickets();
+					$("#supportAdv").modal();
 				}
 			},
 			error: function (XMLHttpRequest, textStatus, errorThrown){

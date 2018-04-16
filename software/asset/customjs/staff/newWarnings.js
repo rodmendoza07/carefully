@@ -84,16 +84,16 @@ function newWarnings() {
                                 divD = "<tr><td data-cId='" + response.data[i].cId + "' class='text-center' style='color:#000'>"
                                 + moment(response.data[i].dStart).format("DD/MM/YY HH:mm") + " - " + moment(response.data[i].dEnd).format("HH:mm") + "</td><td class='text-center'>"
                                 + "<span class='" + response.data[i].dBadge +" care-warning'>"+ response.data[i].dStatus
-                                + "</span>" +  response.data[i].dpName + "</td><td class='text-center'>"
+                                + "</span><br>" +  response.data[i].dpName + "</td><td class='text-center'>"
                                 + "<button class='btn btn-primary btn-pill-small cAcept' data-id='acept_" + response.data[i].cId + "' data-ps='"
-                                + response.data[i].dStatus + "'>Aceptar</button></td></tr>"
+                                + response.data[i].dStatus + "'>Confirmar</button></td></tr>"
                             } else {
                                 divD = "<tr><td data-cId='" + response.data[i].cId + "' class='text-center' style='color:#000'>"
                                 + moment(response.data[i].dStart).format("DD/MM/YY HH:mm") + " - " + moment(response.data[i].dEnd).format("HH:mm") + "</td><td class='text-center'>"
                                 + "<span class='" + response.data[i].dBadge +" care-warning'>"+ response.data[i].dStatus
-                                + "</span>" +  response.data[i].dpName + "</td><td class='text-center'>"
+                                + "</span><br>" +  response.data[i].dpName + "</td><td class='text-center'>"
                                 + "<button class='btn btn-primary btn-pill-small cAcept' data-id='acept_" + response.data[i].cId + "' data-ps='"
-                                + response.data[i].dStatus + "'>Aceptar</button>&nbsp;&nbsp;"
+                                + response.data[i].dStatus + "'>Confirmar</button>&nbsp;&nbsp;"
                                 + "<button class='btn btn-danger btn-pill-small cCancel' data-id='cancel_" + response.data[i].cId + "' data-ps='"
                                 + response.data[i].dStatus + "'>Cancel</button></td></tr>"
                             }
