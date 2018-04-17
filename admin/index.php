@@ -104,6 +104,11 @@
                 Terapeutas
               </a>
             </li>
+            <li class="ripple supportC menu-hover" data-option="supportC">
+              <a class="tree-toggle nav-header">
+                Terapeutas
+              </a>
+            </li>
             <li class="ripple faqs menu-hover" data-option="faqs">
               <a class="tree-toggle nav-header">
                 FAQ's 
@@ -145,6 +150,11 @@
                   <li class="ripple sessions heightAuto" data-option="sessions">
                     <a class="tree-toggle nav-header">
                       Pacientes
+                    </a>
+                  </li>
+                  <li class="ripple myprof heightAuto" data-option="myprof" style="height: auto;">
+                    <a class="tree-toggle nav-header">
+                      Terapeutas
                     </a>
                   </li>
                   <li class="ripple myprof heightAuto" data-option="myprof" style="height: auto;">

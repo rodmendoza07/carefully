@@ -96,11 +96,6 @@
               <a class="tree-toggle nav-header">
                 Agenda
               </a>
-              <ul class="nav nav-list tree">
-                <li>
-                  <div class="calendar"></div>
-                </li>
-              </ul>
             </li>
             <li class="ripple sessions menu-hover" data-option="sessions">
               <a class="tree-toggle nav-header">

@@ -120,7 +120,12 @@ INSERT INTO departamentos(
 );
 
 INSERT INTO puestos (puesto_descripcion)
-VALUES ('admin'), ('paciente'), ('terapeuta');
+VALUES 
+    ('admin')
+    , ('paciente')
+    , ('terapeuta')
+    , ('supervisor')
+    , ('soporte');
 
 INSERT INTO citas_status (
     cs_desc
@@ -565,3 +570,48 @@ INSERT INTO faq_answers (
 , (1, 42, '<div class="text-justify font-faqs">Cuando un paciente es derivado toda su información personal y clínica se envía al nuevo terapeuta, para que esté completamente informado y al día con su problemática y avance. Por lo tanto tendrás toda la información que necesites para retomar el caso.</div>', 10)
 , (1, 43, '<div class="text-justify font-faqs">En el caso que existiera algún problema en el funcionamiento de tu sesión puedes reportarlo en esta sección, así mismo puedes consultar los reportes que ya hayas realizado y el estatus de los mismos.</div>', 11)
 , (1, 44, '<div class="text-justify font-faqs">Esto dependerá del tipo de problema, sin embargo suele realizarse a la brevedad. En caso de que hayas enviado un reporte y tu problema no haya sido resuelto, puedes enviarnos un correo a soporte@cuidadosamnete.com</div>', 11);
+
+INSERT INTO menus (
+    menu_descripcion
+    , menu_parent
+    , menu_url
+) VALUES (
+    'Pacientes' /*1*/
+    , 0
+    , 'patients'
+), (
+    'Baja de pacientes'/*2*/
+    , 1
+    , 'downpatient'
+), (
+    'Terapeutas' /*3*/
+    , 0
+    , 'therapist'
+), (
+    'Nuevo' /*4*/
+    , 3
+    , 'newTherapist'
+), (
+    'Modificar' /*5*/
+    , 3
+    , 'modifyTherapist'
+), (
+    'Soporte Técnico' /*6*/
+    , 0
+    , 'supportC'
+); 
+
+INSERT INTO accesos (
+    nivel_usr
+    , menu_id
+), VALUES
+    (1, 1)
+    , (1, 2)
+    , (1, 3)
+    , (1, 4)
+    , (1, 5)
+    , (1, 6)
+    , (4, 3)
+    , (4, 4)
+    , (4, 5)
+    , (5, 6)

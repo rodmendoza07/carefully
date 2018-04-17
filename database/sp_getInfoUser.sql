@@ -15,6 +15,7 @@ BEGIN
     DECLARE sessToken VARCHAR(40);
     DECLARE previousToken INT;
     DECLARE typeUser TINYINT;
+	DECLARE typeJob TINYINT;
     DECLARE `_rollback` BOOL DEFAULT 0;
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
@@ -145,16 +146,33 @@ BEGIN
 						INNER JOIN expedientepaciente expP ON (expP.expP_paciente_id = usr.usr_id)
                         INNER JOIN staff st ON (st.st_id = expP_doctor_id)
 					WHERE usr_id = userId;
-                ELSEIF typeUser = 1 THEN  
-					SELECT 
-						sessToken as sessToken
-						, st_nombre
-						, st_paterno
-                        , '../software/staff' AS url
-						, typeUser
-                        , '' AS therapist
-					FROM staff
-					WHERE st_id = userId;
+                ELSEIF typeUser = 1 THEN
+					SET typeJob = (SELECT st_puesto_id FROM staff WHERE st_id = userId);
+					IF typeJob = 1 || typeJob = 4 || typeJob = 5 THEN
+						SELECT 
+							sessToken as sessToken
+							, st.st_nombre
+							, st.st_paterno
+							, '../software/admin' AS url
+							, typeUser
+							, '' AS therapist
+							, accesos.menu_id
+                            , menu.menu_descripcion
+						FROM staff st
+							INNER JOIN accesos accesos ON (st.st_puesto_id = accesos.nivel_usr)
+                            INNER JOIN menus menu ON (accesos.menu_id = menu.menu_id AND menu_estatus = 1)
+						WHERE st_id = userId;
+					ELSE
+						SELECT 
+							sessToken as sessToken
+							, st_nombre
+							, st_paterno
+							, '../software/staff' AS url
+							, typeUser
+							, '' AS therapist
+						FROM staff
+						WHERE st_id = userId;
+					END IF;
                 END IF;
 			ELSE
 				SIGNAL SQLSTATE '45000'
