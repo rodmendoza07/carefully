@@ -611,3 +611,48 @@ CREATE TABLE IF NOT EXISTS `newPwd` (
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
+
+/* Menus adminitrador software */
+
+DROP TABLE IF EXISTS `menus` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `menus` (
+  `menu_id` INT NOT NULL AUTO_INCREMENT,
+  `menu_descripcion` VARCHAR(45) NOT NULL DEFAULT '',
+  `menu_parent` INT NOT NULL DEFAULT 0,
+  `menu_url` VARCHAR(100) NOT NULL DEFAULT '',
+  `menu_estatus` TINYINT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`menu_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+/* Accesos menus */
+
+DROP TABLE IF EXISTS `accesos` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `accesos` (
+  `acceso_id` INT NOT NULL AUTO_INCREMENT,
+  `nivel_usr` INT NOT NULL DEFAULT 0,
+  `menu_id` INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`acceso_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+/* Detalle staff terapeuta */
+
+DROP TABLE IF EXISTS `perfilTerapeuta` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `perfilTerapeuta` (
+  `pt_id` INT NOT NULL AUTO_INCREMENT,
+  `pt_st_id` INT NOT NULL DEFAULT 0,
+  `pt_perfil` INT NOT NULL DEFAULT 0,
+  `pt_status` INT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`pt_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;

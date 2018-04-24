@@ -35,8 +35,12 @@
                                 /** El cliente acepta la cita agendada del staff */
                                 $getAllWarnings->setReviewWarnings(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $ccId);
                                 break;
+                            case 'Reprogramada':
+                                /**El staff reprogrma y el cliente acepta */
+                                $getAllWarnings->setReviewWarnings(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $ccId);
+                                break;
                             default:
-                                $optNot = array('status' => 401, 'errno' => 1100, 'message' => 'Acción inválida');
+                                $optNot = array('status' => 401, 'errno' => 1100, 'message' => 'Acción inválida1');
                                 echo json_encode($optNot);
                                 break;
                         }
@@ -51,7 +55,7 @@
                                 $getAllWarnings->changeStatusDateStaff(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $ccId, $typeOperation, '', '');
                                 break;
                             default:
-                                $optNot = array('status' => 401, 'errno' => 1100, 'message' => 'Acción inválida');
+                                $optNot = array('status' => 401, 'errno' => 1100, 'message' => 'Acción inválida2');
                                 echo json_encode($optNot);
                                 break;
                         }
