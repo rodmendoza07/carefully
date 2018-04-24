@@ -641,3 +641,18 @@ CREATE TABLE IF NOT EXISTS `accesos` (
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
+
+/* Detalle staff terapeuta */
+
+DROP TABLE IF EXISTS `perfilTerapeuta` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `perfilTerapeuta` (
+  `pt_id` INT NOT NULL AUTO_INCREMENT,
+  `pt_st_id` INT NOT NULL DEFAULT 0,
+  `pt_perfil` INT NOT NULL DEFAULT 0,
+  `pt_status` INT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`pt_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
