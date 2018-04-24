@@ -1,26 +1,26 @@
 <?php
-    // $tr = true;
-    // echo $tr;
-    // try {
-    //     include '../include/class/class.getInfoUser.php';
-    //     session_start();
+    $tr = true;
+    echo $tr;
+    try {
+        include '../software/include/class/class.getInfoUser.php';
+        session_start();
     
-    //     if (!isset($_SESSION['9987435b7dbef543b786efd81d1b3dc9']) && empty($_SESSION['9987435b7dbef543b786efd81d1b3dc9'])) {    
-    //         header('location: ../../register/login.html');
-    //     } else {
-    //       $validS = new getInfoUser();    
-    //       $validatesta = $validS->validateSess(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']));
-    //       if ($validatesta != true) {
-    //         header('Location: ../../register/login.html');
-    //       } else {
-    //         $cName = $_SESSION['e4595499803bf2733cc9cb8e55c6ece3']." ".$_SESSION['089e07ac4b0332dfc7fe1e4f0197fc11'];
-    //         echo $validatesta;
-    //       }
-    //     }
-    // } catch (Exception $e) {
-    //     $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
-    //     echo json_encode($catch);
-    // }
+        if (!isset($_SESSION['9987435b7dbef543b786efd81d1b3dc9']) && empty($_SESSION['9987435b7dbef543b786efd81d1b3dc9'])) {    
+            header('location: ../../register/login.html');
+        } else {
+          $validS = new getInfoUser();    
+          $validatesta = $validS->validateSess(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']));
+          if ($validatesta != true) {
+            header('Location: ../../register/login.html');
+          } else {
+            $cName = $_SESSION['e4595499803bf2733cc9cb8e55c6ece3']." ".$_SESSION['089e07ac4b0332dfc7fe1e4f0197fc11'];
+            echo $validatesta;
+          }
+        }
+    } catch (Exception $e) {
+        $catch = array('status' => 500, 'errno' => 1001, 'message' => $e);
+        echo json_encode($catch);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +89,7 @@
       <!-- start:Left Menu -->
       <div id="left-menu">
         <div class="sub-left-menu scroll" id="menu-left">
-          <ul class="nav nav-list">
+          <ul class="nav nav-list" id="mDynamics">
             <li class="time text-center">
               <h3 class="animated fadeInLeft"></h3>
               <p class="animated fadeInRight">CDMX (GMT-6)</p>
@@ -99,14 +99,18 @@
                 Pacientes
               </a>
             </li>
-            <li class="ripple supportC menu-hover" data-option="supportC">
+            <li class="ripple therapist menu-hover" data-option="therapist">
               <a class="tree-toggle nav-header">
                 Terapeutas
               </a>
+              <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
+                <li><a class="therapistAdd heightAuto">Nuevo</a></li>
+                <li><a class="therapistEdit heightAuto">Editar</a></li>
+              </ul>
             </li>
             <li class="ripple supportC menu-hover" data-option="supportC">
               <a class="tree-toggle nav-header">
-                Terapeutas
+                Soporte
               </a>
             </li>
             <li class="ripple faqs menu-hover" data-option="faqs">
@@ -126,16 +130,6 @@
       <div class="col-md-12 padding-0" id="content1">
           <div class="col-md-12 eldiv portada">
             <h1 style="font-size: 45px; padding-top:25px;">BIENVENID@</h1>
-            <div class="row text-center" style="padding-top: 60px;">
-              <div class="col-md-12">
-                <span style="font-size: 20px;">Citas agendadas:&nbsp;&nbsp;<span class="totalWarnings" id="totalWarningsHome"></span></span>
-              </div>
-            </div>
-            <div class="row text-center">
-              <div class="col-md-12 custom-top">
-                <button class="btn btn-primary btn-pill agenda" style="color:#00C4B3 !important; background-color:#fff !important; font-weight:bold !important;">Agendar Sesión</button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -152,14 +146,18 @@
                       Pacientes
                     </a>
                   </li>
-                  <li class="ripple myprof heightAuto" data-option="myprof" style="height: auto;">
+                  <li class="ripple therapist heightAuto" data-option="therapist" style="height: auto;">
                     <a class="tree-toggle nav-header">
                       Terapeutas
                     </a>
+                    <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
+                      <li><a class="therapistAdd heightAuto">Nuevo</a></li>
+                      <li><a class="therapistEdit heightAuto">Editar</a></li>
+                    </ul>
                   </li>
-                  <li class="ripple myprof heightAuto" data-option="myprof" style="height: auto;">
+                  <li class="ripple supportC heightAuto" data-option="supportC" style="height: auto;">
                     <a class="tree-toggle nav-header">
-                      Terapeutas
+                      Soporte
                     </a>
                   </li>
                   <li class="ripple filex heightAuto" data-option="filex" style="height: auto;">
@@ -236,6 +234,10 @@
     <!-- custom -->
     <script src="./asset/js/main.js"></script>
     <script src="./asset/customjs/AppBegin.js"></script>
+    <script src="./asset/customjs/activeMenu.js"></script>
+    <script src="./asset/customjs/dataLanguage.js"></script>
+    <script src="./asset/customjs/therapistAdd.js"></script>
+    <script src="./asset/customjs/therapistEdit.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>

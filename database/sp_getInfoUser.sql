@@ -153,10 +153,11 @@ BEGIN
 							sessToken as sessToken
 							, st.st_nombre
 							, st.st_paterno
-							, '../software/admin' AS url
+							, '../admin' AS url
 							, typeUser
 							, '' AS therapist
 							, accesos.menu_id
+                            , menu.menu_parent
                             , menu.menu_descripcion
 						FROM staff st
 							INNER JOIN accesos accesos ON (st.st_puesto_id = accesos.nivel_usr)

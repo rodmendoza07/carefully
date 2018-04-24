@@ -16,14 +16,41 @@
                     echo json_encode($resp);
                 } else {
                     session_start();
-                    $call->bind_result($sessToken, $names, $lastnames, $urlLocation, $typeUser, $therapist);
-                    $call->fetch();
+                    $call->bind_result($sessToken, $names, $lastnames, $urlLocation, $typeUser, $therapist, $menu_id, $menu_parent, $menu_desc);
+                    $arraymenu = array();
+                    $i = 0;
+                    $j = 1;
+                    //$arrayParent = array();
+                    while ($call->fetch()) {
+                        // if($menu_parent == 0) {
+                        //     if ($i == $j) {
+                        //         array_push($arraymenu, $arrayParent);
+                        //     }
+                        //     $arrayParent = array(utf8_encode($menu_desc));
+                        //     $i = $menu_id;
+                        //     echo $i."<br>";
+                        //     //array_push($arraymenu, $arrayParent);
+                        // } else {
+                        //     $arrayChild = array(utf8_encode($menu_desc));
+                        //     array_push($arrayParent, $arrayChild);
+                        //     $j = $menu_parent;
+                        //     echo $j."<br>";
+                        //     //$i++;
+                        // }
+                    }
+                    // echo "<pre>";
+                    // var_dump($arraymenu);
+                    // echo "</pre>";
+                    //var_dump($arraymenu);
+                    //echo json_encode($arraymenu);
+                    // $call->fetch();
                     $_SESSION['9987435b7dbef543b786efd81d1b3dc9'] = $sessToken;
                     $_SESSION['e4595499803bf2733cc9cb8e55c6ece3'] = $names;
                     $_SESSION['089e07ac4b0332dfc7fe1e4f0197fc11'] = $lastnames;
                     $_SESSION['5ac7fb09a5264f6d78424dbdbf3f9187'] = $typeUser;
                     $_SESSION['c31628f91db9e419fa043ecf38bf3af4'] = $therapist;
-                    $resp = array('status' => 200, 'data' => 'Ok', 'urlLoc' => $urlLocation, 'quepasa' => $_SESSION['e4595499803bf2733cc9cb8e55c6ece3'] );
+                    //echo $menu_id;
+                    $resp = array('status' => 200, 'data' => 'Ok', 'urlLoc' => $urlLocation);
                     echo json_encode($resp);
                 }
                 $call->close();
