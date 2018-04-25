@@ -5,7 +5,7 @@ DELIMITER $$
 USE `cuidadosamente`$$
 CREATE PROCEDURE `sp_setNewStaff`(
 	IN shash VARCHAR(35),
-    IN sName VARCHAR(100),
+    IN sName VARCHAR(100), 
     IN sFirstname VARCHAR(100),
     IN sLastname VARCHAR(100),
     IN sEmail VARCHAR(100),
