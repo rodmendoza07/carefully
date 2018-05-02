@@ -9,6 +9,17 @@ function therapistAdd() {
     this.service3 = "";
     this.service4 = "";
 
+    this.cleanform = function() {
+        $("#tname").val("");
+        $("#tfirstname").val("");
+        $("#tlastname").val("");
+        $("#temail").val("");
+        $('#service1').prop('checked', false);
+        $('#service2').prop('checked', false);
+        $('#service3').prop('checked', false);
+        $('#service4').prop('checked', false);
+    }
+
     this.loadTherapist = function() {
         try {
             $(".therapistAdd").click(function() {
@@ -94,7 +105,6 @@ function therapistAdd() {
                                     email: $("#temail").val(),
                                     service: servicios
                                 }
-                                console.log(dataPost);
                                 var ajaxW = $.ajax({
                                     contentType: "application/json; charset=utf-8",
                                     type: "POST",
@@ -102,13 +112,16 @@ function therapistAdd() {
                                     data: JSON.stringify(dataPost),
                                     dataType: 'JSON',
                                     beforeSend: function() {
+                                        $("#loading").modal();
                                     },
                                     success: function (response) {
+                                        $("#loading").modal('toggle');
                                         if (response.errno) {
                                             toastr.error(response.message, "¡Upps!", 5000);
                                             console.log('newWarnings - ',response.message)
                                         } else {
-                                            console.log(response);
+                                            toastr.success("Nuenvo terapeuta agregador: " + $("#tname").val(), "¡Exitóso!", 5000);
+                                            that.cleanform();
                                         }
                                     },
                                     error: function (XMLHttpRequest, textStatus, errorThrown){
@@ -120,12 +133,14 @@ function therapistAdd() {
                             }
                         });
                     } catch (x) {
-                        console.log(x);
+                        console.log("therapistAdd: loadTherapist -", x.toString());
+                        return toastr.error("Algo ha ido mal, por favor comunicate con Soporte Técnico", "¡Atención!", 5000);
                     }
                 });
 			});
         } catch(x) {
             console.log("therapistAdd: loadTherapist -", x.toString());
+            return toastr.error("Algo ha ido mal, por favor comunicate con Soporte Técnico", "¡Atención!", 5000);
         }
     }
 }

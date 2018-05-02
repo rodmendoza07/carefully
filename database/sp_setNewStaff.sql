@@ -29,7 +29,7 @@ BEGIN
     SET userId = (SELECT vt_st_id FROM validtokens WHERE vt_hash = shash AND vt_status = 1);
 	SET userId = IFNULL(userId, -1);
     
-    IF (SELECT COUNT(*) FROM usuarios WHERE usr_correo = correo AND usr_status = 1) > 0 THEN
+    IF (SELECT COUNT(*) FROM usuarios WHERE usr_correo = sEmail AND usr_estatus = 1) > 0 THEN
         SIGNAL SQLSTATE '45000'
 			SET message_text = 'La cuenta ya está en uso.';
     END IF;
@@ -81,7 +81,7 @@ BEGIN
         );
         
         SET newStaff = LAST_INSERT_ID();
-        SET userHash = md5(CONCAT(convert(userId, char(50)), correo, nombre));
+        SET userHash = md5(CONCAT(convert(userId, char(50)), sEmail, sName));
         
         INSERT INTO perfilTerapeuta (
 			pt_st_id
