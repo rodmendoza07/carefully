@@ -5,7 +5,7 @@ DELIMITER $$
 USE `cuidadosamente`$$
 CREATE PROCEDURE `sp_setNewStaff`(
 	IN shash VARCHAR(35),
-    IN sName VARCHAR(100),
+    IN sName VARCHAR(100), 
     IN sFirstname VARCHAR(100),
     IN sLastname VARCHAR(100),
     IN sEmail VARCHAR(100),
@@ -17,6 +17,7 @@ BEGIN
 	DECLARE userId INT;
     DECLARE newStaff INT;
     DECLARE subss VARCHAR(5);
+    DECLARE userHash VARCHAR(35);
 	DECLARE `_rollback` BOOL DEFAULT 0;
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
@@ -28,6 +29,11 @@ BEGIN
     SET userId = (SELECT vt_st_id FROM validtokens WHERE vt_hash = shash AND vt_status = 1);
 	SET userId = IFNULL(userId, -1);
     
+    IF (SELECT COUNT(*) FROM usuarios WHERE usr_correo = sEmail AND usr_estatus = 1) > 0 THEN
+        SIGNAL SQLSTATE '45000'
+			SET message_text = 'La cuenta ya está en uso.';
+    END IF;
+
     IF userId > 0 THEN
 		DROP TEMPORARY TABLE IF EXISTS tmp_jobs;
 		
@@ -75,6 +81,7 @@ BEGIN
         );
         
         SET newStaff = LAST_INSERT_ID();
+        SET userHash = md5(CONCAT(convert(userId, char(50)), sEmail, sName));
         
         INSERT INTO perfilTerapeuta (
 			pt_st_id
@@ -83,7 +90,15 @@ BEGIN
 			newStaff
 			, job
 		FROM tmp_jobs;
-         
+        
+        INSERT INTO validateSess (
+            vs_st_id,
+            vs_hash
+        ) VALUES (
+            newStaff,
+            userHash
+        );
+
         IF `_rollback` THEN
 				SIGNAL SQLSTATE '45000'
 					SET message_text = 'Algo ha ido mal, intentalo más tarde.';

@@ -20,6 +20,12 @@ insert into staff (
     , 'sara@cuidadosamente.com'
 );
 
+/* Actualización de terapeuta a administrador del sistema */
+UPDATE staff SET
+    st_puesto_id = 1
+    , st_departamento_id = 1
+WHERE st_id = 1;
+
 /* Seteo de sesión de usuario Admin Sara */
 INSERT INTO validateSess (
     vs_st_id

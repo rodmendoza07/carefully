@@ -156,12 +156,12 @@ BEGIN
 							, '../admin' AS url
 							, typeUser
 							, '' AS therapist
-							, accesos.menu_id
+							/*, accesos.menu_id
                             , menu.menu_parent
-                            , menu.menu_descripcion
+                            , menu.menu_descripcion*/
 						FROM staff st
-							INNER JOIN accesos accesos ON (st.st_puesto_id = accesos.nivel_usr)
-                            INNER JOIN menus menu ON (accesos.menu_id = menu.menu_id AND menu_estatus = 1)
+							/*INNER JOIN accesos accesos ON (st.st_puesto_id = accesos.nivel_usr)
+                            INNER JOIN menus menu ON (accesos.menu_id = menu.menu_id AND menu_estatus = 1)*/
 						WHERE st_id = userId;
 					ELSE
 						SELECT 
