@@ -8,7 +8,7 @@ function AppBegin() {
 
 		objTherapistAdd.loadTherapist();
 		objTherapistEdit.loadTherapist();
-		//objSupport.loadSupport();
+		objSupport.loadSupport();
 
 	} catch(x) {
 		console.log("Error en AppBegin -", x.toString());
