@@ -1,21 +1,18 @@
 USE `cuidadosamente`;
-DROP procedure IF EXISTS `sp_setNewStaff`;
+DROP procedure IF EXISTS `sp_setEditStaff`;
 
 DELIMITER $$
 USE `cuidadosamente`$$
-CREATE PROCEDURE `sp_setNewStaff`(
+CREATE PROCEDURE `sp_setEditStaff`(
 	IN shash VARCHAR(35),
+    IN sIdstaff INT,
     IN sName VARCHAR(100), 
     IN sFirstname VARCHAR(100),
     IN sLastname VARCHAR(100),
-    IN sEmail VARCHAR(100),
-    IN sService VARCHAR(20),
-    IN sDepartment INT,
-    IN sJob INT
+    IN sService VARCHAR(20)
 )
 BEGIN
 	DECLARE userId INT;
-    DECLARE newStaff INT;
     DECLARE subss VARCHAR(5);
     DECLARE userHash VARCHAR(35);
 	DECLARE `_rollback` BOOL DEFAULT 0;
@@ -28,22 +25,17 @@ BEGIN
     
     SET userId = (SELECT vt_st_id FROM validtokens WHERE vt_hash = shash AND vt_status = 1);
 	SET userId = IFNULL(userId, -1);
-    
-    IF (SELECT COUNT(*) FROM usuarios WHERE usr_correo = sEmail AND usr_estatus = 1) > 0 THEN
-        SIGNAL SQLSTATE '45000'
-			SET message_text = 'La cuenta ya está en uso.';
-    END IF;
 
     IF userId > 0 THEN
-		DROP TEMPORARY TABLE IF EXISTS tmp_jobs;
+		DROP TEMPORARY TABLE IF EXISTS tmp_jobsEdit;
 		
-		CREATE TEMPORARY TABLE tmp_jobs (
+		CREATE TEMPORARY TABLE tmp_jobsEdit (
 			id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
 			, job INT
 		);
         
         WHILE LENGTH(sService) > 0 DO
-            INSERT INTO tmp_jobs (
+            INSERT INTO tmp_jobsEdit (
 				job
             ) VALUES (
 				SUBSTRING_INDEX(sService, ',', 1)
@@ -60,44 +52,25 @@ BEGIN
     
 		START TRANSACTION;
         
-        INSERT INTO staff (
-			st_nombre
-            , st_paterno
-            , st_materno
-            , st_departamento_id
-            , st_puesto_id
-            , st_login
-            , st_correo
-            , st_usr_id_alta
-        ) VALUES (
-			sName,
-            sFirstname,
-            sLastname,
-            sDepartment,
-            sJob,
-            sEmail,
-            sEmail,
-            userId
-        );
-        
-        SET newStaff = LAST_INSERT_ID();
-        SET userHash = md5(CONCAT(convert(userId, char(50)), sEmail, sName));
-        
+        UPDATE staff SET
+            st_nombre = sName
+            , st_paterno = sFirstname
+            , st_materno = sLastname
+            , st_fecha_actualizacion = NOW()
+            , st_usr_id_actualizacion = userId
+        WHERE st_id = sIdstaff;
+
+        UPDATE perfilTerapeuta SET
+            pt_status = 0
+        WHERE pt_st_id = sIdstaff;
+
         INSERT INTO perfilTerapeuta (
 			pt_st_id
             , pt_perfil
         ) SELECT
-			newStaff
+			sIdstaff
 			, job
-		FROM tmp_jobs;
-        
-        INSERT INTO validateSess (
-            vs_st_id,
-            vs_hash
-        ) VALUES (
-            newStaff,
-            userHash
-        );
+		FROM tmp_jobsEdit;
 
         IF `_rollback` THEN
             DROP TEMPORARY TABLE IF EXISTS tmp_jobsEdit;
@@ -108,8 +81,8 @@ BEGIN
             COMMIT;
 			SELECT 'OK' AS msg;
 		END IF;
-    ELSE 	
-        DROP TEMPORARY TABLE IF EXISTS tmp_jobsEdit;
+    ELSE 
+        DROP TEMPORARY TABLE IF EXISTS tmp_jobsEdit;	
 		SIGNAL SQLSTATE '45000'
 			SET message_text = 'Sin privilegios.';
 	END IF;
