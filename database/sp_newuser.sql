@@ -34,6 +34,11 @@ BEGIN
 	SET usrlevel = 1;
     SET passHash =  md5(CONCAT(correo,pwd,(SELECT cfg_valor FROM configuraciones WHERE cfg_id = 1)));
     
+    IF (SELECT COUNT(*) FROM staff WHERE st_correo = correo AND st_status = 1) > 0 THEN
+        SIGNAL SQLSTATE '45000'
+			SET message_text = 'La cuenta ya está en uso.';
+    END IF;
+
     IF opt = 1 THEN
 		SET usr_dept = 2;
         SET usr_job = 2;

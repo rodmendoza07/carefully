@@ -7,7 +7,7 @@
 
                 $department = 3;
                 $job = 3;
-
+               
                 $call = $conecta->prepare('CALL sp_setNewStaff(?, ?, ?, ?, ?, ?, ?, ?)');
                 $call->bind_param('ssssssii', $token, $name, $fname, $lname, $email, $service, $department, $job);
                 $call->execute();
@@ -19,7 +19,7 @@
                     $resp = array('status' => 500, 'errno' => $errno, 'message' => utf8_encode($msg));
                     echo json_encode($resp);
                 } else {
-                    call->fetch();
+                    $call->fetch();
                     $resp = array('status' => 200, 'data' => $response);
                     echo json_encode($resp);
                 }
