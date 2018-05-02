@@ -29,7 +29,7 @@ BEGIN
             , st.st_correo
             , pt.pt_perfil
         FROM staff st
-            INNER JOIN perfilTerapeuta pt ON (st.st_id = pt.pt_st_id)
+            INNER JOIN perfilTerapeuta pt ON (st.st_id = pt.pt_st_id AND pt.pt_status = 1)
         WHERE st_id = stId;
     ELSE 	
 		SIGNAL SQLSTATE '45000'
