@@ -70,7 +70,15 @@ function therapistEdit() {
                     toastr.error(response.message, "¡Upps!", 5000);
                     console.log('EditTherapy - ',response.message)
                 } else {
-                    console.log(response);
+                    console.log(response.data);
+                    $("#tname").val(response.data[0].tname);
+                    $("#tfirstname").val(response.data[0].tfname);
+                    $("#tlastname").val(response.data[0].tlname);
+                    $("#temail").val(response.data[0].temail);
+
+                    for (var i = 0; i < response.data.length; i++) {
+                        response.data[i].tperfil != 0 ? $("#service" + response.data[i].tperfil).prop("checked", true) : $("#service" + response.data[i].tperfil).prop("checked", false);
+                    }
                 }
 			},
 			error: function (XMLHttpRequest, textStatus, errorThrown){

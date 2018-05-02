@@ -7,8 +7,6 @@
         $json_obj = json_decode($json_str, true);
         $tId = $json_obj["tId"];
 
-        echo $tId;
-
         $getThInfo = new Therapist();  
         $getThInfo->getThInfo(strip_tags($_SESSION['9987435b7dbef543b786efd81d1b3dc9']), $tId);
         
