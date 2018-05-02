@@ -238,6 +238,7 @@
     <script src="./asset/customjs/dataLanguage.js"></script>
     <script src="./asset/customjs/therapistAdd.js"></script>
     <script src="./asset/customjs/therapistEdit.js"></script>
+    <scrip  src="./asset/customjs/supportStaff.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>
