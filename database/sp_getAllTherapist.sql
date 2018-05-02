@@ -21,10 +21,11 @@ BEGIN
     
     IF userId > 0 THEN
 		SELECT
-			CONCAT(st_nombre, ' ', st_paterno, ' ', st_materno) AS nameComplete 
+			st_id AS tId
+            , CONCAT(st_nombre, ' ', st_paterno, ' ', st_materno) AS nameComplete 
             , CASE
-                WHEN st_estatus = 1 THEN '<span class="badge badge-primary">Activo</span>'
-                ELSE '<span class="badge badge-danger">Inactivo</span>'
+                WHEN st_estatus = 1 THEN '<span class="badge badge-info" style="font-size:18px;">Activo</span>'
+                ELSE '<span class="badge badge-danger" style="font-size:18px;">Inactivo</span>'
             END AS tStatus
         FROM staff
         WHERE st_puesto_id = 3 
