@@ -24,35 +24,55 @@
                 <h3>Detalle del reporte <span class="badge badge-info" id="ticketFolio" style="font-size: 16px;">123456</span></h3>
                 <div class="row">
                     <div class="col-md-12">
-                        <form id="editThForm">
-                            <div class="col-md-12 custom-top">
-                                <div class="form-group form-animate-text">
-                                    <input type="text" class="form-text" style="color:black;" name="usrName" id="usrName" required>
-                                    <span class="bar"></span>
-                                    <label>Nombre</label>
-                                </div>
+                        <div class="col-md-12 custom-top">
+                            <div class="form-group form-animate-text">
+                                <input type="text" class="form-text" style="color:black;" name="usrName" id="usrName" required>
+                                <span class="bar"></span>
+                                <label>Nombre</label>
                             </div>
-                            <div class="col-md-12 custom-top">
-                                <div class="form-group form-animate-text">
-                                    <input type="text" class="form-text" style="color:black;" name="usrNick" id="usrNick" required>
-                                    <span class="bar"></span>
-                                    <label>Cuenta de usuario</label>
-                                </div>
+                        </div>
+                        <div class="col-md-12 custom-top">
+                            <div class="form-group form-animate-text">
+                                <input type="text" class="form-text" style="color:black;" name="usrNick" id="usrNick" required>
+                                <span class="bar"></span>
+                                <label>Cuenta de usuario</label>
                             </div>
-                            <div class="col-md-12 custom-top">
-                                <div class="form-group form-animate-text">
-                                    <input type="text" class="form-text" style="color:black;" name="usrSubject" id="usrSubject" required>
-                                    <span class="bar"></span>
-                                    <label>Asunto</label>
-                                </div>
+                        </div>
+                        <div class="col-md-12 custom-top">
+                            <div class="form-group form-animate-text">
+                                <input type="text" class="form-text" style="color:black;" name="usrSubject" id="usrSubject" required>
+                                <span class="bar"></span>
+                                <label>Asunto</label>
                             </div>
-                        </form>
+                        </div>
+                    </div>
+                    <div class="col-md-12 custom-top form-group">
+                        <label style="font-size: 18px;">Reporte:</label>
+                        <textarea class="form-control" id="commentReport" disabled="true" rows="10"></textarea>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-md-12 custom-top form-group">
+                        <label>Comentario Soporte Técnico</label>
+                        <textarea name="commetSupport" id="commetSupport" class="form-control" placeholder="Información de la solución" rows="10"></textarea>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <div class="row">
-                    <div class="col-md-12" id="optionsEdit">
+                    <div class="col-md-12">
+                        <button class="btn btn-danger btn-pill" id="cancelReport">
+                            <i class="fa fa-ban"></i>&nbsp;&nbsp;
+                            Cancelar
+                        </button>
+                        <button class="btn btn-primary btn-pill" id="sendComment">
+                            <i class="fa fa-send"></i>&nbsp;&nbsp;
+                            Eviar comentario
+                        </button>
+                        <button class="btn btn-info btn-pill" id="closeReport">
+                            <i class="fa fa-save"></i>&nbsp;&nbsp;
+                            Cerrar reporte
+                        </button>
                     </div>
                 </div>
             </div>
