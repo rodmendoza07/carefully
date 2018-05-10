@@ -21,7 +21,8 @@ BEGIN
     
     IF userId > 0 THEN
         (SELECT
-            CONCAT(st.sps_id,'-st') AS folio
+            st.sps_id AS folioId
+            , CONCAT(st.sps_id,'-st') AS folio
             , DATE_FORMAT(st.sps_createat, '%d/%m/%Y') AS dateS
             , DATE_FORMAT(st.sps_createat, '%h:%i %p') AS hours
             , st.sps_subject AS asunto
@@ -29,12 +30,14 @@ BEGIN
             , CONCAT(s.st_nombre, ' ', s.st_paterno, ' ', s.st_materno) AS nombre
             , s.st_correo AS userAccount
             , '<span class="badge badge-primary" style="font-size:18px;">Terapeuta</span>' AS typePerson
+            , 'st' AS typeReport
 		FROM supportStaff st
 			INNER JOIN supportStatus ss ON (ss.spe_id = st.sps_status)
             INNER JOIN staff s ON (s.st_id = st.sps_usr_id))
         UNION
         (SELECT
-            CONCAT(spu.spu_id,'-usr') AS folio
+            spu.spu_id AS folioId
+            , CONCAT(spu.spu_id,'-usr') AS folio
             , DATE_FORMAT(spu.spu_createat, '%d/%m/%Y') AS dateS
             , DATE_FORMAT(spu.spu_createat, '%h:%i %p') AS hours
             , spu.spu_subject AS asunto
@@ -42,6 +45,7 @@ BEGIN
             , CONCAT(u.usr_nombre, ' ', u.usr_paterno, ' ', u.usr_materno) AS nombre
             , u.usr_correo AS userAccount
             , '<span class="badge badge-success" style="font-size:18px;">Paciente</span>' AS typePerson
+            , 'usr' AS typeReport
         FROM supportUsr spu
             INNER JOIN supportStatus ss ON (ss.spe_id = spu.spu_status)
             INNER JOIN usuarios u ON (u.usr_id = spu.spu_usr_id));
