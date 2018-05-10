@@ -5,7 +5,8 @@ function supportStaff() {
     var objActiveMenu = new activeMenu();
 
     var columnas = [
-        {title: 'Folio', data: 'folio'}
+        {title: 'id', data: 'folioId'}
+        , {title: 'Folio', data: 'folio'}
 		, { title: 'Fecha', data: 'dateS'}
         , {title: 'Hora', data: 'hours'}
         , {title: 'Asunto', data: 'asunto'}
@@ -14,6 +15,10 @@ function supportStaff() {
         , {title: 'Cuenta de usuraio', data: 'userAccount'}
         , {title: 'Tipo de usuario', data: 'typePerson'}
 	];
+
+    var defs = [
+        {targets: 0, visible: false}
+    ];
 
     this.table;
 
@@ -29,6 +34,7 @@ function supportStaff() {
 			},
 			success: function (response) {
                 $('#loading').modal('toggle');
+                console.log(response);
                 if (response.errno) {
                     toastr.error(response.message, "¡Upps!", 5000);
                     console.log('supportStaff - ',response.message)
@@ -38,7 +44,8 @@ function supportStaff() {
                         "language": objLanguage.espanol,
                         "scrollX": true,
                         data: datosTabla,
-                        columns: columnas
+                        columns: columnas,
+                        columnDefs: defs
                     });
                 }
 			},
@@ -51,8 +58,39 @@ function supportStaff() {
 		});
     }
 
-    this.getSupportDetail = function() {
-        
+    this.getSupportDetail = function(folioId, typeReport) {
+        var dataPost = {
+            folioId: folioId
+            , typeReport: typeReport
+        };
+        var ajaxF = $.ajax({
+			contentType: "application/json; charset=utf-8",
+			type: "POST",
+            url: "include/b013f53ea236fbca8bd6e5a4cefbe137.php",
+            data: JSON.stringify(dataPost),
+            dataType: 'JSON',
+            async: false,
+			beforeSend: function() {},
+			success: function (response) {
+                if (response.errno) {
+                    toastr.error(response.message, "¡Upps!", 5000);
+                    console.log('supportStaff - ',response.message)
+                } else {
+                    console.log(response);
+                    $("#usrName").val(response.nombre);
+                    $("#usrNick").val(response.userAccount);
+                    $("#usrSubject").val(response.asunto);
+                    $("#commentReport").val(response.comment);
+                    $("#ticketFolio").text(response.folio);
+                }
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown){
+				$('#loading').modal('toggle');
+				console.log('supportStaff - ', errorThrown);
+				console.log('supportStaff - ', XMLHttpRequest);
+				return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+			}
+		});
     }
 
     this.loadSupport = function() {
@@ -66,9 +104,11 @@ function supportStaff() {
                         that.getAllTickets();
                         $('#supportTable tbody').on('click', 'tr', function () {
                             var data = $('#supportTable').DataTable().row( this ).data();
-                            var idData = data.tId;
+                            var idData = data.folioId;
+                            var typeReport = data.typeReport;
                             $("#supportDetail").modal();
-                            
+                            console.log(data);
+                            that.getSupportDetail(idData, typeReport);
                         } );
                     } catch (x) {
                         console.log("supportStaff: loadSupport -", x.toString());

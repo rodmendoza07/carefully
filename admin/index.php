@@ -94,7 +94,7 @@
               <h3 class="animated fadeInLeft"></h3>
               <p class="animated fadeInRight">CDMX (GMT-6)</p>
             </li>
-            <li class="ripple filex menu-hover" data-option="filex">
+            <li class="ripple patients menu-hover" data-option="patients">
               <a class="tree-toggle nav-header">
                 Pacientes
               </a>
@@ -117,6 +117,10 @@
               <a class="tree-toggle nav-header">
                 FAQ's 
               </a>
+              <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
+                <li><a class="faqsPatient heightAuto">Paciente</a></li>
+                <li><a class="faqsTherapy heightAuto">Terapeuta</a></li>
+              </ul>
             </li>
             <li>
               <div class="col-md-11" id="info"></div>
@@ -141,7 +145,7 @@
       <div class="mimin-mobile-menu-list">
           <div class="col-md-12 sub-mimin-mobile-menu-list animated fadeInLeft">
               <ul class="nav nav-list">
-                  <li class="ripple sessions heightAuto" data-option="sessions">
+                  <li class="ripple patients heightAuto" data-option="patients">
                     <a class="tree-toggle nav-header">
                       Pacientes
                     </a>
@@ -164,6 +168,10 @@
                     <a class="tree-toggle nav-header">
                       FAQ's
                     </a>
+                    <ul class="nav nav-list tree" data-optionChild="sessionMenu" id="sessionMenu">
+                      <li><a class="faqsPatient heightAuto">Paciente</a></li>
+                      <li><a class="faqsTherapy heightAuto">Terapeuta</a></li>
+                    </ul>
                   </li>
                 </ul>
           </div>
@@ -239,6 +247,9 @@
     <script src="./asset/customjs/therapistAdd.js"></script>
     <script src="./asset/customjs/therapistEdit.js"></script>
     <script src="./asset/customjs/supportStaff.js"></script>
+    <script src="./asset/customjs/faqsPatient.js"></script>
+    <script src="./asset/customjs/faqsTherapy.js"></script>
+    <script src="./asset/customjs/patients.js"></script>
   <!-- end: Javascript -->
   </body>
 </html>

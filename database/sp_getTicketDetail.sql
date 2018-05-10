@@ -24,19 +24,19 @@ BEGIN
     IF userId > 0 THEN
 
         IF typeR = 'st' THEN
-        SELECT
-            CONCAT(st.sps_id, '-',typeR) AS folio
-            , DATE_FORMAT(st.sps_createat, '%d/%m/%Y') AS dateS
-            , DATE_FORMAT(st.sps_createat, '%h:%i %p') AS hours
-            , st.sps_subject AS asunto
-            , CONCAT('<span class="', ss.spe_badge,'" style="font-size:18px;">', ss.spe_desc, '</span>') AS estado
-            , CONCAT(s.st_nombre, ' ', s.st_paterno, ' ', s.st_materno) AS nombre
-            , s.st_correo AS userAccount
-            , st.sps_desc AS comment
-		FROM supportStaff st
-			INNER JOIN supportStatus ss ON (ss.spe_id = st.sps_status)
-            INNER JOIN staff s ON (s.st_id = st.sps_usr_id)
-        WHERE st.sps_id = ticketId;
+            SELECT
+                CONCAT(st.sps_id, '-',typeR) AS folio
+                , DATE_FORMAT(st.sps_createat, '%d/%m/%Y') AS dateS
+                , DATE_FORMAT(st.sps_createat, '%h:%i %p') AS hours
+                , st.sps_subject AS asunto
+                , CONCAT('<span class="', ss.spe_badge,'" style="font-size:18px;">', ss.spe_desc, '</span>') AS estado
+                , CONCAT(s.st_nombre, ' ', s.st_paterno, ' ', s.st_materno) AS nombre
+                , s.st_correo AS userAccount
+                , st.sps_desc AS comment
+            FROM supportStaff st
+                INNER JOIN supportStatus ss ON (ss.spe_id = st.sps_status)
+                INNER JOIN staff s ON (s.st_id = st.sps_usr_id)
+            WHERE st.sps_id = ticketId;
         ELSEIF typeR = 'usr' THEN
             SELECT
                 CONCAT(spu.spu_id, '-', typeR) AS folio
@@ -49,7 +49,8 @@ BEGIN
                 , spu.spu_desc AS comment
             FROM supportUsr spu
                 INNER JOIN supportStatus ss ON (ss.spe_id = spu.spu_status)
-                INNER JOIN usuarios u ON (u.usr_id = spu.spu_usr_id);
+                INNER JOIN usuarios u ON (u.usr_id = spu.spu_usr_id)
+            WHERE spu.spu_id = ticketId;
         END IF;
 
     ELSE
