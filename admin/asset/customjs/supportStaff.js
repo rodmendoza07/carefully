@@ -21,6 +21,8 @@ function supportStaff() {
     ];
 
     this.table;
+    this.idTicket;
+    this.typeReport;
 
     this.getAllTickets = function() {
         var ajaxF = $.ajax({
@@ -93,6 +95,60 @@ function supportStaff() {
 		});
     }
 
+
+
+    this.setSupportComment = function () {
+        $("#supportComment").validate({
+            rules: {
+                commentSupport: {
+                    required: true
+                }
+            },
+            messages: {
+                commentSupport: {
+                    required: "<br><span style='color: red; font-weight: bold;'>Comentario obligatorio *</span>",
+                }
+            }
+        });
+
+        if ($("#supportComment").valid()) {
+            var dataPost = {
+                ticketId: that.idTicket
+                , typeReport: that.typeReport
+                , commentSupport: $("#commentSupport").val()
+            }
+            console.log(dataPost);
+            var ajaxF = $.ajax({
+                contentType: "application/json; charset=utf-8",
+                type: "POST",
+                url: "include/2667b6d81b450f425743ab53898c8698.php",
+                data: JSON.stringify(dataPost),
+                dataType: 'JSON',
+                async: false,
+                beforeSend: function() {},
+                success: function (response) {
+                    if (response.errno) {
+                        toastr.error(response.message, "¡Upps!", 5000);
+                        console.log('supportStaff - ',response.message)
+                    } else {
+                        $("#supportDetail").modal('toggle');
+                        that.idTicket = '';
+                        that.typeReport = '';
+                        that.table.destroy();
+                        that.getAllTickets();
+                        toastr.success("Bitácora de soporte actualizada. " + $("#tname").val(), "¡Exitóso!", 5000);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown){
+                    $('#loading').modal('toggle');
+                    console.log('supportStaff - ', errorThrown);
+                    console.log('supportStaff - ', XMLHttpRequest);
+                    return toastr.error("Algo ha ido mal, por favor intentalo más tarde.", "¡Atención!", 5000);
+                }
+            });
+        }
+    }
+
     this.loadSupport = function() {
         try {
             $(".supportC").click(function() {
@@ -107,8 +163,14 @@ function supportStaff() {
                             var idData = data.folioId;
                             var typeReport = data.typeReport;
                             $("#supportDetail").modal();
-                            console.log(data);
+                            $("#supportComment").val('');
                             that.getSupportDetail(idData, typeReport);
+                            $("#sendComment").click(function(e) {
+                                e.preventDefault();
+                                that.idTicket = idData;
+                                that.typeReport = typeReport;
+                                that.setSupportComment();
+                            });
                         } );
                     } catch (x) {
                         console.log("supportStaff: loadSupport -", x.toString());

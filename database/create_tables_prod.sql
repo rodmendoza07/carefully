@@ -656,3 +656,31 @@ CREATE TABLE IF NOT EXISTS `perfilTerapeuta` (
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
+
+/* Detalle de soporte */
+
+DROP TABLE IF EXISTS `supportDetailusr` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `supportDetailusr` (
+  `sdu_id` INT NOT NULL AUTO_INCREMENT,
+  `sdu_ticket_id` INT NOT NULL DEFAULT 0,
+  `sdu_staffId` INT NOT NULL DEFAULT 0,
+  `sdu_comment` TEXT NOT NULL DEFAULT '',
+  PRIMARY KEY (`sdu_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+DROP TABLE IF EXISTS `supportDetailst` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `supportDetailst` (
+  `sds_id` INT NOT NULL AUTO_INCREMENT,
+  `sds_ticket_id` INT NOT NULL DEFAULT 0,
+  `sds_staffId` INT NOT NULL DEFAULT 0,
+  `sds_comment` TEXT NOT NULL DEFAULT '',
+  PRIMARY KEY (`sds_id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
